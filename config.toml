@@ -1,6 +1,6 @@
 baseURL = "."
 languageCode = "en-us"
-title = "Hugo Whisper Theme"
+title = "YAMS - Yet Another Media Server"
 themesDir = "themes"
 theme = "hugo-whisper-theme"
 
@@ -31,23 +31,21 @@ summaryLength = 30
   google_analytics_id=""
   homepage_button_link = '/docs'
   homepage_button_text = 'Read The Docs'
-  homepage_intro = 'Whisper is a documentation theme built with Hugo. The design and functionality is intentionally minimal.'
+  homepage_intro = 'YAMS is a basic but powerful media server, easy to install in a bash script'
   homepage_image = '/images/terminal.gif'
 
   ## You can enable to add anchor links to header elements
   # enable_anchor_link = true
 
   [params.homepage_meta_tags]
-    meta_description = "Hugo Whisper is a documentation theme built with Hugo."
-    meta_og_title = "Hugo Whisper Theme"
+    meta_description = "YAMS is a basic but powerful media server, easy to install in a bash script"
+    meta_og_title = "YAMS - Yet Another Media Server"
     meta_og_type = "website"
-    meta_og_url = "https://hugo-whisper.netlify.app"
-    meta_og_image = "https://raw.githubusercontent.com/JugglerX/hugo-whisper-theme/master/images/tn.png"
-    meta_og_description = "Hugo Whisper is a documentation theme built with Hugo."
+    meta_og_url = "https://yams.media"
+    meta_og_image = "/pics/logo.png"
+    meta_og_description = "YAMS is a basic but powerful media server, easy to install in a bash script"
     meta_twitter_card = "summary"
-    meta_twitter_site = "@zerostaticio"
-    meta_twitter_creator = "@zerostaticio"
 
   [params.logo]
       mobile = "/images/logo-mobile.svg"
-      standard  = "/images/logo.svg"
+      standard  = "/pics/logo.png"
