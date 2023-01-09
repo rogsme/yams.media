@@ -31,7 +31,7 @@ summaryLength = 30
   homepage_button_link = '/docs'
   homepage_button_text = 'Read The Docs'
   homepage_intro = 'YAMS is a basic but powerful media server, easy to install in a bash script'
-  homepage_image = '/images/terminal.gif'
+  homepage_image = '/install-yams.gif'
 
   ## You can enable to add anchor links to header elements
   # enable_anchor_link = true
