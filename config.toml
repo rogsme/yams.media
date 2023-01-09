@@ -28,7 +28,6 @@ summaryLength = 30
     weight = 2
 
 [params]
-  google_analytics_id=""
   homepage_button_link = '/docs'
   homepage_button_text = 'Read The Docs'
   homepage_intro = 'YAMS is a basic but powerful media server, easy to install in a bash script'
