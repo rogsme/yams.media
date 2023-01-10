@@ -23,18 +23,18 @@ summaryLength = 30
     weight = 1
 
 [[menu.main]]
-    name = "Docs"
-    url = "/docs/"
+    name = "Install"
+    url = "/install/"
     weight = 2
 
 [params]
-  homepage_button_link = '/docs'
-  homepage_button_text = 'Read The Docs'
+  homepage_button_link = '/install'
+  homepage_button_text = 'Install YAMS'
   homepage_intro = 'YAMS is a basic but powerful media server, easy to install in a bash script'
   homepage_image = '/install-yams.gif'
 
   ## You can enable to add anchor links to header elements
-  # enable_anchor_link = true
+  enable_anchor_link = true
 
   [params.homepage_meta_tags]
     meta_description = "YAMS is a basic but powerful media server, easy to install in a bash script"

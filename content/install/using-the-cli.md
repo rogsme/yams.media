@@ -1,0 +1,35 @@
+---
+title: "Using the CLI"
+date: 2023-01-10T17:55:41-03:00
+draft: false
+weight: 3
+summary: YAMS comes with a very handy CLI to manage all your media server. Here's where you'll learn how to use it.
+---
+
+YAMS comes with a very handy CLI to manage all your media server. Here's where you'll learn how to use it.
+
+On your server, you can type: 
+```bash
+yams --help
+```
+
+And you'll get the following message:
+
+```bash
+yams - Yet Another Media Server
+
+Usage: yams [--help|restart|stop|start]
+options:
+--help     displays this help message
+restart    restarts yams services
+stop       stops all yams services
+start      starts yams services
+destroy    destroy yams services so you can start from scratch
+```
+
+Everything is very self-explanatory, but I'll go in more detail here:
+
+- `restart`: Restarts all the services. It stops them gracefully and starts them again.
+- `stop`: Stops all the services gracefully.
+- `start`: Starts all the services.
+- `destroy`: Destroys all the services so you can start the configuration from scrath. ⚠️ Be careful! ⚠️ There's no going back after this!
