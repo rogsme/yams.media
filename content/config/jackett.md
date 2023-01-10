@@ -39,3 +39,7 @@ You'll need the API Key later. You can grab it from here:
 [![jackett-5](/pics/jackett-5.webp)](/pics/jackett-5.webp)
 
 For now, just keep it handy. You'll need it for [Sonarr](/config/sonarr) and [Radarr](/config/radarr).
+
+## Move forward
+
+Now you can move with the configuration. [qBittorrent](/config/qbittorrent) is next!
