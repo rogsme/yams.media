@@ -41,6 +41,3 @@ In no particular order:
 
 With this combination, you can create a fully functional media server that is going to download, categorize, subtitle and serve your favorite shows and movies.
 
-## Why did you choose <this_software> instead of <that_software>?
-
-Because. That's why it's _**opinionated**_, you don't _necessarily_ have to agree with me. This setup is aimed at noobs and first time media server enthusiasts. You can always use my sources and create a better project 🔥

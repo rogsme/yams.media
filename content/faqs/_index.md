@@ -5,6 +5,6 @@ draft: false
 weight: 100
 ---
 
-Lorem markdownum aequalis strigis. Saetigeri iubeas, vultu huic alvum nondum
-de obside ut laniavit arbor palmis, cum quin. Rupes vetat videndo, armigerae
-crimen habet Priamum nec.
+### Why did you choose <this_software> instead of <that_software>?
+
+Because. That's why it's _**opinionated**_, you don't _necessarily_ have to agree with me. This setup is aimed at noobs and first time media server enthusiasts. You can always use my sources and fork the project 🔥
