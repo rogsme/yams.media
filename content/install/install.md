@@ -28,7 +28,7 @@ Before installing, make sure you have:
 
 ## To install
 
-### Setup your install location (optional, you can choose any other location)
+### Setup your install location (location is optional, you can choose any other location)
 
 The location `/opt/yams` is **recommended**, but you can use whatever you like if your current user has permissions on the directory.
 
@@ -43,11 +43,7 @@ git clone https://gitlab.com/rogs/yams.git
 cd yams
 ```
 
-### Installing docker (optional)
-If you have `docker` and `docker-compose` installed, you can skip this part.
-
-To install `docker`, just run:
-
+### Installing YAMS
 ```bash
 ./install.sh
 ```
@@ -77,24 +73,9 @@ Checking prerequisites...
  ⚠️ docker not found! ⚠️
 Do you want YAMS to install docker and docker-compose? IT ONLY WORKS ON DEBIAN AND UBUNTU! [y/N]: y
 ```
+You can choose `y` to install `docker` and `docker-compose` with YAMS or `n` to exit the script.
 
-If you choose to install docker with YAMS, you'll see the following message:
-
-```bash
-🤔 When docker finishes the installation, run ./install again! 🧠
-Press [ENTER] to continue...
-```
-**Note:** The script will ask you for your `sudo` password in order to continue ⚠️
-
-### Installing YAMS
-
-To install YAMS, just re-run:
-
-```bash
-./install.sh
-```
-
-And you should see the following message at the bottom:
+When docker finishes the installation OR if you already had `docker` and `docker-compose` installed, you should see the following message at the bottom:
 
 ```bash
 Checking prerequisites...
@@ -133,7 +114,7 @@ Everything installed correctly! 🎉
 ...
 ```
 
-After a lot of docker installing, you'll get this message at the end:
+After a lot of docker installing, you'll get a message like this at the end:
 
 ```bash
 ========================================================
