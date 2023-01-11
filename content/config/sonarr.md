@@ -79,6 +79,10 @@ If everything is fine, click on "Save". You should see your indexer added to the
 
 [![sonarr-12](/pics/sonarr-12.png)](/pics/sonarr-12.png)
 
+#### How many indexers can I have?
+
+As many as you want! Just repeat the steps to add new indexers in [Jackett](/config/jackett) and then follow this instructions again to add them to Sonarr. The more indexers you have, the better!
+
 ### Download Clients
 
 Here, you'll add the download clients for Sonarr. That's where you'll tie in Sonarr with [qBittorrent](/config/qbittorrent).

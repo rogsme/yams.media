@@ -76,6 +76,10 @@ If everything is fine, click on "Save". You should see your indexer added to the
 
 [![radarr-12](/pics/radarr-12.png)](/pics/radarr-12.png)
 
+#### How many indexers can I have?
+
+As many as you want! Just repeat the steps to add new indexers in [Jackett](/config/jackett) and then follow this instructions again to add them to Radarr. The more indexers you have, the better!
+
 ### Download Clients
 
 Here, you'll add the download clients for Radarr. That's where you'll tie in Radarr with [qBittorrent](/config/qbittorrent).
