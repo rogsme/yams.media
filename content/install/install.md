@@ -135,17 +135,22 @@ You can check the installation on /opt/yams
 ========================================================
 Everythins should be running now! To check everything running, go to:
 
-Sonarr: http://192.168.0.169:8989/
-Radarr: http://192.168.0.169:7878/
-Bazarr: http://192.168.0.169:6767/
 Jackett: http://192.168.0.169:9117/
-Emby: http://192.168.0.169:8096/
 qBittorrent: http://192.168.0.169:8080/
+Radarr: http://192.168.0.169:7878/
+Sonarr: http://192.168.0.169:8989/
+Bazarr: http://192.168.0.169:6767/
+Emby: http://192.168.0.169:8096/
 
 
 You might need to wait for a couple of minutes while everything gets up and running
 
 All the services location are also saved in ~/yams_services.txt
+========================================================
+
+To configure YAMS, check the documentation at
+https://yams.media/config
+
 ========================================================
 ```
 
