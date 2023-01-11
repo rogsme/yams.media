@@ -48,9 +48,9 @@ summaryLength = 30
     meta_og_title = "YAMS - Yet Another Media Server"
     meta_og_type = "website"
     meta_og_url = "https://yams.media"
-    meta_og_image = "/pics/logo.webp"
+    meta_og_image = "/pics/logo.png"
     meta_og_description = "YAMS is a basic but powerful media server, easy to install in a bash script"
 
   [params.logo]
-      standard  = "/pics/logo.webp"
-      mobile  = "/pics/logo.webp"
+      standard  = "/pics/logo.png"
+      mobile  = "/pics/logo.png"

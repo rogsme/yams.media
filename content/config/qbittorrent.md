@@ -24,11 +24,11 @@ password: adminadmin
 ```
 I know, super safe.
 
-[![qbittorrent-1](/pics/qbittorrent-1.webp)](/pics/qbittorrent-1.webp)
+[![qbittorrent-1](/pics/qbittorrent-1.png)](/pics/qbittorrent-1.png)
 
 After logging in, you'll see the empty qBittorrent window. Here, you have to click on the gear icon to enter the settings.
 
-[![qbittorrent-2](/pics/qbittorrent-2.webp)](/pics/qbittorrent-2.webp)
+[![qbittorrent-2](/pics/qbittorrent-2.png)](/pics/qbittorrent-2.png)
 
 You'll notice qBitorrent has A TON of settings you can change. First, go to the "BitTorrent" tab, check the "When ratio reaches" checkbox and set it to 0
 
@@ -40,11 +40,11 @@ In case you don't know, the BitTorrent protocol works by sharing (seeding) files
 
 For the purposes of this tutorial we'll leave it at 0, but if you want you can change it later to a less dickish setting.
 
-[![qbittorrent-3](/pics/qbittorrent-3.webp)](/pics/qbittorrent-3.webp)
+[![qbittorrent-3](/pics/qbittorrent-3.png)](/pics/qbittorrent-3.png)
 
 Then, we'll continue to the "Web UI" tab. There, we can set it so it won't ask for a password if we are accesing it from the same subnet. This is not required, but recommended.
 
-[![qbittorreft-4](/pics/qbittorrent-4.webp)](/pics/qbittorrent-4.webp)
+[![qbittorreft-4](/pics/qbittorrent-4.png)](/pics/qbittorrent-4.png)
 
 ## That's done!
 
