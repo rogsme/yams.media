@@ -26,4 +26,4 @@ cd yams.media
 hugo
 ```
 
-Your files will be on the ``./public` folder, ready to upload to a server.
+Your files will be on the `./public` folder, ready to upload to a server.
