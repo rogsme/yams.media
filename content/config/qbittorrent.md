@@ -6,6 +6,46 @@ weight: 2
 summary: qBittorrent torrent downloader setup and configuration
 ---
 
-Lorem markdownum aequalis strigis. Saetigeri iubeas, vultu huic alvum nondum
-de obside ut laniavit arbor palmis, cum quin. Rupes vetat videndo, armigerae
-crimen habet Priamum nec.
+## What is qBitorrent?
+
+From their [website](https://www.qbittorrent.org/):
+
+> The qBittorrent project aims to provide an open-source software alternative to µTorrent.
+
+So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy!
+
+## Initial configuration
+
+In your browser, go to [http://{your-ip-address}:8080/]() and you'll see qBittorrent's admin page. The default username and password are:
+
+```sh
+username: admin
+password: adminadmin
+```
+I know, super safe.
+
+[![qbittorrent-1](/pics/qbittorrent-1.webp)](/pics/qbittorrent-1.webp)
+
+After logging in, you'll see the empty qBittorrent window. Here, you have to click on the gear icon to enter the settings.
+
+[![qbittorrent-2](/pics/qbittorrent-2.webp)](/pics/qbittorrent-2.webp)
+
+You'll notice qBitorrent has A TON of settings you can change. First, go to the "BitTorrent" tab, check the "When ratio reaches" checkbox and set it to 0
+
+### Is this a dick move?
+
+Yes.
+
+In case you don't know, the BitTorrent protocol works by sharing (seeding) files across the network. By setting the seeding limit to zero, we are basically saying "Share the torrent **until** I've finished downloading." You'll still share the file across the network while downloading, but when the file completes, the torrent will automatically stop and wait for [Sonarr](/config/sonarr)/[Radarr](/config/radarr) to pick up the file.
+
+For the purposes of this tutorial we'll leave it at 0, but if you want you can change it later to a less dickish setting.
+
+[![qbittorrent-3](/pics/qbittorrent-3.webp)](/pics/qbittorrent-3.webp)
+
+Then, we'll continue to the "Web UI" tab. There, we can set it so it won't ask for a password if we are accesing it from the same subnet. This is not required, but recommended.
+
+[![qbittorreft-4](/pics/qbittorrent-4.webp)](/pics/qbittorrent-4.webp)
+
+## That's done!
+
+Excellent! Now we can move forward with [Radarr](/config/radarr).
