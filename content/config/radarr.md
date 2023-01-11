@@ -25,7 +25,7 @@ In your browser, go to [http://{your-ip-address}:7878/]() and you'll see Radarr'
 First, go to "Settings" and then "Media management". On this screen: 
 - Click on "Show Advanced".
 - Check the "Rename Movies" box.
-- Change the default "Standard Movie Format" from `{Movie Title} ({Release Year}) {Quality Full}` to `{Movie Title} ({Release Year})`.
+- Change "Standard Movie Format" to `{Movie Title} ({Release Year})`.
 
 [![radarr-2](/pics/radarr-2.png)](/pics/radarr-2.png)
 
@@ -92,6 +92,7 @@ On the "Add Download Client" screen, scroll down and click on "qBittorrent".
 - On Host, add `qbittorrent`.
 - On Username, add `admin`.
 - On Password, add `adminadmin`.
+
 [![radarr-15](/pics/radarr-15.png)](/pics/radarr-15.png)
 
 At the bottom, you can click on "Test" and if everything is OK you should see a ✅ 
