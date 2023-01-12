@@ -3,7 +3,7 @@ title: "Bazarr"
 date: 2023-01-10T19:06:54-03:00
 draft: false
 weight: 5
-summary: Bazarr subtitle manager setup and configuration
+summary: Bazarr is a companion application to Sonarr and Radarr that manages and downloads subtitles based on your requirements.
 ---
 
 # What is Bazarr?
@@ -14,7 +14,7 @@ From their [website](https://www.bazarr.media/):
 
 In YAMS, Bazarr is going to download subtitles on any language you choose, sort them and put them in the correct location for Emby to grab.
 
-# Initial Configuration
+## Initial Configuration
 
 In your browser, go to [http://{your-ip-address}:6767/]() and you'll see Bazarr's settings page.
 
@@ -22,7 +22,7 @@ In your browser, go to [http://{your-ip-address}:6767/]() and you'll see Bazarr'
 
 You don't have to change anything on this screen.
 
-## Languages
+### Languages
 
 On the left side menu, click on "Languages".
 
@@ -54,7 +54,7 @@ If you are happy with the configuration, click on "Save" at the top of the page.
 
 [![bazarr-6](/pics/bazarr-6.png)](/pics/bazarr-6.png)
 
-## Providers
+### Providers
 
 On the left side menu, click on "Providers". You'll see the empty providers page. To add providers, click on the big ➕ sign.
 
@@ -76,7 +76,7 @@ Now, you'll see OpenSubtitles.org as a new provider for Bazarr! If you are happy
 
 [![bazarr-10](/pics/bazarr-10.png)](/pics/bazarr-10.png)
 
-## Subtitles
+### Subtitles
 
 On the left side menu, click on "Subtitles" and scroll down to "Performance / Optimization". There, you should disable "Use Embedded Subtitles".
 
@@ -105,7 +105,7 @@ If you are happy with the changes, click on "Save" at the top of the page.
 
 [![bazarr-13](/pics/bazarr-13.png)](/pics/bazarr-13.png)
 
-## Sonarr
+### Sonarr
 
 This is how you will tie in Bazarr with [Sonarr](/config/sonarr).
 
@@ -137,7 +137,7 @@ After saving, you'll see how the "Series" section appears on the left side menu!
 
 [![bazarr-19](/pics/bazarr-19.png)](/pics/bazarr-19.png)
 
-## Radarr
+### Radarr
 
 This is how you will tie in Bazarr with [Radarr](/config/radarr).
 
@@ -169,6 +169,6 @@ After saving, you'll see how the "Movies" section appears on the left side menu!
 
 [![bazarr-21](/pics/bazarr-21.png)](/pics/bazarr-21.png)
 
-## All done!
+### All done!
 
 Only one more step left! Continue with [Emby](/config/emby).
