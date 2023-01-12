@@ -13,7 +13,7 @@ Second, I would prefer you donate to any of the projects used in this script. Th
 - [linuxserver.io donations page](https://www.linuxserver.io/donate)
 - [Sonarr donations page](https://sonarr.tv/donate)
 - [Radarr donations page](https://radarr.video/donate)
-- [Emby premier page (Recommended! I personally use this service)](https://emby.media/premiere.html)
+- [Emby premier page](https://emby.media/premiere.html) (Recommended! I personally use this service)
 - [qBittorrent donations page](https://www.qbittorrent.org/donate)
 - [Bazarr donations page](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url)
 - Jackett does not have a donation page 🤔
