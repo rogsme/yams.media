@@ -2,7 +2,7 @@
 title: "Running everything together"
 date: 2023-01-12T18:06:44-03:00
 draft: false
-weight: 7
+weight: 8
 summary: So you finally got YAMS running? Let's add some movies and see everything working together!
 ---
 
