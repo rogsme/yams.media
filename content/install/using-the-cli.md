@@ -33,3 +33,6 @@ Everything is very self-explanatory, but I'll go in more detail here:
 - `stop`: Stops all the services gracefully.
 - `start`: Starts all the services.
 - `destroy`: Destroys all the services so you can start the configuration from scrath. ⚠️ Be careful! ⚠️ There's no going back after this!
+
+
+If you get a `docker` permission error trying to use the CLI, go [here](/faqs/) to fix it.

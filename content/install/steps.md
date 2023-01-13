@@ -114,6 +114,8 @@ Everything installed correctly! 🎉
 ...
 ```
 
+If you get a `docker` permission error, go [here](/faqs/) to fix it.
+
 After a lot of docker installing, you'll get a message like this at the end:
 
 ```bash
