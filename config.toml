@@ -42,6 +42,11 @@ summaryLength = 30
     url = "/donate/"
     weight = 5
 
+[[menu.main]]
+    name = "Gitlab"
+    url = "https://gitlab.com/rogs/yams"
+    weight = 100
+
 
 [params]
   homepage_button_link = '/install'

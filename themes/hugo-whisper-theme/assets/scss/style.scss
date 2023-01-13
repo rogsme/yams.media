@@ -71,3 +71,12 @@ body {
 //     }
 //   }
 // }
+
+.menu-item-gitlab span {
+  color: #fc6d27;
+}
+
+.menu-item-gitlab span:before {
+  content: url("/pics/gitlab.png") ;
+  margin-right: 5px;
+}
