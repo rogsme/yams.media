@@ -43,6 +43,16 @@ summaryLength = 30
     weight = 5
 
 [[menu.main]]
+    name = "Contact"
+    url = "/contact/"
+    weight = 6
+
+[[menu.main]]
+    name = "Matrix"
+    url = "https://matrix.to/#/#yams:chat.rogs.me"
+    weight = 99
+
+[[menu.main]]
     name = "Gitlab"
     url = "https://gitlab.com/rogs/yams"
     weight = 100
@@ -53,7 +63,7 @@ summaryLength = 30
   homepage_button_text = 'Install YAMS'
   homepage_intro = 'YAMS is a basic but powerful media server, easy to install in a bash script'
   homepage_image = '/install-yams.gif'
-  mainSections = ['install', 'config', 'faqs', 'donate']
+  mainSections = ['install', 'config', 'faqs', 'donate', 'contact']
 
   ## You can enable to add anchor links to header elements
   enable_anchor_link = true

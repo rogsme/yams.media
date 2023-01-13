@@ -77,6 +77,11 @@ body {
 }
 
 .menu-item-gitlab span:before {
-  content: url("/pics/gitlab.png") ;
+  content: url("/pics/gitlab-small.png") ;
+  margin-right: 5px;
+}
+
+.menu-item-matrix span:before {
+  content: url("/pics/element-small.png") ;
   margin-right: 5px;
 }
