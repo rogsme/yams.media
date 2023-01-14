@@ -8,7 +8,7 @@ summary: Easy initial configuration for YAMS. This is only intended for people t
 
 # ⚠️ This is intended for experts! ⚠️ You have been warned.
 
-I **strongly advice** you configure everything yourself by following the tutorial. That way, you'll know what everything does and how everything is connected.
+I **strongly recommend** you configure everything yourself by following the tutorial. That way, you'll know what everything does and how everything is connected.
 
 If this is your first time configuring YAMS, and want to go trough the full manual configuration, go to [Jackett](/config/jackett) and start the configuration **(Recommended)**.
 
