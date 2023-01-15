@@ -12,8 +12,9 @@ You can join us here: [https://matrix.to/#/#yams:chat.rogs.me](https://matrix.to
 # You can contact me by:
 
 ## Email (preferred)
-[roger at rogs.me] (replace the "at" with @).
+[roger@rogs.me](mailto:roger@rogs.me).
 
+My GPG key for encrypting mail:
 - gpg: `curl -sL https://rogs.me/rogs.txt | gpg --import`
 - fingerprint: `ADDF BCB7 8B86 8D93 FC4E 3224 C7EC E9C6 C36E C2E6`
 
