@@ -32,12 +32,12 @@ In no particular order:
 
 ## What's installed with YAMS?
 
-- [Sonarr](https://sonarr.tv/)
-- [Radarr](https://radarr.video/)
-- [Emby](https://emby.media/)
-- [qBittorrent](https://www.qbittorrent.org/)
-- [Bazarr](https://www.bazarr.media/)
 - [Jackett](https://github.com/Jackett/Jackett)
+- [qBittorrent](https://www.qbittorrent.org/)
+- [Radarr](https://radarr.video/)
+- [Sonarr](https://sonarr.tv/)
+- [Bazarr](https://www.bazarr.media/)
+- [Emby](https://emby.media/)
 
 With this combination, you can create a fully functional media server that is going to download, categorize, subtitle and serve your favorite shows and movies.
 
