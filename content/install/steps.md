@@ -104,6 +104,37 @@ Are you sure your media folder is /srv/media? [y/N]:
 
 Select `y` or `n` if you are happy with the folder you selected. Press `[ENTER]` to continue.
 
+#### VPN
+```bash
+Time to setup the VPN.
+The automatic installer only works with Mullvad, but you can setup many other VPNs manually.
+If you want to use any other VPN, choose "N"
+Do you want to configure Mullvad VPN? [Y/n]:
+```
+Now its time to configure the VPN. The automatic installer only supports [Mullvad VPN](https://mullvad.net/en/), and **I strongly recommend you use Mullvad**. Why? Basically: 
+- They don't require your email or information to register.
+- It's simple to configure.
+- They only have monthly subscriptions, so you can leave them whenever you want.
+- You can pay with crypto.
+
+
+If want to use Mullvad, select `Y` and continue with this instructions. If you have any other VPN, choose `N` and move to [finishing the installation](#finishing-the-installation). Remember you should always use a VPN if you are downloading torrents!
+
+```bash
+What's your Mullvad username? (without spaces):
+```
+
+First, just enter your Mullvad username. As you may know, Mullvad only requires your username to login. Paste your username and press `[ENTER]`.
+
+```
+What country do you want to use?
+You can check the countries list here: https://mullvad.net/en/servers/ [brazil]:
+```
+
+Select a country for the VPN to connect to. You can always check Mullvad's list here: https://mullvad.net/en/servers/. You should choose a country that is close to yours, or even choose your own country. If you don't choose anything, its going to default to Brazil.
+
+### Finishing the installation
+
 ```bash
 Copying /opt/yams/docker-compose.yaml...
 Everything installed correctly! 🎉
