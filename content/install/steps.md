@@ -111,14 +111,14 @@ The automatic installer only works with Mullvad, but you can setup many other VP
 If you want to use any other VPN, choose "N"
 Do you want to configure Mullvad VPN? [Y/n]:
 ```
+
 Now its time to configure the VPN. The automatic installer only supports [Mullvad VPN](https://mullvad.net/en/), and **I strongly recommend you use Mullvad**. Why? Basically: 
 - They don't require your email or information to register.
 - It's simple to configure.
 - They only have monthly subscriptions, so you can leave them whenever you want.
 - You can pay with crypto.
 
-
-If want to use Mullvad, select `Y` and continue with this instructions. If you have any other VPN, choose `N` and move to [finishing the installation](#finishing-the-installation). Remember you should always use a VPN if you are downloading torrents!
+If want to use Mullvad, select `Y` and continue with this instructions. If you have any other VPN, choose `N` and move to [finishing the installation](#finishing-the-installation). You can set your VPN later in the [qBittorrent configuration](/config/qbittorrent). **You should always use a VPN when downloading torrents!**
 
 ```bash
 What's your Mullvad username? (without spaces):

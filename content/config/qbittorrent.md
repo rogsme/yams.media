@@ -14,9 +14,9 @@ From their [website](https://www.qbittorrent.org/):
 
 So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy!
 
-## First, if you are using the VPN...
+## First, check your VPN!
 
-Check if its running correctly. On your terminal, run:
+If you configured Mullvad correctly, your VPN should already be running. To test, run on your terminal:
 
 ```bash
 $ yams check-vpn
@@ -33,8 +33,9 @@ Getting your IP...
 
 Your IPs are different. qBittorrent is working as expected! ✅
 ```
+If your VPN is working fine, move onwards to the [Initial configuration](#initial-configuration).
 
-If the check fails, you'll see a message like this:
+If the check fails (or you haven't configured the VPN), you'll see a message like this:
 
 ```bash
 Getting your qBittorrent IP...
@@ -46,7 +47,7 @@ Getting your IP...
 Your IPs are the same! qBittorrent is NOT working! ⚠️
 ```
 
-You should **always** run a VPN when downloading torrents! You can manually set your VPN here: [Advanced VPN settings](/advanced/vpn). You can come back here after you have fixed this!
+**You should always run a VPN when downloading torrents!** You can manually set your VPN here: [Advanced VPN settings](/advanced/vpn). You can come back here after you have fixed this!
 
 ## Initial configuration
 
