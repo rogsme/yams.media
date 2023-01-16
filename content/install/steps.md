@@ -25,6 +25,7 @@ Before installing, make sure you have:
   + `/srv/media/downloads`: For your torrent downloads.
   + `/srv/media/blackhole`: For your torrents blackhole.
 - **A regular user to run and own the media files:** You shouldn’t use `root` for this user, but I’m not your father, nothing is going to stop you lol
+- **A VPN service (optional but STRONGLY recommended):** If you can, choose one from [this list](/advanced/vpn#official-supported-vpns). The VPN I always recommend is [Mullvad](https://mullvad.net/en/) for reasons I will explain later in the installation process.
 
 ## To install
 
@@ -111,7 +112,7 @@ You can check the supported VPN list here: https://yams.media/advanced/vpn.
 Do you want to configure a VPN? [Y/n]:
 ```
 
-Now its time to configure the VPN. The automatic installer supports all the VPNs on [this list](/advanced/vpn#official-supported-vpns), but **I strongly recommend you use Mullvad**. Why? Basically:
+Now its time to configure the VPN. The automatic installer supports all the VPNs on [this list](/advanced/vpn#official-supported-vpns), but **I strongly recommend using Mullvad**. Why? Basically:
 - They don't require your email or information to create a new account.
 - It's simple to configure.
 - They only have monthly subscriptions, so you can leave them whenever you want.
