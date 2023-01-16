@@ -28,7 +28,7 @@ summaryLength = 30
     weight = 2
 
 [[menu.main]]
-    name = "Config"
+    name = "Configure"
     url = "/config/"
     weight = 3
 
