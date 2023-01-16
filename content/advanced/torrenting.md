@@ -6,7 +6,7 @@ weight: 100
 summary: Advanced torreting advices
 ---
 
-# Dowloading torrents manually
+## Dowloading torrents manually
 
 Now that you have a Bittorrent client always available, you can use it to download any torrents you find online.
 
@@ -32,7 +32,7 @@ downloads/
 0 directories, 1 file
 ```
 
-# Double checking your torrent IP address
+## Double checking your torrent client IP address
 
 If you want to be extra sure your IP is not leaking in qBittorrent, you can use this simple check.
 

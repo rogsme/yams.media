@@ -10,7 +10,7 @@ Remember: **You should always use a VPN when downloading torrents!**.
 
 YAMS uses [gluetun](https://github.com/qdm12/gluetun) for VPN.
 
-### Official supported VPNs
+## Official supported VPNs
 
 - [AirVPN](https://github.com/qdm12/gluetun/wiki/AirVPN)
 - [Cyberghost](https://github.com/qdm12/gluetun/wiki/Cyberghost)
@@ -38,7 +38,7 @@ YAMS uses [gluetun](https://github.com/qdm12/gluetun) for VPN.
 
 You can also set a [custom VPN provider](https://github.com/qdm12/gluetun/wiki/Custom-provider), but **this is not officially supported for YAMS. You are on your own here.**
 
-### Manual configuration
+## Manual configuration
 
 To manually configure your VPN, you have to edit your `docker-compose.yaml` file.
 
@@ -99,3 +99,7 @@ Your IPs are different. qBittorrent is working as expected! ✅
 ```
 
 If it's not running correctly, check every setting and make sure they are all correct.
+
+## Double check your torrent client IP address
+
+Go [here](/advanced/torrenting/#double-checking-your-torrent-client-ip-address).
