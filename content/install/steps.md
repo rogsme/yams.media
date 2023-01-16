@@ -131,7 +131,7 @@ What country do you want to use?
 You can check the countries list here: https://mullvad.net/en/servers/ [brazil]:
 ```
 
-Select a country for the VPN to connect to. You can always check Mullvad's list here: https://mullvad.net/en/servers/. You should choose a country that is close to yours, or even choose your own country. If you don't choose anything, its going to default to Brazil.
+Select a country for the VPN to connect to. You can always check Mullvad's list here: https://mullvad.net/en/servers/. You should choose a country that is close to yours, or you can even choose your own country if it's available. The closer the server is, the better speeds you'll get. If you don't choose anything, the installer its going to default to Brazil.
 
 ### Finishing the installation
 
