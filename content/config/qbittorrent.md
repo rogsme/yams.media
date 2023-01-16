@@ -14,6 +14,40 @@ From their [website](https://www.qbittorrent.org/):
 
 So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy!
 
+## First, if you are using the VPN...
+
+Check if its running correctly. On your terminal, run:
+
+```bash
+$ yams check-vpn
+```
+
+If everything is working correctly, you should get a message like this:
+
+```bash
+Getting your qBittorrent IP...
+<qBittorrent IP>
+
+Getting your IP...
+<your local IP>
+
+Your IPs are different. qBittorrent is working as expected! ✅
+```
+
+If the check fails, you'll see a message like this:
+
+```bash
+Getting your qBittorrent IP...
+<your local IP>
+
+Getting your IP...
+<your local IP>
+
+Your IPs are the same! qBittorrent is NOT working! ⚠️
+```
+
+You should **always** run a VPN when downloading torrents! You can manually set your VPN here: [Advanced VPN settings](/advanced/vpn). You can come back here after you have fixed this!
+
 ## Initial configuration
 
 In your browser, go to [http://{your-ip-address}:8080/]() and you'll see qBittorrent's admin page. The default username and password are:

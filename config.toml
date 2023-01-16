@@ -33,19 +33,24 @@ summaryLength = 30
     weight = 3
 
 [[menu.main]]
+    name = "Advanced"
+    url = "/advanced/"
+    weight = 4
+
+[[menu.main]]
     name = "FAQs"
     url = "/faqs/"
-    weight = 4
+    weight = 5
 
 [[menu.main]]
     name = "Donate"
     url = "/donate/"
-    weight = 5
+    weight = 6
 
 [[menu.main]]
     name = "Contact"
     url = "/contact/"
-    weight = 6
+    weight = 7
 
 [[menu.main]]
     name = "Matrix"
@@ -63,7 +68,7 @@ summaryLength = 30
   homepage_button_text = 'Install YAMS'
   homepage_intro = 'YAMS is a basic but powerful media server, easy to install in a bash script'
   homepage_image = '/install-yams.gif'
-  mainSections = ['install', 'config', 'faqs', 'donate', 'contact']
+  mainSections = ['install', 'config', 'faqs', 'donate', 'contact', 'advanced']
 
   ## You can enable to add anchor links to header elements
   enable_anchor_link = true
