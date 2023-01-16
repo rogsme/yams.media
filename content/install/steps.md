@@ -33,7 +33,7 @@ Before installing, make sure you have:
 The location `/opt/yams` is **recommended**, but you can use whatever you like if your current user has permissions on the directory.
 
 ```bash
-sudo mkdir -p /opt/yams 
+sudo mkdir -p /opt/yams
 sudo chown -R $USER:$USER /opt/yams
 ```
 
@@ -107,31 +107,40 @@ Select `y` or `n` if you are happy with the folder you selected. Press `[ENTER]`
 #### VPN
 ```bash
 Time to setup the VPN.
-The automatic installer only works with Mullvad, but you can setup many other VPNs manually.
-If you want to use any other VPN, choose "N"
-Do you want to configure Mullvad VPN? [Y/n]:
+You can check the supported VPN list here: https://yams.media/advanced/vpn.
+Do you want to configure a VPN? [Y/n]:
 ```
 
-Now its time to configure the VPN. The automatic installer only supports [Mullvad VPN](https://mullvad.net/en/), and **I strongly recommend you use Mullvad**. Why? Basically: 
-- They don't require your email or information to register.
+Now its time to configure the VPN. The automatic installer supports all the VPNs on [this list](/advanced/vpn#official-supported-vpns), but **I strongly recommend you use Mullvad**. Why? Basically:
+- They don't require your email or information to create a new account.
 - It's simple to configure.
 - They only have monthly subscriptions, so you can leave them whenever you want.
 - You can pay with crypto.
 
-If want to use Mullvad, select `Y` and continue with this instructions. If you have any other VPN, choose `N` and move to [finishing the installation](#finishing-the-installation). You can set your VPN later in the [qBittorrent configuration](/config/qbittorrent). **You should always use a VPN when downloading torrents!**
+If want to configure a VPN, select `Y` and continue with this instructions. If you don't have a VPN or don't want to use a VPN, choose `N` and move to [finishing the installation](#finishing-the-installation). You can set your VPN later in the [qBittorrent configuration](/config/qbittorrent). **You should always use a VPN when downloading torrents!**
 
 ```bash
-What's your Mullvad username? (without spaces):
+What's your VPN service? (with spaces) [mullvad]:
 ```
 
-First, just enter your Mullvad username. As you may know, Mullvad only requires your username to login. Paste your username and press `[ENTER]`.
+First, select your VPN provider. You can go to [this list](/advanced/vpn#official-supported-vpns) and verify the name of your VPN.
+
+```bash
+What's your VPN username? (without spaces):
+```
+Now, just enter your VPN username. If it has spaces, delete them.
+
+```bash
+What's your VPN password? (if you are using mullvad, just enter your username again):
+```
+Then, enter your VPN password. The script is going to output `*` characters to hide your password, so don't worry about leaking your password on the screen.
 
 ```
 What country do you want to use?
-You can check the countries list here: https://mullvad.net/en/servers/ [brazil]:
+You can check the countries list for your VPN here: <url> [brazil]:
 ```
 
-Select a country for the VPN to connect to. You can always check Mullvad's list here: https://mullvad.net/en/servers/. You should choose a country that is close to yours, or you can even choose your own country if it's available. The closer the server is, the better speeds you'll get. If you don't choose anything, the installer its going to default to Brazil.
+Select a country for the VPN to connect to. You can always check your VPN server list in [their documentation](/advanced/vpn#official-supported-vpns). You should choose a country that is close to yours, or you can even choose your own country if it's available. The closer the server is, the better speeds you'll get. If you don't choose anything, the installer its going to default to Brazil.
 
 ### Finishing the installation
 

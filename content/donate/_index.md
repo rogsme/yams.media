@@ -10,12 +10,13 @@ If you **really** wish to donate, first I would like to say thank you from the b
 
 Second, I would prefer you donate to any of the projects used in this script. They are the ones doing the real work, I just created a `docker-compose` file, a couple of bash scripts and a documentation.
 
-- [linuxserver.io donations page](https://www.linuxserver.io/donate)
-- [Sonarr donations page](https://sonarr.tv/donate)
-- [Radarr donations page](https://radarr.video/donate)
-- [Emby premier page](https://emby.media/premiere.html) (Recommended! I personally use this service)
-- [qBittorrent donations page](https://www.qbittorrent.org/donate)
-- [Bazarr donations page](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url)
+- [linuxserver.io donations page](https://www.linuxserver.io/donate).
+- [Sonarr donations page](https://sonarr.tv/donate).
+- [Radarr donations page](https://radarr.video/donate).
+- [Emby premier page](https://emby.media/premiere.html) (Recommended! I personally use this service).
+- [qBittorrent donations page](https://www.qbittorrent.org/donate).
+- [Bazarr donations page](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url).
+- [gluetun donations page](https://www.paypal.me/qmcgaw).
 - Jackett does not have a donation page 🤔
 
 Just let them know YAMS sent you there 😎
@@ -36,6 +37,7 @@ I'm not doing this for the money, and thank God I don't need donations to keep t
 - [qBittorrent](https://www.qbittorrent.org/).
 - [Bazarr](https://www.bazarr.media/).
 - [Jackett](https://github.com/Jackett/Jackett).
+- [gluetun](https://github.com/qdm12/gluetun).
 - My friends:
   + [xploshioOn](https://github.com/xploshioOn).
   + [norlis](https://github.com/norlis).
