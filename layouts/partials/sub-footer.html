@@ -15,7 +15,7 @@
             </li>
             {{ if not (in (.Site.BaseURL | string) "localhost") }}
             <li class="zerostatic">
-              <img src="https://visitor-badge.laobi.icu/badge?page_id={{ .Site.BaseURL }}&right_color=%235FAF63" alt="visitor badge"/>
+              <img src="https://visitor-badge.laobi.icu/badge?page_id={{ .Permalink | absURL }}&right_color=%235FAF63" alt="visitor badge"/>
             </li>
             {{ end }}
           </ul>
