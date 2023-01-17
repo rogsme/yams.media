@@ -6,7 +6,7 @@ weight: 3
 summary: Backup your YAMS configuration.
 ---
 
-Your YAMS configuration is located in your install location.
+Your YAMS configuration is located in your YAMS install directory.
 
 ## Create a backup
 
