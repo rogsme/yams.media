@@ -2,8 +2,8 @@
 title: "Torrenting"
 date: 2023-01-16T14:48:14-03:00
 draft: false
-weight: 100
-summary: Advanced torreting advices
+weight: 2
+summary: Advanced torreting advices.
 ---
 
 ## Dowloading torrents manually

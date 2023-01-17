@@ -49,10 +49,10 @@ Then, `rm -r` all the files on the `config` folder:
 /opt/yams/config$ rm -r *
 ```
 
-To finish, extract the base file in your config folder. Remember to replace `{your-yams-install-location}` with the real location within your filesystem:
+To finish, extract the base file in your config folder. Remember to replace `{your-yams-clone-location}` with the real location within your filesystem:
 
 ```bash
-/opt/yams/config$ tar -xzvf {your-yams-install-location}/base/base-config.tar.gz
+/opt/yams/config$ tar -xzvf {your-yams-clone-location}/base/base-config.tar.gz
 ```
 
 If you `ls` now, you'll see all the folders where extracted and are available again
@@ -61,7 +61,7 @@ If you `ls` now, you'll see all the folders where extracted and are available ag
 bazarr  emby  jackett  qbittorrent  radarr  sonarr
 ```
 
-To restart `yams`, execute:
+To restart `yams`, run:
 ```bash
 /opt/yams/config$ yams start
 ```
