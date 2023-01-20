@@ -66,4 +66,11 @@ To restart `yams`, run:
 /opt/yams/config$ yams start
 ```
 
+## Default usernames and passwords
+
+If anything asks you for an username and password, the defaults are:
+
+- username: admin
+- password: 12345
+
 And that's it! You should have everything configured and running from zero. You can now jump to [Running everything together](/config/running-everything-together/).
