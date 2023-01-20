@@ -10,7 +10,7 @@ summary: Easy initial configuration for YAMS. This is only intended for people t
 
 I **strongly recommend** you configure everything yourself by following the tutorial. That way, you'll know what everything does and how everything is connected.
 
-If this is your first time configuring YAMS, and want to go through the full manual configuration, go to [Jackett](/config/jackett) and start the configuration **(Recommended)**.
+If this is your first time configuring YAMS, and want to go through the full manual configuration, go to [qBittorrent](/config/qbittorrent) and start the configuration **(Recommended)**.
 
 If this is not your first time configuring YAMS, or you already know how to use all the software included, you can move forward.
 
@@ -35,7 +35,7 @@ config  docker-compose.yaml
 /opt/yams$ cd config
 
 /opt/yams/config$ ls
-bazarr  emby  jackett  qbittorrent  radarr  sonarr
+bazarr  emby  prowlarr  qbittorrent  radarr  sonarr
 ```
 
 Now, shut down `yams`
@@ -58,7 +58,7 @@ To finish, extract the base file in your config folder. Remember to replace `{yo
 If you `ls` now, you'll see all the folders were extracted and are available again
 ```bash
 /opt/yams/config$ ls
-bazarr  emby  jackett  qbittorrent  radarr  sonarr
+bazarr  emby  prowlarr qbittorrent  radarr  sonarr
 ```
 
 To restart `yams`, run:

@@ -2,7 +2,7 @@
 title: "qBittorrent"
 date: 2023-01-10T18:02:13-03:00
 draft: false
-weight: 3
+weight: 2
 summary: The qBittorrent project aims to provide an open-source software alternative to µTorrent.
 ---
 

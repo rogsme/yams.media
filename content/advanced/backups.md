@@ -61,7 +61,7 @@ If you see all the folders inside the `config` directory, it means it worked!
 /opt/yams$ ls config
 
 # Output
-bazarr  emby  gluetun  jackett  qbittorrent  radarr  sonarr
+bazarr  emby  gluetun  prowlarr  qbittorrent  radarr  sonarr
 ```
 
 Finally, restart YAMS

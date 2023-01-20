@@ -178,7 +178,7 @@ You can check the installation on /opt/yams
 ========================================================
 Everything should be running now! To check everything running, go to:
 
-Jackett: http://192.168.0.169:9117/
+Prowlarr: http://192.168.0.169:9117/
 qBittorrent: http://192.168.0.169:8080/
 Radarr: http://192.168.0.169:7878/
 Sonarr: http://192.168.0.169:8989/

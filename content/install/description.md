@@ -32,10 +32,10 @@ In no particular order:
 
 ## What's installed with YAMS?
 
-- [Jackett](https://github.com/Jackett/Jackett)
 - [qBittorrent](https://www.qbittorrent.org/)
 - [Radarr](https://radarr.video/)
 - [Sonarr](https://sonarr.tv/)
+- [Prowlarr](https://github.com/Prowlarr/Prowlarr)
 - [Bazarr](https://www.bazarr.media/)
 - [Emby](https://emby.media/)
 - [gluetun](https://github.com/qdm12/gluetun)

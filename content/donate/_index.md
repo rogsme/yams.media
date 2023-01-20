@@ -16,8 +16,8 @@ Second, I would prefer you donate to any of the projects used in this script. Th
 - [Emby premier page](https://emby.media/premiere.html) (Recommended! I personally use this service).
 - [qBittorrent donations page](https://www.qbittorrent.org/donate).
 - [Bazarr donations page](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url).
+- [Prowlarr donations page](https://opencollective.com/Prowlarr#sponsor)
 - [gluetun donations page](https://www.paypal.me/qmcgaw).
-- Jackett does not have a donation page 🤔
 
 Just let them know YAMS sent you there 😎
 
@@ -36,8 +36,9 @@ I'm not doing this for the money, and thank God I don't need donations to keep t
 - [Emby](https://emby.media/).
 - [qBittorrent](https://www.qbittorrent.org/).
 - [Bazarr](https://www.bazarr.media/).
-- [Jackett](https://github.com/Jackett/Jackett).
+- [Prowlarr](https://github.com/Prowlarr/Prowlarr)
 - [gluetun](https://github.com/qdm12/gluetun).
+- [The entire /r/selfhosted subreddit](https://www.reddit.com/r/selfhosted/).
 - My friends:
   + [xploshioOn](https://github.com/xploshioOn).
   + [norlis](https://github.com/norlis).
