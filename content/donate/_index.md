@@ -8,7 +8,7 @@ weight: 100
 ## External donations (preferred)
 If you **really** wish to donate, first I would like to say thank you from the bottom of my heart! ❤️ 
 
-Second, I would prefer you donate to any of the projects used in this script. They are the ones doing the real work, I just created a `docker-compose` file, a couple of bash scripts and a documentation.
+Second, I would prefer you donate to any of the projects used in this script. They are the ones doing the real work, I just created a `docker-compose` file, a couple of bash scripts, and a documentation.
 
 - [linuxserver.io donations page](https://www.linuxserver.io/donate).
 - [Sonarr donations page](https://sonarr.tv/donate).
@@ -44,6 +44,6 @@ I'm not doing this for the money, and thank God I don't need donations to keep t
   + [isaac152](https://github.com/isaac152).
 
 ## And finally:
-You 🫵, for being such an amazing human being, checking out my project and (hopefully!) using it on your media server. 
+You 🫵, for being such an amazing human being, checking out my project, and (hopefully!) using it on your media server. 
 
 # Thank you! 🙇

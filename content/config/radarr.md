@@ -78,7 +78,7 @@ If everything is fine, click on "Save". You should see your indexer added to the
 
 #### How many indexers can I have?
 
-As many as you want! Just repeat the steps to add new indexers in [Jackett](/config/jackett) and then follow this instructions again to add them to Radarr. The more indexers you have, the better!
+As many as you want! Just repeat the steps to add new indexers in [Jackett](/config/jackett) and then follow these instructions again to add them to Radarr. The more indexers you have, the better!
 
 ### Download Clients
 
@@ -109,7 +109,7 @@ If everything is fine, click on "Save". You should see your download client adde
 
 ### Checking if everything worked
 
-To check If everything is working corrently, In "System" go to "Status". In "Health", you should see "No issues with configuration". If you don't see that message, go back in the tutorial and try to fix it!
+To check If everything is working correctly, In "System" go to "Status". In "Health", you should see "No issues with configuration". If you don't see that message, go back in the tutorial and try to fix it!
 
 [![radarr-17](/pics/radarr-17.png)](/pics/radarr-17.png)
 

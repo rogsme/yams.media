@@ -6,7 +6,7 @@ weight: 3
 summary: YAMS comes with a very handy CLI to manage all your media server. Here's where you'll learn how to use it.
 ---
 
-YAMS comes with a very handy CLI to manage all your media server. Here's where you'll learn how to use it.
+YAMS comes with a very handy CLI to manage your media server. Here's where you'll learn how to use it.
 
 On your server, you can type: 
 ```bash
@@ -33,8 +33,8 @@ Everything is very self-explanatory, but I'll go in more detail here:
 - `restart`: Restarts all the services. It stops them gracefully and starts them again.
 - `stop`: Stops all the services gracefully.
 - `start`: Starts all the services.
-- `destroy`: Destroys all the services so you can start the configuration from scrath. ⚠️ Be careful! ⚠️ There's no going back after this!
-- `check-vpn`: Checks the IP of the qBittorrent service and compares it to your own IP. If they are the same, it's goign to warn you.
+- `destroy`: Destroys all the services so you can start the configuration from scratch. ⚠️ Be careful! ⚠️ There's no going back after this!
+- `check-vpn`: Checks the IP of the qBittorrent service and compares it to your own IP. If they are the same, it's going to warn you.
 
 
 If you get a `docker` permission error trying to use the CLI, go [here](/faqs/) to fix it.

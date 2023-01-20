@@ -6,7 +6,7 @@ weight: 2
 summary: Advanced torreting advices.
 ---
 
-## Dowloading torrents manually
+## Downloading torrents manually
 
 Now that you have a Bittorrent client always available, you can use it to download any torrents you find online.
 
@@ -48,11 +48,11 @@ And paste the magnet link on the box. When you are done, click on "Download".
 
 [![advanced-torrent-6](/pics/advanced-torrent-6.png)](/pics/advanced-torrent-6.png)
 
-You'll see a new torrent called "Torrent Tracker IP Checker". This torrent is never going to start downloading, its just for https://whatsmyip.net to check the IP address.
+You'll see a new torrent called "Torrent Tracker IP Checker". This torrent is never going to start downloading, it's just for https://whatsmyip.net to check the IP address.
 
 [![advanced-torrent-7](/pics/advanced-torrent-7.png)](/pics/advanced-torrent-7.png)
 
-Back at the torrent tracker page, you'll see the data for your torrent, and your qBittorrent IP!
+Back at the torrent tracker page, you'll see the data for your torrent and your qBittorrent IP!
 
 [![advanced-torrent-8](/pics/advanced-torrent-8.png)](/pics/advanced-torrent-8.png)
 

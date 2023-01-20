@@ -18,7 +18,7 @@ If you haven’t installed `docker` and `docker-compose`, don’t worry! The scr
 ## Before running
 Before installing, make sure you have:
 
-- **An installation location:** The script is going to ask you for a install location, but it will default to `/opt/yams`. Just make sure your current user has permissions to write on the selected directory.
+- **An installation location:** The script is going to ask you for an install location, but it will default to `/opt/yams`. Just make sure your current user has permissions to write on the selected directory.
 - **A media folder:** This is the folder where all your files are going to be downloaded and categorized. For example, if you choose `/srv/media`, the script is going to create the following folders:
   + `/srv/media/tv`: For your TV shows.
   + `/srv/media/movies`: For your movies.
@@ -112,13 +112,13 @@ You can check the supported VPN list here: https://yams.media/advanced/vpn.
 Do you want to configure a VPN? [Y/n]:
 ```
 
-Now its time to configure the VPN. The automatic installer supports all the VPNs on [this list](/advanced/vpn#official-supported-vpns), but **I strongly recommend using Mullvad**. Why? Basically:
+Now it's time to configure the VPN. The automatic installer supports all the VPNs on [this list](/advanced/vpn#official-supported-vpns), but **I strongly recommend using Mullvad**. Why? Basically:
 - They don't require your email or information to create a new account.
 - It's simple to configure.
 - They only have monthly subscriptions, so you can leave them whenever you want.
 - You can pay with crypto.
 
-If want to configure a VPN, select `Y` and continue with this instructions. If you don't have a VPN or don't want to use a VPN, choose `N` and move to [finishing the installation](#finishing-the-installation). You can set your VPN later in the [qBittorrent configuration](/config/qbittorrent). **You should always use a VPN when downloading torrents!**
+If want to configure a VPN, select `Y` and continue with these instructions. If you don't have a VPN or don't want to use a VPN, choose `N` and move to [finishing the installation](#finishing-the-installation). You can set your VPN later in the [qBittorrent configuration](/config/qbittorrent). **You should always use a VPN when downloading torrents!**
 
 ```bash
 What's your VPN service? (with spaces) [mullvad]:
@@ -176,7 +176,7 @@ After a lot of docker installing, you'll get a message like this at the end:
 All done!✅ Enjoy YAMS!
 You can check the installation on /opt/yams
 ========================================================
-Everythins should be running now! To check everything running, go to:
+Everything should be running now! To check everything running, go to:
 
 Jackett: http://192.168.0.169:9117/
 qBittorrent: http://192.168.0.169:8080/
@@ -199,4 +199,4 @@ https://yams.media/config
 
 And that's it!
 
-In your browser, you can visit each of the sites to check that they are running correctly. If one of them don't show up, you might need to wait a couple of minutes for docker to finish the full installation.
+In your browser, you can visit each of the sites to check that they are running correctly. If one of them doesn't show up, you might need to wait a couple of minutes for docker to finish the full installation.

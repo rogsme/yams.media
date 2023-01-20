@@ -26,7 +26,7 @@ You don't have to change anything on this screen.
 
 On the left side menu, click on "Languages".
 
-On the "Languages" page, go to the "Languages Filter" box and select the languages you want to use. For this tutorial, I will choose `English`, `Spanish` and `Latin American Spanish`.
+On the "Languages" page, go to the "Languages Filter" box and select the languages you want to use. For this tutorial, I will choose `English`, `Spanish`, and `Latin American Spanish`.
 
 When you have chosen your languages, click on "Add New Profile"
 
@@ -34,9 +34,9 @@ When you have chosen your languages, click on "Add New Profile"
 
 Now, on the "Edit Languages Profile" modal, add a name (it can be whatever you want), and click on "Add Language".
 
-**Note: You have to click on "Add language" once per each language you added on the last step**.
+**Note: You have to click on "Add language" once per each language you added in the last step**.
 
-Since I added 3 languages (`English`, `Spanish` and `Latin American Spanish`), I'm going to add 3 languages on the modal.
+Since I added 3 languages (`English`, `Spanish`, and `Latin American Spanish`), I'm going to add 3 languages on the modal.
 
 When you are done, you can click on "Save" at the bottom.
 
@@ -46,7 +46,7 @@ Back at the "Languages" page, you can set your new "Language Profile" as the def
 
 [![bazarr-4](/pics/bazarr-4.png)](/pics/bazarr-4.png)
 
-In the end, you should have something simillar to this:
+In the end, you should have something similar to this:
 
 [![bazarr-5](/pics/bazarr-5.png)](/pics/bazarr-5.png)
 

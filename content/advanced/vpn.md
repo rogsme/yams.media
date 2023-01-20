@@ -36,7 +36,7 @@ YAMS uses [gluetun](https://github.com/qdm12/gluetun) for VPN.
 - [WeVPN](https://github.com/qdm12/gluetun/wiki/WeVPN)
 - [Windscribe](https://github.com/qdm12/gluetun/wiki/Windscribe)
 
-You can also set a [custom VPN provider](https://github.com/qdm12/gluetun/wiki/Custom-provider), but **this is not officially supported for YAMS. You are on your own here.**
+You can also set up a [custom VPN provider](https://github.com/qdm12/gluetun/wiki/Custom-provider), but **this is not officially supported for YAMS. You are on your own here.**
 
 ## Manual configuration
 
@@ -100,6 +100,6 @@ Your IPs are different. qBittorrent is working as expected! ✅
 
 If it's not running correctly, check every setting and make sure they are all correct.
 
-## Double check your torrent client IP address
+## Double-check your torrent client IP address
 
 Go [here](/advanced/torrenting/#double-checking-your-torrent-client-ip-address).

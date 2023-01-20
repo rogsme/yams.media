@@ -3,7 +3,7 @@ title: "Running everything together"
 date: 2023-01-12T18:06:44-03:00
 draft: false
 weight: 8
-summary: So you finally got YAMS running? Let's add some movies and see everything working together!
+summary: So you finally got YAMS running? Let's add some movies and seeing everything working together!
 ---
 
 ## First, I want to congratulate you 🎉
@@ -12,11 +12,11 @@ You did it! You installed and configured YAMS! Give yourself a good pat on your 
 
 [![party](/pics/party.gif)](/pics/party.gif)
 
-Now comes the fun part: Adding your shows/movies and see everything working together 😎
+Now comes the fun part: Adding your shows/movies and seeing everything working together 😎
 
 ## Radarr & Sonarr
 
-This instructions will apply for both Radarr and Sonarr. To keep the tutorial brief, I will only test Radarr.
+These instructions will apply to both Radarr and Sonarr. To keep the tutorial brief, I will only test Radarr.
 
 Open Radarr at [http://{your-ip-address}:7878/]() and on the left menu click on "Add New". In this tutorial I'll use "The Godfather", but you can search for the movie you want!
 
@@ -30,7 +30,7 @@ Click on the movie you want to download.
 
 On the modal, select the quality you want the movie to be downloaded. If your movie is part of a collection, you can choose to download the entire collection in the "Monitor" box. For this case, I want to download the entire Godfather collection, so I'll choose that on the modal.
 
-Finally click on "Add Movie"
+Finally, click on "Add Movie"
 
 [![running-everything-together-3](/pics/running-everything-together-3.png)](/pics/running-everything-together-3.png)
 
@@ -56,7 +56,7 @@ If you wait for the movies to download, if you go to Emby at [http://{your-ip-ad
 
 [![running-everything-together-7](/pics/running-everything-together-7.png)](/pics/running-everything-together-7.png)
 
-If you open the movie, you'll see it even has subtitles! Which means [Bazarr](/config/bazarr) is working as well!
+If you open the movie, you'll see it even has subtitles! This means [Bazarr](/config/bazarr) is working as well!
 
 [![running-everything-together-8](/pics/running-everything-together-8.png)](/pics/running-everything-together-8.png)
 
@@ -88,12 +88,12 @@ roger@debian:/srv/media/movies$ tree .
 3 directories, 9 files
 ```
 
-If you don't like the way the folders/movies are named, you can always change it in [Radarr's media management page](/config/radarr#media-management). The same applies for [Sonarr](/config/sonarr#media-management).
+If you don't like the way the folders/movies are named, you can always change it on [Radarr's media management page](/config/radarr#media-management). The same applies to [Sonarr](/config/sonarr#media-management).
 
 # Final step and conclusions
 
-You should have your first media server up and running now! That's a big step forward into dropping your dependency on big services like Netflix or Amazon Prime.
+You should have your first media server up and running now! That's a big step forward in dropping your dependency on big services like Netflix or Amazon Prime.
 
-There's still A LOT of things you can do to make your experience even better! You can go to the [Recommendations](/config/recommendations) page now and finish the tutorial.
+There are still A LOT of things you can do to make your experience even better! You can go to the [Recommendations](/config/recommendations) page now and finish the tutorial.
 
  🙌 Thank you for being here and for following the tutorial! Enjoy the fruit of your labor. You are awesome! 😎

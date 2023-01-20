@@ -111,13 +111,13 @@ And you are finally done! Click on "Finish" to go to your Emby dashboard.
 
 ### Logging in to Emby
 
-On the "Please Sign In" screen, select your user and login with the username/password you set on the [Initial configuration](#initial-configuration) step.
+On the "Please Sign In" screen, select your user and log in with the username/password you set in the [Initial configuration](#initial-configuration) step.
 
 [![emby-19](/pics/emby-19.png)](/pics/emby-19.png)
 
 [![emby-20](/pics/emby-20.png)](/pics/emby-20.png)
 
-And there it is! Your Emby home page, up and running!
+And there it is! Your Emby home page is up and running!
 
 [![emby-21](/pics/emby-21.png)](/pics/emby-21.png)
 

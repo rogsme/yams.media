@@ -24,7 +24,7 @@ Here, you can add as many indexers as you need. To add indexers, click on "Add i
 
 [![jackett-2](/pics/jackett-2.png)](/pics/jackett-2.png)
 
-For this example, I'm going to add 2 indexers: YTS (for movies) and eztv (for tv shows). To look for an indexer, just type its name on the search box and click on the big ➕ sign 
+For this example, I'm going to add 2 indexers: YTS (for movies) and eztv (for tv shows). To look for an indexer, just type its name in the search box and click on the big ➕ sign 
 
 [![jackett-3](/pics/jackett-3.png)](/pics/jackett-3.png)
 

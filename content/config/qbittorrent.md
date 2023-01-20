@@ -35,7 +35,7 @@ Your local IP country is North Korea
 
 Your IPs are different. qBittorrent is working as expected! ✅
 ```
-If your VPN is working fine, move onwards to the [Initial configuration](#initial-configuration).
+If your VPN is working fine, move onward to the [Initial configuration](#initial-configuration).
 
 If the check fails (or you haven't configured the VPN), you'll see a message like this:
 
@@ -69,7 +69,7 @@ After logging in, you'll see the empty qBittorrent window. Here, you have to cli
 
 [![qbittorrent-2](/pics/qbittorrent-2.png)](/pics/qbittorrent-2.png)
 
-You'll notice qBitorrent has A TON of settings you can change. First, go to the "BitTorrent" tab, check the "When ratio reaches" checkbox and set it to 0
+You'll notice qBitorrent has A TON of settings you can change. First, go to the "BitTorrent" tab, check the "When ratio reaches" checkbox, and set it to 0
 
 ### Is this a dick move?
 
@@ -77,11 +77,11 @@ Yes.
 
 In case you don't know, the BitTorrent protocol works by sharing (seeding) files across the network. By setting the seeding limit to zero, we are basically saying "Share the torrent **until** I've finished downloading." You'll still share the file across the network while downloading, but when the file completes, the torrent will automatically stop and wait for [Sonarr](/config/sonarr)/[Radarr](/config/radarr) to pick up the file.
 
-For the purposes of this tutorial we'll leave it at 0, but if you want you can change it later to a less dickish setting.
+For the purposes of this tutorial, we'll leave it at 0, but if you want you can change it later to a less dickish setting.
 
 [![qbittorrent-3](/pics/qbittorrent-3.png)](/pics/qbittorrent-3.png)
 
-Then, we'll continue to the "Web UI" tab. There, we can set it so it won't ask for a password if we are accesing it from the same subnet. This is not required, but recommended.
+Then, we'll continue to the "Web UI" tab. There, we can set it so it won't ask for a password if we are accessing it from the same subnet. This is not required but recommended.
 
 [![qbittorreft-4](/pics/qbittorrent-4.png)](/pics/qbittorrent-4.png)
 

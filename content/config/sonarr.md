@@ -3,7 +3,7 @@ title: "Sonarr"
 date: 2023-01-10T19:06:43-03:00
 draft: false
 weight: 5
-summary: Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
+summary: Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort, and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
 ---
 
 # What is Sonarr?
@@ -81,7 +81,7 @@ If everything is fine, click on "Save". You should see your indexer added to the
 
 #### How many indexers can I have?
 
-As many as you want! Just repeat the steps to add new indexers in [Jackett](/config/jackett) and then follow this instructions again to add them to Sonarr. The more indexers you have, the better!
+As many as you want! Just repeat the steps to add new indexers in [Jackett](/config/jackett) and then follow these instructions again to add them to Sonarr. The more indexers you have, the better!
 
 ### Download Clients
 
@@ -112,7 +112,7 @@ If everything is fine, click on "Save". You should see your download client adde
 
 ### Checking if everything worked
 
-To check If everything is working corrently, In "System" go to "Status". In "Health", you should see "No issues with configuration". If you don't see that message, go back in the tutorial and try to fix it!
+To check If everything is working correctly, In "System" go to "Status". In "Health", you should see "No issues with configuration". If you don't see that message, go back in the tutorial and try to fix it!
 
 [![sonarr-17](/pics/sonarr-17.png)](/pics/sonarr-17.png)
 
