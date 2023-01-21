@@ -27,3 +27,7 @@ hugo
 ```
 
 Your files will be on the `./public` folder, ready to upload to a server.
+
+## todo
+- Add dark mode
+- Add a hotlink to the install.sh in the instructions.
