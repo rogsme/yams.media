@@ -54,7 +54,17 @@ This means it is working as expected. When they finish downloading, Radarr is go
 
 After your movies have downloaded, if you go to your Media service (Jellyfin, Emby or Plex), you'll see your movies right there, waiting for you.
 
+Jellyfin:
+
+[![running-everything-together-12](/pics/running-everything-together-12.png)](/pics/running-everything-together-12.png)
+
+Emby:
+
 [![running-everything-together-7](/pics/running-everything-together-7.png)](/pics/running-everything-together-7.png)
+
+Plex:
+
+[![running-everything-together-11](/pics/running-everything-together-11.png)](/pics/running-everything-together-11.png)
 
 If you open the movie, you'll see it even has subtitles! This means [Bazarr](/config/bazarr) is working as well!
 
