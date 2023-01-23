@@ -27,7 +27,7 @@ In no particular order:
 - **Automatic shows/movies download:** Just add your shows and movies to the watch list and it should automatically download the files as soon as they are available.
 - **Automatic classification and organization:** Your media files should be completely organized by default.
 - **Automatic subtitles download:** Self-explanatory. Your media server should automatically download subtitles in the languages you choose if they are available.
-- **Support for Web, Android, iOS, Android TV, and whatever that can support Emby:** Since we are using Emby, you should be able to watch your favorite media almost anywhere.
+- **Support for Web, Android, iOS, Android TV, and whatever that can support Emby/Jellyfin/Plex:** Since we are using Emby/Jellyfin/Plex, you should be able to watch your favorite media almost anywhere.
 
 
 ## What's installed with YAMS?
