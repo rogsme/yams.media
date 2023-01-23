@@ -13,8 +13,9 @@ Second, I would prefer you donate to any of the projects used in this script. Th
 - [linuxserver.io donations page](https://www.linuxserver.io/donate).
 - [Sonarr donations page](https://sonarr.tv/donate).
 - [Radarr donations page](https://radarr.video/donate).
-- [Emby premier page](https://emby.media/premiere.html) (Recommended! I personally use this service).
 - [Jellyfin donations page](https://opencollective.com/jellyfin).
+- [Emby premier page](https://emby.media/premiere.html) (Recommended! I personally use this service).
+- [Plex pass page](https://www.plex.tv/plex-pass/).
 - [qBittorrent donations page](https://www.qbittorrent.org/donate).
 - [Bazarr donations page](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url).
 - [Prowlarr donations page](https://opencollective.com/Prowlarr#sponsor)
@@ -34,8 +35,9 @@ I'm not doing this for the money, and thank God I don't need donations to keep t
 - [linuxserver.io](https://info.linuxserver.io/) for their amazing docker images.
 - [Sonarr](https://sonarr.tv/).
 - [Radarr](https://radarr.video/).
-- [Emby](https://emby.media/).
 - [Jellyfin](https://jellyfin.org/).
+- [Emby](https://emby.media/).
+- [Plex](https://www.plex.tv/).
 - [qBittorrent](https://www.qbittorrent.org/).
 - [Bazarr](https://www.bazarr.media/).
 - [Prowlarr](https://github.com/Prowlarr/Prowlarr)
