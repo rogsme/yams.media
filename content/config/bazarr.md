@@ -171,4 +171,7 @@ After saving, you'll see how the "Movies" section appears on the left side menu!
 
 ### All done!
 
-Only one more step left! Continue with [Emby](/config/emby).
+Only one more step left! Continue with your media service. Depending on what you chose, you can move forward with: 
+- [Jellyfin](/config/jellyfin).
+- [Emby](/config/emby).
+- [Plex](/config/plex).

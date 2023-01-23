@@ -105,6 +105,24 @@ Are you sure your media folder is /srv/media? [y/N]:
 
 Select `y` or `n` if you are happy with the folder you selected. Press `[ENTER]` to continue.
 
+#### Media service
+```bash
+Time to choose your media service.
+Your media service is the one responsible for serving your files to your network.
+By default, YAMS support 3 media services:
+- jellyfin (recommended, easier)
+- emby
+- plex (advanced, always online, slower)
+```
+It's time to configure the media service!
+
+By default, YAMS supports 3 big media services:
+- [Jellyfin](https://jellyfin.org) (recommended): In my opinion, Jellyfin is the best one. It's fast, easy to configure and Open Source.
+- [Emby](https://emby.media): Emby its the one I use on my local config. It's very similar to Jellyfin (Jellyfin is a fork of Emby), and it has almost the same funtionalities. The reason I'm not recommending it is because it has a paid plan and it's closed source. (I'm actually migrating to Jellyfin now!)
+- [Plex](https://plex.tv): I **do not** recommend Plex if you are setting your first media server, unless you really want to. It's alwasy online, super slow, it doesn't support Direct Stream and it's full of bloat. Also, it's the hardest to configure.
+
+Type one from the list and press [ENTER]. If you don't choose anything, the installer is going to default to Jellyfin.
+
 #### VPN
 ```bash
 Time to setup the VPN.

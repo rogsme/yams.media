@@ -2,7 +2,7 @@
 title: "Running everything together"
 date: 2023-01-12T18:06:44-03:00
 draft: false
-weight: 8
+weight: 10
 summary: So you finally got YAMS running? Let's add some movies and seeing everything working together!
 ---
 
@@ -50,11 +50,21 @@ This means it is working as expected. When they finish downloading, Radarr is go
 
 [![running-everything-together-6](/pics/running-everything-together-6.png)](/pics/running-everything-together-6.png)
 
-## Emby
+## Media service
 
-If you wait for the movies to download, if you go to Emby at [http://{your-ip-address}:8096/](), you'll see your movies right there, waiting for you.
+After your movies have downloaded, if you go to your Media service (Jellyfin, Emby or Plex), you'll see your movies right there, waiting for you.
+
+Jellyfin:
+
+[![running-everything-together-12](/pics/running-everything-together-12.png)](/pics/running-everything-together-12.png)
+
+Emby:
 
 [![running-everything-together-7](/pics/running-everything-together-7.png)](/pics/running-everything-together-7.png)
+
+Plex:
+
+[![running-everything-together-11](/pics/running-everything-together-11.png)](/pics/running-everything-together-11.png)
 
 If you open the movie, you'll see it even has subtitles! This means [Bazarr](/config/bazarr) is working as well!
 
