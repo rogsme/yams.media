@@ -50,9 +50,9 @@ This means it is working as expected. When they finish downloading, Radarr is go
 
 [![running-everything-together-6](/pics/running-everything-together-6.png)](/pics/running-everything-together-6.png)
 
-## Emby
+## Media service
 
-If you wait for the movies to download, if you go to Emby at [http://{your-ip-address}:8096/](), you'll see your movies right there, waiting for you.
+After your movies have downloaded, if you go to your Media service (Jellyfin, Emby or Plex), you'll see your movies right there, waiting for you.
 
 [![running-everything-together-7](/pics/running-everything-together-7.png)](/pics/running-everything-together-7.png)
 
