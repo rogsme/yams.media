@@ -85,3 +85,26 @@ body {
   content: url("/pics/element-small.png") ;
   margin-right: 5px;
 }
+@media (prefers-color-scheme: dark) {
+  html {
+    filter: invert(95%);
+  }
+  a {
+    filter: invert(100%);
+  }
+  .docs-menu a {
+    filter: invert(10%);
+  }
+  .docs-menu a:hover {
+    filter: invert(100%);
+  }
+  li.active {
+    filter: invert(100%);
+  }
+  .zerostatic {
+    filter: invert(100%);
+  }
+  .element-img {
+    filter: invert(100%);
+  }
+}

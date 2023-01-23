@@ -84,3 +84,6 @@ summaryLength = 30
   [params.logo]
       standard  = "/pics/logo.png"
       mobile  = "/pics/logo.png"
+
+[markup.goldmark.renderer]
+  unsafe = true

@@ -5,7 +5,7 @@ draft: false
 weight: 100
 ---
 
-# ![/pics/element.png](/pics/element.png) YAMS has an official Matrix chat!
+# <img class="element-img" src="/pics/element.png"/> YAMS has an official Matrix chat!
 
 You can join us here: [https://matrix.to/#/#yams:chat.rogs.me](https://matrix.to/#/#yams:chat.rogs.me).
 
