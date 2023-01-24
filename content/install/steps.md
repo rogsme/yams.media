@@ -38,6 +38,14 @@ sudo mkdir -p /opt/yams
 sudo chown -R $USER:$USER /opt/yams
 ```
 
+### If you already have docker and docker-compose installed...
+
+Make sure you can run `docker` **without** `sudo`!
+
+If you run `docker` with `sudo` and another user other than `root` you'll encounter multiple permission errors. You can find instructions on how to run `docker` without `sudo` here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user.
+
+If you can run `docker run hello-world` without `sudo`, you can continue. If you encounter any other `docker` issue, go to the [FAQs](/faqs/), there's a section on "Common `docker` permission errors".
+
 ### Inspecting the `install` script by yourself (optional).
 
 Its always a good practice to verify and study the scripts you run on your machine. You can always inspect `install.sh` on the Gitlab repo here: https://gitlab.com/rogs/yams/-/blob/master/install.sh. You don't have to be a complete expert in `bash` (I'm definitely not lol), but if you have any experience with the Linux terminal you should be able to at understand what's happening.
@@ -79,8 +87,6 @@ Checking prerequisites...
 Do you want YAMS to install docker and docker-compose? IT ONLY WORKS ON DEBIAN AND UBUNTU! [y/N]: y
 ```
 You can choose `y` to install `docker` and `docker-compose` with YAMS or `n` to exit the script.
-
-**Note:** If you already have `docker` installed, make sure you can run it **without** sudo! If you run it with sudo and another user other than `root` you'll encounter multiple permission errors! You can find instructions on how to run `docker` without sudo here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
 
 When docker finishes the installation OR if you already had `docker` and `docker-compose` installed, you should see the following message at the bottom:
 
