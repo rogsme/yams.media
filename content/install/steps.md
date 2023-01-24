@@ -76,6 +76,8 @@ Do you want YAMS to install docker and docker-compose? IT ONLY WORKS ON DEBIAN A
 ```
 You can choose `y` to install `docker` and `docker-compose` with YAMS or `n` to exit the script.
 
+**Note:** If you already have `docker` installed, make sure you can run it **without** sudo! If you run it with sudo and another user other than `root` you'll encounter multiple permission errors! You can find instructions on how to run `docker` without sudo here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+
 When docker finishes the installation OR if you already had `docker` and `docker-compose` installed, you should see the following message at the bottom:
 
 ```bash
@@ -112,14 +114,14 @@ Your media service is the one responsible for serving your files to your network
 By default, YAMS support 3 media services:
 - jellyfin (recommended, easier)
 - emby
-- plex (advanced, always online, slower)
+- plex (advanced, always online)
 ```
 It's time to configure the media service!
 
 By default, YAMS supports 3 big media services:
 - [Jellyfin](https://jellyfin.org) (recommended): In my opinion, Jellyfin is the best one. It's fast, easy to configure and Open Source.
-- [Emby](https://emby.media): Emby its the one I use on my local config. It's very similar to Jellyfin (Jellyfin is a fork of Emby), and it has almost the same funtionalities. The reason I'm not recommending it is because it has a paid plan and it's closed source. (I'm actually migrating to Jellyfin now!)
-- [Plex](https://plex.tv): I **do not** recommend Plex if you are setting your first media server, unless you really want to. It's alwasy online, super slow, it doesn't support Direct Stream and it's full of bloat. Also, it's the hardest to configure.
+- [Emby](https://emby.media): Emby its the one I use on my local config. It's very similar to Jellyfin (Jellyfin is a fork of Emby), and it has almost the same funtionalities. The reason I'm not recommending it is because it has a paid plan and it's closed source. (I'm actually migrating to Jellyfin now!).
+- [Plex](https://plex.tv): I only recommend Plex to advanced users or people who need all the extra stuff it provides, because the interface and all the services might be a little overwhelming if this is your first time with a home server. I don’t like it that much because it’s always online, and it has more functionalities than I need. Also, at least in YAMS, it’s the hardest to configure. But if you want to share your media server with other people easily, Plex is the way to go! Jellyfin and Emby can share media outside your network, but they are a little more complicated to configure.
 
 Type one from the list and press [ENTER]. If you don't choose anything, the installer is going to default to Jellyfin.
 
