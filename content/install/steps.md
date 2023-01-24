@@ -38,6 +38,10 @@ sudo mkdir -p /opt/yams
 sudo chown -R $USER:$USER /opt/yams
 ```
 
+### Inspecting the `install` script by yourself (optional).
+
+Its always a good practice to verify and study the scripts you run on your machine. You can always inspect `install.sh` on the Gitlab repo here: https://gitlab.com/rogs/yams/-/blob/master/install.sh. You don't have to be a complete expert in `bash` (I'm definitely not lol), but if you have any experience with the Linux terminal you should be able to at understand what's happening.
+
 ### Cloning from Gitlab
 ```bash
 git clone https://gitlab.com/rogs/yams.git
