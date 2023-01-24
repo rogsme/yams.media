@@ -85,6 +85,14 @@ Then, we'll continue to the "Web UI" tab. There, we can set it so it won't ask f
 
 [![qbittorreft-4](/pics/qbittorrent-4.png)](/pics/qbittorrent-4.png)
 
+Now, on the "Advanced" tab, we need to set our Network interface to `tun0`, so it always uses the VPN connection and kills the connection if the VPN goes down for some reason.
+
+[![qbittorreft-5](/pics/qbittorrent-5.png)](/pics/qbittorrent-5.png)
+
+Finally, go to the bottom of the modal and click "Save".
+
+[![qbittorreft-6](/pics/qbittorrent-6.png)](/pics/qbittorrent-6.png)
+
 ## That's done!
 
 Excellent! Now we can move forward with [Radarr](/config/radarr).
