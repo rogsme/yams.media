@@ -112,7 +112,7 @@ Your media service is the one responsible for serving your files to your network
 By default, YAMS support 3 media services:
 - jellyfin (recommended, easier)
 - emby
-- plex (advanced, always online, slower)
+- plex (advanced, always online)
 ```
 It's time to configure the media service!
 
