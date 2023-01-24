@@ -76,6 +76,8 @@ Do you want YAMS to install docker and docker-compose? IT ONLY WORKS ON DEBIAN A
 ```
 You can choose `y` to install `docker` and `docker-compose` with YAMS or `n` to exit the script.
 
+**Note:** If you already have `docker` installed, make sure you can run it **without** sudo! If you run it with sudo and another user other than `root` you'll encounter multiple permission errors! You can find instructions on how to run `docker` without sudo here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
+
 When docker finishes the installation OR if you already had `docker` and `docker-compose` installed, you should see the following message at the bottom:
 
 ```bash
