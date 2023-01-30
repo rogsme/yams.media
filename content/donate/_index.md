@@ -42,6 +42,7 @@ I'm not doing this for the money, and thank God I don't need donations to keep t
 - [Bazarr](https://www.bazarr.media/).
 - [Prowlarr](https://github.com/Prowlarr/Prowlarr)
 - [gluetun](https://github.com/qdm12/gluetun).
+- [Portainer](https://www.portainer.io/).
 - [The entire /r/selfhosted subreddit](https://www.reddit.com/r/selfhosted/).
 - My friends:
   + [xploshioOn](https://github.com/xploshioOn).
