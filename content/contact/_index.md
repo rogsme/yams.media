@@ -12,7 +12,7 @@ You can join us here: [https://matrix.to/#/#yams:chat.rogs.me](https://matrix.to
 # You can contact me by:
 
 ## Email (preferred)
-`[roger at rogs.me]` - Replace `at` with the "at" symbol (fuck you, email bots)
+`[roger at rogs.me]` - Replace `at` with the "at" symbol (fuck you, email bots).
 
 My GPG key for encrypting mail:
 - gpg: `curl -sL https://rogs.me/rogs.txt | gpg --import`
