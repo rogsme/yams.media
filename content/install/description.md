@@ -32,15 +32,16 @@ In no particular order:
 
 ## What's installed with YAMS?
 
-- [qBittorrent](https://www.qbittorrent.org/)
-- [Radarr](https://radarr.video/)
-- [Sonarr](https://sonarr.tv/)
-- [Prowlarr](https://github.com/Prowlarr/Prowlarr)
-- [Bazarr](https://www.bazarr.media/)
+- [qBittorrent](https://www.qbittorrent.org/).
+- [Radarr](https://radarr.video/).
+- [Sonarr](https://sonarr.tv/).
+- [Prowlarr](https://github.com/Prowlarr/Prowlarr).
+- [Bazarr](https://www.bazarr.media/).
 - [Jellyfin](https://jellyfin.org/).
 - [Emby](https://emby.media/).
 - [Plex](https://www.plex.tv/).
-- [gluetun](https://github.com/qdm12/gluetun)
+- [gluetun](https://github.com/qdm12/gluetun).
+- [Portainer](https://www.portainer.io/).
 
 With this combination, you can create a fully functional media server that is going to download, categorize, subtitle, and serve your favorite shows and movies.
 
