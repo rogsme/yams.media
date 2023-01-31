@@ -45,5 +45,5 @@ In no particular order:
 - [Lidarr](https://lidarr.audio/).
 - [Readarr](https://readarr.com/).
 
-With this combination, you can create a fully functional media server that is going to download, categorize, subtitle, and serve your favorite shows and movies.
+With this combination, you can create a fully functional media server that is going to download, categorize, subtitle, and serve your favorite shows, movies, audio and books.
 
