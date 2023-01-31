@@ -14,45 +14,6 @@ From their [website](https://www.qbittorrent.org/):
 
 So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy!
 
-## First, check your VPN!
-
-If you configured your VPN correctly, it should be running. To test, run on your terminal:
-
-```bash
-$ yams check-vpn
-```
-
-If everything is working correctly, you should get a message like this:
-
-```bash
-Getting your qBittorrent IP...
-<qBittorrent IP>
-Your country in qBittorrent is Brazil
-
-Getting your IP...
-<your local IP>
-Your local IP country is North Korea
-
-Your IPs are different. qBittorrent is working as expected! ✅
-```
-If your VPN is working fine, move onward to the [Initial configuration](#initial-configuration).
-
-If the check fails (or you haven't configured the VPN), you'll see a message like this:
-
-```bash
-Getting your qBittorrent IP...
-<your local IP>
-Your country in qBittorrent is North Korea
-
-Getting your IP...
-<your local IP>
-Your local IP country is North Korea
-
-Your IPs are the same! qBittorrent is NOT working! ⚠️
-```
-
-**You should always run a VPN when downloading torrents!** You can manually set your VPN [here](/advanced/vpn/#manual-configuration) or you can run the YAMS installer again and use the automatic installer. Come back here after you have fixed this!
-
 ## Initial configuration
 
 In your browser, go to [http://{your-ip-address}:8080/]() and you'll see qBittorrent's admin page. The default username and password are:
@@ -92,6 +53,46 @@ Now, on the "Advanced" tab, we need to set our Network interface to `tun0`, so i
 Finally, go to the bottom of the modal and click "Save".
 
 [![qbittorreft-6](/pics/qbittorrent-6.png)](/pics/qbittorrent-6.png)
+
+## Check your VPN!
+
+If you configured your VPN correctly, it should be running. To test, run on your terminal:
+
+```bash
+$ yams check-vpn
+```
+
+If everything is working correctly, you should get a message like this:
+
+```bash
+Getting your qBittorrent IP...
+<qBittorrent IP>
+Your country in qBittorrent is Brazil
+
+Getting your IP...
+<your local IP>
+Your local IP country is North Korea
+
+Your IPs are different. qBittorrent is working as expected! ✅
+```
+If your VPN is working fine, move onward to [That's done!](#thats-done).
+
+If the check fails (or you haven't configured the VPN), you'll see a message like this:
+
+```bash
+Getting your qBittorrent IP...
+<your local IP>
+Your country in qBittorrent is North Korea
+
+Getting your IP...
+<your local IP>
+Your local IP country is North Korea
+
+Your IPs are the same! qBittorrent is NOT working! ⚠️
+```
+
+**You should always run a VPN when downloading torrents!** You can manually set your VPN [here](/advanced/vpn/#manual-configuration) or you can run the YAMS installer again and use the automatic installer. Come back here after you have fixed this!
+
 
 ## That's done!
 
