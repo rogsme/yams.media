@@ -18,8 +18,10 @@ Second, I would prefer you donate to any of the projects used in this script. Th
 - [Plex pass page](https://www.plex.tv/plex-pass/).
 - [qBittorrent donations page](https://www.qbittorrent.org/donate).
 - [Bazarr donations page](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url).
-- [Prowlarr donations page](https://opencollective.com/Prowlarr#sponsor)
+- [Prowlarr donations page](https://prowlarr.com/donate)
 - [gluetun donations page](https://www.paypal.me/qmcgaw).
+- [Lidarr donations page](https://lidarr.audio/donate).
+- [Readarr donations page](https://readarr.com/donate).
 
 Just let them know YAMS sent you there 😎
 
@@ -43,6 +45,8 @@ I'm not doing this for the money, and thank God I don't need donations to keep t
 - [Prowlarr](https://github.com/Prowlarr/Prowlarr)
 - [gluetun](https://github.com/qdm12/gluetun).
 - [Portainer](https://www.portainer.io/).
+- [Lidarr](https://lidarr.audio/).
+- [Readarr](https://readarr.com/).
 - [The entire /r/selfhosted subreddit](https://www.reddit.com/r/selfhosted/).
 - My friends:
   + [xploshioOn](https://github.com/xploshioOn).
