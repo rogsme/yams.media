@@ -215,6 +215,7 @@ Sonarr: http://192.168.0.169:8989/
 Bazarr: http://192.168.0.169:6767/
 Emby: http://192.168.0.169:8096/
 Portainer: http://192.168.0.169:9000/
+Lidarr: http://192.168.0.169:8686/
 
 You might need to wait for a couple of minutes while everything gets up and running
 
