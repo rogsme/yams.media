@@ -43,6 +43,7 @@ In no particular order:
 - [gluetun](https://github.com/qdm12/gluetun).
 - [Portainer](https://www.portainer.io/).
 - [Lidarr](https://lidarr.audio/).
+- [Readarr](https://readarr.com/).
 
 With this combination, you can create a fully functional media server that is going to download, categorize, subtitle, and serve your favorite shows and movies.
 
