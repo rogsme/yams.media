@@ -30,6 +30,7 @@ If you **really REALLY** want to donate to YAMS, you can donate here, but **only
 
 I'm not doing this for the money, and thank God I don't need donations to keep this project up and running. This is just a fun project I did for me and my friends 😀 
 
+- Paypal: https://paypal.me/rogsme21
 - BTC: [`bc1qn092rw6q5nwha093qau6xryk6u3g9uwvy4tgdu`](/pics/btc.png)
 - XMR: [`8B2QC3RPEqEhbUKKL96CGzZBqoDq8kjzd5uUVCTHvyG8fACh5up3Svz4iNKiGEoZTqUXt4cJHqC4EeaTmrbVVHXfRrrRcBq`](/pics/xmr.png)
 
