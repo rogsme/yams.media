@@ -12,31 +12,31 @@ YAMS uses [gluetun](https://github.com/qdm12/gluetun) for VPN.
 
 ## Official supported VPNs
 
-- [AirVPN](https://github.com/qdm12/gluetun/wiki/AirVPN)
-- [Cyberghost](https://github.com/qdm12/gluetun/wiki/Cyberghost)
-- [ExpressVPN](https://github.com/qdm12/gluetun/wiki/ExpressVPN)
-- [FastestVPN](https://github.com/qdm12/gluetun/wiki/FastestVPN)
-- [Hidemyass](https://github.com/qdm12/gluetun/wiki/Hidemyass)
-- [IPVanish](https://github.com/qdm12/gluetun/wiki/IPVanish)
-- [IVPN](https://github.com/qdm12/gluetun/wiki/IVPN)
-- [Mullvad](https://github.com/qdm12/gluetun/wiki/Mullvad) **(Recommended!)**
-- [NordVPN](https://github.com/qdm12/gluetun/wiki/NordVPN)
-- [Perfect privacy](https://github.com/qdm12/gluetun/wiki/Perfect-privacy)
-- [Privado](https://github.com/qdm12/gluetun/wiki/Privado)
-- [Private internet access](https://github.com/qdm12/gluetun/wiki/Private-internet-access)
-- [PrivateVPN](https://github.com/qdm12/gluetun/wiki/PrivateVPN)
-- [ProtonVPN](https://github.com/qdm12/gluetun/wiki/ProtonVPN)
-- [PureVPN](https://github.com/qdm12/gluetun/wiki/PureVPN)
-- [SlickVPN](https://github.com/qdm12/gluetun/wiki/SlickVPN)
-- [Surfshark](https://github.com/qdm12/gluetun/wiki/Surfshark)
-- [Torguard](https://github.com/qdm12/gluetun/wiki/Torguard)
-- [VPN Secure](https://github.com/qdm12/gluetun/wiki/VPN-Secure)
-- [VPN Unlimited](https://github.com/qdm12/gluetun/wiki/VPN-Unlimited)
-- [VyprVPN](https://github.com/qdm12/gluetun/wiki/VyprVPN)
-- [WeVPN](https://github.com/qdm12/gluetun/wiki/WeVPN)
-- [Windscribe](https://github.com/qdm12/gluetun/wiki/Windscribe)
+- [AirVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/airvpn.md)
+- [Cyberghost](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/cyberghost.md)
+- [ExpressVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/expressvpn.md)
+- [FastestVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/fastestvpn.md)
+- [Hidemyass](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/hidemyass.md)
+- [IPVanish](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/ipvanish.md)
+- [IVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/ivpn.md)
+- [Mullvad](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/mullvad.md) **(Recommended!)**
+- [NordVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/nordvpn.md)
+- [Perfect privacy](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/perfect-privacy.md)
+- [Privado](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/privado.md)
+- [Private internet access](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/private-internet-access.md)
+- [PrivateVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/privatevpn.md)
+- [ProtonVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md)
+- [PureVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/purevpn.md)
+- [SlickVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/slickvpn.md)
+- [Surfshark](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/surfshark.md)
+- [Torguard](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/torguard.md)
+- [VPN Secure](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/vpn-secure.md)
+- [VPN Unlimited](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/vpn-unlimited.md)
+- [VyprVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/vyprvpn.md)
+- [WeVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/wevpn.md)
+- [Windscribe](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/windscribe.md)
 
-You can also set up a [custom VPN provider](https://github.com/qdm12/gluetun/wiki/Custom-provider), but **this is not officially supported for YAMS. You are on your own here.**
+You can also set up a [custom VPN provider](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/Custom-provider), but **this is not officially supported for YAMS. You are on your own here.**
 
 ## Manual configuration
 
