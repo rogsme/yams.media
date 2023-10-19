@@ -73,7 +73,6 @@ Then, at the bottom, find the `gluetun` config and make the following changes:
       - VPN_TYPE=openvpn
       - OPENVPN_USER=<vpn_user> # -> Replace "<vpn_user>" with your VPN username
       - OPENVPN_PASSWORD=<vpn_password> # -> Replace "<vpn_password>" with your VPN password
-      - SERVER_COUNTRIES=<vpn_country> # -> Replacee "<vpn_country>" with your VPN country
 ```
 
 Now, restart `YAMS`:

@@ -166,13 +166,6 @@ What's your VPN password? (if you are using mullvad, just enter your username ag
 ```
 Then, enter your VPN password. The script is going to output `*` characters to hide your password, so don't worry about leaking your password on the screen.
 
-```
-What country do you want to use?
-You can check the countries list for your VPN here: <url> [brazil]:
-```
-
-Select a country for the VPN to connect to. You can always check your VPN server list in [their documentation](/advanced/vpn#official-supported-vpns). You should choose a country that is close to yours, or you can even choose your own country if it's available. The closer the server is, the better speeds you'll get. If you don't choose anything, the installer its going to default to Brazil.
-
 ### Finishing the installation
 
 ```bash
