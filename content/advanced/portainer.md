@@ -2,7 +2,7 @@
 title: "Portainer"
 date: 2023-01-30T15:46:05-03:00
 draft: false
-weight: 4
+weight: 5
 summary: Deploy, configure, troubleshoot and secure containers in minutes on Kubernetes, Docker, Swarm and Nomad in any data center, cloud, network edge or IIOT device.  
 ---
 

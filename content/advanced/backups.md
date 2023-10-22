@@ -2,7 +2,7 @@
 title: "Backups"
 date: 2023-01-17T19:38:39-03:00
 draft: false
-weight: 3
+weight: 4
 summary: Backup your YAMS configuration.
 ---
 

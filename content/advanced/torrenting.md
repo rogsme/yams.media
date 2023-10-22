@@ -2,7 +2,7 @@
 title: "Torrenting"
 date: 2023-01-16T14:48:14-03:00
 draft: false
-weight: 2
+weight: 3
 summary: Advanced torreting advices.
 ---
 
