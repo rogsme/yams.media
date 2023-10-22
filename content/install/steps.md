@@ -44,7 +44,7 @@ Make sure you can run `docker` **without** `sudo`!
 
 If you run `docker` with `sudo` and another user other than `root` you'll encounter multiple permission errors. You can find instructions on how to run `docker` without `sudo` here: https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user.
 
-If you can run `docker run hello-world` without `sudo`, you can continue. If you encounter any other `docker` issue, go to the [FAQs](/faqs/), there's a section on "Common `docker` permission errors".
+If you can run `docker run hello-world` without `sudo`, you can continue. If you encounter any other `docker` issue, go here: [Common docker permission errors](/faqs/common-errors/#common-docker-permission-errors).
 
 ### Inspecting the `install` script by yourself (optional).
 
