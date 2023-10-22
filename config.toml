@@ -53,6 +53,11 @@ summaryLength = 30
     weight = 7
 
 [[menu.main]]
+    name = "Forum"
+    url = "https://forum.yams.media"
+    weight = 98
+
+[[menu.main]]
     name = "Matrix"
     url = "https://matrix.to/#/#yams:chat.rogs.me"
     weight = 99

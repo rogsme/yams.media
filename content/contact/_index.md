@@ -9,6 +9,10 @@ weight: 100
 
 You can join us here: [https://matrix.to/#/#yams:chat.rogs.me](https://matrix.to/#/#yams:chat.rogs.me).
 
+# Also, YAMS has a forum now!
+
+Go here: [https://forum.yams.media](https://forum.yams.media/).
+
 # You can contact me by:
 
 ## Email (preferred)
