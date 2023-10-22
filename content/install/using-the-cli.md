@@ -26,6 +26,7 @@ stop       stops all yams services
 start      starts yams services
 destroy    destroy yams services so you can start from scratch
 check-vpn  checks if the VPN is working as expected
+update     updates YAMS
 ```
 
 Everything is very self-explanatory, but I'll go in more detail here:
@@ -35,6 +36,7 @@ Everything is very self-explanatory, but I'll go in more detail here:
 - `start`: Starts all the services.
 - `destroy`: Destroys all the services so you can start the configuration from scratch. ⚠️ Be careful! ⚠️ There's no going back after this!
 - `check-vpn`: Checks the IP of the qBittorrent service and compares it to your own IP. If they are the same, it's going to warn you.
+- `update`: Updates YAMS to the latest version available in the git repository.
 
 
 If you get a `docker` permission error trying to use the CLI, go [here](/faqs/) to fix it.
