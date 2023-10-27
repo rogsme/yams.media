@@ -70,8 +70,8 @@ summaryLength = 30
 
 [params]
   homepage_button_link = '/install'
-  homepage_button_text = 'Install YAMS'
-  homepage_intro = 'YAMS is a basic but powerful media server, easy to install in a bash script'
+  homepage_button_text = 'Learn more'
+  homepage_intro = 'YAMS is a basic but powerful media server installation script'
   homepage_image = '/install-yams.gif'
   mainSections = ['install', 'config', 'faqs', 'donate', 'contact', 'advanced']
 
@@ -84,7 +84,7 @@ summaryLength = 30
     meta_og_type = "website"
     meta_og_url = "https://yams.media"
     meta_og_image = "/pics/logo.png"
-    meta_og_description = "YAMS is a basic but powerful media server, easy to install in a bash script"
+    meta_og_description = "YAMS is a basic but powerful media server installation script"
 
   [params.logo]
       standard  = "/pics/logo.png"
