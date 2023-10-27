@@ -75,3 +75,7 @@ If everything is fine, click on "Save". You should see your download client adde
 ## Moving forward!
 
 That's it! Now we can continue with [Prowlarr](/config/prowlarr).
+
+## Do you want a more in depth configuration?
+
+If you want a more in depth configuration, I recommend you check the [TRaSH Guide for Sonarr](https://trash-guides.info/Sonarr/).

@@ -131,3 +131,7 @@ Now, if you go back to Sonarr and Radarr, and check their "Indexer" settings, yo
 ## Move forward
 
 Now you can move with the configuration. [Bazarr](/config/bazarr) is next!
+
+## Do you want a more in depth configuration?
+
+If you want a more in depth configuration, I recommend you check the [TRaSH Guide for Prowlarr](https://trash-guides.info/Prowlarr/).

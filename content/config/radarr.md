@@ -73,3 +73,7 @@ If everything is fine, click on "Save". You should see your download client adde
 ## Moving forward!
 
 Looking good! Now we can continue with [Sonarr](/config/sonarr).
+
+## Do you want a more in depth configuration?
+
+If you want a more in depth configuration, I recommend you check the [TRaSH Guide for Radarr](https://trash-guides.info/Radarr/).

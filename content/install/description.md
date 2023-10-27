@@ -6,7 +6,7 @@ weight: 1
 summary: A brief summary on what YAMS is and its features
 ---
 
-YAMS is a **highly opinionated** media server.
+YAMS is a **highly opinionated** media server installation script.
 
 With YAMS you'll be able to automate your media gathering, organization, and consumption.
 

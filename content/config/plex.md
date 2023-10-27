@@ -156,3 +156,7 @@ There, you should find your local "Movies" and "TV Shows".
 ## That's all!
 
 YAMS is fully up and running! Now, let's add some content. Move on to [Running everything together](/config/running-everything-together).
+
+## Do you want a more in depth configuration?
+
+If you want a more in depth configuration, I recommend you check the [TRaSH Guide for Plex](https://trash-guides.info/Plex/).

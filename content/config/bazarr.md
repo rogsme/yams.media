@@ -175,3 +175,7 @@ Only one more step left! Continue with your media service. Depending on what you
 - [Jellyfin](/config/jellyfin).
 - [Emby](/config/emby).
 - [Plex](/config/plex).
+
+## Do you want a more in depth configuration?
+
+If you want a more in depth configuration, I recommend you check the [TRaSH Guide for Bazarr](https://trash-guides.info/Bazarr/).
