@@ -8,6 +8,8 @@ summary: A brief summary on what YAMS is and its features
 
 YAMS is a **highly opinionated** media server installation script.
 
+It includes all the essential *arr apps, along with exceptionally detailed documentation. In just a few minutes, you can have a fully functional media server with Sonarr, Radarr, Jellyfin, qBittorrent, and more! 
+
 With YAMS you'll be able to automate your media gathering, organization, and consumption.
 
 ## First, why?
