@@ -51,9 +51,12 @@ If you can run `docker run hello-world` without `sudo`, you can continue. If you
 Its always a good practice to verify and study the scripts you run on your machine. You can always inspect `install.sh` on the Gitlab repo here: https://gitlab.com/rogs/yams/-/blob/master/docs.org. You don't have to be a complete expert in `bash` (I'm definitely not lol), but if you have any experience with the Linux terminal you should be able to at understand what's happening.
 
 ### Cloning from Gitlab
+
+To install YAMS, please clone the installer to a location outside your chosen installation directory. I recommend using `/tmp/yams`.
+
 ```bash
-git clone https://gitlab.com/rogs/yams.git
-cd yams
+git clone --depth=1 https://gitlab.com/rogs/yams.git /tmp/yams
+cd /tmp/yams
 ```
 
 ### Installing YAMS
