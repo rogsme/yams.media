@@ -9,7 +9,7 @@ summary: First steps to install YAMS on your server
 
 This script only depends on:
 
-- Debian 11 (recommended) or Ubuntu 22.04.
+- Debian 11/12 (recommended) or Ubuntu 22.04.
 - [docker](https://www.docker.com/).
 - [docker-compose](https://docs.docker.com/compose/).
 
