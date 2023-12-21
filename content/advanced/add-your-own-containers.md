@@ -23,7 +23,7 @@ To add your containers, you'll have a few environment variables available:
 - `PUID`: Your PUID.
 - `PGID`: Your PGID.
 - `MEDIA_DIRECTORY`: Your media directory.
-- `INSTALL_LOCATION`: Your install location.
+- `INSTALL_DIRECTORY`: Your install location.
 
 # Adding a container
 
@@ -44,7 +44,7 @@ services: # -> Uncomment this line! (remove the "#" in front of it)
       - PUID=${PUID} # Note how I'm using the env variables here
       - PGID=${PGID} # Note how I'm using the env variables here
     volumes:
-      - ${INSTALL_LOCATION}/config/overseer:/config # Note how I'm using the env variables here
+      - ${INSTALL_DIRECTORY}/config/overseer:/config # Note how I'm using the env variables here
     ports:
       - 5055:5055
     restart: unless-stopped

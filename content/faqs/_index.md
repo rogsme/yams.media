@@ -20,3 +20,9 @@ You might have success running YAMS manually in Windows with `docker`, but I rec
 ## YAMS's configuration is too basic. I want more!
 
 And you shall receive! If you want a more deep configuration, I strongly recommend you checking out [TRaSH Guides](https://trash-guides.info/). The configurations there are extensive and very specific, I strongly recommend them!
+
+## Can I add more containers to the VPN network?
+
+Yes, you can!
+
+Go to [this link](https://github.com/qdm12/gluetun-wiki/blob/main/setup/connect-a-container-to-gluetun.md) and follow the instructions! For reference, your docker-compose file should be in `your/install/location/docker-compose.yaml`. If you used the default install location, it should be in `/opt/yams/docker-compose.yaml`.

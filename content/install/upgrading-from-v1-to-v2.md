@@ -51,7 +51,7 @@ Here's how it should look:
 PUID=1000
 PGID=1000
 MEDIA_DIRECTORY=/srv/media
-INSTALL_LOCATION=/opt/yams
+INSTALL_DIRECTORY=/opt/yams
 MEDIA_SERVICE=jellyfin
 
 # VPN configuration
@@ -76,7 +76,7 @@ sed -i -e "s|<filename>|/opt/yams/docker-compose.yaml|g" yams
                       # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ REPLACE THE FIRST LINE HERE BETWEEN THE "|"
 sed -i -e "s|<custom_file_filename>|/opt/yams/docker-compose.custom.yaml|g" yams
                                   # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ REPLACE THE SECOND LINE HERE BETWEEN THE "|"
-sed -i -e "s|<install_location>|/opt/yams|g" yams
+sed -i -e "s|<install_DIRECTORY>|/opt/yams|g" yams
                                # ^^^^^^^^^ REPLACE THE THIRD LINE HERE BETWEEN THE "|"
 ```
 
