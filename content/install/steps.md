@@ -10,8 +10,15 @@ summary: First steps to install YAMS on your server
 This script only depends on:
 
 - Debian 11/12 (recommended) or Ubuntu 22.04.
-- [docker](https://www.docker.com/).
-- [docker-compose](https://docs.docker.com/compose/).
+  + If you are using Ubuntu **make sure you are NOT installing the snap version of docker.** The snap version runs in a sandbox and doesn't have access to the OS.
+  If you run `which docker` and get this output:
+  ```
+  $ which docker
+  /snap/bin/docker
+  ```
+  You **won't** be able to install YAMS. ⚠️
+- [docker](https://www.docker.com/). If you don't have it installed, YAMS is going to install it for you.
+- [docker-compose](https://docs.docker.com/compose/). If you don't have it installed, YAMS is going to install it for you.
 
 If you haven’t installed `docker` and `docker-compose`, don’t worry! The script will attempt to run both installations (it only works in Debian and Ubuntu!)
 
