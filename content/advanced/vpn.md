@@ -36,7 +36,7 @@ YAMS uses [gluetun](https://github.com/qdm12/gluetun) for VPN.
 - [WeVPN](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/wevpn.md)
 - [Windscribe](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/windscribe.md)
 
-You can also set up a [custom VPN provider](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/Custom-provider), but **this is not officially supported for YAMS. You are on your own here.**
+You can also set up a [custom VPN provider](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/custom.md), but **this is not officially supported for YAMS. You are on your own here.**
 
 ## Manual configuration
 
