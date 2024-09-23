@@ -55,7 +55,7 @@ If you can run `docker run hello-world` without `sudo`, you can continue. If you
 
 ### Inspecting the `install` script by yourself (optional).
 
-Its always a good practice to verify and study the scripts you run on your machine. You can always inspect `install.sh` on the Gitlab repo here: https://gitlab.com/rogs/yams/-/blob/master/docs.org. You don't have to be a complete expert in `bash` (I'm definitely not lol), but if you have any experience with the Linux terminal you should be able to at understand what's happening.
+Its always a good practice to verify and study the scripts you run on your machine. You can always inspect [`install.sh`](https://gitlab.com/rogs/yams/-/blob/master/install.sh?ref_type=heads) script in the Gitlab repo here: https://gitlab.com/rogs/yams/-/blob/master/docs.org. You don't have to be a complete expert in `bash` (I'm definitely not lol), but if you have any experience with the Linux terminal you should be able to at least understand what's happening.
 
 ### Cloning from Gitlab
 
