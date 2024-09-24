@@ -7,7 +7,7 @@ weight: 100
 
 ## YAMS Official Chats
 
-- Discord: [https://discord.gg/cpnAm2Mu](https://discord.gg/cpnAm2Mu).
+- Discord: [https://discord.gg/Gwae3tNMST](https://discord.gg/Gwae3tNMST).
 - Matrix: [https://matrix.to/#/#yams-space:chat.rogs.me](https://matrix.to/#/#yams-space:chat.rogs.me).
 - IRC: [libera.chat: #yams-chat IRC channel](ircs://irc.libera.chat/#yams-chat)
 

@@ -15,7 +15,7 @@ Because. That's why it's _**opinionated**_, you don't _necessarily_ have to agre
 
 ## I want to use YAMS in Windows. Can I do that?
 
-You might have success running YAMS manually in Windows with `docker`, but I recommend you check out [WIMPS](https://github.com/Xaque8787/WIMPS), a YAMS inspired setup for Windows. According to its developer [/u/zachfive87](https://www.reddit.com/user/zachfive87/), "WIMPS isn't a finished project and is very rough around the edges" but you'll might have more success running WIMPS in Windows.
+You might have success running YAMS manually in Windows with `docker`, but I recommend you check out [WIMPS](https://github.com/Xaque8787/WIMPS), a YAMS inspired setup for Windows. Although the project has been archived, it could provide a better starting point than YAMS.
 
 ## YAMS's configuration is too basic. I want more!
 
