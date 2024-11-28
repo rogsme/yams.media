@@ -7,9 +7,8 @@ weight: 100
 
 ## YAMS Official Chats
 
+- Matrix: [https://matrix.to/#/#yams-space:rogs.me](https://matrix.to/#/#yams-space:rogs.me).
 - Discord: [https://discord.gg/Gwae3tNMST](https://discord.gg/Gwae3tNMST).
-- Matrix: [https://matrix.to/#/#yams-space:chat.rogs.me](https://matrix.to/#/#yams-space:chat.rogs.me).
-- IRC: [libera.chat: #yams-chat IRC channel](ircs://irc.libera.chat/#yams-chat)
 
 ## Also, YAMS has a forum now!
 
