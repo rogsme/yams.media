@@ -119,4 +119,4 @@ Your IPs are the same! qBittorrent is NOT working! ⚠️
 
 ## That's done!
 
-Excellent! Now we can move forward with [Radarr](/config/radarr).
+Excellent! Now we can move forward with [SABnzbd](/config/sabnzbd).
