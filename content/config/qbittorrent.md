@@ -16,13 +16,32 @@ So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy!
 
 ## Initial configuration
 
+In your terminal, go to the yams install location:
+```sh 
+cd /your/install/location
+```
+
+And run:
+```sh 
+docker compose logs qbittorrent
+```
+
+You'll see the qbittorrent username and password in the logs:
+```
+qbittorrent  | ******** Information ********
+qbittorrent  | To control qBittorrent, access the WebUI at: http://localhost:8081
+qbittorrent  | The WebUI administrator username is: admin
+qbittorrent  | The WebUI administrator password was not set. A temporary password is provided for this session: FBFsKbfbD
+qbittorrent  | You should set your own password in program preferences.
+qbittorrent  | Connection to localhost (::1) 8081 port [tcp/tproxy] succeeded!
+```
+
 In your browser, go to [http://{your-ip-address}:8081/]() and you'll see qBittorrent's admin page. The default username and password are:
 
 ```sh
 username: admin
-password: adminadmin
+password: your-temporary-password-from-the-logs
 ```
-I know, super safe.
 
 [![qbittorrent-1](/pics/qbittorrent-1.png)](/pics/qbittorrent-1.png)
 
@@ -45,6 +64,10 @@ For the purposes of this tutorial, we'll leave it at 0, but if you want you can 
 Then, we'll continue to the "Web UI" tab. There, we can set it so it won't ask for a password if we are accessing it from the same subnet. This is not required but recommended.
 
 [![qbittorreft-4](/pics/qbittorrent-4.png)](/pics/qbittorrent-4.png)
+
+We can also change the admin password on this page:
+
+[![qbittorreft-7](/pics/qbittorrent-7.png)](/pics/qbittorrent-7.png)
 
 Now, on the "Advanced" tab, we need to set our Network interface to `tun0`, so it always uses the VPN connection and kills the connection if the VPN goes down for some reason.
 
