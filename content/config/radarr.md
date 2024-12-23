@@ -68,7 +68,7 @@ On the "Add Download Client" screen, scroll down and click on "qBittorrent".
 - On Host, add your server IP address (in my case, `192.168.0.169`).
 - On Port, change it to 8081.
 - On Username, add `admin`.
-- On Password, add `your-password`.
+- On Password, add `your-qbittorrent-password`.
 
 [![radarr-15](/pics/radarr-15.png)](/pics/radarr-15.png)
 
