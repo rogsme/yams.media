@@ -16,7 +16,16 @@ In YAMS, Radarr is going to manage all our movies, download them, sort them, etc
 
 ## Initial configuration
 
-In your browser, go to [http://{your-ip-address}:7878/]() and you'll see Radarr's empty page. You'll also notice you have 3 messages on the system tab, but we'll deal with them later.
+In your browser, go to [http://{your-ip-address}:7878/](). You'll see the authentication configuration page. 
+
+- Select "Forms (Login Page)" as the "Authentication Method".
+- In "Authentication Required" select "Disabled for Local Addresses".
+
+Fill it in with your information and click on save:
+
+[![radarr-18](/pics/radarr-18.png)](/pics/radarr-18.png)
+
+Then you'll see Radarr's empty page. You'll also notice you have 3 messages on the system tab, but we'll deal with them later.
 
 [![radarr-1](/pics/radarr-1.png)](/pics/radarr-1.png)
 
@@ -33,11 +42,11 @@ At the bottom of the same screen, go to "Root folders" and click on "Add Root Fo
 
 [![radarr-3](/pics/radarr-3.png)](/pics/radarr-3.png)
 
-And add the `/movies/` folder
+And add the `/data/movies/` folder
 
 [![radarr-4](/pics/radarr-4.png)](/pics/radarr-4.png)
 
-**Note:** This is NOT on your filesystem! The `/movies/` folder exists inside the `docker` environment and maps to your server `/mediafolder/movies/` folder!
+**Note:** This is NOT on your filesystem! The `/data/movies/` folder exists inside the `docker` environment and maps to your server `/mediafolder/media/movies/` folder!
 
 Finally, click on "Save Changes".
 
@@ -57,8 +66,9 @@ On the "Add Download Client" screen, scroll down and click on "qBittorrent".
 
 - In Name, add the name of your download client (qBittorrent).
 - On Host, add your server IP address (in my case, `192.168.0.169`).
+- On Port, change it to 8081.
 - On Username, add `admin`.
-- On Password, add `adminadmin`.
+- On Password, add `your-password`.
 
 [![radarr-15](/pics/radarr-15.png)](/pics/radarr-15.png)
 
