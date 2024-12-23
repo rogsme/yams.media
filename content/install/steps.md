@@ -32,7 +32,7 @@ Before installing, make sure you have:
   + `/srv/media/downloads`: For your torrent downloads.
   + `/srv/media/blackhole`: For your torrents blackhole.
 - **A regular user to run and own the media files:** You shouldn’t use `root` for this user, but I’m not your father, nothing is going to stop you lol.
-- **A VPN service (optional but STRONGLY recommended):** If you can, choose one from [this list](/advanced/vpn#official-supported-vpns). The VPN I always recommend is [Mullvad](https://mullvad.net/en/) for reasons I will explain later in the installation process.
+- **A VPN service (optional but STRONGLY recommended):** If you can, choose one from [this list](/advanced/vpn#official-supported-vpns). The VPN I always recommend is [ProtonVPN](https://protonvpn.com/).
 
 ## To install
 
@@ -141,7 +141,7 @@ It's time to configure the media service!
 
 By default, YAMS supports 3 big media services:
 - [Jellyfin](https://jellyfin.org) (recommended): In my opinion, Jellyfin is the best one. It's fast, easy to configure and Open Source.
-- [Emby](https://emby.media): Emby its the one I use on my local config. It's very similar to Jellyfin (Jellyfin is a fork of Emby), and it has almost the same funtionalities. The reason I'm not recommending it is because it has a paid plan and it's closed source.
+- [Emby](https://emby.media): Emby its the one I use on my local config. It's very similar to Jellyfin (Jellyfin is a fork of Emby), and it has almost the same functionalities. The reason I'm not recommending it is because it has a paid plan and it's closed source.
 - [Plex](https://plex.tv): I only recommend Plex to advanced users or people who need all the extra stuff it provides, because the interface and all the services might be a little overwhelming if this is your first time with a home server. I don’t like it that much because it’s always online, and it has more functionalities than I need. Also, at least in YAMS, it’s the hardest to configure. But if you want to share your media server with other people easily, Plex is the way to go! Jellyfin and Emby can share media outside your network, but they are a little more complicated to configure.
 
 Type one from the list and press [ENTER]. If you don't choose anything, the installer is going to default to Jellyfin.
@@ -153,23 +153,19 @@ You can check the supported VPN list here: https://yams.media/advanced/vpn.
 Do you want to configure a VPN? [Y/n]:
 ```
 
-Now it's time to configure the VPN. The automatic installer supports all the VPNs on [this list](/advanced/vpn#official-supported-vpns), but **I strongly recommend using Mullvad**. Why?:
-- They don't require your email or information to create a new account.
-- It's simple to configure.
-- They only have monthly subscriptions, so you can leave them whenever you want.
-- You can pay with crypto.
+Now it's time to configure the VPN. The automatic installer supports all the VPNs on [this list](/advanced/vpn#official-supported-vpns), but **I strongly recommend using ProtonVPN** because it's easy to setup port forwarding later on.
 
 If want to configure a VPN, select `Y` and continue with these instructions. If you don't have a VPN or don't want to use a VPN, choose `N` and move to [finishing the installation](#finishing-the-installation). You can set your VPN later in the [qBittorrent configuration](/config/qbittorrent). **You should always use a VPN when downloading torrents!**
 
 ```bash
-What's your VPN service? (with spaces) [mullvad]:
+What's your VPN service? (with spaces) [protonvpn]:
 ```
 
 First, select your VPN provider. You can go to [this list](/advanced/vpn#official-supported-vpns) and verify the name of your VPN.
 
 ```bash
-You should read mullvad's documentation in case it has different configurations for username and password.
-The documentation for mullvad is here: https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/mullvad.md
+You should read protonvpn's documentation in case it has different configurations for username and password.
+The documentation for protonvpn is here: https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md
 What's your VPN username? (without spaces):
 ```
 Now, just enter your VPN username. If it has spaces, delete them.

@@ -22,22 +22,6 @@ This problem arises because your user must be part of the `docker` group to exec
 
 # qBittorrent
 
-## qBittorrent has suddenly lost its internet connection
-
-Sometimes, Gluetun disconnects with no apparent reason. It usually comes back after a minute or so, but qBittorrent may not recover as expected.
-
-A helpful workaround is to create a cron job that monitors the status of qBittorrent and restarts it if necessary.
-
-To open your crontab, use the following command: `crontab -e`
-
-Now, paste the following line at the bottom:
-
-```bash
-* * * * * /usr/bin/docker exec qbittorrent curl -s https://am.i.mullvad.net/connected || /usr/bin/docker restart qbittorrent
-```
-
-This script will check every minute whether qBittorrent has an internet connection. If it doesn't, the script will automatically restart it.
-
 ## qBittorrent is not accessible
 
 If you [configured the VPN](/install/steps/#vpn), go to [Gluetun does not connect](#gluetun-does-not-connect)
