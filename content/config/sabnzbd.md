@@ -45,6 +45,18 @@ On the settings page, click on "Folders" and:
 
 [![sabnzbd-5](/pics/sabnzbd-5.png)](/pics/sabnzbd-5.png)
 
+## Getting your API key for Sonarr and Radarr
+
+To get your API key:
+
+First, go to the settings
+
+[![sabnzbd-4](/pics/sabnzbd-4.png)](/pics/sabnzbd-4.png)
+
+Then, go to "General" and scroll down to "Security". You'll find your API Key there.
+
+[![sabnzbd-6](/pics/sabnzbd-6.png)](/pics/sabnzbd-6.png)
+
 ## That's done!
 
 Excellent! Now we can move forward with [Radarr](/config/radarr).
