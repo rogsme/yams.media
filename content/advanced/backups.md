@@ -8,66 +8,73 @@ summary: Backup your YAMS configuration.
 
 Your YAMS configuration is located in your YAMS install directory.
 
-## Create a backup
+## Create a Backup
 
-For the purposes of this tutorial, I'll assume your YAMS install directory is `/opt/yams`, and that you want to create a backup on your `~` directory.
-
-First, go to the YAMS install directory and do a `ls`. You should see the `config` folder right there:
+To create a backup, run:
 
 ```bash
-$ cd /opt/yams/
-/opt/yams$ ls
-
-# Output
-config  docker-compose.yaml
+yams backup [destination]
 ```
 
-To create a backup, just run:
+Where the destination is the location where you want the `.tar.gz` file to be saved. For example:
 
 ```bash
-/opt/yams/config$ tar -czvf ~/yams-backup.tar.gz config/*
+yams backup ~/backups/
 ```
 
-`tar` is going to compress and create a `.tar.gz` file called `yams-backup.tar.gz` on the `~` directory.
-
-Remember you should store your backups in a secure location!
-
-## Restore a backup
-
-For the purposes of this tutorial, I'll assume your YAMS install directory is `/opt/yams`, and that the backup is located in `~/yams-backup.tar.gz`.
-
-To restore a backup, first stop YAMS:
+The output will be:
 
 ```bash
-$ yams stop
+Stopping YAMS services...
+
+Backing up YAMS to /home/roger...
+This may take a while depending on the size of your installation.
+Please wait... ⌛
+
+Backup completed! 🎉
+Starting YAMS services...
+
+Backup completed successfully! 🎉
+Backup file: /home/roger/yams-backup-2024-12-23-1734966570.tar.gz
 ```
 
-Then, go to your YAMS install directory and delete everything inside the `config` folder.
+## Restore a Backup
+
+Restoring a backup is simple:
+
+1. Extract your backup in the new location and `cd` into it:
 
 ```bash
-$ cd /opt/yams
-/opt/yams$ rm -r config/*
+tar -xzvf your-backup.tar.gz /your/new/location
+cd /your/new/location
 ```
 
-Now, untar the backup file on your YAMS install directory.
+2. Edit the YAMS binary with the new information. You don't have to use `vim`; you can use your favorite text editor:
 
 ```bash
-/opt/yams$ tar -xzvf ~/yams-backup.tar.gz
+vim yams
 ```
 
-If you see all the folders inside the `config` directory, it means it worked!
+3. Update `your/install/location` with your new install location:
 
 ```bash
-/opt/yams$ ls config
+set -euo pipefail
 
-# Output
-bazarr  emby  gluetun  prowlarr  qbittorrent  radarr  sonarr
+dc="docker compose -f your/install/location/docker-compose.yaml -f your/install/location/docker-compose.custom.yaml"  # -> Change this!
+install_directory="your/install/location" # -> Change this!
 ```
 
-Finally, restart YAMS
+4. Move the `yams` script to `/usr/local/bin/`:
 
 ```bash
-/opt/yams$ yams start
+sudo cp yams /usr/local/bin/
 ```
 
-Everything should be running as expected, with your backup up and running!
+5. Start YAMS:
+
+```bash
+yams start
+```
+
+And that's it! YAMS should now be up and running.
+
