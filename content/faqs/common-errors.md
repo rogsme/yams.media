@@ -42,4 +42,4 @@ This command will display the last 100 lines of the Gluetun logs.
 
 Many of the issues arise due to misconfigurations in your VPN setup. Please review the documentation for your VPN by clicking [here](/advanced/vpn).
 
-Review the logs to try and find a solution. If you require assistance, feel free to join our Matrix chat and ask for help!
+Review the logs to try and find a solution. If you require assistance, feel free to join our [Matrix](https://matrix.to/#/#yams-space:rogs.me) or [Discord](https://discord.gg/Gwae3tNMST) chat and ask for help!

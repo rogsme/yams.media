@@ -3,18 +3,18 @@ title: "Upgrading YAMS from version 1 to version 2 (Advanced)"
 date: 2023-10-25T19:19:19-03:00
 draft: false
 weight: 4
-summary: Are you running YAMS v1? Here's the guide to upgrade YAMS to v2!
+summary: Are you running YAMS V1? Here's the guide to upgrade YAMS to V2!
 ---
 
 # First, a brief disclaimer
 
-I want to make this very clear: **This is entirely optional!** I will continue to support YAMS v1 as well as YAMS v2.
+I want to make this very clear: **This is entirely optional!** I will continue to support YAMS V1 as well as YAMS V2.
 
-If you are completely happy with YAMS v1, or have a heavily modified setup, you can skip this tutorial!
+If you are completely happy with YAMS V1, or have a heavily modified setup, you can skip this tutorial!
 
 ## What are the advantages?
 
-- YAMS v2 introduces a new command: `yams upgrade`. It allows YAMS to upgrade itself.
+- YAMS V2 introduces a new command: `yams update`. It allows YAMS to update itself.
 - Adding custom containers is now easier. You can find the tutorial here: [Add your own containers](/advanced/add-your-own-containers/).
 
 # Before starting
@@ -34,7 +34,7 @@ cd ~/yams_upgrade
 
 ## Setup .env.example
 
-Begin by opening the `.env.example` file. Add your correct information to the file. All this information is currently available in your YAMS v1 `docker-compose.yaml` file.
+Begin by opening the `.env.example` file. Add your correct information to the file. All this information is currently available in your YAMS V1 `docker-compose.yaml` file.
 
 For the purposes of this tutorial:
 
@@ -76,7 +76,7 @@ sed -i -e "s|<filename>|/opt/yams/docker-compose.yaml|g" yams
                       # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ REPLACE THE FIRST LINE HERE BETWEEN THE "|"
 sed -i -e "s|<custom_file_filename>|/opt/yams/docker-compose.custom.yaml|g" yams
                                   # ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ REPLACE THE SECOND LINE HERE BETWEEN THE "|"
-sed -i -e "s|<install_DIRECTORY>|/opt/yams|g" yams
+sed -i -e "s|<install_directory>|/opt/yams|g" yams
                                # ^^^^^^^^^ REPLACE THE THIRD LINE HERE BETWEEN THE "|"
 ```
 
@@ -84,7 +84,7 @@ sed -i -e "s|<install_DIRECTORY>|/opt/yams|g" yams
 
 Move your custom containers to `docker-compose.custom.yaml`. If you need help, you can use this tutorial from the "Adding a container" section: [Add your own containers - Adding a container](/advanced/add-your-own-containers/#adding-a-container).
 
-# Finish the upgrade
+# Finish the update
 
 First, you need to stop YAMS. Run:
 
@@ -127,7 +127,7 @@ cp $(which yams) yams-old
 sudo cp yams $(which yams)
 ```
 
-### Run the upgrade!
+### Run the update!
 
 Now it's the time to execute the update!
 
@@ -139,6 +139,6 @@ Everything should be up and running!
 
 # That's done!
 
-YAMS should start back up again, and everything should be working as expected with the difference that now YAMS can be upgraded by using `yams upgrade`.
+YAMS should start back up again, and everything should be working as expected with the difference that now YAMS can be updated by using `yams update`.
 
-If you have any issues upgrading from v1 to v2, you can create a new post in our forum: [YAMS Forum: Upgrading YAMS from v1 to v2](https://forum.yams.media/viewforum.php?f=26)
+If you have any issues upgrading from V1 to V2, you can create a new post in our forum: [YAMS Forum: Upgrading YAMS from V1 to V2](https://forum.yams.media/viewforum.php?f=26)
