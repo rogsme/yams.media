@@ -9,7 +9,12 @@ summary: First steps to install YAMS on your server
 
 This script only depends on:
 
-- Debian 11/12 (recommended) or Ubuntu 22.04.
+- Debian 12 (recommended) or Ubuntu 22.04. If your OS is not ready, you need to figure that out first. Here are some guides:
+  + https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-11
+  + https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
+- Your OS must be fully configured. That means:
+  + You have a user that is not `root`.
+  + You can run `sudo apt update` and `sudo apt upgrade` without errors.
   + If you are using Ubuntu **make sure you are NOT installing the snap version of docker.** The snap version runs in a sandbox and doesn't have access to the OS.
   If you run `which docker` and get this output:
   ```
