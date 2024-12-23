@@ -28,7 +28,7 @@ When you have your server information ready, click on "Next".
 
 You should now see the final page on the wizard, congratulations!
 
-You'll also notice that the Completed and Incompleted download folders are not in the right location. We'll fix that in a bit.
+You'll also notice that the Completed and Uncompleted download folders are not in the right location. We'll fix that in a bit.
 
 Finally, click on "Go to SABnzbd".
 
@@ -46,6 +46,8 @@ On the settings page, click on "Folders" and:
 [![sabnzbd-5](/pics/sabnzbd-5.png)](/pics/sabnzbd-5.png)
 
 ## Getting your API key for Sonarr and Radarr
+
+This will be used for setting up Radarr and Sonarr. Feel free to skip this for now, it will come back later.
 
 To get your API key:
 
