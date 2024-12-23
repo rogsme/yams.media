@@ -16,7 +16,16 @@ In YAMS, Sonarr is going to manage all our TV Shows, download them, sort them, e
 
 ## Initial configuration
 
-In your browser, go to [http://{your-ip-address}:8989/]() and you'll see Sonarr's empty page. You'll also notice you have 3 messages on the system tab, but we'll deal with them later.
+In your browser, go to [http://{your-ip-address}:8989/](). You'll see the authentication configuration page.
+
+- Select "Forms (Login Page)" as the "Authentication Method".
+- In "Authentication Required" select "Disabled for Local Addresses".
+
+Fill it in with your information and click on save:
+
+[![sonarr-18](/pics/sonarr-18.png)](/pics/sonarr-18.png)
+
+Then you'll see Sonarr's empty page. You'll also notice you have 3 messages on the system tab, but we'll deal with them later.
 
 [![sonarr-1](/pics/sonarr-1.png)](/pics/sonarr-1.png)
 
@@ -35,11 +44,11 @@ At the bottom of the same screen, go to "Root folders" and click on "Add Root Fo
 
 [![sonarr-3](/pics/sonarr-3.png)](/pics/sonarr-3.png)
 
-And add the `/tv/` folder
+And add the `/data/tvshows/` folder
 
 [![sonarr-4](/pics/sonarr-4.png)](/pics/sonarr-4.png)
 
-**Note:** This is NOT on your filesystem! The `/tv/` folder exists inside the `docker` environment and maps to your server `/mediafolder/tv/` folder!
+**Note:** This is NOT on your filesystem! The `/data/tvshows/` folder exists inside the `docker` environment and maps to your server `/mediafolder/media/tvshows/` folder!
 
 Finally, click on "Save Changes".
 
@@ -59,8 +68,9 @@ On the "Add Download Client" screen, click on "qBittorrent".
 
 - In Name, add the name of your download client (qBittorrent).
 - On Host, add your server IP address (in my case, `192.168.0.169`).
+- On Port, change it to 8081.
 - On Username, add `admin`.
-- On Password, add `adminadmin`.
+- On Password, add `your-qbittorrent-password`.
 
 [![sonarr-15](/pics/sonarr-15.png)](/pics/sonarr-15.png)
 
