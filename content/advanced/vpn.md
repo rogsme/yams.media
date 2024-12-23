@@ -40,11 +40,26 @@ You can also set up a [custom VPN provider](https://github.com/qdm12/gluetun-wik
 
 ## Manual configuration
 
-To manually configure your VPN, you have to edit your `docker-compose.yaml` file.
+To manually configure your VPN, you have to edit your `docker-compose.yaml` and `.env` files.
 
 First, stop `YAMS`:
 ```bash
 $ yams stop
+```
+
+Now, open your `.env` file. For this tutorial, I'm assuming the install location is `/opt/yams`. Also, you don't have to use `vim`, you can use `nano` or any other editor.
+
+```bash
+$ vim /opt/yams/.env
+```
+
+On the file, make the following changes:
+```bash
+# VPN configuration
+VPN_ENABLED=y
+VPN_SERVICE=protonvpn # -> Your VPN service. Check the list here: https://yams.media/advanced/vpn/#official-supported-vpns
+VPN_USER=your-user # -> Your VPN user
+VPN_PASSWORD=your-password # -> Your VPN password
 ```
 
 Then, open your `docker-compose.yaml` file. For this tutorial, I'm assuming the install location is `/opt/yams`. Also, you don't have to use `vim`, you can use `nano` or any other editor.
@@ -58,8 +73,17 @@ On the file, find the `qbitorrent` config and make the following changes:
 ```yaml
 ...
     # ports: # qbittorrent -> Comment this line
-    #  - 8080:8080 # qbittorrent -> Comment this line
+    #  - 8081:8081 # qbittorrent -> Comment this line
     network_mode: "service:gluetun" -> Uncomment this line
+```
+
+Now, find the `sabnzbd` config and make the following changes:
+```yaml
+...
+    # ports: # sabnzbd -> Comment this line 
+    # - 8080:8080 # sabnzbd -> Comment this line 
+    network_mode: "service:gluetun" -> Uncomment this line
+...
 ```
 
 Then, at the bottom, find the `gluetun` config and make the following changes:
@@ -67,12 +91,7 @@ Then, at the bottom, find the `gluetun` config and make the following changes:
 ```yaml
 ...
       - 8080:8080/tcp # gluetun -> Uncomment this line
-...
-    environment:
-      - VPN_SERVICE_PROVIDER=<vpn_service> # -> Replace "<vpn_service>" with your VPN service provider
-      - VPN_TYPE=openvpn
-      - OPENVPN_USER=<vpn_user> # -> Replace "<vpn_user>" with your VPN username
-      - OPENVPN_PASSWORD=<vpn_password> # -> Replace "<vpn_password>" with your VPN password
+      - 8081:8081/tcp # gluetun -> Uncomment this line
 ```
 
 Now, restart `YAMS`:
