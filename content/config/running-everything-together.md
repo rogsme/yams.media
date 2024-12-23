@@ -44,7 +44,7 @@ If you go to "Activity", you'll see their download status.
 
 ## qBittorrent
 
-If you open qBittorrent in [http://{your-ip-address}:8080/](), you'll see your movie(s) downloading!
+If you open qBittorrent in [http://{your-ip-address}:8081/](), you'll see your movie(s) downloading!
 
 This means it is working as expected. When they finish downloading, Radarr is going to pick them up and put them in the right folder.
 

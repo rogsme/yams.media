@@ -236,7 +236,8 @@ You can check the installation on /opt/yams
 Everything should be running now! To check everything running, go to:
 
 Service URLs:
-qBittorrent: http://your.ip.address:8080/
+qBittorrent: http://your.ip.address:8081/
+SABnzbd: http://your.ip.address:8080/
 Radarr: http://your.ip.address:7878/
 Sonarr: http://your.ip.address:8989/
 Lidarr: http://your.ip.address:8686/

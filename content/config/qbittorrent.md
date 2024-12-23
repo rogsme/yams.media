@@ -16,7 +16,7 @@ So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy!
 
 ## Initial configuration
 
-In your browser, go to [http://{your-ip-address}:8080/]() and you'll see qBittorrent's admin page. The default username and password are:
+In your browser, go to [http://{your-ip-address}:8081/]() and you'll see qBittorrent's admin page. The default username and password are:
 
 ```sh
 username: admin
