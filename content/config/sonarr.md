@@ -56,7 +56,9 @@ Finally, click on "Save Changes".
 
 ### Download Clients
 
-Here, you'll add the download clients for Sonarr. That's where you'll tie in Sonarr with [qBittorrent](/config/qbittorrent).
+Here, you'll add the download clients for Sonarr. That's where you'll tie in Sonarr with [qBittorrent](/config/qbittorrent) and [SABnzbd](/config/sabnzbd).
+
+#### qBittorrent
 
 In "Settings", go to "Download Clients" and click on the ➕ button.
 
@@ -81,6 +83,34 @@ At the bottom, you can click on "Test" and if everything is OK you should see a 
 If everything is fine, click on "Save". You should see your download client added to the "Download Clients" page now!
 
 [![sonarr-16](/pics/sonarr-16.png)](/pics/sonarr-16.png)
+
+#### SABnzbd
+
+In "Settings", go to "Download Clients" and click on the ➕ button.
+
+[![sonarr-13](/pics/sonarr-13.png)](/pics/sonarr-13.png)
+
+On the "Add Download Client" screen, scroll down and click on "SABnzbd".
+
+[![sonarr-19](/pics/sonarr-19.png)](/pics/sonarr-19.png)
+
+- In Name, add the name of your download client (SABnzbd).
+- On Host, add your server IP address (in my case, `192.168.0.169`).
+- On Port, change it to 8080.
+- On API Key, enter your SABnzbd API key.
+
+You can find your SABnzbd API key here: [Getting your API key for Sonarr and Radarr](/config/sabnzbd/#getting-your-api-key-for-sonarr-and-radarr)
+
+[![sonarr-20](/pics/sonarr-20.png)](/pics/sonarr-20.png)
+
+At the bottom, you can click on "Test" and if everything is OK you should see a ✅ 
+[![sonarr-10](/pics/sonarr-10.png)](/pics/sonarr-10.png)
+[![sonarr-11](/pics/sonarr-11.png)](/pics/sonarr-11.png)
+
+If everything is fine, click on "Save". You should see your download client added to the "Download Clients" page now!
+
+[![sonarr-21](/pics/sonarr-21.png)](/pics/sonarr-21.png)
+
 
 ## Moving forward!
 
