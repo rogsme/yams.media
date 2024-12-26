@@ -7,100 +7,99 @@ summary: First steps to install YAMS on your server
 
 ## Dependencies
 
-This script depends on:
+YAMS only needs a few things to get going:
 
-- Debian 12 (recommended) or Ubuntu 22.04. If your OS is not ready, you need to figure that out first. Here are some guides:
+- Debian 12 (recommended) or Ubuntu 22.04. If your OS isn't ready yet, check out these guides:
   + https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-11
   + https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu
-- Your OS must be fully configured. That means:
-  + You have a user that is not `root`
+- Your OS needs to be properly configured. That means:
+  + You have a user that is not `root` (because we're responsible adults 😎)
   + You can run `sudo apt update` and `sudo apt upgrade` without errors
-  + If you are using Ubuntu **make sure you are NOT installing the snap version of docker.** The snap version runs in a sandbox and doesn't have access to the OS.
-  If you run `which docker` and get this output:
+  + If you're using Ubuntu, **make sure you are NOT using the snap version of docker!** The snap version runs in a sandbox and can't access what it needs. You can check by running `which docker`. If you see:
   ```
   $ which docker
   /snap/bin/docker
   ```
-  You **won't** be able to install YAMS. ⚠️
-- Required commands: `curl`, `docker`, `sed`, and `awk`
-- Docker and Docker Compose (the script can install these for you on Debian/Ubuntu systems)
+  You **won't** be able to install YAMS. ⚠️ 
+
+Don't worry if you don't have `docker` and `docker-compose` installed - the script can handle that for you on Debian and Ubuntu! 
 
 ## Before running
 
-Before installing, make sure you have:
+Before we dive in, make sure you have:
 
-- **An installation location:** The script defaults to `/opt/yams` but you can choose any location where your user has write permissions
-- **A media folder:** This is where your files will be downloaded and organized. For example, if you choose `/srv/media`, the script will create:
-  + `/srv/media/tv`: For TV shows
-  + `/srv/media/movies`: For movies
-  + `/srv/media/music`: For music
-  + `/srv/media/books`: For books
-  + `/srv/media/downloads`: For downloads
-  + `/srv/media/blackhole`: For torrent blackhole
-- **A regular user to run and own the media files:** Avoid using `root`
-- **A VPN service (optional but STRONGLY recommended):** Choose from [this list](/advanced/vpn#official-supported-vpns). [ProtonVPN](https://protonvpn.com/) is recommended.
+- **An installation location:** The script defaults to `/opt/yams` but hey, you do you! Just make sure your user can write to wherever you choose.
+- **A media folder:** This is where all your stuff will live. For example, if you pick `/srv/media`, the script will create:
+  + `/srv/media/tv`: For your TV shows
+  + `/srv/media/movies`: For your movies
+  + `/srv/media/music`: For your tunes
+  + `/srv/media/books`: For your books
+  + `/srv/media/downloads`: For your downloads
+  + `/srv/media/blackhole`: For your torrent blackhole
+- **A regular user to run and own the media files:** Don't use `root` (I mean, I can't stop you, but come on! 😅)
+- **A VPN service (optional but STRONGLY recommended):** Choose one from [this list](/advanced/vpn#official-supported-vpns). I always recommend [ProtonVPN](https://protonvpn.com/) because it's super easy to set up!
 
 ## Installation Steps
 
-### 1. Setup Installation Location
+### 1. Setup your install location
 
-The location `/opt/yams` is **recommended**, but you can use any location where your user has permissions:
+The `/opt/yams` location is **recommended**, but you can be a rebel and use whatever you like if your user has permissions:
 
 ```bash
 sudo mkdir -p /opt/yams
 sudo chown -R $USER:$USER /opt/yams
 ```
 
-### 2. Check Docker Installation
+### 2. If you already have docker installed...
 
-If you already have Docker installed, ensure you can run it without sudo:
+Make sure you can run `docker` **without** `sudo`! Try this:
 
 ```bash
 docker run hello-world
 ```
 
-If this fails, follow the [Docker post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) or check the [Common docker permission errors](/faqs/common-errors/#common-docker-permission-errors).
+If it fails, you might need to add your user to the docker group. Check out [Docker's post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) or look at our [Common docker permission errors](/faqs/common-errors/#common-docker-permission-errors) page.
 
-### 3. Clone YAMS
+### 3. Get YAMS on your system
 
-Clone the installer to a temporary location:
+Clone the installer to a temporary spot (let's keep things tidy!):
 
 ```bash
 git clone --depth=1 https://gitlab.com/rogs/yams.git /tmp/yams
 cd /tmp/yams
 ```
 
-### 4. Run the Installer
+### 4. Fire up the installer
 
 ```bash
 bash install.sh
 ```
 
-The installer will guide you through several configuration steps:
+Now comes the fun part! The installer will walk you through everything:
 
-#### Docker Installation (if needed)
-If Docker isn't installed, the script will offer to install it:
+#### Docker Setup (if needed)
 ```
 Checking prerequisites...
 ⚠️ Docker/Docker Compose not found! ⚠️
 Install Docker and Docker Compose? Only works on Debian/Ubuntu (y/N) [Default = n]:
 ```
+Choose `y` if you want YAMS to handle the Docker installation.
 
-#### User Configuration
+#### Pick Your User
 ```bash
 User to own the media server files? [current-user]:
 ```
-Enter the username that will own the media files. The default is your current user.
+This is where you pick who's going to own all the media files. It defaults to your current user (which is usually what you want 👍).
 
-#### Directory Configuration
+#### Choose Your Directories
 ```bash
 Installation directory? [/opt/yams]:
 Media directory? [/srv/media]:
 Are you sure your media directory is "/srv/media"? (y/N) [Default = n]:
 ```
-Confirm your installation and media directories. The script will create them if they don't exist.
+The script will create these if they don't exist - how thoughtful! 🎉
 
-#### Media Service Selection
+#### Pick Your Media Service
 ```bash
 Time to choose your media service.
 Your media service is responsible for serving your files to your network.
@@ -111,9 +110,9 @@ Supported media services:
 
 Choose your media service [jellyfin]:
 ```
-Select your preferred media service. Jellyfin is recommended for beginners.
+Jellyfin is great for beginners - it's what I recommend! But hey, they're all good choices.
 
-#### VPN Configuration
+#### VPN Setup
 ```bash
 Time to set up the VPN.
 Supported VPN providers: https://yams.media/advanced/vpn
@@ -123,17 +122,17 @@ VPN service? (with spaces) [protonvpn]:
 VPN username (without spaces):
 VPN password:
 ```
-Configure your VPN settings if desired. The script supports all VPNs listed at `/advanced/vpn#official-supported-vpns`.
+This is where the magic happens to keep your downloads private and secure! 🔒
 
-### 5. Final Installation
+### 5. Let it rip!
 
-The script will:
-1. Copy and configure all necessary files
-2. Start the YAMS services
-3. Install the YAMS CLI tool
-4. Set appropriate permissions
+The script will now:
+1. Copy all the files where they need to go
+2. Start up all the YAMS services
+3. Install a handy CLI tool
+4. Set up all the permissions just right
 
-When complete, you'll see a success message and URLs for all services:
+When it's done, you'll get a nice success message and all your service URLs:
 
 ```bash
 Service URLs:
@@ -149,13 +148,13 @@ Media Service: http://your.ip.address:8096/
 Portainer: http://your.ip.address:9000/
 ```
 
-These URLs are also saved to `~/yams_services.txt` for future reference.
+Don't worry - these URLs are saved in `~/yams_services.txt` so you don't have to memorize them! 😉
 
-## Next Steps
+## What's Next?
 
-After installation completes, proceed to the [configuration documentation](/config) to set up your media server.
+Head over to the [configuration docs](https://yams.media/config) to get your media server set up just the way you like it!
 
-If you encounter any issues:
-- Check the [Common Issues](/faqs/common-errors/) page
+Running into trouble? We've got your back!
+- Check out the [Common Issues](/faqs/common-errors/) page
 - Visit the [YAMS Forum](https://forum.yams.media)
-- Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+- Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat - we're a friendly bunch! 🙋‍♂️
