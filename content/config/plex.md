@@ -3,6 +3,7 @@ title: "Plex"
 date: 2023-01-23T13:59:59-03:00
 draft: false
 weight: 9
+summary: Plex is a media streaming platform that organizes your personal media library and lets you stream it anywhere, plus access live TV, movies, and shows.
 ---
 
 # What is Plex?
