@@ -3,27 +3,29 @@ title: "Backups"
 date: 2023-01-17T19:38:39-03:00
 draft: false
 weight: 4
-summary: Backup your YAMS configuration.
+summary: Everything you need to know about backing up and restoring your YAMS setup
 ---
 
-Your YAMS configuration is located in your YAMS install directory.
+# Keeping Your YAMS Safe 💾
 
-## Create a Backup
+Your YAMS configuration is precious! Let's make sure it's properly backed up so you can recover from any mishaps.
 
-To create a backup, run:
+## Creating Backups 📦
+
+YAMS includes a super handy backup command that takes care of everything:
 
 ```bash
 yams backup [destination]
 ```
 
-Where the destination is the location where you want the `.tar.gz` file to be saved. For example:
+### Quick Backup Example
 
+Let's say you want to back up to your home directory:
 ```bash
 yams backup ~/backups/
 ```
 
-The output will be:
-
+You'll see something like this:
 ```bash
 Stopping YAMS services...
 
@@ -38,45 +40,137 @@ Backup completed successfully! 🎉
 Backup file: /home/roger/yams-backup-2024-12-23-1734966570.tar.gz
 ```
 
-## Restore a Backup
+### What Gets Backed Up? 🤔
 
-Restoring a backup is simple:
+The backup includes:
+- All your container configurations
+- Your YAMS settings
+- Your service preferences
+- Custom container configurations
+- Important environment variables
 
-1. Extract your backup in the new location and `cd` into it:
+### Pro Backup Tips 💡
 
+1. **Regular Backups**: Schedule them weekly or monthly
+2. **Multiple Locations**: Keep copies in different places
+3. **Before Updates**: Always backup before updating YAMS
+4. **Version Control**: Keep a few recent backups around
+5. **Test Restores**: Occasionally verify your backups work
+
+## Restoring from Backup 🔄
+
+Need to restore your YAMS setup? Here's the step-by-step guide:
+
+### Step 1: Extract the Backup
 ```bash
-tar -xzvf your-backup.tar.gz /your/new/location
+tar -xzvf your-backup.tar.gz -C /your/new/location
 cd /your/new/location
 ```
 
-2. Edit the YAMS binary with the new information. You don't have to use `vim`; you can use your favorite text editor:
-
+### Step 2: Update YAMS Configuration
+Edit the YAMS binary with your favorite text editor (we'll use `nano` here, but use whatever you prefer):
 ```bash
-vim yams
+nano yams
 ```
 
-3. Update `your/install/location` with your new install location:
-
+Find and update these lines:
 ```bash
 #!/bin/bash
 set -euo pipefail
 
 # Constants
-readonly DC="docker compose -f your/install/location/docker-compose.yaml -f your/install/location/docker-compose.custom.yaml"  # -> Change this!
-readonly INSTALL_DIRECTORY="your/install/location" # -> Change this!
+readonly DC="docker compose -f your/new/location/docker-compose.yaml -f your/new/location/docker-compose.custom.yaml"  # Update this!
+readonly INSTALL_DIRECTORY="your/new/location"  # Update this!
 ```
 
-4. Move the `yams` script to `/usr/local/bin/`:
-
+### Step 3: Install YAMS Binary
 ```bash
 sudo cp yams /usr/local/bin/
 ```
 
-5. Start YAMS:
-
+### Step 4: Start YAMS
 ```bash
 yams start
 ```
 
-And that's it! YAMS should now be up and running.
+## Best Practices 📚
 
+1. **Regular Schedule**
+   ```bash
+   # Example: Weekly backups to different locations
+   yams backup ~/backups/weekly/
+   yams backup /mnt/external/yams-backup/
+   ```
+
+2. **Pre-Update Backups**
+   ```bash
+   # Before running yams update
+   yams backup ~/backups/pre-update/
+   ```
+
+## Troubleshooting 🔧
+
+### Backup Failed?
+1. Check disk space:
+   ```bash
+   df -h
+   ```
+2. Verify write permissions:
+   ```bash
+   ls -la /backup/destination
+   ```
+3. Try stopping services manually:
+   ```bash
+   yams stop
+   ```
+
+### Restore Issues?
+1. Verify backup integrity:
+   ```bash
+   tar -tvf your-backup.tar.gz
+   ```
+2. Check file permissions
+3. Ensure all paths are correct in the YAMS binary
+
+## Advanced Topics 🎓
+
+### Automated Backups
+
+You can automate backups using cron. Here's an example:
+
+1. Open your crontab:
+   ```bash
+   crontab -e
+   ```
+
+2. Add a weekly backup job:
+   ```bash
+   # Run backup every Sunday at 2 AM
+   0 2 * * 0 /usr/local/bin/yams backup /path/to/backups/
+   ```
+
+### Backup Rotation
+
+Keep your backups manageable with rotation:
+
+```bash
+#!/bin/bash
+# backup-rotate.sh
+MAX_BACKUPS=5
+BACKUP_DIR="/path/to/backups"
+
+# Create new backup
+yams backup $BACKUP_DIR
+
+# Remove old backups
+ls -t $BACKUP_DIR/yams-backup-* | tail -n +$((MAX_BACKUPS + 1)) | xargs rm -f
+```
+
+## Need Help? 🆘
+
+If you run into backup or restore issues:
+1. Check our [Common Issues](/faqs/common-errors/) page
+2. Visit the [YAMS Forum](https://forum.yams.media)
+3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+
+Remember: The best time to make a backup is BEFORE you need it! 🎯
