@@ -153,7 +153,7 @@ These URLs are also saved to `~/yams_services.txt` for future reference.
 
 ## Next Steps
 
-After installation completes, proceed to the [configuration documentation](https://yams.media/config) to set up your media server.
+After installation completes, proceed to the [configuration documentation](/config) to set up your media server.
 
 If you encounter any issues:
 - Check the [Common Issues](/faqs/common-errors/) page
