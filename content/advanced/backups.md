@@ -58,10 +58,12 @@ vim yams
 3. Update `your/install/location` with your new install location:
 
 ```bash
+#!/bin/bash
 set -euo pipefail
 
-dc="docker compose -f your/install/location/docker-compose.yaml -f your/install/location/docker-compose.custom.yaml"  # -> Change this!
-install_directory="your/install/location" # -> Change this!
+# Constants
+readonly DC="docker compose -f your/install/location/docker-compose.yaml -f your/install/location/docker-compose.custom.yaml"  # -> Change this!
+readonly INSTALL_DIRECTORY="your/install/location" # -> Change this!
 ```
 
 4. Move the `yams` script to `/usr/local/bin/`:
