@@ -11,152 +11,150 @@ From their [website](https://www.plex.tv/):
 
 > With our free app you can add, access, and share all the entertainment that matters to you, on almost any device—including your own personal media collection. Guess that makes us the hardest working app in show business.
 
-On YAMS, Plex is one of the most important parts: Plex is going to be your "Netflix", "Hulu" or "Amazon Prime". This means you'll be able to stream your TV shows and movies to any device using Plex.
+In YAMS, Plex is going to be your streaming service powerhouse! 🌟 It's like having your own Netflix, but with way more control. Plus, sharing with friends and family is super easy!
 
 ## First steps
 
-To start, you need to allow your IP range to access the Plex setup. In your server, first stop YAMS.
+Before we dive in, we need to do a bit of setup magic to let Plex work its charms. First, stop YAMS:
 
 ```bash
 $ yams stop
 ```
 
-Now, go to your Plex config in YAMS. For the purposes of this tutorial, I'm asuming your install location is `/opt/yams`.
+Now, let's allow your IP range to access Plex. Head to your Plex config folder (I'm assuming your install location is `/opt/yams` - adjust if you used a different path):
 
 ```bash
 $ cd /opt/yams/config/plex/Library/Application\ Support/Plex\ Media\ Server/
 ```
 
-Inside that folder, open `Preferences.xml`.
+Inside that folder, we need to edit `Preferences.xml`:
 
 ```bash
-/opt/yams/config/plex/Library/Application Support/Plex Media Server$ vim Preferences.xml
+$ vim Preferences.xml
 ```
-(you don't have to use `vim`, you can use `nano` if you want to).
+(Don't worry if you're not a vim fan - `nano` works just fine too! 😉)
 
-On the `Preferences.xml` file, add the following **after** the `<Preferences ` directive:
+Add this line right after the `<Preferences` part:
 
 ```xml
 <Preferences allowedNetworks="<your_subnet_IP>/255.255.255.0" ...
 ```
 
-The `...` is the rest of the XML file, you only have to add the `allowedNetworks` directive.
+The `...` means "leave the rest of the file as is" - we're just adding the `allowedNetworks` bit.
 
-### How do you find your subnet IP?
+### How do you find your subnet IP? 🤔
 
-This depends on your network configuration, but it _sometimes_ goes with the following rules:
-- If your server IP is `192.168.0.100`, your subnet is `192.168.0.0`.
-- If your server IP is `10.0.0.25`, your subnet is `10.0.0.0`.
+It usually follows these patterns:
+- If your server IP is `192.168.0.100`, your subnet is `192.168.0.0`
+- If your server IP is `10.0.0.25`, your subnet is `10.0.0.0`
 
-Finally, restart YAMS.
+Time to restart YAMS:
 
 ```bash
 $ yams restart
 ```
 
-To check if everything is working, you can try by running:
+Let's check if everything's working:
 
 ```bash
 $ docker logs plex
 ```
 
-If you see something like this:
+If you see something like:
 
 ```bash
 Failed to load preferences at /config/Library/Application Support/Plex Media Server/Preferences.xml
 Failed to load preferences at /config/Library/Application Support/Plex Media Server/Preferences.xml
 ```
 
-It means your `Preferences.xml` is badly formatted. Try to fix it and try again.
+It means your `Preferences.xml` needs some fixing - double-check the format and try again!
 
-Once you finish the Preferences config, you can continue.
-
-**Note:** You can read more about this fix here: https://www.truenas.com/community/threads/plex-not-authorized-you-do-not-have-access-to-this-server.96858/.
+**Note:** Want to learn more about this setup? Check out this [TrueNAS community thread](https://www.truenas.com/community/threads/plex-not-authorized-you-do-not-have-access-to-this-server.96858/).
 
 ## Initial configuration
 
-In your browser, go to [http://{your-ip-address}:32400/web]() and you'll see Plex's setup page. Click on "Got it!" to continue.
+In your browser, go to [http://{your-ip-address}:32400/web]() and you'll see Plex's setup page. Click "Got it!" to get started.
 
 [![plex-1](/pics/plex-1.png)](/pics/plex-1.png)
 
-After logging in, you'll see a modal that says "Plex Pass". You can close that.
+After logging in, you'll see a "Plex Pass" modal. You can close that for now - we'll get to the good stuff! 
 
 [![plex-2](/pics/plex-2.png)](/pics/plex-2.png)
 
-On the "Name" screen, select a name for your server and click on continue.
+Give your server a name and click "Next".
 
 [![plex-3](/pics/plex-3.png)](/pics/plex-3.png)
 
-On the "Sync Your Watch State and Ratings" screen, just click "No".
+For "Sync Your Watch State and Ratings", just click "No" - keeping things simple! 
 
 [![plex-4](/pics/plex-4.png)](/pics/plex-4.png)
 
-Now on "Media Library", click on "Add Library".
+Time to add our media! Click "Add Library" on the "Media Library" screen.
 
 [![plex-5](/pics/plex-5.png)](/pics/plex-5.png)
 
 ### Adding Movies
 
-On the "Add Library" modal, select "Movies" and click "Next".
+Pick "Movies" as your library type and click "Next".
 
 [![plex-6](/pics/plex-6.png)](/pics/plex-6.png)
 
-Now, click on "Browse For Media Folder".
+Click "Browse For Media Folder".
 
 [![plex-7](/pics/plex-7.png)](/pics/plex-7.png)
 
-On the "Add Folder" modal, select the movies path (`/data/movies`) and click on "Add".
+Choose the movies path (`/data/movies`) and click "Add".
 
 [![plex-8](/pics/plex-8.png)](/pics/plex-8.png)
 
-Your "Add Library" modal should look like this. Finally, click on "Add Library".
+Your screen should look like this. Click "Add Library" to finish up!
 
 [![plex-9](/pics/plex-9.png)](/pics/plex-9.png)
 
 ### Adding TV Shows
 
-On "Media Library", click on "Add Library".
+Back in "Media Library", click "Add Library" again.
 
 [![plex-10](/pics/plex-10.png)](/pics/plex-10.png)
 
-On the "Add Library" modal, select "TV Shows" and click "Next".
+This time pick "TV Shows" and click "Next".
 
 [![plex-11](/pics/plex-11.png)](/pics/plex-11.png)
 
-Now, click on "Browse For Media Folder".
+Click "Browse For Media Folder" again.
 
 [![plex-7](/pics/plex-7.png)](/pics/plex-7.png)
 
-On the "Add Folder" modal, select the TV Shows path (`/data/tvshows`) and click on "Add".
+Choose the TV Shows path (`/data/tvshows`) and click "Add".
 
 [![plex-12](/pics/plex-12.png)](/pics/plex-12.png)
 
-Your "Add Library" modal should look like this. Finally, click on "Add Library".
+Looking good? Click "Add Library"!
 
 [![plex-13](/pics/plex-13.png)](/pics/plex-13.png)
 
-In the end, your "Media Library" screen should look like this. If it's okay, click on "Next".
+Your "Media Library" screen should now show both libraries. Click "Next" to continue.
 
 [![plex-14](/pics/plex-14.png)](/pics/plex-14.png)
 
-## Finish
+## Finishing up
 
-On the "Finish screen", click on "Done".
+Almost there! Click "Done" on the finish screen.
 
 [![plex-15](/pics/plex-15.png)](/pics/plex-15.png)
 
-You should see the Plex dashboard now! On the left side panel, click on "More".
+Welcome to your Plex dashboard! 🎉 Click on "More" in the left side panel.
 
 [![plex-16](/pics/plex-16.png)](/pics/plex-16.png)
 
-There, you should find your local "Movies" and "TV Shows".
+There they are - your local "Movies" and "TV Shows" libraries! 
 
 [![plex-17](/pics/plex-17.png)](/pics/plex-17.png)
 
-## That's all!
+## That's all folks! 🎬
 
-YAMS is fully up and running! Now, let's add some content. Move on to [Running everything together](/config/running-everything-together).
+YAMS is fully up and running! Ready to add some content? Head over to [Running everything together](/config/running-everything-together)!
 
-## Do you want a more in depth configuration?
+## Want to become a Plex power user? 💪
 
-If you want a more in depth configuration, I recommend you check the [TRaSH Guide for Plex](https://trash-guides.info/Plex/).
+If you want to really dive into what Plex can do, check out the [TRaSH Guide for Plex](https://trash-guides.info/Plex/). They've got some amazing advanced configurations in there!
