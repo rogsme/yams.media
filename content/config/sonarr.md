@@ -12,43 +12,45 @@ From their [wiki](https://wiki.servarr.com/sonarr):
 
 > Sonarr is a PVR for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new episodes of your favorite shows and will grab, sort and rename them. It can also be configured to automatically upgrade the quality of files already downloaded when a better quality format becomes available.
 
-In YAMS, Sonarr is going to manage all our TV Shows, download them, sort them, etc.
+In YAMS, Sonarr is your TV show manager - it's going to handle everything from downloads to organizing your episodes. Think of it as your personal TV assistant! 📺
 
 ## Initial configuration
 
-In your browser, go to [http://{your-ip-address}:8989/](). You'll see the authentication configuration page.
+In your browser, go to [http://{your-ip-address}:8989/](). Just like with Radarr, we'll start with some basic security settings.
 
-- Select "Forms (Login Page)" as the "Authentication Method".
-- In "Authentication Required" select "Disabled for Local Addresses".
+- Select "Forms (Login Page)" as the "Authentication Method"
+- In "Authentication Required" select "Disabled for Local Addresses" (so you can browse freely on your home network)
 
-Fill it in with your information and click on save:
+Create your username and password, then click save:
 
 [![sonarr-18](/pics/sonarr-18.png)](/pics/sonarr-18.png)
 
-Then you'll see Sonarr's empty page. You'll also notice you have 3 messages on the system tab, but we'll deal with them later.
+You'll see Sonarr's empty page. Don't mind those 3 system messages - we'll get to them later! 
 
 [![sonarr-1](/pics/sonarr-1.png)](/pics/sonarr-1.png)
 
 ### Media management
 
-First, go to "Settings" and then "Media management". On this screen: 
-- Click on "Show Advanced".
-- Check the "Rename Episodes" box.
-- Change "Standard Episode Format" to `{Series Title} - S{season:00}E{episode:00} - {Episode Title}`
-- Change "Daily Episode Format" to `{Series Title} - {Air-Date} - {Episode Title}`
-- Change "Anime Episode Format" to `{Series Title} - S{season:00}E{episode:00} - {Episode Title}`
-- Change "Series Folder Format" to `{Series TitleYear}`
+Let's tell Sonarr how to handle our TV shows! Go to "Settings" and then "Media management". Here's what we need to do: 
+- Click on "Show Advanced" (it sounds scary but we'll keep it simple!)
+- Check the "Rename Episodes" box
+- Set up these naming formats:
+  - "Standard Episode Format": `{Series Title} - S{season:00}E{episode:00} - {Episode Title}`
+  - "Daily Episode Format": `{Series Title} - {Air-Date} - {Episode Title}`
+  - "Anime Episode Format": `{Series Title} - S{season:00}E{episode:00} - {Episode Title}`
+  - "Series Folder Format": `{Series TitleYear}`
+
 [![sonarr-2](/pics/sonarr-2.png)](/pics/sonarr-2.png)
 
-At the bottom of the same screen, go to "Root folders" and click on "Add Root Folder".
+Scroll down to "Root Folders" and click on "Add Root Folder".
 
 [![sonarr-3](/pics/sonarr-3.png)](/pics/sonarr-3.png)
 
-And add the `/data/tvshows/` folder
+Add the `/data/tvshows/` folder:
 
 [![sonarr-4](/pics/sonarr-4.png)](/pics/sonarr-4.png)
 
-**Note:** This is NOT on your filesystem! The `/data/tvshows/` folder exists inside the `docker` environment and maps to your server `/mediafolder/media/tvshows/` folder!
+**Note:** Just like with Radarr, this path is inside the docker environment - it maps to your server's `/mediafolder/media/tvshows/` folder. Docker magic at work! ✨
 
 Finally, click on "Save Changes".
 
@@ -56,66 +58,67 @@ Finally, click on "Save Changes".
 
 ### Download Clients
 
-Here, you'll add the download clients for Sonarr. That's where you'll tie in Sonarr with [qBittorrent](/config/qbittorrent) and [SABnzbd](/config/sabnzbd).
+Time to connect Sonarr to our download tools! We'll link up with [qBittorrent](/config/qbittorrent) and [SABnzbd](/config/sabnzbd).
 
-#### qBittorrent
+#### qBittorrent Setup
 
 In "Settings", go to "Download Clients" and click on the ➕ button.
 
 [![sonarr-13](/pics/sonarr-13.png)](/pics/sonarr-13.png)
 
-On the "Add Download Client" screen, click on "qBittorrent".
+Find and click on "qBittorrent" in the list.
 
 [![sonarr-14](/pics/sonarr-14.png)](/pics/sonarr-14.png)
 
-- In Name, add the name of your download client (qBittorrent).
-- On Host, add your server IP address (in my case, `192.168.0.169`).
-- On Port, change it to 8081.
-- On Username, add `admin`.
-- On Password, add `your-qbittorrent-password`.
+Fill in these details:
+- Name: qBittorrent (or whatever clever name you come up with!)
+- Host: your server IP address (like `192.168.0.190`)
+- Port: 8081
+- Username: `admin`
+- Password: your qBittorrent password
 
 [![sonarr-15](/pics/sonarr-15.png)](/pics/sonarr-15.png)
 
-At the bottom, you can click on "Test" and if everything is OK you should see a ✅ 
+Hit that "Test" button - if everything's working, you'll see a happy green checkmark! ✅ 
 [![sonarr-10](/pics/sonarr-10.png)](/pics/sonarr-10.png)
 [![sonarr-11](/pics/sonarr-11.png)](/pics/sonarr-11.png)
 
-If everything is fine, click on "Save". You should see your download client added to the "Download Clients" page now!
+All good? Click "Save". Your download client should now appear on the page:
 
 [![sonarr-16](/pics/sonarr-16.png)](/pics/sonarr-16.png)
 
-#### SABnzbd
+#### SABnzbd Setup
 
-In "Settings", go to "Download Clients" and click on the ➕ button.
+Back in "Download Clients", click that ➕ button again.
 
 [![sonarr-13](/pics/sonarr-13.png)](/pics/sonarr-13.png)
 
-On the "Add Download Client" screen, scroll down and click on "SABnzbd".
+This time, let's find and click on "SABnzbd".
 
 [![sonarr-19](/pics/sonarr-19.png)](/pics/sonarr-19.png)
 
-- In Name, add the name of your download client (SABnzbd).
-- On Host, add your server IP address (in my case, `192.168.0.169`).
-- On Port, change it to 8080.
-- On API Key, enter your SABnzbd API key.
+Fill in these details:
+- Name: SABnzbd (or something fun)
+- Host: your server IP address (like `192.168.0.190`)
+- Port: 8080
+- API Key: your SABnzbd API key
 
-You can find your SABnzbd API key here: [Getting your API key for Sonarr and Radarr](/config/sabnzbd/#getting-your-api-key-for-sonarr-and-radarr)
+Need to find your SABnzbd API key? No problem! Check here: [Getting your API key for Sonarr and Radarr](/config/sabnzbd/#getting-your-api-key-for-sonarr-and-radarr)
 
 [![sonarr-20](/pics/sonarr-20.png)](/pics/sonarr-20.png)
 
-At the bottom, you can click on "Test" and if everything is OK you should see a ✅ 
+Another test time! Click "Test" - hopefully another green checkmark! ✅ 
 [![sonarr-10](/pics/sonarr-10.png)](/pics/sonarr-10.png)
 [![sonarr-11](/pics/sonarr-11.png)](/pics/sonarr-11.png)
 
-If everything is fine, click on "Save". You should see your download client added to the "Download Clients" page now!
+If the test passed, hit "Save". You should now see both download clients ready to go:
 
 [![sonarr-21](/pics/sonarr-21.png)](/pics/sonarr-21.png)
 
+## Moving forward! 🚀
 
-## Moving forward!
+That's it! Now we can move on to [Prowlarr](/config/prowlarr). We're getting close to having your own personal streaming service! 
 
-That's it! Now we can continue with [Prowlarr](/config/prowlarr).
+## Want to become a Sonarr power user?
 
-## Do you want a more in depth configuration?
-
-If you want a more in depth configuration, I recommend you check the [TRaSH Guide for Sonarr](https://trash-guides.info/Sonarr/).
+If you want to really dive into what Sonarr can do, check out the [TRaSH Guide for Sonarr](https://trash-guides.info/Sonarr/). They've got some amazing advanced tips and tricks! 🔧
