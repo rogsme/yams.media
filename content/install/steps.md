@@ -152,7 +152,7 @@ Don't worry - these URLs are saved in `~/yams_services.txt` so you don't have to
 
 ## What's Next?
 
-Head over to the [configuration docs](https://yams.media/config) to get your media server set up just the way you like it!
+Head over to the [configuration docs](/config) to get your media server set up just the way you like it!
 
 Running into trouble? We've got your back!
 - Check out the [Common Issues](/faqs/common-errors/) page
