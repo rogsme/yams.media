@@ -119,6 +119,9 @@ Supported VPN providers: https://yams.media/advanced/vpn
 
 Configure VPN? (Y/n) [Default = y]:
 VPN service? (with spaces) [protonvpn]:
+
+If you are using ProtonVPN, remember to suffix '+pmp' to your username
+
 VPN username (without spaces):
 VPN password:
 ```
