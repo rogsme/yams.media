@@ -3,93 +3,90 @@ title: "Running everything together"
 date: 2023-01-12T18:06:44-03:00
 draft: false
 weight: 10
-summary: So you finally got YAMS running? Let's add some movies and seeing everything working together!
+summary: So you finally got YAMS running? Let's add some movies and see everything working together!
 ---
 
 ## First, I want to congratulate you 🎉
 
-You did it! You installed and configured YAMS! Give yourself a good pat on your back 🙇🏻
+You did it! You installed and configured YAMS! Give yourself a good pat on the back - you've earned it! 🙇‍♂️
 
 [![party](/pics/party.gif)](/pics/party.gif)
 
-Now comes the fun part: Adding your shows/movies and seeing everything working together 😎
+Now comes the fun part: Adding your shows/movies and watching everything work together like a well-oiled machine! 😎
 
 ## Radarr & Sonarr
 
-These instructions will apply to both Radarr and Sonarr. To keep the tutorial brief, I will only test Radarr.
+These instructions work for both Radarr and Sonarr. To keep things simple, I'll show you with Radarr, but the process is super similar for TV shows!
 
-Open Radarr at [http://{your-ip-address}:7878/]() and on the left menu click on "Add New". In this tutorial I'll use "The Godfather", but you can search for the movie you want!
+Open Radarr at [http://{your-ip-address}:7878/]() and click on "Add New" in the left menu. For this demo, I'll use "The Godfather" (because it's a classic!), but you can search for any movie you want.
 
-My recommendation is that you go for a famous movie first, just to confirm everything is working as expected.
+Pro tip: For your first test, pick something popular - it'll be easier to find! 
 
 [![running-everything-together-1](/pics/running-everything-together-1.png)](/pics/running-everything-together-1.png)
 
-Click on the movie you want to download.
+Click on the movie you want to download:
 
 [![running-everything-together-2](/pics/running-everything-together-2.png)](/pics/running-everything-together-2.png)
 
-On the modal, select the quality you want the movie to be downloaded. If your movie is part of a collection, you can choose to download the entire collection in the "Monitor" box. For this case, I want to download the entire Godfather collection, so I'll choose that on the modal.
+Now you can pick your quality preferences. If your movie is part of a collection (like The Godfather is), you can choose to download the whole series in the "Monitor" box. I'm going for the whole trilogy because, well, why not? 
 
-Finally, click on "Add Movie"
+Finally, click "Add Movie"!
 
 [![running-everything-together-3](/pics/running-everything-together-3.png)](/pics/running-everything-together-3.png)
 
-Now, if you go back to "Movies", you'll see the movie(s) you added.
+Head back to "Movies" and you'll see your selections:
 
 [![running-everything-together-4](/pics/running-everything-together-4.png)](/pics/running-everything-together-4.png)
 
-If you go to "Activity", you'll see their download status.
+Click on "Activity" to watch the magic happen - you can see everything downloading in real-time! 🪄
 
 [![running-everything-together-5](/pics/running-everything-together-5.png)](/pics/running-everything-together-5.png)
 
 ## qBittorrent
 
-If you open qBittorrent in [http://{your-ip-address}:8080/](), you'll see your movie(s) downloading!
+Want to see what's going on under the hood? Open qBittorrent at [http://{your-ip-address}:8081/]() and you'll see your movies downloading!
 
-This means it is working as expected. When they finish downloading, Radarr is going to pick them up and put them in the right folder.
+This means everything is working perfectly! When downloads finish, Radarr will automatically organize them into the right folders.
 
 [![running-everything-together-6](/pics/running-everything-together-6.png)](/pics/running-everything-together-6.png)
 
 ## Media service
 
-After your movies have downloaded, if you go to your Media service (Jellyfin, Emby or Plex), you'll see your movies right there, waiting for you.
+After your downloads finish, head over to your media service and... ta-da! 🎉 Your movies are right there waiting for you!
 
 Jellyfin:
-
 [![running-everything-together-12](/pics/running-everything-together-12.png)](/pics/running-everything-together-12.png)
 
 Emby:
-
 [![running-everything-together-7](/pics/running-everything-together-7.png)](/pics/running-everything-together-7.png)
 
 Plex:
-
 [![running-everything-together-11](/pics/running-everything-together-11.png)](/pics/running-everything-together-11.png)
 
-If you open the movie, you'll see it even has subtitles! This means [Bazarr](/config/bazarr) is working as well!
+Open up a movie and look - subtitles are already there! That's [Bazarr](/config/bazarr) doing its thing! 🎯
 
 [![running-everything-together-8](/pics/running-everything-together-8.png)](/pics/running-everything-together-8.png)
 
 [![running-everything-together-9](/pics/running-everything-together-9.png)](/pics/running-everything-together-9.png)
 
-You can play the movie right from your browser, with subtitles included:
+You can even start watching right from your browser, with subtitles and everything:
 [![running-everything-together-10](/pics/running-everything-together-10.png)](/pics/running-everything-together-10.png)
 
 ## Your filesystem
 
-If you visit your `/mediafolder/movies` folder, you can check how Radarr is managing your library.
+Curious about how everything's organized? Check out your `/mediafolder/movies` folder:
 
 ```sh
 roger@debian:/srv/media/movies$ tree .
 .
 ├── The Godfather (1972)
-│   ├── The Godfather (1972).en.srt
-│   ├── The Godfather (1972).es.srt
-│   └── The Godfather (1972).mp4
+│   ├── The Godfather (1972).en.srt
+│   ├── The Godfather (1972).es.srt
+│   └── The Godfather (1972).mp4
 ├── The Godfather Part II (1974)
-│   ├── The Godfather Part II (1974).en.srt
-│   ├── The Godfather Part II (1974).es.srt
-│   └── The Godfather Part II (1974).mp4
+│   ├── The Godfather Part II (1974).en.srt
+│   ├── The Godfather Part II (1974).es.srt
+│   └── The Godfather Part II (1974).mp4
 └── The Godfather Part III (1990)
     ├── The Godfather Part III (1990).en.srt
     ├── The Godfather Part III (1990).es.srt
@@ -98,12 +95,12 @@ roger@debian:/srv/media/movies$ tree .
 3 directories, 9 files
 ```
 
-If you don't like the way the folders/movies are named, you can always change it on [Radarr's media management page](/config/radarr#media-management). The same applies to [Sonarr](/config/sonarr#media-management).
+Not a fan of how things are named? No problem! You can always change the naming format in [Radarr's media management page](/config/radarr#media-management) or [Sonarr's settings](/config/sonarr#media-management).
 
 # Final step and conclusions
 
-You should have your first media server up and running now! That's a big step forward in dropping your dependency on big services like Netflix or Amazon Prime.
+You did it! 🎉 You've got your very own media server up and running! That's a huge step toward breaking free from subscription services like Netflix or Amazon Prime.
 
-There are still A LOT of things you can do to make your experience even better! You can go to the [Recommendations](/config/recommendations) page now and finish the tutorial.
+And guess what? There's still so much more you can do to make your setup even better! Head over to the [Recommendations](/config/recommendations) page for some cool ideas on what to try next.
 
- 🙌 Thank you for being here and for following the tutorial! Enjoy the fruit of your labor. You are awesome! 😎
+ 🙌 Thanks for following along with the tutorial! Hope you enjoy your awesome new media server - you've earned it! 😎

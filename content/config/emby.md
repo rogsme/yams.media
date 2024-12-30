@@ -9,118 +9,127 @@ summary: Emby brings together your personal videos, music, photos, and live tele
 
 # What is Emby?
 
-From their [website](https://emby.media/about.html)
+From their [website](https://emby.media/about.html):
 
 > Emby brings together your personal videos, music, photos, and live television. (...) Emby Server automatically converts and streams your personal media on the fly to play on any device.
 
-On YAMS, Emby is one of the most important parts: Emby is going to be your "Netflix", "Hulu" or "Amazon Prime". This means you'll be able to stream your TV shows and movies to any device using Emby.
+In YAMS, Emby is your streaming service superstar! 🌟 Just like Netflix or Amazon Prime, Emby lets you stream all your media to any device. The best part? You're in complete control!
 
 ## Initial configuration
 
 In your browser, go to [http://{your-ip-address}:8096/]() and you'll see Emby's setup page.
 
-Choose your display language and click on "Next".
+First up, pick your display language and click on "Next".
 
 [![emby-1](/pics/emby-1.png)](/pics/emby-1.png)
 
-Now, create your first user. When you are done, click on "Next".
+Time to create your first user! This will be your admin account, so make it a good one. When you're done, click "Next".
 
 [![emby-2](/pics/emby-2.png)](/pics/emby-2.png)
 
-Next, on the "Setup Media Libraries" page, click on "New Library".
+Now we're at the "Setup Media Libraries" page. Click on "New Library" - let's tell Emby where all your awesome content lives! 🎬
 
 [![emby-3](/pics/emby-3.png)](/pics/emby-3.png)
 
-### Setting the "TV Shows" library
+### Setting up your TV Shows library
 
-On the "New Library" modal, select "TV shows" as your Content type and click on the big ➕ sign next to "Folders".
+On the "New Library" modal, pick "TV shows" as your Content type and click that big ➕ sign next to "Folders".
 
 [![emby-4](/pics/emby-4.png)](/pics/emby-4.png)
 
-In "Select Path", select the folder `/data/tvshows` and click on "Ok"
+In "Select Path", choose the `/data/tvshows` folder and click "Ok"
 
 [![emby-5](/pics/emby-5.png)](/pics/emby-5.png)
 
-**Note:** This is NOT on your filesystem! The `/data/tvshows/` folder exists inside the `docker` environment and maps to your server `/mediafolder/tv/` folder!
+**Docker Magic Note:** 🎩 Don't worry if this path looks weird! The `/data/tvshows/` folder exists inside the docker environment and maps to your server's `/mediafolder/tv/` folder. It's all connected behind the scenes!
 
-
-You should see your recently added folder in the "New Library" modal.
+You'll see your newly added folder in the modal:
 
 [![emby-6](/pics/emby-6.png)](/pics/emby-6.png)
 
-Finally, set your metadata language to your favorite language. All the default settings that follow are fine, but you can change them if you want. 
+Pick your preferred metadata language. All the default settings are good to go, but feel free to tweak them if you want to get fancy!
 
-Your "New Library" screen should look like this:
+Your "New Library" screen should look something like this:
 
 [![emby-7](/pics/emby-7.png)](/pics/emby-7.png)
 
-If you are okay with the settings, click on "Ok". Your library should be added now!
+Happy with how it looks? Click "Ok". Your TV Shows library is ready for action! 📺
 
 [![emby-8](/pics/emby-8.png)](/pics/emby-8.png)
 
+### Setting up your Movies library
 
-### Setting the "Movies" library
+Let's do that one more time! Click "New Library" again.
 
-Open the "New Library modal" again.
-
-On the "New Library" modal, select "Movies" as your Content type and click on the big ➕ sign next to "Folders".
+This time, pick "Movies" as your Content type and click the ➕ next to "Folders".
 
 [![emby-9](/pics/emby-9.png)](/pics/emby-9.png)
 
-In "Select Path", select the folder `/data/movies` and click on "Ok"
+Choose the `/data/movies` folder and click "Ok"
 
 [![emby-10](/pics/emby-10.png)](/pics/emby-10.png)
 
-**Note:** This is NOT on your filesystem! The `/data/movies/` folder exists inside the `docker` environment and maps to your server `/mediafolder/movies/` folder!
+**More Docker Magic:** ✨ Just like before, `/data/movies/` is actually mapping to your server's `/mediafolder/movies/` folder. Docker is doing its thing!
 
-
-You should see your recently added folder in the "New Library" modal.
+Your folder should show up in the modal:
 
 [![emby-11](/pics/emby-11.png)](/pics/emby-11.png)
 
-Finally, set your metadata language to your favorite language. All the default settings that follow are fine, but you can change them if you want. 
+Set your preferred metadata language again. The defaults are still your friend here!
 
-Your "New Library" screen should look like this:
+The screen should look something like this:
 
 [![emby-12](/pics/emby-12.png)](/pics/emby-12.png)
 
-If you are okay with the settings, click on "Ok". Your library should be added now!
+All set? Click "Ok". Your Movies library is now ready! 🎬
 
 [![emby-13](/pics/emby-13.png)](/pics/emby-13.png)
 
-To finish, click on the "Next" button.
+Time to move forward - click that "Next" button!
 
 [![emby-14](/pics/emby-14.png)](/pics/emby-14.png)
 
-### Continuing the setup
+### Wrapping up the setup
 
-On the "Preferred Metadata Language" page, you can choose the language and country of your metadata. Choose your preferred language and country and click "Next".
+On the "Preferred Metadata Language" page, pick your language and country preferences, then click "Next".
 
 [![emby-15](/pics/emby-15.png)](/pics/emby-15.png)
 
-Next, on the "Configure Remote Access" page, disable "Enable automatic port mapping" and click on "Next".
+For the "Configure Remote Access" page, let's keep things simple and secure:
+- Disable "Enable automatic port mapping"
+- Click "Next"
 
 [![emby-16](/pics/emby-16.png)](/pics/emby-16.png)
 
-Accept the terms of service and click on "Next".
+Time to accept the terms of service (you read those, right? 😉). Click "Next".
 
 [![emby-17](/pics/emby-17.png)](/pics/emby-17.png)
 
-And you are finally done! Click on "Finish" to go to your Emby dashboard.
+You're all done! Click "Finish" to see your new Emby dashboard. 🎉
 [![emby-18](/pics/emby-18.png)](/pics/emby-18.png)
 
 ### Logging in to Emby
 
-On the "Please Sign In" screen, select your user and log in with the username/password you set in the [Initial configuration](#initial-configuration) step.
+First up, pick your user and log in with the credentials you created earlier.
 
 [![emby-19](/pics/emby-19.png)](/pics/emby-19.png)
 
 [![emby-20](/pics/emby-20.png)](/pics/emby-20.png)
 
-And there it is! Your Emby home page is up and running!
+And there it is! Your very own streaming service, ready to go! 🌟
 
 [![emby-21](/pics/emby-21.png)](/pics/emby-21.png)
 
-## That's all!
+## That's all folks! 🎬
 
-YAMS is fully up and running! Now, let's add some content. Move on to [Running everything together](/config/running-everything-together).
+YAMS is fully up and running! Want to see how everything works together? Head over to [Running everything together](/config/running-everything-together).
+
+## Pro Tip! 💡
+
+If you're loving Emby, I highly recommend checking out [Emby Premiere](https://emby.media/premiere.html)! It's totally optional, but it gives you some really cool features like:
+- Offline media for your devices
+- Hardware transcoding (smoother playback!)
+- Auto-conversion of your content
+- And lots more!
+
+I actually canceled all my streaming services, bought a 1-year Emby Premiere license, and never looked back. Just saying! 😉

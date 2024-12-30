@@ -2,7 +2,7 @@
 title: "qBittorrent"
 date: 2023-01-10T18:02:13-03:00
 draft: false
-weight: 2
+weight: 1
 summary: The qBittorrent project aims to provide an open-source software alternative to µTorrent.
 ---
 
@@ -12,58 +12,18 @@ From their [website](https://www.qbittorrent.org/):
 
 > The qBittorrent project aims to provide an open-source software alternative to µTorrent.
 
-So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy!
+So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy! 😎
 
 ## Initial configuration
 
-In your browser, go to [http://{your-ip-address}:8080/]() and you'll see qBittorrent's admin page. The default username and password are:
+First things first - if you set up a VPN during YAMS installation (which you really should!), qBittorrent should already be configured to use it. Let's verify everything is working correctly.
 
-```sh
-username: admin
-password: adminadmin
-```
-I know, super safe.
-
-[![qbittorrent-1](/pics/qbittorrent-1.png)](/pics/qbittorrent-1.png)
-
-After logging in, you'll see the empty qBittorrent window. Here, you have to click on the gear icon to enter the settings.
-
-[![qbittorrent-2](/pics/qbittorrent-2.png)](/pics/qbittorrent-2.png)
-
-You'll notice qBitorrent has A TON of settings you can change. First, go to the "BitTorrent" tab, check the "When ratio reaches" checkbox, and set it to 0
-
-### Is this a dick move?
-
-Yes.
-
-In case you don't know, the BitTorrent protocol works by sharing (seeding) files across the network. By setting the seeding limit to zero, we are basically saying "Share the torrent **until** I've finished downloading." You'll still share the file across the network while downloading, but when the file completes, the torrent will automatically stop and wait for [Sonarr](/config/sonarr)/[Radarr](/config/radarr) to pick up the file.
-
-For the purposes of this tutorial, we'll leave it at 0, but if you want you can change it later to a less dickish setting.
-
-[![qbittorrent-3](/pics/qbittorrent-3.png)](/pics/qbittorrent-3.png)
-
-Then, we'll continue to the "Web UI" tab. There, we can set it so it won't ask for a password if we are accessing it from the same subnet. This is not required but recommended.
-
-[![qbittorreft-4](/pics/qbittorrent-4.png)](/pics/qbittorrent-4.png)
-
-Now, on the "Advanced" tab, we need to set our Network interface to `tun0`, so it always uses the VPN connection and kills the connection if the VPN goes down for some reason.
-
-[![qbittorreft-5](/pics/qbittorrent-5.png)](/pics/qbittorrent-5.png)
-
-Finally, go to the bottom of the modal and click "Save".
-
-[![qbittorreft-6](/pics/qbittorrent-6.png)](/pics/qbittorrent-6.png)
-
-## Check your VPN!
-
-If you configured your VPN correctly, it should be running. To test, run on your terminal:
-
+In your terminal, run:
 ```bash
-$ yams check-vpn
+yams check-vpn
 ```
 
-If everything is working correctly, you should get a message like this:
-
+You should see output like this:
 ```bash
 Getting your qBittorrent IP...
 <qBittorrent IP>
@@ -75,10 +35,8 @@ Your local IP country is North Korea
 
 Your IPs are different. qBittorrent is working as expected! ✅
 ```
-If your VPN is working fine, move onward to [That's done!](#thats-done).
 
-If the check fails (or you haven't configured the VPN), you'll see a message like this:
-
+If the check fails, you'll see something like:
 ```bash
 Getting your qBittorrent IP...
 <your local IP>
@@ -91,9 +49,93 @@ Your local IP country is North Korea
 Your IPs are the same! qBittorrent is NOT working! ⚠️
 ```
 
-**You should always run a VPN when downloading torrents!** You can manually set your VPN [here](/advanced/vpn/#manual-configuration) or you can run the YAMS installer again and use the automatic installer. Come back here after you have fixed this!
+If your VPN check failed, head over to [VPN Configuration](/advanced/vpn/#manual-configuration) to fix it. **You should always use a VPN when downloading torrents!**
 
+### Setting up qBittorrent
 
-## That's done!
+Let's get qBittorrent configured! In your terminal, check the qBittorrent logs to get your initial login credentials:
 
-Excellent! Now we can move forward with [Radarr](/config/radarr).
+```sh 
+docker compose logs qbittorrent
+```
+
+You'll see the qBittorrent username and password in the logs:
+```
+qbittorrent  | ******** Information ********
+qbittorrent  | To control qBittorrent, access the WebUI at: http://localhost:8081
+qbittorrent  | The WebUI administrator username is: admin
+qbittorrent  | The WebUI administrator password was not set. A temporary password is provided for this session: FBFsKbfbD
+qbittorrent  | You should set your own password in program preferences.
+qbittorrent  | Connection to localhost (::1) 8081 port [tcp/tproxy] succeeded!
+```
+
+In your browser, go to [http://{your-ip-address}:8081/]() and you'll see qBittorrent's admin page. Log in with:
+
+```sh
+username: admin
+password: your-temporary-password-from-the-logs
+```
+
+[![qbittorrent-1](/pics/qbittorrent-1.png)](/pics/qbittorrent-1.png)
+
+After logging in, you'll see the empty qBittorrent window. Click on the gear icon in the top right to enter the settings.
+
+[![qbittorrent-2](/pics/qbittorrent-2.png)](/pics/qbittorrent-2.png)
+
+### Configuring BitTorrent Settings
+
+First, go to the "Downloads" tab and set the "Default Save Path" to `/data/downloads/torrents/`.
+
+[![qbittorrent-8](/pics/qbittorrent-8.png)](/pics/qbittorrent-8.png)
+
+Then, go to the "BitTorrent" tab and check the "When ratio reaches" checkbox. Set it to 0.
+
+### Is this a dick move?
+
+Yes. 😅
+
+The BitTorrent protocol works by sharing (seeding) files across the network. Setting the seeding limit to zero means "Share the torrent **until** I've finished downloading." You'll still share while downloading, but once complete, the torrent stops and waits for [Sonarr](/config/sonarr)/[Radarr](/config/radarr) to pick it up.
+
+For this tutorial we'll leave it at 0, but feel free to be less selfish later! 
+
+[![qbittorrent-3](/pics/qbittorrent-3.png)](/pics/qbittorrent-3.png)
+
+### Configuring Web UI Settings
+
+Next, go to the "Web UI" tab. Here you can set it to skip password authentication when accessing from your local network. This is optional but recommended.
+
+[![qbittorreft-4](/pics/qbittorrent-4.png)](/pics/qbittorrent-4.png)
+
+While you're here, change that temporary password to something more secure:
+
+[![qbittorreft-7](/pics/qbittorrent-7.png)](/pics/qbittorrent-7.png)
+
+### Configuring Network Settings
+
+On the "Advanced" tab, make sure your Network interface is set to `tun0`. This ensures qBittorrent always uses the VPN connection and stops if the VPN goes down.
+
+[![qbittorreft-5](/pics/qbittorrent-5.png)](/pics/qbittorrent-5.png)
+
+Finally, scroll to the bottom and click "Save".
+
+[![qbittorreft-6](/pics/qbittorrent-6.png)](/pics/qbittorrent-6.png)
+
+### Port Forwarding 🚀
+
+Want faster downloads? YAMS supports automatic port forwarding! Check out our [Port Forwarding Guide](/advanced/port-forwarding/) to supercharge your download speeds.
+
+[![qbittorrent-ports](/pics/advanced-port-forwarding-1.png)](/pics/advanced-port-forwarding-1.png)
+
+## Final VPN Check
+
+Let's do one last VPN check to make sure everything's working:
+
+```bash
+$ yams check-vpn
+```
+
+You should see your qBittorrent IP is different from your local IP. If not, head over to [VPN Configuration](/advanced/vpn/#manual-configuration) to fix it.
+
+## That's done! 🎉
+
+Looking good! Now we can move forward with [SABnzbd](/config/sabnzbd).

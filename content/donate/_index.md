@@ -5,56 +5,47 @@ draft: false
 weight: 100
 ---
 
-## External donations (preferred)
-If you **really** wish to donate, first I would like to say thank you from the bottom of my heart! ❤️ 
+# Support the Awesome People Behind YAMS 💖
 
-Second, I would prefer you donate to any of the projects used in this script. They are the ones doing the real work, I just created a `docker-compose` file, a couple of bash scripts, and a documentation.
+Let's talk about something important: supporting the incredible projects and people that make YAMS possible! 🚀
 
-- [linuxserver.io donations page](https://www.linuxserver.io/donate).
-- [Sonarr donations page](https://sonarr.tv/donate).
-- [Radarr donations page](https://radarr.video/donate).
-- [Jellyfin donations page](https://opencollective.com/jellyfin).
-- [Emby premier page](https://emby.media/premiere.html) (Recommended! I personally use this service).
-- [Plex pass page](https://www.plex.tv/plex-pass/).
-- [qBittorrent donations page](https://www.qbittorrent.org/donate).
-- [Bazarr donations page](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url).
-- [Prowlarr donations page](https://prowlarr.com/donate)
-- [gluetun donations page](https://www.paypal.me/qmcgaw).
-- [Lidarr donations page](https://lidarr.audio/donate).
-- [Readarr donations page](https://readarr.com/donate).
+## Give Love to the Real Heroes 🦸‍♀️🦸‍♂️
 
-Just let them know YAMS sent you there 😎
+YAMS is built on the shoulders of giants - amazing open-source projects that pour their heart and soul into creating free, powerful tools. Before you even think about donating to YAMS, we want you to support the projects that truly make this possible!
 
-## Donations to YAMS
-If you **really REALLY** want to donate to YAMS, you can donate here, but **only after you donate to one of the other projects!** 
+### Top Projects to Support 🌟
 
-I'm not doing this for the money, and thank God I don't need donations to keep this project up and running. This is just a fun project I did for me and my friends 😀 
+Each of these projects is crucial to YAMS. If you appreciate what we've built, show some love to these incredible teams:
+
+1. **LinuxServer.io**: [Donate Here](https://www.linuxserver.io/donate)
+2. **Sonarr** 📺: [Donate Here](https://sonarr.tv/donate)
+3. **Radarr** 🎬: [Donate Here](https://radarr.video/donate)
+4. **Jellyfin** 🍿: [Donate Here](https://opencollective.com/jellyfin)
+5. **qBittorrent** 🌊: [Donate Here](https://www.qbittorrent.org/donate)
+6. **SABnzbd** 📰: [Donate Here](https://sabnzbd.org/donate/)
+7. **Prowlarr** 🔍: [Donate Here](https://prowlarr.com/donate)
+8. **Bazarr** 💬: [Donate Here](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url)
+9. **Gluetun** 🛡️: [Donate Here](https://www.paypal.me/qmcgaw)
+
+## YAMS Donations: The Very Last Priority 🏆
+
+Okay, so you REALLY want to support YAMS? First, thank you! But honestly, I'm not doing this for money. YAMS is a passion project I created for myself and my friends. If you've already supported the projects above and still want to chip in, here are some options:
+
+### Donation Methods 💸
 
 - Paypal: https://paypal.me/rogsme21
 - BTC: [`bc1qn092rw6q5nwha093qau6xryk6u3g9uwvy4tgdu`](/pics/btc.png)
 - XMR: [`8B2QC3RPEqEhbUKKL96CGzZBqoDq8kjzd5uUVCTHvyG8fACh5up3Svz4iNKiGEoZTqUXt4cJHqC4EeaTmrbVVHXfRrrRcBq`](/pics/xmr.png)
 
-# Special thanks
-- [linuxserver.io](https://info.linuxserver.io/) for their amazing docker images.
-- [Sonarr](https://sonarr.tv/).
-- [Radarr](https://radarr.video/).
-- [Jellyfin](https://jellyfin.org/).
-- [Emby](https://emby.media/).
-- [Plex](https://www.plex.tv/).
-- [qBittorrent](https://www.qbittorrent.org/).
-- [Bazarr](https://www.bazarr.media/).
-- [Prowlarr](https://github.com/Prowlarr/Prowlarr)
-- [gluetun](https://github.com/qdm12/gluetun).
-- [Portainer](https://www.portainer.io/).
-- [Lidarr](https://lidarr.audio/).
-- [Readarr](https://readarr.com/).
-- [The entire /r/selfhosted subreddit](https://www.reddit.com/r/selfhosted/).
-- My friends:
-  + [xploshioOn](https://github.com/xploshioOn).
-  + [norlis](https://github.com/norlis).
-  + [isaac152](https://github.com/isaac152).
+## Special Thanks 🙌
 
-## And finally:
-You 🫵, for being such an amazing human being, checking out my project, and (hopefully!) using it on your media server. 
+YAMS wouldn't exist without:
+- The amazing open-source community
+- My incredible friends who tested and provided feedback
+- The fantastic folks at LinuxServer.io
+- The maintainers of all the *arr projects
+- **YOU** 🫵 - for using, supporting, and believing in YAMS!
 
-# Thank you! 🙇
+Remember: The best way to support YAMS is by using it, sharing it, and helping others in our community! 🤝
+
+Happy streaming! 🎬✨

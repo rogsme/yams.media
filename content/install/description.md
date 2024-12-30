@@ -3,49 +3,65 @@ title: "What is YAMS?"
 date: 2023-01-10T15:23:19-03:00
 draft: false
 weight: 1
-summary: A brief summary on what YAMS is and its features
+summary: Everything you need to know about YAMS and what makes it awesome
 ---
 
-YAMS is a **highly opinionated** media server installation script.
+# Welcome to YAMS! 🎬
 
-It includes all the essential *arr apps, along with exceptionally detailed documentation. In just a few minutes, you can have a fully functional media server with Sonarr, Radarr, Jellyfin, qBittorrent, and more! 
+YAMS (Yet Another Media Server) is an **opinionated** media server that just works. No fuss, no complexity - just a smooth, automated media experience that you can set up in minutes!
 
-With YAMS you'll be able to automate your media gathering, organization, and consumption.
+## The Story Behind YAMS 📖
 
-## First, why?
+Back in 2019, I had a mission: Create a media server that my non-tech-savvy girlfriend could use without calling me for help every five minutes. So I dove in, combining some awesome open-source projects and wrapping them up in Docker containers.
 
-In 2019 I wanted a setup that my non-technical girlfriend could use without any problems, so I started designing my media server using multiple open source projects and running them on top of docker.
+Fast forward to today, and guess what? Mission accomplished! 🎉 Not only does my girlfriend use it without any issues, but I've even got my mom (who lives 5000km away!) streaming her favorite shows with zero problems.
 
-Fast forward two years and I would like to say it works very well 😎 And most importantly, I accomplished my goal: My girlfriend uses it regularly and I've even added my mom, who lives 5000 kms from me.
+When my friends saw how well it worked, they all wanted one too. But explaining how to set everything up was like trying to teach a cat to swim - technically possible, but way more complicated than it needed to be. 
 
-My friends wanted to have a media server like mine, but it was always hard to explain everything that was involved in building and connecting all the pieces together.
+That's when it hit me: Why not create a script that could do all the heavy lifting? And that's how YAMS was born! Now anyone can build their own kickass media server without needing a PhD in computer science. 😎
 
-So basically, my friends pushed me to build this script and documentation, so they (and now anyone!) could build it on their own home servers.
+## What Makes YAMS Special? ✨
 
-## Features
+YAMS isn't just another media server - it's your personal Netflix-killer with superpowers! Here's what you get out of the box:
 
-In no particular order:
+### 🤖 Fully Automated
+- **Smart Downloads:** Just tell it what shows and movies you want - YAMS handles the rest
+- **Perfect Organization:** Everything gets sorted and labeled automatically
+- **Subtitle Magic:** Auto-downloads subtitles in any language you want (if they're available)
 
-- **Automatic shows/movies download:** Just add your shows and movies to the watch list and it should automatically download the files as soon as they are available.
-- **Automatic classification and organization:** Your media files should be completely organized by default.
-- **Automatic subtitles download:** Self-explanatory. Your media server should automatically download subtitles in the languages you choose if they are available.
-- **Support for Web, Android, iOS, Android TV, and whatever that can support Emby/Jellyfin/Plex:** Since we are using Emby/Jellyfin/Plex, you should be able to watch your favorite media almost anywhere.
+### 📱 Watch Anywhere
+- Works on pretty much anything that can run Emby/Jellyfin/Plex:
+  - 🖥️ Web browsers
+  - 📱 iOS & Android phones/tablets
+  - 📺 Smart TVs
+  - 🎮 Gaming consoles
+  - And tons more!
 
+## What's Under the Hood? 🛠️
 
-## What's installed with YAMS?
+YAMS combines some of the best open-source media tools out there:
 
-- [qBittorrent](https://www.qbittorrent.org/).
-- [Radarr](https://radarr.video/).
-- [Sonarr](https://sonarr.tv/).
-- [Prowlarr](https://github.com/Prowlarr/Prowlarr).
-- [Bazarr](https://www.bazarr.media/).
-- [Jellyfin](https://jellyfin.org/).
-- [Emby](https://emby.media/).
-- [Plex](https://www.plex.tv/).
-- [gluetun](https://github.com/qdm12/gluetun).
-- [Portainer](https://www.portainer.io/).
-- [Lidarr](https://lidarr.audio/).
-- [Readarr](https://readarr.com/).
+### Core Components:
+- 📥 qBittorrent & SABnzbd: Your download powerhouses
+- 🎬 Radarr: Your personal movie hunter
+- 📺 Sonarr: Your TV show tracker
+- 🔍 Prowlarr: Your search master
+- 💬 Bazarr: Your subtitle wizard
+- 🎮 Jellyfin/Emby/Plex: Your streaming brain
 
-With this combination, you can create a fully functional media server that is going to download, categorize, subtitle, and serve your favorite shows and movies.
+### Performance Features:
+- 🚄 **Port Forwarding**: Automatic port configuration for faster downloads
+- 🔗 **Hardlinking**: Saves massive amounts of disk space by creating multiple references to the same file instead of duplicating data
+- ⚡ **Atomic Moves**: Ensures clean, instantaneous file transfers without incomplete or corrupted files
 
+Want to dive deep into file management best practices? Check out the [TRaSH Guides File and Folder Structure](https://trash-guides.info/File-and-Folder-Structure/) for the ultimate deep dive!
+
+### Extra Goodies:
+- 🔒 gluetun: Keeps your downloads private and secure
+- 🎛️ Portainer: Makes managing everything a breeze
+- 🎵 Lidarr: Handles your music collection
+- 📚 Readarr: Takes care of your ebooks
+
+All these pieces work together seamlessly to create a media server that's both powerful AND easy to use. It's like having your own streaming service, but better - because YOU'RE in control! 
+
+Ready to dive in? Let's [get started with the installation](/install/steps)!
