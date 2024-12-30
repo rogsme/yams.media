@@ -84,7 +84,11 @@ After logging in, you'll see the empty qBittorrent window. Click on the gear ico
 
 ### Configuring BitTorrent Settings
 
-First, go to the "BitTorrent" tab and check the "When ratio reaches" checkbox. Set it to 0.
+First, go to the "Downloads" tab and set the "Default Save Path" to `/data/downloads/torrents/`.
+
+[![qbittorrent-8](/pics/qbittorrent-8.png)](/pics/qbittorrent-8.png)
+
+Then, go to the "BitTorrent" tab and check the "When ratio reaches" checkbox. Set it to 0.
 
 ### Is this a dick move?
 
