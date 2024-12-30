@@ -2,7 +2,7 @@
 title: "Portainer"
 date: 2023-01-30T15:46:05-03:00
 draft: false
-weight: 5
+weight: 7
 summary: Your visual control center for all YAMS containers
 ---
 
