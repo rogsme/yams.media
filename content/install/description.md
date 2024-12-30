@@ -49,14 +49,10 @@ YAMS combines some of the best open-source media tools out there:
 - 💬 Bazarr: Your subtitle wizard
 - 🎮 Jellyfin/Emby/Plex: Your streaming brain
 
-### Performance Magic: Hardlinking and Atomic Moves 🚀
-
-YAMS supports hardlinking and atomic moves by default - and trust us, that's a big deal! 🤯 Here's why:
-
-- **Hardlinking**: Saves massive amounts of disk space by creating multiple references to the same file instead of duplicating data
-- **Atomic Moves**: Ensures clean, instantaneous file transfers without incomplete or corrupted files
-- **Zero Disk Space Waste**: Download and move files without creating unnecessary copies
-- **Lightning-Fast Transfers**: Incredible performance for large media libraries
+### Performance Features:
+- 🚄 **Port Forwarding**: Automatic port configuration for faster downloads
+- 🔗 **Hardlinking**: Saves massive amounts of disk space by creating multiple references to the same file instead of duplicating data
+- ⚡ **Atomic Moves**: Ensures clean, instantaneous file transfers without incomplete or corrupted files
 
 Want to dive deep into file management best practices? Check out the [TRaSH Guides File and Folder Structure](https://trash-guides.info/File-and-Folder-Structure/) for the ultimate deep dive!
 

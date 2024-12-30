@@ -82,6 +82,11 @@ For proper privacy protection, check that:
    - Set up category-specific download folders
    - Remove completed torrents regularly
 
+5. **Enable Port Forwarding**
+   - Check our [Port Forwarding Guide](/advanced/port-forwarding/)
+   - Significantly improves download speeds
+   - Works automatically with ProtonVPN
+
 ## Troubleshooting Common Issues 🔧
 
 ### Downloads Won't Start

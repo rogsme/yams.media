@@ -120,6 +120,12 @@ Finally, scroll to the bottom and click "Save".
 
 [![qbittorreft-6](/pics/qbittorrent-6.png)](/pics/qbittorrent-6.png)
 
+### Port Forwarding 🚀
+
+Want faster downloads? YAMS supports automatic port forwarding! Check out our [Port Forwarding Guide](/advanced/port-forwarding/) to supercharge your download speeds.
+
+[![qbittorrent-ports](/pics/advanced-port-forwarding-1.png)](/pics/advanced-port-forwarding-1.png)
+
 ## Final VPN Check
 
 Let's do one last VPN check to make sure everything's working:
