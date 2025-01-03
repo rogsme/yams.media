@@ -56,7 +56,7 @@ If your VPN check failed, head over to [VPN Configuration](/advanced/vpn/#manual
 Let's get qBittorrent configured! In your terminal, check the qBittorrent logs to get your initial login credentials:
 
 ```sh 
-docker compose logs qbittorrent
+docker logs qbittorrent
 ```
 
 You'll see the qBittorrent username and password in the logs:
