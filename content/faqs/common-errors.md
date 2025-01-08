@@ -74,7 +74,7 @@ If your VPN isn't working, let's troubleshoot step by step:
    ```
 
 5. **Provider-Specific Issues:**
-   - **ProtonVPN**: Make sure to use the correct username format (numbers only)
+   - **ProtonVPN**: Make sure to use the correct username ([OpenVPN / IKEv2 username](https://account.proton.me/u/0/vpn/OpenVpnIKEv2))
    - **Mullvad**: Account number needs to be exactly 16 digits
    - **NordVPN**: Use your token, not your regular password
 
