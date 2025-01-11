@@ -204,7 +204,22 @@ If you want to use a VPN (strongly recommended):
    - Press Enter for ProtonVPN (recommended)
    - Or type your VPN provider's name
 
-3. Enter your credentials:
+   The installer will show you where to find the setup documentation:
+   ```bash
+   Please check protonvpn's documentation for specific configuration:
+   https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md
+   ```
+   Make sure to check this documentation - it will help you avoid common setup issues!
+
+3. Configure port forwarding:
+   ```bash
+   Port forwarding allows for better connectivity in certain applications.
+   However, not all VPN providers support this feature.
+   Please check your VPN provider's documentation to see if they support port forwarding.
+   Enable port forwarding? (y/N) [Default = n]:
+   ```
+
+4. Enter your credentials:
    ```bash
    VPN username (without spaces):
    VPN password:
