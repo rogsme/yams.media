@@ -210,6 +210,12 @@ If you want to use a VPN (strongly recommended):
    https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md
    ```
    Make sure to check this documentation - it will help you avoid common setup issues!
+   
+   If you are using ProtonVPN:
+   ```bash
+   DO NOT USE YOUR PROTON ACCOUNT USERNAME AND PASSWORD. REFER TO THE DOCUMENTATION ABOVE TO OBTAIN THE CORRECT VPN USERNAME AND PASSWORD.
+   ```
+   [Don't say you weren't warned](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md#openvpn-only).
 
 3. Configure port forwarding:
    ```bash
