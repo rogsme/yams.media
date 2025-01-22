@@ -1,23 +1,24 @@
 ---
-title: "Using the CLI"
-date: 2023-01-10T17:55:41-03:00
+title: "Utiliser l'interface de ligne de commande"
+date: 2025-01-16T14:57:14+02:00
 draft: false
 weight: 3
-summary: Master YAMS's powerful command-line interface - your Swiss Army knife for managing your media server!
+summary: Maîtrisez la puissante interface de ligne de commande YAMS, votre couteau suisse pour gérer votre serveur multimédia !
 ---
 
-# The YAMS Command Line: Your Media Server's Best Friend 🛠️
+# L'interface de ligne de commande YAMS : Le meilleur ami de votre serveur multimédia 🛠️
 
-YAMS comes with a super handy command-line interface (CLI) that makes managing your media server a breeze! Think of it as your media server's remote control - but cooler. 😎
+YAMS propose une interface de ligne de commande (CLI) super pratique qui permet de gérer votre serveur multimédia comme un jeu d'enfant ! C'est une sorte de télécommande pour votre serveur, mais en plus cool. 😎
 
-## Getting Started
+## Démarrage
 
-To see what your YAMS CLI can do, just type:
+Pour voir ce que permet le CLI de YAMS, tapez juste dans votre terminal :
+
 ```bash
 yams --help
 ```
 
-You'll get a nice overview of all available commands:
+Vous obtiendrez une vue d'ensemble des différentes commandes disponibles :
 
 ```bash
 yams - Yet Another Media Server
@@ -34,58 +35,67 @@ check-vpn                 checks if the VPN is working as expected
 backup                    backs up yams to the destination location
 ```
 
-Let's break down each command and see what magic they can do! ✨
+Décortiquons chaque commande et voyons quelle magie elles peuvent accomplir ! ✨
 
-## The Command Arsenal 🚀
+## L'arsenal de commandes 🚀
 
 ### `yams start`
-Fires up all your YAMS services. It's like pressing the "ON" button for your media server! The CLI will even show you a nice progress bar and let you know when everything's up and running.
+
+Démarre tous vos services YAMS. C'est comme appuyer sur le bouton "ON" de votre serveur multimédia ! Le CLI vous montrera même une jolie barre de progression et vous préviendra quand tout sera lancé.
 
 ### `yams stop`
-Gracefully stops all YAMS services. Think of it as tucking your media server in for a good night's rest. 😴 All downloads will be paused, and all services will shut down properly.
+
+Éteint en douceur tous les services YAMS. C'est comme si vous accordiez une bonne nuit de sommeil à votre serveur. 😴 Tous les téléchargements seront mis en pause et tous les services seront éteints.
 
 ### `yams restart`
-Having a hiccup with one of your services? This command is like giving your media server a quick refresh! It:
-1. Gracefully stops all services
-2. Starts them back up
-3. Shows you a progress bar while services are starting
-4. Confirms when everything's back online
+
+Vous avez un problème avec l'un de vos services ? Cette commande permet de rafraîchir rapidement votre serveur multimédia ! Elle :
+
+1. Éteint en douceur tous vos services
+2. Les fait redémarrer
+3. Montre une barre de progression pendant qu'ils démarrent
+4. Confirme que tout est à nouveau fonctionnel
 
 ### `yams check-vpn`
-Your privacy guardian! 🛡️ This command makes sure your VPN is doing its job by:
-1. Checking your real IP address
-2. Checking qBittorrent's IP address
-3. Comparing them to make sure they're different
-4. Showing you which countries both IPs are from
 
-If something's wrong, it'll let you know right away!
+La gardienne de votre vie privée ! 🛡️ Cette commande s'assure que votre VPN vous protège bien en :
+
+1. Vérifiant votre adresse IP réelle
+2. Vérifiant l'adresse IP de qBittorrent
+3. Compare ces dernières en s'assurant qu'elles sont différentes
+4. Montre dans quel pays sont situées les deux adresses IP
+
+Si quelque chose ne va pas, vous le saurez tout de suite !
 
 ### `yams backup [destination]`
-Your safety net! 🎯 Backs up your entire YAMS configuration to keep your setup safe. Just tell it where to save the backup:
+
+Votre filet de sécurité ! 🎯 Sauvegarde l'ensemble de votre configuration YAMS pour garder votre installation sûre. Dites juste à la commande où faire la sauvegarde :
 
 ```bash
 yams backup ~/my-backups
 ```
 
-This will:
-1. Stop all services (temporarily)
-2. Create a timestamped backup file
-3. Start everything back up
-4. Tell you exactly where your backup is saved
+Elle va :
+
+1. Stopper (temporairement) tous les services
+2. Créer un fichier de sauvegarde horodaté
+3. Relancer tous les services
+4. Vous indiquer où la sauvegarde est stockée.
 
 ### `yams destroy`
-The nuclear option! ☢️ This command completely removes all YAMS services so you can start fresh. But don't worry - it'll ask for confirmation first! We don't want any accidents. 😅
 
-## Pro Tips 💡
+L'arme atomique ! ☢️ cette commande va complètement supprimer tous les services YAMS pour recommencer de zéro. Mais pas d'inquiétude, elle vous demandera d'abord une confirmation ! Nous ne voulons pas d'accidents. 😅
 
-1. **Service Status**: After starting or restarting, YAMS will show you the status of each service, so you know everything's working properly.
+## Astuces 💡
 
-2. **Backup Regularly**: Get into the habit of running `yams backup` before making any big changes. Future you will thank present you!
+1. **État des services** : Après chaque démarrage ou redémarrage, YAMS vous indiquera l'état de chaque service, pour vous assurer que tout fonctionne correctement.
 
-3. **Check That VPN**: Run `yams check-vpn` periodically to ensure your privacy is protected.
+2. **Sauvegardes régulières** : Prenez l'habitude de lancer régulièrement `yams backup` avant de faire de gros changements. Votre vous du futur vous remercie !
 
-## Troubleshooting 🔧
+3. **Vérifiez le VPN** : Lancez régulièrement `yams check-vpn` pour vous assurer que votre vie privée est protégée.
 
-Getting a `docker` permission error when trying to use the CLI? Don't panic! Head over to our [Common Issues](/faqs/common-errors/) page for the fix.
+## Dépannage 🔧
 
-Remember: YAMS's CLI is here to make your life easier! If you're ever unsure about a command, just add `--help` at the end or check back here for a refresher. Happy streaming! 🎬
+Si vous avez une erreur de permission `docker` lorsque vous essayer d'utiliser le CLI, pas de panique ! Jetez un coup d'œil à notre guide [Problèmes courants](/faqs/common-errors/).
+
+N'oubliez pas : Le CLI de YAMS est là pour vous faciliter la vie ! Si vous n'êtes pas sûr d'une commande, faites simplement `yams --help` ou revenez ici pour vous rafraîchir la mémoire. Bon visionnage ! 🎬
