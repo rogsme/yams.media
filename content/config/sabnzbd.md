@@ -1,64 +1,69 @@
 ---
 title: "SABnzbd"
-date: 2023-01-10T18:02:13-03:00
+date: 2025-01-22T14:03:31+02:00
 weight: 2
 draft: false
-summary: SABnzbd is a program to download binary files from Usenet servers. Many people upload all sorts of interesting material to Usenet and you need a special program to get this material with the least effort.
+summary: SABnzbd est un programme qui permet de télécharger des fichiers à partir de serveurs Usenet. De nombreuses personnes publient toutes sortes de contenus intéressants sur Usenet et vous avez besoin d'un programme spécial pour obtenir ces contenus avec un minimum d'effort.
 ---
 
-## What is SABnzbd?
+## Qu'est-ce que SABnzbd ?
 
-From their [website](https://sabnzbd.org/):
+Depuis leur [site web](https://sabnzbd.org/) :
 
-> SABnzbd is a program to download binary files from Usenet servers. Many people upload all sorts of interesting material to Usenet and you need a special program to get this material with the least effort.
+> SABnzbd est un programme qui permet de télécharger des fichiers à partir de serveurs Usenet. De nombreuses personnes publient toutes sortes de contenus intéressants sur Usenet et vous avez besoin d'un programme spécial pour obtenir ces contenus avec un minimum d'effort.
 
-So basically, SABnzbd is going to help us download stuff from Usenet servers. Pretty cool! 😎
+En gros, SABnzbd va nous aider à télécharger des trucs sur les serveurs Usenet. Plutôt sympa ! 😎
 
-## Initial configuration
+## Configuration initiale
 
-In your browser, go to [http://{your-ip-address}:8080/]() and you'll see SABnzbd's setup page. First, choose your language and click on "Start Wizard":
+Depuis votre navigateur, allez à l'adresse [http://{votre-adresse-ip}:8080/](). Vous arriverez sur la page d'installation de SABnzbd.
+
+Avant de choisir votre langue, veuillez noter que ce guide est rédigé en français, mais que les étapes et illustrations suivantes sont basées sur le choix de langue anglais.
+
+Une fois votre choix effectué, cliquez sur "Start Wizard" :
 
 [![sabnzbd-1](/pics/sabnzbd-1.png)](/pics/sabnzbd-1.png)
 
-Next up, you'll need to choose a Usenet server. [Newshosting](https://www.newshosting.com/) usually has good deals going on, but you can use whatever server you prefer! 
+Ensuite, vous allez devoir choisir un serveur Usenet. [Newshosting](https://www.newshosting.com/) propose généralement des bons plans, mais vous pouvez utiliser le serveur que vous préférez !
 
-When you've got your server details ready, input them and click on "Next".
+Une fois que vous avez obtenu les détails de votre serveur, saisissez-les dans les champs correspondants et cliquez sur "Next".
 
 [![sabnzbd-2](/pics/sabnzbd-2.png)](/pics/sabnzbd-2.png)
 
-You should now see the final wizard page - congrats! 🎉 
+Vous devriez maintenant voir la page finale de l'assistant d'installation. Félicitations ! 🎉
 
-You'll notice the Completed and Uncompleted download folders aren't quite where we want them. Don't worry, we'll fix that in a minute!
+Vous remarquerez que les dossiers de téléchargement "Completed" et "Uncompleted" ne sont pas tout à fait à leur place. Ne vous inquiétez pas, nous allons y remédier dans une minute !
 
-For now, just click on "Go to SABnzbd".
+Pour l'instant, cliquez sur "Go to SABnzbd".
 
 [![sabnzbd-3](/pics/sabnzbd-3.png)](/pics/sabnzbd-3.png)
 
-Head over to the settings page by clicking on the cog-wheel icon in the top right.
+Rendez-vous sur la page des paramètres en cliquant sur l'icône d'engrenage en haut à droite.
 
 [![sabnzbd-4](/pics/sabnzbd-4.png)](/pics/sabnzbd-4.png)
 
-On the settings page, click on "Folders" and let's get those paths sorted:
-- Set your "Temporary Download Folder" to `/data/downloads/usenet/incomplete`
-- Set your "Completed Download Folder" to `/data/downloads/usenet/complete`
-- Click on "Save Changes"
+Sur la page des paramètres, cliquez sur "Folders" et indiquez les bons dossiers :
+
+-   Entrez `/data/downloads/usenet/incomplete` dans "Temporary Download Folder"
+-   Entrez `/data/downloads/usenet/complete` dans "Completed Download Folder"
+-   Cliquez sur "Save Changes"
 
 [![sabnzbd-5](/pics/sabnzbd-5.png)](/pics/sabnzbd-5.png)
 
-## Getting your API key for Sonarr and Radarr
+## Obtenir votre clé API pour Sonarr et Radarr
 
-You'll need this API key later when we set up Radarr and Sonarr. Feel free to skip this section for now if you want - you can always come back! 
+Vous aurez besoin de cette clé API plus tard lorsque nous configurerons Radarr et Sonarr. N'hésitez pas à sauter cette section pour l'instant, vous pourrez toujours y revenir !
 
-To get your API key:
+Pour obtenir votre clé API :
 
-First, head back to the settings.
+Retournez d'abord dans les paramètres.
 
 [![sabnzbd-4](/pics/sabnzbd-4.png)](/pics/sabnzbd-4.png)
 
-Then, go to "General" and scroll down to "Security". You'll find your API Key right there!
+Puis allez dans "General" et descendez jusqu'à la section "Security". Vous y trouverez votre clé API !
 
 [![sabnzbd-6](/pics/sabnzbd-6.png)](/pics/sabnzbd-6.png)
 
-## That's done! 🎉
+## Et voilà ! 🎉
 
-Excellent! Now we can move forward with [Radarr](/config/radarr). Get ready - this is where things start getting really fun! 😄
+Excellent ! Nous pouvons maintenant continuer avec [Radarr](/config/radarr). Préparez-vous, c'est là que les choses deviennent vraiment amusantes ! 😄
