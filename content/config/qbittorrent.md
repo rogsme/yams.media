@@ -8,7 +8,7 @@ summary: Le projet qBittorrent vise à fournir une alternative logicielle libre 
 
 ## Qu'est-ce que qBittorrent ?
 
-Depuis leur [site webd](https://www.qbittorrent.org/):
+Depuis leur [site web](https://www.qbittorrent.org/) :
 
 > Le projet qBittorrent vise à fournir une alternative logicielle libre à µTorrent.
 
