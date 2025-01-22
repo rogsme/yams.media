@@ -1,6 +1,6 @@
 ---
-title: "Advanced"
-date: 2023-01-16T10:56:37-03:00
+title: "Configuration avancée"
+date: 2025-01-15T11:50:16+02:00
 draft: false
 weight: 100
 ---

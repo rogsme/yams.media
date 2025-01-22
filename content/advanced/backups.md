@@ -1,31 +1,33 @@
 ---
-title: "Backups"
-date: 2023-01-17T19:38:39-03:00
+title: "Sauvegardes"
+date: 2025-01-15T11:50:16+02:00
 draft: false
 weight: 6
-summary: Everything you need to know about backing up and restoring your YAMS setup
+summary: Tout ce que vous devez savoir sur la sauvegarde et la restauration de votre installation YAMS
 ---
 
-# Keeping Your YAMS Safe 💾
+# Protégez votre configuration YAMS 💾
 
-Your YAMS configuration is precious! Let's make sure it's properly backed up so you can recover from any mishaps.
+Votre configuration YAMS est précieuse ! Assurons-nous de bien la sauvegarder afin que vous puissiez la récupérer en cas de problème.
 
-## Creating Backups 📦
+## Créer des sauvegardes 📦
 
-YAMS includes a super handy backup command that takes care of everything:
+YAMS inclut une commande de sauvegarde très pratique qui s'occupe de tout :
 
 ```bash
 yams backup [destination]
 ```
 
-### Quick Backup Example
+### Exemple rapide de sauvegarde
 
-Let's say you want to back up to your home directory:
+Supposons que vous souhaitez effectuer une sauvegarde dans votre répertoire personnel :
+
 ```bash
 yams backup ~/backups/
 ```
 
-You'll see something like this:
+Vous devriez observer quelque chose comme ça :
+
 ```bash
 Stopping YAMS services...
 
@@ -40,118 +42,129 @@ Backup completed successfully! 🎉
 Backup file: /home/roger/yams-backup-2024-12-23-1734966570.tar.gz
 ```
 
-### What Gets Backed Up? 🤔
+### Quels éléments sont sauvegardés ? 🤔
 
-The backup includes:
-- All your container configurations
-- Your YAMS settings
-- Your service preferences
-- Custom container configurations
-- Important environment variables
+La sauvegarde inclut :
 
-### Pro Backup Tips 💡
+-   Toutes les configurations de vos conteneurs
+-   Vos paramètres YAMS
+-   Les préférences de vos services
+-   Les configurations de vos conteneurs personnalisés
+-   Les variables d'environnement importantes
 
-1. **Regular Backups**: Schedule them weekly or monthly
-2. **Multiple Locations**: Keep copies in different places
-3. **Before Updates**: Always backup before updating YAMS
-4. **Version Control**: Keep a few recent backups around
-5. **Test Restores**: Occasionally verify your backups work
+### Astuces pour vos sauvegardes 💡
 
-## Restoring from Backup 🔄
+1. **Faites des sauvegardes régulièrement** : Planifiez-les de manière hebdomadaire ou mensuelles
+2. **Stockez-les à plusieurs endroits** : Gardez vos sauvegardes à différents endroits
+3. **Avant chaque mise à jour** : Faites toujours une sauvegarde avant de mettre à jour YAMS
+4. **Contrôle de version** : Gardez vos sauvegardes récentes à portée de main
+5. **Tests de restauration** : Vérifiez régulièrement que vos sauvegardes fonctionnent bien
 
-Need to restore your YAMS setup? Here's the step-by-step guide:
+## Restaurez vos sauvegardes 🔄
 
-### Step 1: Extract the Backup
+Besoin de restaurer votre installation YAMS ? Voici comment faire étape par étape :
+
+### Étape 1 : Extraire la sauvegarde
+
 ```bash
 tar -xzvf your-backup.tar.gz -C /your/new/location
 cd /your/new/location
 ```
 
-### Step 2: Update YAMS Configuration
-Edit the YAMS binary with your favorite text editor (we'll use `nano` here, but use whatever you prefer):
+### Étape 2 : Mettre à jour la configuration YAMS
+
+Éditez le binaire YAMS avec votre éditeur de code favori (nous allons utiliser `nano` mais peu importe celui que vous utilisez) :
+
 ```bash
 nano yams
 ```
 
-Find and update these lines:
+Trouvez et modifiez ces lignes :
+
 ```bash
 #!/bin/bash
 set -euo pipefail
 
 # Constants
-readonly DC="docker compose -f your/new/location/docker-compose.yaml -f your/new/location/docker-compose.custom.yaml"  # Update this!
-readonly INSTALL_DIRECTORY="your/new/location"  # Update this!
+readonly DC="docker compose -f your/new/location/docker-compose.yaml -f your/new/location/docker-compose.custom.yaml"  # Modifiez cette ligne !
+readonly INSTALL_DIRECTORY="your/new/location"  # Modifiez cette ligne !
 ```
 
-### Step 3: Install YAMS Binary
+### Étape 3 : Installez le binaire YAMS
+
 ```bash
 sudo cp yams /usr/local/bin/
 ```
 
-### Step 4: Start YAMS
+### Étape 4 : Démarrez YAMS
+
 ```bash
 yams start
 ```
 
-## Best Practices 📚
+## Bonnes pratiques 📚
 
-1. **Regular Schedule**
-   ```bash
-   # Example: Weekly backups to different locations
-   yams backup ~/backups/weekly/
-   yams backup /mnt/external/yams-backup/
-   ```
+1. **Faire des sauvegardes régulières**
 
-2. **Pre-Update Backups**
-   ```bash
-   # Before running yams update
-   yams backup ~/backups/pre-update/
-   ```
+    ```bash
+    # Exemple : Sauvegarde hebdomadaire à différents emplacements
+    yams backup ~/backups/weekly/
+    yams backup /mnt/external/yams-backup/
+    ```
 
-## Troubleshooting 🔧
+2. **Faire une sauvegarde avant une mise à jour**
+    ```bash
+    # Avant de lancer yams update
+    yams backup ~/backups/pre-update/
+    ```
 
-### Backup Failed?
-1. Check disk space:
-   ```bash
-   df -h
-   ```
-2. Verify write permissions:
-   ```bash
-   ls -la /backup/destination
-   ```
-3. Try stopping services manually:
-   ```bash
-   yams stop
-   ```
+## Dépannage 🔧
 
-### Restore Issues?
-1. Verify backup integrity:
-   ```bash
-   tar -tvf your-backup.tar.gz
-   ```
-2. Check file permissions
-3. Ensure all paths are correct in the YAMS binary
+### Erreur lors de la sauvegarde ?
 
-## Advanced Topics 🎓
+1. Vérifiez votre espace disque libre :
+    ```bash
+    df -h
+    ```
+2. Vérifiez vos permissions :
+    ```bash
+    ls -la /backup/destination
+    ```
+3. Tenez de stopper les services manuellement :
+    ```bash
+    yams stop
+    ```
 
-### Automated Backups
+### Erreur lors de la restauration ?
 
-You can automate backups using cron. Here's an example:
+1. Vérifiez l'intégrité de votre sauvegarde :
+    ```bash
+    tar -tvf your-backup.tar.gz
+    ```
+2. Vérifiez vos permissions
+3. Assurez-vous que tous les chemins sont corrects dans le binaire de YAMS.
 
-1. Open your crontab:
-   ```bash
-   crontab -e
-   ```
+## Sujets avancés 🎓
 
-2. Add a weekly backup job:
-   ```bash
-   # Run backup every Sunday at 2 AM
-   0 2 * * 0 /usr/local/bin/yams backup /path/to/backups/
-   ```
+### Sauvegardes automatiques
 
-### Backup Rotation
+Vous pouvez automatiser vos sauvegardes en utilisant cron. Voici un exemple :
 
-Keep your backups manageable with rotation:
+1. Ouvrez votre crontab :
+
+    ```bash
+    crontab -e
+    ```
+
+2. Ajoutez une sauvegarde hebdomadaire :
+    ```bash
+    # Run backup every Sunday at 2 AM
+    0 2 * * 0 /usr/local/bin/yams backup /path/to/backups/
+    ```
+
+### Roulement des sauvegardes
+
+Gardez vos sauvegardes gérables avec des roulements :
 
 ```bash
 #!/bin/bash
@@ -159,18 +172,19 @@ Keep your backups manageable with rotation:
 MAX_BACKUPS=5
 BACKUP_DIR="/path/to/backups"
 
-# Create new backup
+# Créé une nouvelle sauvegarde
 yams backup $BACKUP_DIR
 
-# Remove old backups
+# Supprime les anciennes sauvegardes
 ls -t $BACKUP_DIR/yams-backup-* | tail -n +$((MAX_BACKUPS + 1)) | xargs rm -f
 ```
 
-## Need Help? 🆘
+## Besoin d'aide ? 🆘
 
-If you run into backup or restore issues:
-1. Check our [Common Issues](/faqs/common-errors/) page
-2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+Si vous avez rencontré un problème de sauvegarde ou restauration :
 
-Remember: The best time to make a backup is BEFORE you need it! 🎯
+1. Visitez notre page [Problèmes courants](/faqs/common-errors/) page
+2. Visitez le [Forum YAMS](https://forum.yams.media)
+3. Rejoignez notre serveur [Discord](https://discord.gg/Gwae3tNMST) ou [Matrix](https://matrix.to/#/#yams-space:rogs.me)
+
+N'oubliez pas : Le meilleur moment pour faire une sauvegarde est AVANT d'en avoir besoin ! 🎯

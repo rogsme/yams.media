@@ -1,116 +1,115 @@
 ---
 title: "Readarr"
-date: 2023-01-31T13:52:34-03:00
+date: 2025-01-16T08:51:14+02:00
 draft: false
 weight: 9
-summary: Readarr is a ebook collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new books from your favorite authors and will interface with clients and indexers to grab, sort, and rename them.
-
+summary: Readarr est un gestionnaire de bibliothèque d'ebooks pour les utilisateurs d'Usenet et de BitTorrent. Il peut surveiller plusieurs flux RSS pour détecter les nouveaux livres de vos auteurs préférés et s'interfacer avec les clients et les indexeurs pour les téclécharger, les trier et les renommer.
 ---
 
-# What is Readarr?
+# Qu'est-ce que Readarr ?
 
-From their [wiki](https://readarr.com/):
+Selon leur [wiki](https://readarr.com/):
 
-> Readarr is a ebook collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new books from your favorite authors and will interface with clients and indexers to grab, sort, and rename them.
+> Readarr est un gestionnaire de bibliothèque d'ebooks pour les utilisateurs d'Usenet et de BitTorrent. Il peut surveiller plusieurs flux RSS pour détecter les nouveaux livres de vos auteurs préférés et s'interfacer avec les clients et les indexeurs pour les téclécharger, les trier et les renommer.
 
-In YAMS, Readarr is going to manage all our books: download, sort, etc.
+Dans YAMS, Readarr va s'occuper de gérer tous nos livres : téléchargement, tri, etc.
 
-## Initial configuration
+## Configuration initiale
 
-In your browser, go to [http://{your-ip-address}:8787/]() and you'll see Readarr's empty page. You'll also notice you have 3 messages on the system tab, but we'll deal with them later.
+Dans votre navigateur, allez sur [http://{votre-adresse-ip}:8787/](). Vous allez arriver sur une page vide avec notamment 3 messages sur l'onglet "System".
 
 [![readarr-1](/pics/readarr-1.png)](/pics/readarr-1.png)
 
-### Media management
+### Gestion des médias
 
-First, go to "Settings" and then "Media management". On this screen, click on the big ➕ sign.
+Dans un premier temps, allez dans "Settings", puis "Media management". Sur cette page, cliquez sur le gros bouton ➕.
 
 [![readarr-2](/pics/readarr-2.png)](/pics/readarr-2.png)
 
-On the "Add root folder" modal, add the following information:
+Depuis la fenêtre de dialogue "Add root folder", remplissez les informations suivantes :
 
-- On "Name", set it to "Books"
-- On "Path", set it to "/books/"
+-   Dans "Name", mettez "Books"
+-   Dans "Path", mettez "/books/"
 
-Finally, click on "Save".
+Enfin, cliquez sur "Save".
 
 [![readarr-3](/pics/readarr-3.png)](/pics/readarr-3.png)
 
-You should see your new "Books" root folder.
+Vous devriez maintenant voir votre dossier "Books" dans la section "Root folder".
 
 [![readarr-4](/pics/readarr-4.png)](/pics/readarr-4.png)
 
-### Download Clients
+### Clients de téléchargement
 
-Here, you'll add the download clients for Readarr. That's where you'll tie in Readarr with [qBittorrent](/config/qbittorrent).
+Ici, vous allez ajouter les clients de téléchargement pour Readarr. C'est là que Readarr va se connecter à [qBittorrent](/config/qbittorrent).
 
-In "Settings", go to "Download Clients" and click on the ➕ button.
+Dans "Settings", allez sur "Download Clients" puis cliquez sur le bouton ➕.
 
 [![readarr-5](/pics/readarr-5.png)](/pics/readarr-5.png)
 
-On the "Add Download Client" screen, scroll down and click on "qBittorrent".
+Sur l'écran "Add Download Client", descendez puis cliquez sur "qBittorrent".
 
 [![readarr-6](/pics/readarr-6.png)](/pics/readarr-6.png)
 
-- In Name, add the name of your download client (qBittorrent).
-- On Host, add your server IP address (in my case, `192.168.0.169`).
-- On Username, add `admin`.
-- On Password, add `adminadmin`.
+-   Dans "Name", mettez le nom de votre client de téléchargement (qBittorrent).
+-   Dans "Host", mettez l'adresse IP de votre serveur (dans mon cas, `192.168.0.169`).
+-   Dans "Username", mettez `admin`.
+-   Dans "Password", mettez `adminadmin`.
 
 [![readarr-7](/pics/readarr-7.png)](/pics/readarr-7.png)
 
-At the bottom, you can click on "Test" and if everything is OK you should see a ✅ 
+En bas de la page, vous pouvez cliquer sur "Test" et si tout est bon, vous devriez voir un ✅
 [![radarr-10](/pics/radarr-10.png)](/pics/radarr-10.png)
 [![radarr-11](/pics/radarr-11.png)](/pics/radarr-11.png)
 
-If everything is fine, click on "Save". You should see your download client added to the "Download Clients" page now!
+Si tout fonctionne correctement, cliquez sur "Save". Votre client de téléchargement devrait maintenant apparaître sur la page "Download Clients" !
 
 [![readarr-8](/pics/readarr-8.png)](/pics/readarr-8.png)
 
-### Prowlarr config
+### Configuration de Prowlarr
 
-First, you are going to need your Readarr API Key.
+Vous allez d'abord avoir besoin de la clé API de votre instance Readarr.
 
-You can get your Readarr API Key in Readarr. Go to [http://{your-ip-address}:8787/settings/general]() to open Readarr's settings, and you'll find the API Key under the "Security" section.
+Vous pouvez l'obtenir via Readarr. Allez sur [http://{votre-adresse-ip}:8787/settings/general](), dans l'onglet "Settings", puis dans la section "Security".
 
 [![readarr-9](/pics/readarr-9.png)](/pics/readarr-9.png)
 
-For now, just copy it and keep it in a safe location.
+Pour l'instant, copiez juste la clé et gardez là dans un endroit sûr.
 
-In "Settings", go to "Apps" and click on the ➕ button.
+Dans "Settings", allez sur "Apps" et cliquez sur le bouton ➕.
 
 [![readarr-10](/pics/readarr-10.png)](/pics/readarr-10.png)
 
-On the "Add Application" modal, click on "Readarr"
+Depuis la fenêtre de dialogue "Add Application", cliquez sur "Readarr"
 
 [![readarr-11](/pics/readarr-11.png)](/pics/readarr-11.png)
 
-- In "Prowlarr Server", add `http://prowlarr:9696`
-- In "Readarr Server", add `http://readarr:8787`
-- In "ApiKey", add your Readarr API key.
+-   Dans "Prowlarr Server", mettez `http://prowlarr:9696`
+-   Dans "Readarr Server", mettez `http://readarr:8787`
+-   Dans "ApiKey", mettez la clé d'API Readarr que vous avez copié précédemment.
 
 [![readarr-12](/pics/readarr-12.png)](/pics/readarr-12.png)
 
-At the bottom, you can click on "Test" and if everything is OK you should see a ✅ 
+En bas de la page, vous pouvez cliquer sur "Test" et si tout est bon, vous devriez voir un ✅
 [![sonarr-10](/pics/sonarr-10.png)](/pics/sonarr-10.png)
 [![sonarr-11](/pics/sonarr-11.png)](/pics/sonarr-11.png)
 
-To finish, click on "Save". You should see Readarr added to the "Apps" list!
+Si tout fonctionne correctement, cliquez sur "Save". Vous devriez maintenant voir Readarr dans la liste d'applications !
 
 [![readarr-13](/pics/readarr-13.png)](/pics/readarr-13.png)
 
-**Remeber to add Books indexers!**. You won't be able to download if you don't add Books indexers in Prowlarr. To add indexers, go to [Prowlarr's Indexer configuration](/config/prowlarr/#indexers).
+**N'oubliez pas d'ajouter des indexeurs pour les livres**. Vous ne serez pas capable de télécharger si aucun indexeur dédié aux livres n'est ajouté à Prowlarr. Pour ajouter un indexeur, allez sur [Configuration des indexeurs via Prowlarr](/config/prowlarr/#indexers).
 
-## Usage
+## Utilisation
 
-Back in Readarr, go to "Library/Add New" and search for an author. Select it to add it to Readarr.
+Retournez sur Readarr, allez dans "Library/Add New" et cherchez un auteur. Sélectionnez le pour l'ajouter à Readarr.
 
 [![readarr-14](/pics/readarr-14.png)](/pics/readarr-14.png)
 
-On the "Add new Author" modal, click on "Start search for missing books" anf finally, click on "Add".
+Depuis la fenêtre de dialogue "Add new Author", cliquez sur "Start search for missing books" et appuyez enfin sur "Add".
 
 [![readarr-15](/pics/readarr-15.png)](/pics/readarr-15.png)
 
-And that should be it! You should see your author added and it will start downloading soon.
+Et voilà ! Vous devriez voir l'ajout de l'auteur. Le téléchargement devrait commencer rapidement.
 
 [![readarr-16](/pics/readarr-16.png)](/pics/readarr-16.png)
