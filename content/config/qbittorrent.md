@@ -96,7 +96,7 @@ Yes. 😅
 
 The BitTorrent protocol works by sharing (seeding) files across the network. Setting the seeding limit to zero means "Share the torrent **until** I've finished downloading." You'll still share while downloading, but once complete, the torrent stops and waits for [Sonarr](/config/sonarr)/[Radarr](/config/radarr) to pick it up.
 
-For this tutorial we'll leave it at 0, but feel free to be less selfish later! 
+For this tutorial we'll leave it at 0, but feel free to be less selfish later! **Some torrent services monitor the ratio to prevent abuse, and restrict accounts with low ratios. Make sure you respect these constraints to keep your access to these platforms.**
 
 [![qbittorrent-3](/pics/qbittorrent-3.png)](/pics/qbittorrent-3.png)
 
