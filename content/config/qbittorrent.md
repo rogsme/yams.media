@@ -73,7 +73,7 @@ qbittorrent  | You should set your own password in program preferences.
 qbittorrent  | Connection to localhost (::1) 8081 port [tcp/tproxy] succeeded!
 ```
 
-Depuis votre nagicateur, allez à l'adresse [http://{votre-adresse-ip}:8081/](). Vous arriverez sur la page d'administration de qBittorrent. Connectez-vous avec :
+Depuis votre navigateur, allez à l'adresse [http://{votre-adresse-ip}:8081/](). Vous arriverez sur la page d'administration de qBittorrent. Connectez-vous avec :
 
 ```sh
 username: admin
