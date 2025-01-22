@@ -1,29 +1,31 @@
 ---
 title: "qBittorrent"
-date: 2023-01-10T18:02:13-03:00
+date: 2025-01-22T14:03:31+02:00
 draft: false
 weight: 1
-summary: The qBittorrent project aims to provide an open-source software alternative to µTorrent.
+summary: Le projet qBittorrent vise à fournir une alternative logicielle libre à µTorrent.
 ---
 
-## What is qBitorrent?
+## Qu'est-ce que qBittorrent ?
 
-From their [website](https://www.qbittorrent.org/):
+Depuis leur [site webd](https://www.qbittorrent.org/):
 
-> The qBittorrent project aims to provide an open-source software alternative to µTorrent.
+> Le projet qBittorrent vise à fournir une alternative logicielle libre à µTorrent.
 
-So, just like µTorrent, qBitorrent is a torrent downloader. Pretty easy! 😎
+Tout comme µTorrent, qBitorrent est un téléchargeur de torrents. Plutôt facile ! 😎
 
-## Initial configuration
+## Configuration initiale
 
-First things first - if you set up a VPN during YAMS installation (which you really should!), qBittorrent should already be configured to use it. Let's verify everything is working correctly.
+Tout d'abord, si vous avez configuré un VPN lors de l'installation de YAMS (ce que vous devriez vraiment faire !), qBittorrent devrait déjà être configuré pour l'utiliser. Vérifions que tout fonctionne correctement.
 
-In your terminal, run:
+Dans un terminal, lancez la commande suivante :
+
 ```bash
 yams check-vpn
 ```
 
-You should see output like this:
+Vous devriez obtenir le résultat suivant :
+
 ```bash
 Getting your qBittorrent IP...
 <qBittorrent IP>
@@ -36,7 +38,8 @@ Your local IP country is North Korea
 Your IPs are different. qBittorrent is working as expected! ✅
 ```
 
-If the check fails, you'll see something like:
+Si le test échoue, vous verrez une réponse similaire à celle ci-dessous :
+
 ```bash
 Getting your qBittorrent IP...
 <your local IP>
@@ -49,17 +52,18 @@ Your local IP country is North Korea
 Your IPs are the same! qBittorrent is NOT working! ⚠️
 ```
 
-If your VPN check failed, head over to [VPN Configuration](/advanced/vpn/#manual-configuration) to fix it. **You should always use a VPN when downloading torrents!**
+Si votre test VPN a échoué, consultez le guide [Configuration VPN](/advanced/vpn/#configuration-manuelle-) pour résoudre le problème. **Vous devez toujours utiliser un VPN lorsque vous téléchargez des torrents !**
 
-### Setting up qBittorrent
+### Mise en place de qBittorrent
 
-Let's get qBittorrent configured! In your terminal, check the qBittorrent logs to get your initial login credentials:
+Configurons maintenant qBittorrent ! Dans votre terminal, consultez les logs de qBittorrent pour obtenir vos identifiants de connexion initiaux :
 
-```sh 
+```sh
 docker logs qbittorrent
 ```
 
-You'll see the qBittorrent username and password in the logs:
+Vous verrez le nom d'utilisateur et le mot de passe de qBittorrent dans les logs :
+
 ```
 qbittorrent  | ******** Information ********
 qbittorrent  | To control qBittorrent, access the WebUI at: http://localhost:8081
@@ -69,73 +73,75 @@ qbittorrent  | You should set your own password in program preferences.
 qbittorrent  | Connection to localhost (::1) 8081 port [tcp/tproxy] succeeded!
 ```
 
-In your browser, go to [http://{your-ip-address}:8081/]() and you'll see qBittorrent's admin page. Log in with:
+Depuis votre nagicateur, allez à l'adresse [http://{votre-adresse-ip}:8081/](). Vous arriverez sur la page d'administration de qBittorrent. Connectez-vous avec :
 
 ```sh
 username: admin
-password: your-temporary-password-from-the-logs
+password: votre-mot-de-passe-temporaire-trouvé-dans-les-logs
 ```
 
 [![qbittorrent-1](/pics/qbittorrent-1.png)](/pics/qbittorrent-1.png)
 
-After logging in, you'll see the empty qBittorrent window. Click on the gear icon in the top right to enter the settings.
+Après vous être connecté, vous verrez la page d'accueil vide de qBittorrent. Cliquez sur l'engrenage en haut à droite pour accéder aux paramètres.
 
 [![qbittorrent-2](/pics/qbittorrent-2.png)](/pics/qbittorrent-2.png)
 
-### Configuring BitTorrent Settings
+### Configuration des paramètres BitTorrent
 
-First, go to the "Downloads" tab and set the "Default Save Path" to `/data/downloads/torrents/`.
+Tout d'abord, allez dans l'onglet "Downloads" et entrez `/data/downloads/torrents/` dans "Default Save Path".
 
 [![qbittorrent-8](/pics/qbittorrent-8.png)](/pics/qbittorrent-8.png)
 
-Then, go to the "BitTorrent" tab and check the "When ratio reaches" checkbox. Set it to 0.
+Ensuite, allez dans l'onglet "BitTorrent" et cochez la case "When ratio reaches". Réglez-la sur 0.
 
-### Is this a dick move?
+### Est-ce que c'est un comportement de merde ?
 
-Yes. 😅
+Oui. 😅
 
-The BitTorrent protocol works by sharing (seeding) files across the network. Setting the seeding limit to zero means "Share the torrent **until** I've finished downloading." You'll still share while downloading, but once complete, the torrent stops and waits for [Sonarr](/config/sonarr)/[Radarr](/config/radarr) to pick it up.
+Le protocole BitTorrent fonctionne par partage (seeding) de fichiers sur le réseau. Fixer la limite d'ensemencement à zéro signifie "Je partage le torrent **jusqu'à** ce que j'aie fini de télécharger". Vous continuerez à le partager pendant le téléchargement, mais une fois terminé, le torrent s'arrête et attend que [Sonarr](/config/sonarr)/[Radarr](/config/radarr) le récupère.
 
-For this tutorial we'll leave it at 0, but feel free to be less selfish later! **Some torrent services monitor the ratio to prevent abuse, and restrict accounts with low ratios. Make sure you respect these constraints to keep your access to these platforms.**
+Pour ce tutoriel, nous le laisserons à 0, mais n'hésitez pas à être moins égoïste plus tard !
+
+**Certains services de torrents surveillent le ratio afin d'éviter les abus et restreignent les comptes ayant un ratio trop faible. Assurez-vous de respecter ces contraintes pour conserver vos accès à ces plateformes**
 
 [![qbittorrent-3](/pics/qbittorrent-3.png)](/pics/qbittorrent-3.png)
 
-### Configuring Web UI Settings
+### Configuration des paramètres de l'interface Web
 
-Next, go to the "Web UI" tab. Here you can set it to skip password authentication when accessing from your local network. This is optional but recommended.
+Ensuite, allez dans l'onglet "Web UI". Ici, vous pouvez configurer l'application pour qu'elle ignore l'authentification par mot de passe lors de l'accès à partir de votre réseau local. Cette option est facultative mais recommandée.
 
 [![qbittorreft-4](/pics/qbittorrent-4.png)](/pics/qbittorrent-4.png)
 
-While you're here, change that temporary password to something more secure:
+Pendant que vous êtes ici, changez votre mot de passe temporaire pour un mot de passe plus fort :
 
 [![qbittorreft-7](/pics/qbittorrent-7.png)](/pics/qbittorrent-7.png)
 
-### Configuring Network Settings
+### Configuration des paramètres du réseau
 
-On the "Advanced" tab, make sure your Network interface is set to `tun0`. This ensures qBittorrent always uses the VPN connection and stops if the VPN goes down.
+Dans l'onglet "Advanced", assurez-vous que votre interface réseau est définie sur `tun0`. Cela garantit que qBittorrent utilise toujours la connexion VPN et s'arrête si le VPN dysfonctionne.
 
 [![qbittorreft-5](/pics/qbittorrent-5.png)](/pics/qbittorrent-5.png)
 
-Finally, scroll to the bottom and click "Save".
+Enfin, descendez en bas de la fenêtre et cliquez sur "Save".
 
 [![qbittorreft-6](/pics/qbittorrent-6.png)](/pics/qbittorrent-6.png)
 
-### Port Forwarding 🚀
+### Redirection de port 🚀
 
-Want faster downloads? YAMS supports automatic port forwarding! Check out our [Port Forwarding Guide](/advanced/port-forwarding/) to supercharge your download speeds.
+Envie de télécharger plus rapidement vos contenus ? YAMS supporte nativement la redirection de port ! Consultez notre guide sur la [Redirection de port](/advanced/port-forwarding/) pour booster votre vitesse de téléchargement.
 
 [![qbittorrent-ports](/pics/advanced-port-forwarding-1.png)](/pics/advanced-port-forwarding-1.png)
 
-## Final VPN Check
+## Vérification finale du VPN
 
-Let's do one last VPN check to make sure everything's working:
+Effectuons une dernière vérification du VPN pour nous assurer que tout fonctionne correctement :
 
 ```bash
 $ yams check-vpn
 ```
 
-You should see your qBittorrent IP is different from your local IP. If not, head over to [VPN Configuration](/advanced/vpn/#manual-configuration) to fix it.
+Vous devriez voir que l'adress IP utilisée par qBittorrent est différente de votre adresse IP locale. Si ce n'est pas le cas, consultez le guide [Configuration VPN](/advanced/vpn/#configuration-manuelle-) pour résoudre le problème.
 
-## That's done! 🎉
+## Et voilà ! 🎉
 
-Looking good! Now we can move forward with [SABnzbd](/config/sabnzbd).
+Nous pouvons maintenant poursuivre avec [SABnzbd](/config/sabnzbd).
