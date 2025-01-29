@@ -40,7 +40,7 @@ In "Select Path", choose the `/data/tvshows` folder and click "Ok"
 
 [![jellyfin-5](/pics/jellyfin-5.png)](/pics/jellyfin-5.png)
 
-**Magic Container Note:** 🎩 The `/data/tvshows/` folder isn't actually on your filesystem - it's a special path inside the docker environment that maps to your server's `/mediafolder/tv/` folder!
+**Magic Container Note:** 🎩 The `/data/tvshows/` folder isn't actually on your filesystem - it's a special path inside the docker environment that maps to your server's `/mediafolder/media/tvshows/` folder!
 
 You should see your new folder all ready to go in the modal:
 
@@ -68,7 +68,7 @@ Choose the `/data/movies` folder and click "Ok"
 
 [![jellyfin-10](/pics/jellyfin-10.png)](/pics/jellyfin-10.png)
 
-**More Container Magic:** 🎩✨ Just like before, `/data/movies/` is a special docker path that maps to your server's `/mediafolder/movies/` folder!
+**More Container Magic:** 🎩✨ Just like before, `/data/movies/` is a special docker path that maps to your server's `/mediafolder/media/movies/` folder!
 
 You should see your movies folder ready to go:
 

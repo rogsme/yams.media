@@ -41,7 +41,7 @@ In "Select Path", choose the `/data/tvshows` folder and click "Ok"
 
 [![emby-5](/pics/emby-5.png)](/pics/emby-5.png)
 
-**Docker Magic Note:** 🎩 Don't worry if this path looks weird! The `/data/tvshows/` folder exists inside the docker environment and maps to your server's `/mediafolder/tv/` folder. It's all connected behind the scenes!
+**Docker Magic Note:** 🎩 Don't worry if this path looks weird! The `/data/tvshows/` folder exists inside the docker environment and maps to your server's `/mediafolder/media/tvshows/` folder. It's all connected behind the scenes!
 
 You'll see your newly added folder in the modal:
 
@@ -69,7 +69,7 @@ Choose the `/data/movies` folder and click "Ok"
 
 [![emby-10](/pics/emby-10.png)](/pics/emby-10.png)
 
-**More Docker Magic:** ✨ Just like before, `/data/movies/` is actually mapping to your server's `/mediafolder/movies/` folder. Docker is doing its thing!
+**More Docker Magic:** ✨ Just like before, `/data/movies/` is actually mapping to your server's `/mediafolder/media/movies/` folder. Docker is doing its thing!
 
 Your folder should show up in the modal:
 
