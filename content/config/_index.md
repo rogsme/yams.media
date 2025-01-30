@@ -1,5 +1,5 @@
 ---
-title: "Config"
+title: "Configuration"
 date: 2025-01-22T14:03:31+02:00
 draft: false
 ---

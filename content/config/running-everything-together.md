@@ -1,58 +1,58 @@
 ---
-title: "Running everything together"
-date: 2023-01-12T18:06:44-03:00
+title: "Passer à l'action"
+date: 2025-01-30T11:35:44+02:00
 draft: false
 weight: 10
-summary: So you finally got YAMS running? Let's add some movies and see everything working together!
+summary: Vous avez enfin réussi à faire fonctionner YAMS ? Ajoutons quelques films et voyons comment tout fonctionne ensemble !
 ---
 
-## First, I want to congratulate you 🎉
+## Tout d'abord, je tiens à vous féliciter 🎉
 
-You did it! You installed and configured YAMS! Give yourself a good pat on the back - you've earned it! 🙇‍♂️
+Vous avez réussi ! Vous avez installé et configuré YAMS ! Félicitez-vous, vous l'avez bien mérité ! 🙇‍♂️
 
 [![party](/pics/party.gif)](/pics/party.gif)
 
-Now comes the fun part: Adding your shows/movies and watching everything work together like a well-oiled machine! 😎
+Maintenant vient la partie la plus amusante : Ajouter vos séries/films et voir le tout fonctionner tel une machine bien huilée ! 😎
 
 ## Radarr & Sonarr
 
-These instructions work for both Radarr and Sonarr. To keep things simple, I'll show you with Radarr, but the process is super similar for TV shows!
+Ces instructions sont applicables aussi bien à Radarr qu'à Sonarr. Pour simplifier les choses, je vous montrerai Radarr, mais le processus est très similaire pour les séries TV !
 
-Open Radarr at [http://{your-ip-address}:7878/]() and click on "Add New" in the left menu. For this demo, I'll use "The Godfather" (because it's a classic!), but you can search for any movie you want.
+Ouvrez Radarr à l'adresse [http://{votre-adresse-ip}:7878/]() et cliquez sur "Add New" dans le menu de gauche. Pour cette démo, j'utiliserai "Le Parrain" (parce que c'est un classique !), mais vous pouvez rechercher n'importe quel film.
 
-Pro tip: For your first test, pick something popular - it'll be easier to find! 
+Astuce : Pour votre premier test, choisissez quelque chose de populaire, ce sera plus facile à trouver !
 
 [![running-everything-together-1](/pics/running-everything-together-1.png)](/pics/running-everything-together-1.png)
 
-Click on the movie you want to download:
+Cliquez sur le film que vous souhaitez télécharger :
 
 [![running-everything-together-2](/pics/running-everything-together-2.png)](/pics/running-everything-together-2.png)
 
-Now you can pick your quality preferences. If your movie is part of a collection (like The Godfather is), you can choose to download the whole series in the "Monitor" box. I'm going for the whole trilogy because, well, why not? 
+Vous pouvez maintenant choisir vos préférences en matière de qualité. Si votre film fait partie d'une collection (comme Le Parrain), vous pouvez choisir de télécharger toute la série dans la case "Monitor". J'opte pour la trilogie complète parce que, eh bien, pourquoi pas ?
 
-Finally, click "Add Movie"!
+Enfin, cliquez sur "Add Movie" !
 
 [![running-everything-together-3](/pics/running-everything-together-3.png)](/pics/running-everything-together-3.png)
 
-Head back to "Movies" and you'll see your selections:
+Retournez à "Movies" et vous verrez vos sélections :
 
 [![running-everything-together-4](/pics/running-everything-together-4.png)](/pics/running-everything-together-4.png)
 
-Click on "Activity" to watch the magic happen - you can see everything downloading in real-time! 🪄
+Cliquez sur "Activity" pour voir la magie opérer : vous pouvez voir que tout est téléchargé en temps réel ! 🪄
 
 [![running-everything-together-5](/pics/running-everything-together-5.png)](/pics/running-everything-together-5.png)
 
 ## qBittorrent
 
-Want to see what's going on under the hood? Open qBittorrent at [http://{your-ip-address}:8081/]() and you'll see your movies downloading!
+Vous voulez voir ce qui se passe sous le capot ? Ouvrez qBittorrent à l'adresse [http://{votre-adresse-ip}:8081/]() et vous verrez vos films se télécharger !
 
-This means everything is working perfectly! When downloads finish, Radarr will automatically organize them into the right folders.
+Cela confirme que tout fonctionne parfaitement ! Lorsque les téléchargements sont terminés, Radarr les range automatiquement dans les bons dossiers.
 
 [![running-everything-together-6](/pics/running-everything-together-6.png)](/pics/running-everything-together-6.png)
 
-## Media service
+## Service multimédia
 
-After your downloads finish, head over to your media service and... ta-da! 🎉 Your movies are right there waiting for you!
+Une fois les téléchargements terminés, rendez-vous sur votre service multimédia et... ta-da ! 🎉 Vos films sont là et vous attendent !
 
 Jellyfin:
 [![running-everything-together-12](/pics/running-everything-together-12.png)](/pics/running-everything-together-12.png)
@@ -63,18 +63,18 @@ Emby:
 Plex:
 [![running-everything-together-11](/pics/running-everything-together-11.png)](/pics/running-everything-together-11.png)
 
-Open up a movie and look - subtitles are already there! That's [Bazarr](/config/bazarr) doing its thing! 🎯
+Ouvrez un film et regardez, les sous-titres sont déjà là ! C'est [Bazarr](/config/bazarr) qui fait son travail ! 🎯
 
 [![running-everything-together-8](/pics/running-everything-together-8.png)](/pics/running-everything-together-8.png)
 
 [![running-everything-together-9](/pics/running-everything-together-9.png)](/pics/running-everything-together-9.png)
 
-You can even start watching right from your browser, with subtitles and everything:
+Vous pouvez même commencer à regarder directement le film depuis votre navigateur, avec les sous-titres et tout le reste :
 [![running-everything-together-10](/pics/running-everything-together-10.png)](/pics/running-everything-together-10.png)
 
-## Your filesystem
+## Votre système de fichiers
 
-Curious about how everything's organized? Check out your `/mediafolder/movies` folder:
+Curieux de savoir comment tout est organisé ? Jetez un coup d'œil à votre dossier `/mediafolder/media/movies` :
 
 ```sh
 roger@debian:/srv/media/movies$ tree .
@@ -95,12 +95,12 @@ roger@debian:/srv/media/movies$ tree .
 3 directories, 9 files
 ```
 
-Not a fan of how things are named? No problem! You can always change the naming format in [Radarr's media management page](/config/radarr#media-management) or [Sonarr's settings](/config/sonarr#media-management).
+Pas fan de la façon dont les choses sont nommées ? Pas de problème ! Vous pouvez toujours changer le format de nommage dans la page de [Gestion des médias](/config/radarr/#gestion-des-médias) de Radarr ou [les paramètres de Sonarr](/config/sonarr/#gestion-des-médias).
 
-# Final step and conclusions
+# Dernière étape et conclusions
 
-You did it! 🎉 You've got your very own media server up and running! That's a huge step toward breaking free from subscription services like Netflix or Amazon Prime.
+Vous l'avez fait ! 🎉 Vous avez mis en place votre propre serveur multimédia et vous le faites fonctionner ! C'est un grand pas en avant pour vous affranchir des services à abonnements comme Netflix ou Amazon Prime.
 
-And guess what? There's still so much more you can do to make your setup even better! Head over to the [Recommendations](/config/recommendations) page for some cool ideas on what to try next.
+Et devinez quoi ? Il y a encore beaucoup de choses que vous pouvez faire pour améliorer votre installation ! Rendez-vous sur la page [Recommandations](/config/recommendations) pour trouver des idées intéressantes.
 
- 🙌 Thanks for following along with the tutorial! Hope you enjoy your awesome new media server - you've earned it! 😎
+🙌 Merci d'avoir suivi ce tutoriel ! J'espère que vous apprécierez votre nouveau serveur multimédia : vous l'avez bien mérité ! 😎
