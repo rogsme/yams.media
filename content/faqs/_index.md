@@ -33,7 +33,7 @@ Similar to Windows - it might work, but we focus on Linux support for the best e
 
 ### Which Linux distributions are supported?
 - **Recommended**: Debian 12
-- **Also Supported**: Ubuntu 22.04
+- **Also Supported**: Ubuntu 24.04
 - Other distros might work but aren't officially supported
 
 ## Advanced Usage
