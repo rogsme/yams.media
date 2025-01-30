@@ -74,7 +74,7 @@ You can even start watching right from your browser, with subtitles and everythi
 
 ## Your filesystem
 
-Curious about how everything's organized? Check out your `/mediafolder/movies` folder:
+Curious about how everything's organized? Check out your `/mediafolder/media/movies` folder:
 
 ```sh
 roger@debian:/srv/media/movies$ tree .
