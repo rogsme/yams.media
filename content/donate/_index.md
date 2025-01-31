@@ -1,51 +1,52 @@
 ---
 title: "Donate"
-date: 2023-01-11T09:13:34-03:00
+date: 2025-01-31T13:35:39+02:00
 draft: false
 weight: 100
 ---
 
-# Support the Awesome People Behind YAMS 💖
+# Soutenez les personnes géniales qui se cachent derrière YAMS 💖
 
-Let's talk about something important: supporting the incredible projects and people that make YAMS possible! 🚀
+Parlons de quelque chose d'important : soutenir les projets et les personnes incroyables qui rendent YAMS possible ! 🚀
 
-## Give Love to the Real Heroes 🦸‍♀️🦸‍♂️
+## Donnez de l'amour aux vrais héros 🦸‍♀️🦸‍♂️
 
-YAMS is built on the shoulders of giants - amazing open-source projects that pour their heart and soul into creating free, powerful tools. Before you even think about donating to YAMS, we want you to support the projects that truly make this possible!
+YAMS est construit sur les épaules de géants, d'incroyables projets open-source qui s'investissent corps et âme dans la création d'outils gratuits et puissants. Avant même de penser à faire un don à YAMS, nous voulons que vous souteniez les projets qui rendent cela possible !
 
-### Top Projects to Support 🌟
+### Projets à soutenir 🌟
 
-Each of these projects is crucial to YAMS. If you appreciate what we've built, show some love to these incredible teams:
+Chacun de ces projets est crucial pour YAMS. Si vous appréciez ce que nous avons construit, montrez un peu d'amour à ces équipes incroyables :
 
-1. **LinuxServer.io**: [Donate Here](https://www.linuxserver.io/donate)
-2. **Sonarr** 📺: [Donate Here](https://sonarr.tv/donate)
-3. **Radarr** 🎬: [Donate Here](https://radarr.video/donate)
-4. **Jellyfin** 🍿: [Donate Here](https://opencollective.com/jellyfin)
-5. **qBittorrent** 🌊: [Donate Here](https://www.qbittorrent.org/donate)
-6. **SABnzbd** 📰: [Donate Here](https://sabnzbd.org/donate/)
-7. **Prowlarr** 🔍: [Donate Here](https://prowlarr.com/donate)
-8. **Bazarr** 💬: [Donate Here](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url)
-9. **Gluetun** 🛡️: [Donate Here](https://www.paypal.me/qmcgaw)
+1. **LinuxServer.io** : [Faites un don ici](https://www.linuxserver.io/donate)
+2. **Sonarr** 📺 : [Faites un don ici](https://sonarr.tv/donate)
+3. **Radarr** 🎬 : [Faites un don ici](https://radarr.video/donate)
+4. **Jellyfin** 🍿 : [Faites un don ici](https://opencollective.com/jellyfin)
+5. **qBittorrent** 🌊 : [Faites un don ici](https://www.qbittorrent.org/donate)
+6. **SABnzbd** 📰 : [Faites un don ici](https://sabnzbd.org/donate/)
+7. **Prowlarr** 🔍 : [Faites un don ici](https://prowlarr.com/donate)
+8. **Bazarr** 💬 : [Faites un don ici](https://www.paypal.com/donate/?cmd=_s-xclick&hosted_button_id=XHHRWXT9YB7WE&source=url)
+9. **Gluetun** 🛡️ : [Faites un don ici](https://www.paypal.me/qmcgaw)
 
-## YAMS Donations: The Very Last Priority 🏆
+## Dons à YAMS : La toute dernière priorité 🏆
 
-Okay, so you REALLY want to support YAMS? First, thank you! But honestly, I'm not doing this for money. YAMS is a passion project I created for myself and my friends. If you've already supported the projects above and still want to chip in, here are some options:
+D'accord, vous voulez VRAIMENT soutenir YAMS ? Tout d'abord, merci ! Mais honnêtement, je ne fais pas ça pour l'argent. YAMS est un projet passionné que j'ai créé pour moi et mes amis. Si vous avez déjà soutenu les projets ci-dessus et que vous souhaitez toujours apporter votre contribution, voici quelques options :
 
-### Donation Methods 💸
+### Dons 💸
 
-- Paypal: https://paypal.me/rogsme21
-- BTC: [`bc1qn092rw6q5nwha093qau6xryk6u3g9uwvy4tgdu`](/pics/btc.png)
-- XMR: [`8B2QC3RPEqEhbUKKL96CGzZBqoDq8kjzd5uUVCTHvyG8fACh5up3Svz4iNKiGEoZTqUXt4cJHqC4EeaTmrbVVHXfRrrRcBq`](/pics/xmr.png)
+-   Paypal: https://paypal.me/rogsme21
+-   BTC: [`bc1qn092rw6q5nwha093qau6xryk6u3g9uwvy4tgdu`](/pics/btc.png)
+-   XMR: [`8B2QC3RPEqEhbUKKL96CGzZBqoDq8kjzd5uUVCTHvyG8fACh5up3Svz4iNKiGEoZTqUXt4cJHqC4EeaTmrbVVHXfRrrRcBq`](/pics/xmr.png)
 
-## Special Thanks 🙌
+## Remerciements 🙌
 
-YAMS wouldn't exist without:
-- The amazing open-source community
-- My incredible friends who tested and provided feedback
-- The fantastic folks at LinuxServer.io
-- The maintainers of all the *arr projects
-- **YOU** 🫵 - for using, supporting, and believing in YAMS!
+YAMS n'existerait pas sans :
 
-Remember: The best way to support YAMS is by using it, sharing it, and helping others in our community! 🤝
+-   L'incroyable communauté Open Source
+-   Mes incroyables amis qui ont testé et donné leur feedback
+-   Les fantastiques personnes de LinuxServer.io
+-   Les responsables de tous les projets \*arr
+-   **VOUS** 🫵 qui utilisez, soutenez et croyez en YAMS !
 
-Happy streaming! 🎬✨
+N'oubliez pas : La meilleure façon de soutenir YAMS est de l'utiliser, de le partager et d'aider les autres membres de notre communauté ! 🤝
+
+Happy streaming ! 🎬✨
