@@ -162,7 +162,7 @@ If your VPN isn't working, let's troubleshoot step by step:
    Look for "Mounts" section
 
 3. **Path Issues**
-   - Inside container: `/data/movies`, `/data/tv`
+   - Inside container: `/data/movies`, `/data/tvshows`
    - On host: Your `MEDIA_DIRECTORY` paths
 
 4. **Scan Library**
