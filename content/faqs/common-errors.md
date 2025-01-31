@@ -1,235 +1,266 @@
 ---
-title: "Common Issues"
-date: 2023-10-22T10:22:29-03:00
+title: "Erreurs courantes"
+date: 2025-01-30T11:35:44+02:00
 draft: false
 weight: 1
-summary: Solutions for common YAMS problems and how to fix them
+summary: Solutions aux problèmes courants rencontrés avec YAMS et comment les résoudre
 ---
 
-# Common YAMS Issues & Solutions 🔧
+# Problèmes courants rencontrés avec YAMS et solutions 🔧
 
-## Docker Issues
+## Problèmes liés à Docker
 
 ### Permission Denied Errors 🚫
-Getting this error when running YAMS commands?
+
+Vous obtenez cette erreur lorsque vous exécutez des commandes YAMS ?
+
 ```bash
 permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock
 ```
 
-**Quick Fix:**
+**Solution rapide :**
+
 ```bash
-# Add yourself to the docker group
+# Ajoutez vous au groupe docker
 sudo usermod -aG docker $USER
 
-# Log out and back in, or run:
+# Déconnectez-vous et reconnectez-vous, ou lancez la commande :
 newgrp docker
 ```
 
-**Still having issues?**
-1. Check group membership:
-   ```bash
-   groups $USER
-   ```
-   You should see 'docker' in the list.
+**Toujours des problèmes ?**
 
-2. Verify socket permissions:
-   ```bash
-   ls -l /var/run/docker.sock
-   ```
-   Should show: `srw-rw---- 1 root docker`
+1. Vérifiez l'appartenance au groupe :
 
-3. Check Docker service:
-   ```bash
-   systemctl status docker
-   ```
+    ```bash
+    groups $USER
+    ```
 
-## VPN Issues
+    Vous devriez voir "docker" dans la liste.
 
-### Gluetun Won't Connect 🔌
+2. Vérifiez les permissions du socket :
 
-If your VPN isn't working, let's troubleshoot step by step:
+    ```bash
+    ls -l /var/run/docker.sock
+    ```
 
-1. **Check Gluetun Logs**
-   ```bash
-   docker logs -n 100 gluetun
-   ```
+    Ça devrait afficher : `srw-rw---- 1 root docker`
 
-2. **Common Error Messages:**
-   - "Authentication failed": Check your VPN credentials
-   - "Network unreachable": Check your internet connection
-   - "No such host": DNS issues - check your network settings
+3. Vérifiez le service Docker :
+    ```bash
+    systemctl status docker
+    ```
 
-3. **Verify VPN Settings**
-   ```bash
-   # In your .env file
-   VPN_ENABLED=y
-   VPN_SERVICE=your_provider
-   VPN_USER=your_username
-   VPN_PASSWORD=your_password
-   ```
+## Problèmes de VPN
 
-4. **Test VPN Connection**
-   ```bash
-   yams check-vpn
-   ```
+### Gluetun ne se connecte pas 🔌
 
-5. **Provider-Specific Issues:**
-   - **ProtonVPN**: Make sure to use the correct username ([OpenVPN / IKEv2 username](https://account.proton.me/u/0/vpn/OpenVpnIKEv2))
-   - **Mullvad**: Account number needs to be exactly 16 digits
-   - **NordVPN**: Use your token, not your regular password
+Si votre VPN ne fonctionne pas, nous allons résoudre le problème étape par étape :
 
-### Quick VPN Fixes 🛠️
+1. **Vérifiez les logs de Gluetun**
 
-1. **Reset VPN Connection**
-   ```bash
-   yams restart
-   ```
+    ```bash
+    docker logs -n 100 gluetun
+    ```
 
-2. **Force Container Recreation**
-   ```bash
-   yams destroy
-   yams start
-   ```
+2. **Messages d'erreur courants :**
 
-3. **Verify Network Settings**
-   ```bash
-   docker network ls
-   ```
+    - "Authentication failed": Vérifiez vos identifiants VPN
+    - "Network unreachable": Vérifiez votre connexion internet
+    - "No such host": Problèmes de DNS. Vérifiez les paramètres de votre réseau
 
-## Download Client Issues
+3. **Vérifiez les paramètres VPN**
 
-### qBittorrent Not Accessible 🔒
+    ```bash
+    # Dans votre fichier .env
+    VPN_ENABLED=y
+    VPN_SERVICE=votre_fournisseur
+    VPN_USER=votre_identifiant
+    VPN_PASSWORD=votre_mot_de_passe
+    ```
 
-1. **Check if VPN is Enabled**
-   - Review [VPN Configuration](/advanced/vpn/)
-   - Run VPN check:
-     ```bash
-     yams check-vpn
-     ```
+4. **Testez la connexion VPN**
 
-2. **Verify Port Mappings**
-   ```bash
-   docker ps | grep qbittorrent
-   ```
-   Should show port 8081 mapped
+    ```bash
+    yams check-vpn
+    ```
 
-3. **Check Network Mode**
-   In `docker-compose.yaml`:
-   ```yaml
-   qbittorrent:
-     network_mode: "service:gluetun"
-   ```
+5. **Problèmes spécifiques aux fournisseurs :**
+    - **ProtonVPN** : Veillez à utiliser les bons identifiants ([Nom d'utilisateur OpenVPN / IKEv2](https://account.proton.me/u/0/vpn/OpenVpnIKEv2)).
+    - **Mullvad** : Le numéro de compte doit comporter exactement 16 chiffres
+    - **NordVPN** : Utilisez votre token et non votre mot de passe habituel
 
-4. **Review Logs**
-   ```bash
-   docker logs qbittorrent
-   ```
+### Corrections rapides du VPN 🛠️
 
-### SABnzbd Connection Issues 📡
+1. **Réinitialisez la connexion VPN**
 
-1. **Check Service Status**
-   ```bash
-   docker ps | grep sabnzbd
-   ```
+    ```bash
+    yams restart
+    ```
 
-2. **Verify Config**
+2. **Forcez la régénération du conteneur**
+
+    ```bash
+    yams destroy
+    yams start
+    ```
+
+3. **Vérifiez les paramètres du réseau**
+    ```bash
+    docker network ls
+    ```
+
+## Problèmes liés aux clients de téléchargement
+
+### qBittorrent n'est pas accessible 🔒
+
+1. **Vérifiez si le VPN est activé**
+
+    - Vérifiez votre [Configuration VPN](/advanced/vpn/)
+    - Lancez un test du VPN :
+        ```bash
+        yams check-vpn
+        ```
+
+2. **Vérifiez le mappage des ports**
+
+    ```bash
+    docker ps | grep qbittorrent
+    ```
+
+    Le port 8081 devrait être affiché
+
+3. **Vérifiez le mode réseau**
+   Dans `docker-compose.yaml`:
+
+    ```yaml
+    qbittorrent:
+        network_mode: "service:gluetun"
+    ```
+
+4. **Vérifiez les logs**
+    ```bash
+    docker logs qbittorrent
+    ```
+
+### Problème de connexion à SABnzbd 📡
+
+1. **Vérifiez le statut du service**
+
+    ```bash
+    docker ps | grep sabnzbd
+    ```
+
+2. **Vérifiez la configuration**
    Look for:
-   ```yaml
-   sabnzbd:
-     ports:
-       - 8080:8080
-   ```
 
-3. **Check Logs**
-   ```bash
-   docker logs sabnzbd
-   ```
+    ```yaml
+    sabnzbd:
+        ports:
+            - 8080:8080
+    ```
 
-## Media Server Issues
+3. **Consultez les logs**
+    ```bash
+    docker logs sabnzbd
+    ```
 
-### Jellyfin/Emby/Plex Can't Find Media 📺
+## Problèmes liés au serveur multimédia
 
-1. **Check Permissions**
-   ```bash
-   ls -l /your/media/directory
-   ```
-   Should be owned by PUID:PGID from your .env file
+### Jellyfin/Emby/Plex ne trouve pas les médias 📺
 
-2. **Verify Mount Points**
-   ```bash
-   docker inspect your-media-server
-   ```
-   Look for "Mounts" section
+1. **Vérifiez les permissions**
 
-3. **Path Issues**
-   - Inside container: `/data/movies`, `/data/tv`
-   - On host: Your `MEDIA_DIRECTORY` paths
+    ```bash
+    ls -l /your/media/directory
+    ```
 
-4. **Scan Library**
-   - Trigger manual scan in web UI
-   - Check library paths in settings
+    Should be owned by PUID:PGID from your .env file
 
-## Performance Issues
+2. **Vérifiez les points de montage**
 
-### High CPU Usage 🔥
+    ```bash
+    docker inspect your-media-server
+    ```
 
-1. **Check Container Stats**
-   ```bash
-   docker stats
-   ```
+    Look for "Mounts" section
 
-2. **Monitor System Resources**
-   ```bash
-   top
-   # or
-   htop
-   ```
+3. **Erreur de chemins**
 
-3. **Review Logs for Issues**
-   ```bash
-   docker logs --tail 100 container-name
-   ```
+    - Dans le conteneur : `/data/movies`, `/data/tshows`
+    - Sur votre système : Votre chemin `MEDIA_DIRECTORY`
 
-### Memory Problems 💾
+4. **Scan des bibliothèques**
+    - Déclenchez un scan manuel dans l'interface web
+    - Vérifiez les chemins d'accès aux bibliothèques dans les paramètres
 
-1. **Check Available Memory**
-   ```bash
-   free -h
-   ```
+## Problèmes de performances
 
-2. **Monitor Container Memory**
-   ```bash
-   docker stats --format "table {{.Name}}\t{{.MemUsage}}"
-   ```
+### Utilisation excessive du CPU 🔥
 
-3. **Adjust Container Limits**
+1. **Vérifiez les statistiques des conteneurs**
+
+    ```bash
+    docker stats
+    ```
+
+2. **Vérifiez les ressources du système**
+
+    ```bash
+    top
+    # or
+    htop
+    ```
+
+3. **Recherche de problèmes dans les logs**
+    ```bash
+    docker logs --tail 100 container-name
+    ```
+
+### Problèmes de mémoire 💾
+
+1. **Vérifiez la mémoire disponible**
+
+    ```bash
+    free -h
+    ```
+
+2. **Surveillez la mémoire des conteneurs**
+
+    ```bash
+    docker stats --format "table {{.Name}}\t{{.MemUsage}}"
+    ```
+
+3. **Fixez des restrictions aux conteneurs**
    In docker-compose.yaml:
-   ```yaml
-   services:
-     your-service:
-       mem_limit: 1g
-   ```
+    ```yaml
+    services:
+        your-service:
+            mem_limit: 1g
+    ```
 
-## Getting More Help 🆘
+## Encore besoin d'aide ? 🆘
 
-Still stuck? We've got your back!
+Toujours bloqué ? Nous sommes là pour vous aider !
 
-1. **Check Detailed Logs**
-   ```bash
-   # All container logs
-   docker-compose logs
+1. **Vérifiez les logs détaillés**
 
-   # Specific container
-   docker-compose logs container-name
-   ```
+    ```bash
+    # Logs de tous les conteneurs
+    docker-compose logs
 
-2. **Community Resources**
-   - [YAMS Forum](https://forum.yams.media)
-   - [Discord Chat](https://discord.gg/Gwae3tNMST)
-   - [Matrix Room](https://matrix.to/#/#yams-space:rogs.me)
+    # Logs d'un conteneur spécifique
+    docker-compose logs container-name
+    ```
 
-3. **Report Issues**
-   - Check existing [GitLab issues](https://gitlab.com/rogs/yams/-/issues)
-   - Provide logs and configuration when reporting new issues
+2. **Ressources communautaires**
 
-Remember: Most issues have simple solutions! If you're stuck, our community is here to help! 💪
+    - [Forum YAMS](https://forum.yams.media)
+    - [Serveur Discord](https://discord.gg/Gwae3tNMST)
+    - [Chat Matrix](https://matrix.to/#/#yams-space:rogs.me)
+
+3. **Remonter un problème :**
+    - Consultez nos [Issues GitLab](https://gitlab.com/rogs/yams/-/issues) existantes
+    - Fournissez vos logs et votre configuration lorsque vous ouvrez un ticket
+
+N'oubliez pas : La plupart des problèmes ont des solutions simples ! Si vous êtes bloqué, notre communauté est là pour vous aider ! 💪
