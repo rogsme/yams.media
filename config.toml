@@ -55,21 +55,26 @@ summaryLength = 30
 [[menu.main]]
     name = "Forum"
     url = "https://forum.yams.media"
-    weight = 97
+    weight = 96
 
 [[menu.main]]
     name = "Discord"
     url = "https://discord.gg/Gwae3tNMST"
-    weight = 98
+    weight = 97
 
 [[menu.main]]
     name = "Matrix"
     url = "https://matrix.to/#/#yams-space:rogs.me"
-    weight = 99
+    weight = 98
+
+# [[menu.main]]
+#     name = "Gitlab"
+#     url = "https://gitlab.com/rogs/yams"
+#     weight = 99
 
 [[menu.main]]
-    name = "Gitlab"
-    url = "https://gitlab.com/rogs/yams"
+    name = "🇬🇧 EN"
+    url = "https://yams.media"
     weight = 100
 
 
