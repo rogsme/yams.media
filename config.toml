@@ -67,9 +67,14 @@ summaryLength = 30
     url = "https://matrix.to/#/#yams-space:rogs.me"
     weight = 99
 
+# [[menu.main]]
+#     name = "Gitlab"
+#     url = "https://gitlab.com/rogs/yams"
+#     weight = 100
+
 [[menu.main]]
-    name = "Gitlab"
-    url = "https://gitlab.com/rogs/yams"
+    name = "🇫🇷 FR"
+    url = "https://fr.yams.media"
     weight = 100
 
 
