@@ -1,128 +1,139 @@
 ---
-title: "Adding your own containers to YAMS"
-date: 2023-10-21T21:41:29-03:00
+title: "Ajouter vos propres conteneurs à YAMS"
+date: 2025-01-15T11:50:16+02:00
 draft: false
 weight: 1
-summary: A complete guide to expanding YAMS with your own Docker containers
+summary: Un guide complet pour enrichir YAMS avec vos propres conteneurs Docker
 ---
 
-# Make YAMS Your Own! 🚀
+# Appropriez-vous YAMS 🚀
 
-Want to add more containers to your YAMS setup? Maybe a cool new app you found, or something specific for your needs? No problem! YAMS makes it super easy to expand your media server with custom containers.
+Vous souhaitez ajouter d'autres services à votre installation YAMS ? Peut-être une nouvelle application sympa que vous avez trouvée, ou quelque chose de spécifique à vos besoins ? Pas de problème ! YAMS permet d'étendre facilement votre serveur multimédia avec des conteneurs personnalisés.
 
-## The Basics 📚
+## Les bases 📚
 
-When you install YAMS, it creates two important files:
-- `docker-compose.yaml`: This is YAMS's brain! Don't modify this file directly.
-- `docker-compose.custom.yaml`: This is your playground! Add all your custom containers here.
+Lors de son installation, YAMS créé deux fichiers importants :
 
-## Getting Started 🎯
+-   `docker-compose.yaml`: C'est le cœur de YAMS ! Il ne faut pas modifier directement ce fichier.
+-   `docker-compose.custom.yaml`: C'est votre terrain de jeu ! Vous pouvez ajoutez vos conteneurs ici.
 
-First, let's find your YAMS installation. I'll use `/opt/yams` in these examples, but replace it with your actual install location:
+## Démarrage 🎯
+
+Tout d'abord, trouvons votre installation YAMS. Je vais utiliser `/opt/yams` dans ces exemples, mais remplacez-le par l'emplacement d'installation que vous avez choisi :
 
 ```bash
 cd /opt/yams
 ```
 
-## The Magic Variables ✨
+## Les variables magiques ✨
 
-YAMS provides some handy environment variables you can use in your custom containers:
+YAMS fournit quelques variables d'environnement pratiques que vous pouvez utiliser dans vos conteneurs personnalisés :
 
 ```yaml
-PUID: Your user ID
-PGID: Your group ID
-MEDIA_DIRECTORY: Your media folder location
-INSTALL_DIRECTORY: Your YAMS installation location
+PUID: Votre ID d'utilisateur
+PGID: Votre ID de groupe
+MEDIA_DIRECTORY: Emplacement du répertoire multimédia
+INSTALL_DIRECTORY: Emplacement d'installation de YAMS
 ```
 
-These make it super easy to keep your custom containers working in harmony with YAMS!
+Ces varaiables permettent à vos conteneurs personnalisés de fonctionner facilement avec YAMS !
 
-## Let's Add a Container! 🎮
+## Ajout d'un conteneur ! 🎮
 
-Let's walk through an example by adding [Overseerr](https://overseerr.dev/) - a fantastic request management app for your media server.
+Prenons comme exemple [Overseerr](https://overseerr.dev/), une fantastique application de gestion de requêtes pour votre serveur multimédia.
 
-1. First, open `docker-compose.custom.yaml`:
+1. Ouvrez d'abord `docker-compose.custom.yaml`:
+
 ```bash
 nano docker-compose.custom.yaml
 ```
 
-2. If this is your first custom container, you'll need to uncomment the `services:` line. Your file should start like this:
+2. S'il s'agit de votre premier conteneur personnalisé, vous devrez d'abord décommenter la ligne `services:`. Votre fichier devrait commencer ainsi :
 
 ```yaml
-services:  # Make sure this line is uncommented!
+services: # Assurez-vous que la ligne est bien décommentée !
 ```
 
-3. Now let's add Overseerr with all the YAMS goodies:
+3. Ajoutons maintenant Overseerr en utilisant toutes les fonctionnalités de YAMS :
 
 ```yaml
-  overseerr:
+overseerr:
     image: lscr.io/linuxserver/overseerr:latest
     container_name: overseerr
     environment:
-      - PUID=${PUID}               # Using YAMS's user ID
-      - PGID=${PGID}               # Using YAMS's group ID
+        - PUID=${PUID} # Variable ID utilisateur de YAMS
+        - PGID=${PGID} # Variable ID de groupe de YAMS
     volumes:
-      - ${INSTALL_DIRECTORY}/config/overseer:/config  # Using YAMS's config location
+        - ${INSTALL_DIRECTORY}/config/overseer:/config # On utilise le dossier de configuration fourni par Yams
     ports:
-      - 5055:5055
+        - 5055:5055
     restart: unless-stopped
 ```
 
-4. Time to start your new container:
+4. Il est temps de démarrer votre nouveau conteneur :
+
 ```bash
 yams restart
 ```
 
-You should see something like:
+Vous devriez voir quelque chose similaire à ça :
+
 ```bash
  ⠙ overseerr Pulling                                                                     5.2s
 [...]
 ```
 
-That's it! Your new container is up and running! 🎉
+C'est tout bon ! Votre nouveau service est installé et lancé ! 🎉
 
-## Pro Tips 🎓
+## Astuces 🎓
 
-### 1. Container Discovery
-Looking for cool containers to add? Check out:
-- [linuxserver.io fleet](https://fleet.linuxserver.io/) (Highly recommended!)
-- [Docker Hub](https://hub.docker.com/)
+### 1. Découvrir de nouveaux services
 
-### 2. Network Magic 🌐
-All containers in your `docker-compose.custom.yaml` automatically join YAMS's network! This means they can talk to each other using their container names as hostnames.
+Vous cherchez des services cools à ajouter à YAMS ? Jetez un coup d'œil à ceux-ci :
 
-For example, if you need to connect to Radarr from a custom container, just use `http://radarr:7878` as the URL.
+-   [linuxserver.io fleet](https://fleet.linuxserver.io/) (fortement recommandé)
+-   [Docker Hub](https://hub.docker.com/)
 
-### 3. VPN Access 🔒
-Want your custom container to use YAMS's VPN? Add this to your container config:
+### 2. Réseau magique 🌐
+
+Tous les conteneurs dans votre `docker-compose.custom.yaml` rejoignent automatiquement le réseau de YAMS ! Ça permet à l'ensemble des services de communiquer entre eux en utilisant le noms de leurs conteneurs en tant que noms d'hôtes.
+
+Par exemple, si vous avez besoin de connecter Radarr à un conteneur personnalisé, vous pouvez utiliser `http://radarr:7878` en tant qu'URL.
+
+### 3. Accès VPN 🔒
+
+Vous souhaitez que votre conteneur personnalisé utilise le VPN de YAMS ? Il suffit d'ajouter ceci à la configuration de ce dernier :
+
 ```yaml
-    network_mode: "service:gluetun"
+network_mode: "service:gluetun"
 ```
 
-Check out [Running Prowlarr behind the VPN](/advanced/prowlarr-behind-vpn) for a detailed example!
+Consultez le guide [Lancer Prowlarr derrière le VPN](/advanced/prowlarr-behind-vpn) pour voir un exemple détaillé !
 
-### 4. Variable Power 💪
-You can access any environment variable from YAMS's `.env` file in your custom containers. Just use the `${VARIABLE_NAME}` syntax!
+### 4. La force des variables 💪
 
-## Common Gotchas 🚨
+Vous pouvez accéder à n'importe quelle variable depuis le fichier `.env` de YAMS pour les utiliser dans vos conteneurs personnalisés. Il suffit d'utiliser la syntaxe `${NOM_DE_LA_VARIABLE}` !
 
-1. **Container Names**: Make sure your custom container names don't conflict with YAMS's built-in containers.
-2. **Port Conflicts**: Double-check that your new containers don't try to use ports that are already taken.
-3. **Permissions**: If your container needs to access media files, remember to use `PUID` and `PGID`!
+## Problèmes courants 🚨
 
-## Need Ideas? 💡
+1. **Nom des conteneurs** : Assurez-vous que le nom de vos conteneurs n'entre pas en conflit avec ceux de YAMS.
+2. **Conflit de ports** : Vérifiez bien que vos nouveaux conteneurs n'essayent pas d'accéder à des ports déjà utilisés.
+3. **Permissions** : Si votre conteneur à besoin d'accéder aux fichiers multimédias, pensez à utiliser `PUID` et `PGID`!
 
-Here are some popular containers that work great with YAMS:
+## Besoin d'idées ? 💡
 
-1. **[Overseerr](https://overseerr.dev/)** or **[Petio](https://petio.tv/)**: Let users request movies and shows
-2. **[Tautulli](https://tautulli.com/)**: Advanced Plex monitoring and statistics
-3. **[Organizr](https://organizr.app/)**: Create a sleek dashboard for all your services
+Voici quelques services populaires qui fonctionnent bien avec YAMS :
 
-## Need Help? 🆘
+1. **[Overseerr](https://overseerr.dev/)** ou **[Petio](https://petio.tv/)** : Permet aux utilisateurs de demander des films et séries
+2. **[Tautulli](https://tautulli.com/)** : Gestion et statistiques avancées pour Plex
+3. **[Organizr](https://organizr.app/)** : Créé une interface élégante pour tous vos services
 
-If you run into any issues:
-1. Check our [Common Issues](/faqs/common-errors/) page
-2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+## Besoin d'aide ? 🆘
 
-Remember: YAMS is all about making your media server work for YOU. Don't be afraid to experiment and make it your own! 😎
+Si vous avez rencontré un problème :
+
+1. Visitez notre page [Problèmes courants](/faqs/common-errors/)
+2. Visitez le [Forum YAMS](https://forum.yams.media)
+3. Rejoignez notre serveur [Discord](https://discord.gg/Gwae3tNMST) ou [Matrix](https://matrix.to/#/#yams-space:rogs.me)
+
+N'oubliez pas : L'objectif de YAMS est de créer VOTRE serveur multimédia personnalisé. N'hésitez pas à expérimenter et à le personnaliser à votre guise ! 😎

@@ -1,5 +1,5 @@
 baseURL = "/"
-languageCode = "en-us"
+languageCode = "fr"
 title = "YAMS - Yet Another Media Server"
 themesDir = "themes"
 theme = "hugo-whisper-theme"
@@ -18,32 +18,32 @@ pygmentsUseClasses = true
 summaryLength = 30
 
 [[menu.main]]
-    name = "Home"
+    name = "Accueil"
     url = "/"
     weight = 1
 
 [[menu.main]]
-    name = "Install"
+    name = "Installation"
     url = "/install/"
     weight = 2
 
 [[menu.main]]
-    name = "Configure"
+    name = "Configuration"
     url = "/config/"
     weight = 3
 
 [[menu.main]]
-    name = "Advanced"
+    name = "Configuration avancée"
     url = "/advanced/"
     weight = 4
 
 [[menu.main]]
-    name = "FAQs"
+    name = "FAQ"
     url = "/faqs/"
     weight = 5
 
 [[menu.main]]
-    name = "Donate"
+    name = "Dons"
     url = "/donate/"
     weight = 6
 
@@ -75,8 +75,8 @@ summaryLength = 30
 
 [params]
   homepage_button_link = '/install'
-  homepage_button_text = 'Learn more'
-  homepage_intro = 'YAMS is a basic but powerful media server installation script'
+  homepage_button_text = 'En savoir plus'
+  homepage_intro = 'YAMS est un script simple et puissant pour installer votre serveur multimédia'
   homepage_image = '/install-yams.gif'
   mainSections = ['install', 'config', 'faqs', 'donate', 'contact', 'advanced']
 
@@ -84,12 +84,12 @@ summaryLength = 30
   enable_anchor_link = true
 
   [params.homepage_meta_tags]
-    meta_description = "YAMS is a basic but powerful media server, easy to install in a bash script"
+    meta_description = "YAMS est un script simple et puissant pour installer votre serveur multimédia"
     meta_og_title = "YAMS - Yet Another Media Server"
     meta_og_type = "website"
     meta_og_url = "https://yams.media"
     meta_og_image = "/pics/logo.png"
-    meta_og_description = "YAMS is a basic but powerful media server installation script"
+    meta_og_description = "YAMS est un script simple et puissant pour installer votre serveur multimédia"
 
   [params.logo]
       standard  = "/pics/logo.png"

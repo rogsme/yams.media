@@ -1,11 +1,11 @@
 ---
-title: "Config"
-date: 2023-01-10T19:25:57-03:00
+title: "Configuration"
+date: 2025-01-22T14:03:31+02:00
 draft: false
 ---
 
-This site includes instructions for a **basic** configuration. I recommend you follow the order of the configurations - everything will make sense in the end! 
+Ce site contient des instructions pour une configuration **de base**. Je vous recommande de suivre l'ordre des guides. Tout finira par avoir un sens !
 
-All the pictures in the tutorials are in high resolution. If you can't read something in an instruction, just click on the image to see the full-size version! 
+Toutes les images des tutoriels sont en haute résolution. Si vous n'arrivez pas à lire une instruction, il vous suffit de cliquer sur l'image pour la voir en taille réelle !
 
-Let's get started! 🚀
+C'est parti ! 🚀

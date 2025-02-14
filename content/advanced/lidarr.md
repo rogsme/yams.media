@@ -1,116 +1,115 @@
 ---
 title: "Lidarr"
-date: 2023-01-31T11:20:14-03:00
+date: 2025-01-15T11:50:16+02:00
 draft: false
 weight: 8
-summary: Lidarr is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new albums from your favorite artists and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of existing files in the library when a better quality format becomes available.
-
+summary: Lidarr est un gestionnaire de bibliothèque musicale pour les utilisateurs d'Usenet et de BitTorrent. Il peut surveiller plusieurs flux RSS pour détecter les nouveaux albums de vos artistes préférés et s'interfacer avec les clients et les indexeurs pour les récupérer, les trier et les renommer. Lidarr peut également être configuré pour améliorer automatiquement la qualité des fichiers existants dans la bibliothèque lorsqu'un format de meilleure qualité devient disponible.
 ---
 
-# What is Lidarr?
+# Qu'est-ce que Lidarr ?
 
-From their [wiki](https://lidarr.audio/):
+Selon leur [wiki](https://lidarr.audio/) :
 
-> Lidarr is a music collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new albums from your favorite artists and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of existing files in the library when a better quality format becomes available.
+> Lidarr est un gestionnaire de bibliothèque musicale pour les utilisateurs d'Usenet et de BitTorrent. Il peut surveiller plusieurs flux RSS pour détecter les nouveaux albums de vos artistes préférés et s'interfacer avec les clients et les indexeurs pour les récupérer, les trier et les renommer. Lidarr peut également être configuré pour améliorer automatiquement la qualité des fichiers existants dans la bibliothèque lorsqu'un format de meilleure qualité devient disponible.
 
-In YAMS, Lidarr is going to manage all our music: download, sort, etc.
+Dans YAMS, Lidarr va s'occuper de gérer toute notre musique : téléchargement, tri, etc.
 
-## Initial configuration
+## Configuration initiale
 
-In your browser, go to [http://{your-ip-address}:8686/]() and you'll see Lidarr's empty page. You'll also notice you have 3 messages on the system tab, but we'll deal with them later.
+Dans votre navigateur, allez sur [http://{votre-adresse-ip}:8686/](). Vous allez arriver sur une page vide avec notamment 3 messages sur l'onglet "System".
 
 [![lidarr-1](/pics/lidarr-1.png)](/pics/lidarr-1.png)
 
-### Media management
+### Gestion des médias
 
-First, go to "Settings" and then "Media management". On this screen, click on the big ➕ sign.
+Dans un premier temps, allez dans "Settings", puis "Media management". Sur cette page, cliquez sur le gros bouton ➕.
 
 [![lidarr-2](/pics/lidarr-2.png)](/pics/lidarr-2.png)
 
-On the "Add root folder" modal, add the following information:
+Depuis la fenêtre de dialogue "Add root folder", remplissez les informations suivantes :
 
-- On "Name", set it to "Music"
-- On "Path", set it to "/music/"
+-   Dans "Name", mettez "Music"
+-   Dans "Path", mettez "/music/"
 
-Finally, click on "Save".
+Enfin, cliquez sur "Save".
 
 [![lidarr-3](/pics/lidarr-3.png)](/pics/lidarr-3.png)
 
-You should see your new "Music" root folder.
+Vous devriez maintenant voir votre dossier "Music" dans la section "Root folder".
 
 [![lidarr-4](/pics/lidarr-4.png)](/pics/lidarr-4.png)
 
-### Download Clients
+### Clients de téléchargement
 
-Here, you'll add the download clients for Lidarr. That's where you'll tie in Lidarr with [qBittorrent](/config/qbittorrent).
+Ici, vous allez ajouter les clients de téléchargement pour Lidarr. C'est là que Lidarr va se connecter à [qBittorrent](/config/qbittorrent).
 
-In "Settings", go to "Download Clients" and click on the ➕ button.
+Dans "Settings", allez sur "Download Clients" puis cliquez sur le bouton ➕.
 
 [![lidarr-5](/pics/lidarr-5.png)](/pics/lidarr-5.png)
 
-On the "Add Download Client" screen, scroll down and click on "qBittorrent".
+Sur l'écran "Add Download Client", descendez puis cliquez sur "qBittorrent".
 
 [![lidarr-6](/pics/lidarr-6.png)](/pics/lidarr-6.png)
 
-- In Name, add the name of your download client (qBittorrent).
-- On Host, add your server IP address (in my case, `192.168.0.169`).
-- On Username, add `admin`.
-- On Password, add `adminadmin`.
+-   Dans "Name", mettez le nom de votre client de téléchargement (qBittorrent).
+-   Dans "Host", mettez l'adresse IP de votre serveur (dans mon cas, `192.168.0.169`).
+-   Dans "Username", mettez `admin`.
+-   Dans "Password", mettez `adminadmin`.
 
 [![lidarr-7](/pics/lidarr-7.png)](/pics/lidarr-7.png)
 
-At the bottom, you can click on "Test" and if everything is OK you should see a ✅ 
+En bas de la page, vous pouvez cliquer sur "Test" et si tout est bon, vous devriez voir un ✅
 [![radarr-10](/pics/radarr-10.png)](/pics/radarr-10.png)
 [![radarr-11](/pics/radarr-11.png)](/pics/radarr-11.png)
 
-If everything is fine, click on "Save". You should see your download client added to the "Download Clients" page now!
+Si tout fonctionne correctement, cliquez sur "Save". Votre client de téléchargement devrait maintenant apparaître sur la page "Download Clients" !
 
 [![lidarr-8](/pics/lidarr-8.png)](/pics/lidarr-8.png)
 
-### Prowlarr config
+### Configuration de Prowlarr
 
-First, you are going to need your Lidarr API Key.
+Vous allez d'abord avoir besoin de la clé API de votre instance Lidarr.
 
-You can get your Lidarr API Key in Lidarr. Go to [http://{your-ip-address}:8686/settings/general]() to open Lidarr's settings, and you'll find the API Key under the "Security" section.
+Vous pouvez l'obtenir via Lidarr. Allez sur [http://{votre-adresse-ip}:8686/settings/general](), dans l'onglet "Settings", puis dans la section "Security".
 
 [![lidarr-11](/pics/lidarr-11.png)](/pics/lidarr-11.png)
 
-For now, just copy it and keep it in a safe location.
+Pour l'instant, copiez juste la clé et gardez là dans un endroit sûr.
 
-In "Settings", go to "Apps" and click on the ➕ button.
+Dans "Settings", allez sur "Apps" et cliquez sur le bouton ➕.
 
 [![lidarr-9](/pics/lidarr-9.png)](/pics/lidarr-9.png)
 
-On the "Add Application" modal, click on "Lidarr"
+Depuis la fenêtre de dialogue "Add Application", cliquez sur "Lidarr"
 
 [![lidarr-10](/pics/lidarr-10.png)](/pics/lidarr-10.png)
 
-- In "Prowlarr Server", add `http://prowlarr:9696`
-- In "Lidarr Server", add `http://lidarr:8686`
-- In "ApiKey", add your Lidarr API key.
+-   Dans "Prowlarr Server", mettez `http://prowlarr:9696`
+-   Dans "Lidarr Server", mettez `http://lidarr:8686`
+-   Dans "ApiKey", mettez la clé d'API Lidarr que vous avez copié précédemment.
 
 [![lidarr-12](/pics/lidarr-12.png)](/pics/lidarr-12.png)
 
-At the bottom, you can click on "Test" and if everything is OK you should see a ✅ 
+En bas de la page, vous pouvez cliquer sur "Test" et si tout est bon, vous devriez voir un ✅
 [![sonarr-10](/pics/sonarr-10.png)](/pics/sonarr-10.png)
 [![sonarr-11](/pics/sonarr-11.png)](/pics/sonarr-11.png)
 
-To finish, click on "Save". You should see Lidarr added to the "Apps" list!
+Si tout fonctionne correctement, cliquez sur "Save". Vous devriez maintenant voir Lidarr dans la liste d'applications !
 
 [![lidarr-13](/pics/lidarr-13.png)](/pics/lidarr-13.png)
 
-**Remeber to add Music indexers!**. You won't be able to download if you don't add Music indexers in Prowlarr. To add indexers, go to [Prowlarr's Indexer configuration](/config/prowlarr/#indexers).
+**N'oubliez pas d'ajouter des indexeurs pour la musique**. Vous ne serez pas capable de télécharger si aucun indexeur dédié à la musique n'est ajouté à Prowlarr. Pour ajouter un indexeur, allez sur [Configuration des indexeurs via Prowlarr](/config/prowlarr/#indexers).
 
-## Usage
+## Utilisation
 
-Back in Lidarr, go to "Library/Add New" and search for a band. Select it to add it to Lidarr.
+Retournez sur Lidarr, allez dans "Library/Add New" et cherchez un groupe de musique. Sélectionnez le pour l'ajouter à Lidarr.
 
 [![lidarr-14](/pics/lidarr-14.png)](/pics/lidarr-14.png)
 
-On the "Add new Artist" modal, select the Quality Profile, click on "Start search for missing albums" anf finally, click on "Add".
+Depuis la fenêtre de dialogue "Add new Artist", choisissez un profil de qualité ("Quality Profile"), cliquez sur "Start search for missing albums" et appuyez enfin sur "Add".
 
 [![lidarr-15](/pics/lidarr-15.png)](/pics/lidarr-15.png)
 
-And that should be it! You should see your band added and it will start downloading soon.
+Et voilà ! Vous devriez voir l'ajout du votre groupe de musique. Le téléchargement devrait commencer rapidement.
 
 [![lidarr-16](/pics/lidarr-16.png)](/pics/lidarr-16.png)

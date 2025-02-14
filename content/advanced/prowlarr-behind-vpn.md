@@ -1,138 +1,153 @@
 ---
-title: "Running Prowlarr Behind the VPN"
-date: 2024-09-27T16:44:00-03:00
+title: "Lancer Prowlarr derrière le VPN"
+date: 2025-01-15T11:50:16+02:00
 draft: false
 weight: 4
-summary: A complete guide to routing Prowlarr's traffic through your VPN for extra privacy
+summary: Un guide complet pour acheminer le trafic de Prowlarr à travers votre VPN pour plus de confidentialité
 ---
 
-# Extra Privacy for Prowlarr 🔒
+# Plus de confidentialité pour Prowlarr 🔒
 
-While downloading .torrent files isn't usually illegal, some ISPs might try to block your access to indexers. Let's fix that by putting Prowlarr behind your VPN! 
+Bien que le téléchargement de fichiers .torrent ne soit généralement pas illégal, certains fournisseur d'accès Internet peuvent essayer de bloquer votre accès aux indexeurs. Pour y remédier, placez Prowlarr derrière votre VPN !
 
-## Why Put Prowlarr Behind the VPN? 🤔
+## Pourquoi mettre Prowlarr derrière le VPN ? 🤔
 
-1. **Bypass ISP Blocks**: Some ISPs block torrent indexer websites
-2. **Extra Privacy**: Keep your searches private
-3. **Better Access**: Reach indexers that might be geo-blocked in your country
+1. **Passer outre les blocages des FAI** : Certains FAI peuvent bloquer les indexeurs de torrent
+2. **Confidentialité accrue** : Gardez vos recherches privées
+3. **Diversité de choix** : Accédez à des indexeurs restreints dans votre pays
 
-## Configuration Steps 🛠️
+## Étapes de configuration 🛠️
 
-We'll need to modify two services in your `docker-compose.yaml` file: Prowlarr and Gluetun. Let's do this step by step!
+Nous allons devoir mofidier deux services dans votre fichier `docker-compose.yaml` : Prowlarr et Gluetun. Allons-y étape par étape !
 
-### Step 1: Modify Prowlarr's Config
-First, let's update Prowlarr to use the VPN network. Open your `docker-compose.yaml` and find the Prowlarr service:
+### Étape 1: Modifier la configuration de Prowlarr
+
+Tout d'abord, mettons à jour Prowlarr pour qu'il utilise le réseau du VPN. Ouvrez votre `docker-compose.yaml` et trouvez le service Prowlarr :
 
 ```yaml
 prowlarr:
     image: lscr.io/linuxserver/prowlarr
     container_name: prowlarr
-    # Delete or comment out the 'ports' section
+    # Supprimez ou commentez la section 'ports'
     # ports:
     #   - 9696:9696
-    network_mode: "service:gluetun"  # Add this line
+    network_mode: "service:gluetun" # Ajoutez cette ligne
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - WEBUI_PORT=9696  # Add this line
+        - PUID=${PUID}
+        - PGID=${PGID}
+        - WEBUI_PORT=9696 # Ajoutez cette ligne
     volumes:
-      - ${INSTALL_DIRECTORY}/config/prowlarr:/config
+        - ${INSTALL_DIRECTORY}/config/prowlarr:/config
     restart: unless-stopped
 ```
 
-Key changes:
-1. Remove or comment out the `ports` section
-2. Add `network_mode: "service:gluetun"`
-3. Add `WEBUI_PORT=9696` to the environment variables
+Changements principaux :
 
-### Step 2: Update Gluetun's Config
-Now we need to tell Gluetun to handle Prowlarr's traffic. Find the Gluetun service in your `docker-compose.yaml`:
+1. Retirez ou commentez la section `ports`
+2. Ajoutez `network_mode: "service:gluetun"`
+3. Ajoutez `WEBUI_PORT=9696` aux variables d'environnement
+
+### Étape 2: Modifier la configuration de Gluetun
+
+Nous allons maintenant dire à Gluetun de gérer le trafic de Prowlarr. Trouvez le service Gluetun dans votre `docker-compose.yaml` :
 
 ```yaml
 gluetun:
     image: qmcgaw/gluetun:v3
     container_name: gluetun
     cap_add:
-      - NET_ADMIN
+        - NET_ADMIN
     devices:
-      - /dev/net/tun:/dev/net/tun
+        - /dev/net/tun:/dev/net/tun
     ports:
-      - 8888:8888/tcp   # HTTP proxy
-      - 8388:8388/tcp   # Shadowsocks
-      - 8388:8388/udp   # Shadowsocks
-      - 8080:8080/tcp   # gluetun
-      - 9696:9696/tcp   # Add this line for Prowlarr
+        - 8888:8888/tcp # HTTP proxy
+        - 8388:8388/tcp # Shadowsocks
+        - 8388:8388/udp # Shadowsocks
+        - 8080:8080/tcp # gluetun
+        - 9696:9696/tcp # Ajoutez cette ligne pour Prowlarr
     volumes:
-      - ${INSTALL_DIRECTORY}/config/gluetun:/config
+        - ${INSTALL_DIRECTORY}/config/gluetun:/config
     environment:
-      - FIREWALL_OUTBOUND_SUBNETS=192.168.1.0/24  # Add this line
+        - FIREWALL_OUTBOUND_SUBNETS=192.168.1.0/24 # Ajoutez cette ligne
     restart: unless-stopped
 ```
 
-Key changes:
-1. Add `9696:9696/tcp` to the ports
-2. Add `FIREWALL_OUTBOUND_SUBNETS` to the environment section
+Changements principaux :
 
-### Step 3: Find Your Subnet 🔍
+1. Ajoutez `9696:9696/tcp` aux ports
+2. Ajoutez `FIREWALL_OUTBOUND_SUBNETS` aux variables d'environnement
 
-The `FIREWALL_OUTBOUND_SUBNETS` value needs to match your container subnet. Here's how to find it:
+### Étape 3 : Trouvez votre sous-réseau 🔍
 
-1. Open Portainer
-2. Click on "Containers"
-3. Look at the "IP Address" column
+La valeur de `FIREWALL_OUTBOUND_SUBNETS` doit correspondre au sous-réseau de votre conteneur. Voici comment le trouver :
 
-Most setups use one of these subnets:
-- `172.18.0.0/24` - If your containers use IPs like `172.18.x.x`
-- `192.168.1.0/24` - If your containers use IPs like `192.168.1.x`
+1. Ouvrez Portainer
+2. Cliquez sur "Containers"
+3. Vérifiez la colonne "IP Address"
 
-### Step 4: Apply the Changes 🔄
+La plupart des installations utilisent l'un de ses sous-réseaux :
 
-Save your changes and restart YAMS:
+-   `172.18.0.0/24` si vos conteneurs utilisent une IP comme celle-ci `172.18.x.x`
+-   `192.168.1.0/24` si vos conteneurs utilisent une IP comme celle-ci `192.168.1.x`
+
+### Étape 4: Appliquer les changements 🔄
+
+Sauvegardez les changements et redémarrez YAMS :
+
 ```bash
 yams restart
 ```
 
-## Testing Your Setup 🎯
+## Tester votre installation 🎯
 
-After YAMS restarts, check that:
-1. You can still access Prowlarr at `http://your-ip:9696`
-2. Your indexers still work
-3. The search function works correctly
+Après le redémarrage de YAMS, vérifiez que :
 
-## Troubleshooting 🔧
+1. Vous pouvez toujours accéder à Prowlarr via `http://{votre-adresse-ip}:9696`
+2. Vos indexeurs fonctionnent toujours
+3. La fonctionnalité de recherche fonctionne correctement
 
-### Can't Access Prowlarr?
-1. Check Gluetun's logs:
+## Dépannage 🔧
+
+### Vous n'arrivez pas à accéder à Prowlarr ?
+
+1. Vérifiez les logs de Gluetun :
+
 ```bash
 docker logs gluetun
 ```
-2. Verify your subnet setting is correct
-3. Make sure the port mapping is right in both services
 
-### Indexers Not Working?
-1. Check your VPN connection:
+2. Vérifiez que vos paramètres de sous-réseau sont corrects
+3. Assurez-vous que l'attribution des ports est correcte dans les deux services
+
+### Les indexeurs ne fonctionnent pas ?
+
+1. Vérifiez votre connexion VPN :
+
 ```bash
 yams check-vpn
 ```
-2. Try accessing an indexer manually through Prowlarr
-3. Check Prowlarr's logs for any errors
 
-### Still Having Issues? 
-1. Compare your configuration with the examples above
-2. Make sure your VPN provider allows port forwarding
-3. Try a different VPN server
+2. Essayez d'accéder manuellement à un indexeur via Prowlarr
+3. Vérifiez dans les logs de Prowlarr si des erreurs apparaissent
 
-## Pro Tips 💡
+### Vous avez encore un problème ?
 
-1. **Speed Matters**: Choose a VPN server close to you for better performance
-2. **Regular Checks**: Use `yams check-vpn` to verify your VPN is working
-3. **Monitor Logs**: Keep an eye on both Prowlarr and Gluetun logs for issues
+1. Comparez votre configuration avec les exemples ci-dessus
+2. Assurez-vous que votre fournisseur VPN autorise la redirection de port
+3. Essayez un serveur VPN différent
 
-## Need Help? 🆘
+## Astuces 💡
 
-If you're stuck:
-1. Check the [Common Issues](/faqs/common-errors/) page
-2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+1. **La vitesse compte** : Choisissez un serveur VPN proche de vous pour de meilleures performances
+2. **Vérifications régulières** : Utilisez la commande `yams check-vpn` pour vérifier que votre VPN fonctionne
+3. **Surveillez les logs** : Gardez un œil sur les logs de Prowlarr et Gluetun pour détecter les erreurs
 
-Remember: Taking a few extra steps for privacy is always worth it! Stay safe out there! 🛡️
+## Besoin d'aide ? 🆘
+
+Si vous êtes bloqué :
+
+1. Visitez notre page [Problèmes courants](/faqs/common-errors/)
+2. Visitez le [Forum YAMS](https://forum.yams.media)
+3. Rejoignez notre serveur [Discord](https://discord.gg/Gwae3tNMST) ou [Matrix](https://matrix.to/#/#yams-space:rogs.me)
+
+N'oubliez pas : Prendre quelques mesures supplémentaires pour protéger votre vie privée en vaut toujours la peine ! Protégez-vous ! 🛡️

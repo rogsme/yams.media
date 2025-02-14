@@ -1,39 +1,45 @@
 ---
-title: "Port Forwarding"
-date: 2024-12-30T10:14:29-03:00
+title: "Redirection de port"
+date: 2025-01-15T11:50:16+02:00
 draft: false
 weight: 3
-summary: Everything you need to know about configuring and using a VPN with YAMS
+summary: Tout ce que vous devez savoir au sujet de la configuration d'un VPN avec YAMS
 ---
 
-Port forwarding helps you get better download speeds by allowing incoming connections to your torrent client. YAMS enables port forwarding by default, but setup varies by VPN provider.
+La redirection de port vous permet d'obtenir des débits de téléchargement plus élevés en autorisant les connexions entrantes vers votre client torrent. YAMS active la redirection de port par défaut, mais la configuration varie selon votre fournisseur VPN.
 
-## ProtonVPN Users 🚀
-ProtonVPN makes port forwarding easy! Just follow these steps:
+## Utilisateurs ProtonVPN 🚀
 
-1. Create a script to update qBittorrent's port. Make sure you change `/your/install/location`:
+ProtonVPN facilite la redirection de port ! Suivez simplement ces étapes :
+
+1. Créez un script pour mettre à jour le port de qBittorrent. Assurez-vous de bien remplacer `/your/install/location` par le chemin de votre installation :
+
 ```bash
 mkdir -p /your/install/location/scripts
 nano /your/install/location/scripts/update-port.sh
 ```
 
-2. Add this code to the script: https://gitlab.com/-/snippets/4788387. Make sure you edit this to match your own configuration:
+2. Ajoutez ce code au script : https://gitlab.com/-/snippets/4788387. Assurez-vous de modifier le code pour qu'il corresponde à votre propre configuration.
+
 ```bash
-QBITTORRENT_USER=admin            # qbittorrent username
-QBITTORRENT_PASS=adminadmin       # qbittorrent password
+QBITTORRENT_USER=admin            # identifiant qbittorrent
+QBITTORRENT_PASS=adminadmin       # mot de passe qbittorrent
 ```
 
-3. Make the script executable:
+3. Rendez le script exécutable
+
 ```bash
 chmod +x /your/install/location/scripts/update-port.sh
 ```
 
-4. Run it to verify it's working:
+4. Lancez le script pour vous assurez que tout fonctionne
+
 ```bash
 ./your/install/location/scripts/update-port.sh
 ```
 
-You should see an output similar to this:
+Vous devriez voir le résultat suivant :
+
 ```bash
 2024-12-30 08:21:58 | VPN container gluetun in healthy state!
 2024-12-30 08:21:58 | qBittorrent Cookie invalid, getting new SessionID
@@ -43,36 +49,41 @@ You should see an output similar to this:
 2024-12-30 08:21:58 | Port OK (Act: 61009 Cfg: 61009)
 ```
 
-5. Set up automatic port updates (runs every 5 minutes):
+5. Mettez en place un changement automatique de port (toutes les 5 minutes) :
+
 ```bash
 (crontab -l 2>/dev/null; echo "*/5 * * * * /your/install/location/scripts/update-port.sh") | crontab -
 ```
 
-## Other VPN Providers 🌐
-For other VPN providers, port forwarding configuration varies.
+## Autres fournisseurs VPN 🌐
 
-For detailed provider-specific instructions, check the [Gluetun Port Forwarding Documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md).
+Pour les autres fournisseurs VPN, la configuration de la redirection de port varie.
 
-## Verifying Port Forwarding ✅
-To check if port forwarding is working:
+Pour des instructions spécifiques à chaque fournisseur, consultez la [Documentation de Gluetun sur la redirection de port](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md).
 
-1. Run `curl http://localhost:8003/v1/openvpn/portforwarded` to see your current port
-2. Visit [Open Port Check Tool](https://www.yougetsignal.com/tools/open-ports/) and test your port by using your public VPN IP and the active port
-3. Check qBittorrent's connection status - it should show "Connection Status: Connected"
+## Vérifier le fonctionnement de la redirection de port ✅
+
+Pour s'assurer que la redirection de port fonctionne :
+
+1. Lancez la commande `curl http://localhost:8003/v1/openvpn/portforwarded` dans votre terminal pour voir votre port actuel.
+2. Visitez le site [Open Port Check Tool](https://www.yougetsignal.com/tools/open-ports/) et testez votre port en utilisant l'adresse IP publique de votre VPN ainsi que le port actif
+3. Vérifiez le statut de connexion de qBittorrent. Il devrait afficher "Connection Status: Connected"
 
 [![conection-status](/pics/advanced-port-forwarding-1.png)](/pics/advanced-port-forwarding-1.png)
 
-## Troubleshooting 🔧
+## Dépannage 🔧
 
-1. **No port shown:**
-   ```bash
-   docker logs gluetun | grep "\[port forwarding\]"
-   ```
-   Look for any error messages
+1. **Pas de port affiché :**
 
-2. **Port not updating:**
-   - Check if the script has execute permissions
-   - Verify crontab is running: `crontab -l`
-   - Check script logs: `tail -f /var/log/syslog | grep update-port`
+    ```bash
+    docker logs gluetun | grep "\[port forwarding\]"
+    ```
 
-Need help? Visit our [Common Issues](/faqs/common-errors/) page or join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat!
+    Regardez les messages d'erreurs affichés
+
+2. **Le port ne se met pas à jour :**
+    - Vérifiez si le script a les permissions d'exécution
+    - Vérifiez si crontab est lancé : `crontab -l`
+    - Vérifiez les logs du script : `tail -f /var/log/syslog | grep update-port`
+
+Besoin d'aide ? Visitez notre page [Problèmes courants](/faqs/common-errors/) ou rejoignez notre serveur [Discord](https://discord.gg/Gwae3tNMST) ou [Matrix](https://matrix.to/#/#yams-space:rogs.me) !

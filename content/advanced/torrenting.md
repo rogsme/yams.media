@@ -1,30 +1,33 @@
 ---
 title: "Torrenting"
-date: 2023-01-16T14:48:14-03:00
+date: 2025-01-16T08:51:14+02:00
 draft: false
 weight: 5
-summary: Everything you need to know about safe and effective torrenting with YAMS
+summary: Tout ce que vous devez savoir pour une utilisation sûre et efficace des torrents avec YAMS
 ---
 
-# Advanced Torrenting with YAMS 🌊
+# Torrenting avancé avec YAMS 🌊
 
-While [Sonarr](/config/sonarr) and [Radarr](/config/radarr) handle most of your downloads automatically, sometimes you might want to download something manually. Let's explore how to do that safely!
+Bien que [Sonarr](/config/sonarr) et [Radarr](/config/radarr) gèrent la plupart de vos téléchargements automatiquement, il peut arriver que vous souhaitiez télécharger quelque chose manuellement. Voyons comment le faire en toute sécurité !
 
-## Manual Downloads 📥
+## Téléchargements manuels 📥
 
-### Adding Torrent Files
-1. Open qBittorrent at `http://{your-ip}:8081`
-2. Click the "+" icon or "Add torrent file" button:
+### Ajouter un torrent
+
+1. Ouvrez qBittorrent depuis `http://{votre-adresse-ip}:8081`
+2. Cliquez sur l'icône "+" ou le bouton "Add torrent file" :
    [![Add torrent button](/pics/advanced-torrent-1.png)](/pics/advanced-torrent-1.png)
 
-3. Select your .torrent file and click "Upload Torrents":
+3. Sélectionnez votre fichier .torrent et cliquez sur "Upload Torrents" :
    [![Upload torrents](/pics/advanced-torrent-2.png)](/pics/advanced-torrent-2.png)
 
-4. Watch your download progress:
+4. Suivez l'avancée du téléchargement :
    [![Download progress](/pics/advanced-torrent-3.png)](/pics/advanced-torrent-3.png)
 
-### Finding Your Downloads
-When your download finishes, find it in your media folder under the "downloads" directory:
+### Trouver vos téléchargements
+
+Lorsqu'un téléchargement est fini, vous trouverez le fichier dans votre répertoire multimédia, dans le dossier "downloads" :
+
 ```bash
 /srv/media$ tree downloads/torrents/
 downloads/torrents/
@@ -33,102 +36,113 @@ downloads/torrents/
 0 directories, 1 file
 ```
 
-## Safety First: IP Leak Testing 🛡️
+## La sécurité d'abord : Détecter les fuites d'IP 🛡️
 
-Even with a VPN, it's good practice to verify that your real IP isn't leaking. Here's how to do a thorough check:
+Même avec un VPN, il est important de vérifier que votre véritable IP ne soit pas exposée. Voici comment procéder à une vérification approfondie :
 
-### Using the IP Checker
+### Utiliser un testeur d'IP
 
-1. Visit [whatismyip.net's Torrent Checker](https://www.whatismyip.net/tools/torrent-ip-checker/index.php) and grab their test magnet link:
+1. Visitez le site [whatismyip.net Torrent Checker](https://www.whatismyip.net/tools/torrent-ip-checker/index.php) récupérez leur lien magnet :
    [![Torrent checker](/pics/advanced-torrent-4.png)](/pics/advanced-torrent-4.png)
 
-2. In qBittorrent, click "Add Torrent Link":
+2. Dans qBittorrent, cliquez sur "Add Torrent Link":
    [![Add magnet link](/pics/advanced-torrent-5.png)](/pics/advanced-torrent-5.png)
 
-3. Paste the magnet link and click "Download":
+3. Coller le lien magnet et cliquez sur "Download":
    [![Paste magnet](/pics/advanced-torrent-6.png)](/pics/advanced-torrent-6.png)
 
-4. You'll see a new torrent called "Torrent Tracker IP Checker" in your list. Don't worry - it won't actually download anything!
+4. Vous verrez apparaître un nouveau torrent appelé "Torrent Tracker IP Checker". Pas d'inquéitude, ça ne téléchargera rien !
    [![IP checker torrent](/pics/advanced-torrent-7.png)](/pics/advanced-torrent-7.png)
 
-5. Back on the checker website, you'll see your torrent client's IP:
+5. De retour sur leur site Web, vous pourrez voir l'adresse IP de votre client de téléchargement :
    [![IP check results](/pics/advanced-torrent-8.png)](/pics/advanced-torrent-8.png)
 
-### Verifying the Results 🔍
+### Vérifier les résultats 🔍
 
-For proper privacy protection, check that:
-1. The reported IP is **different** from your real IP address
-2. The IP matches what `yams check-vpn` reports
-3. The country shown matches your VPN server location
+Pour une bonne protection de votre vie privée, vérifiez que :
 
-## Pro Tips for Safe Torrenting 🎯
+1. L'adresse IP affichée est **différente** de votre vraie adresse IP
+2. L'adresse IP correspond à celle affichée par la commande `yams check-vpn`
+3. Le pays affiché correspond à la localisation de votre serveur VPN
 
-1. **Always Verify VPN First**
-   ```bash
-   yams check-vpn
-   ```
-   Do this before starting any downloads!
+## Astuces pour une utilisation sécurisée des torrents 🎯
 
-2. **Use the Kill Switch**
-   YAMS configures qBittorrent to only use the VPN network interface. If the VPN drops, downloads stop automatically.
+1. **Toujours vérifier votre VPN d'abord**
 
-3. **Regular Testing**
-   - Run the IP leak test monthly
-   - Check VPN status before large downloads
-   - Monitor qBittorrent's connection status
+    ```bash
+    yams check-vpn
+    ```
 
-4. **Download Organization**
-   - Use labels for different types of content
-   - Set up category-specific download folders
-   - Remove completed torrents regularly
+    Faites-le avant chaque téléchargement !
 
-5. **Enable Port Forwarding**
-   - Check our [Port Forwarding Guide](/advanced/port-forwarding/)
-   - Significantly improves download speeds
-   - Works automatically with ProtonVPN
+2. **Utilisez le Kill Switch**
+   YAMS configure qBittorrent pour utiliser uniquement l'interface réseau du VPN. Si le VPN disfonctionne, les téléchargements s'arrêtent automatiquement.
 
-## Troubleshooting Common Issues 🔧
+3. **Testez régulièrement**
 
-### Downloads Won't Start
-1. Check VPN connection:
-   ```bash
-   yams check-vpn
-   ```
-2. Verify tracker status in qBittorrent
-3. Try a different VPN server
+    - Testez votre IP tous les mois
+    - Vérifiez le statut de votre VPN avant de gros téléchargements
+    - Surveillez le statut de connexion de qBittorrent
 
-### Slow Speeds
-1. Try a VPN server closer to you
-2. Check if your VPN provider throttles P2P
-3. Verify you're not hitting VPN bandwidth limits
+4. **Organisation des téléchargements**
 
-### Connection Drops
-1. Check VPN provider status
-2. Try a different VPN server
-3. Monitor system resources
+    - Utilisez des labels pour les différents types de contenu
+    - Mettez en place des dossiers de téléchargment selon les catégories du contenu (TV, films, livres, etc.)
+    - Supprimez les torrents complets régulièrement
 
-## Best Practices 📚
+5. **Activez la redirection de port**
+    - Visitez notre guide sur la [Redirection de port](/advanced/port-forwarding/)
+    - Améliore significativement la vitesse de téléchargement
+    - Fonctionne automatiquement avec ProtonVPN
 
-1. **Keep VPN Active**
-   - Always check VPN status before downloading
-   - Use `yams check-vpn` regularly
-   - Monitor qBittorrent's network interface
+## Dépanner les problèmes courants 🔧
 
-2. **Regular Maintenance**
-   - Clear completed torrents
-   - Update qBittorrent when YAMS prompts
-   - Run periodic IP leak tests
+### Les téléchargements ne démarrent pas
 
-3. **Download Management**
-   - Set reasonable ratio limits
-   - Use categories for organization
-   - Monitor disk space regularly
+1. Vérifiez la connexion du VPN
+    ```bash
+    yams check-vpn
+    ```
+2. Vérifiez le statut des trackers sur qBittorrent
+3. Essayez un autre serveur VPN
 
-## Need Help? 🆘
+### Téléchargements lents
 
-Having issues with torrenting? We've got you covered:
-1. Check the [Common Issues](/faqs/common-errors/) page
-2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+1. Essayez un serveur VPN plus proche de vous
+2. Vérifiez si votre fournisseur VPN restreint le Peer-to-peer
+3. Vérifiez si vous n'atteignez pas les limites d'utilisation de bande passante de votre VPN
 
-Remember: Safe torrenting is good torrenting. Always verify your VPN is working before downloading! 🛡️
+### Coupures de connexion
+
+1. Vérifiez si le problème provient du fournisseur VPN
+2. Essayez un serveur VPN différent
+3. Surveillez l'utilisation des ressources système
+
+## Bonnes pratiques 📚
+
+1. **Gardez le VPN allumé**
+
+    - Vérifiez toujours si le VPN est actif avant de télécharger
+    - Utilisez la commande `yams check-vpn` régulièrement
+    - Surveillez l'interface réseau de qBittorrent
+
+2. **Maintenance régulière**
+
+    - Supprimez les torrents complets
+    - Mettez à jour qBittorrent lorsque YAMS le demande
+    - Vérifiez régulièrement les fuites d'IP
+
+3. **Gestion des téléchargements**
+    - Mettez des ratios raisonnables
+    - Utilisez des catégories pour l'organisation
+    - Surveillez l'espace disque régulièrement
+
+## Besoin d'aide ? 🆘
+
+Vous avez des soucis avec le torrenting ? Nous sommes là pour vous aider !
+
+1. Visitez notre page [Problèmes courants](/faqs/common-errors/)
+2. Visitez le [Forum YAMS](https://forum.yams.media)
+3. Rejoignez notre serveur [Discord](https://discord.gg/Gwae3tNMST) ou [Matrix](https://matrix.to/#/#yams-space:rogs.me)
+
+N'oubliez pas : Un torrenting sûr est un bon torrenting. Vérifiez toujours que votre VPN fonctionne avant de télécharger ! 🛡️

@@ -1,6 +1,6 @@
 ---
-title: "Install"
-date: 2023-01-10T19:26:34-03:00
+title: "Installation"
+date: 2025-01-16T14:57:14+02:00
 draft: false
 weight: 100
 ---

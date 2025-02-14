@@ -1,61 +1,63 @@
 ---
 title: "Contact"
-date: 2023-01-13T14:47:17-03:00
+date: 2025-01-31T13:35:39+02:00
 draft: false
 weight: 100
 ---
 
-# Let's Connect! 🤝
+# Connectons-nous ! 🤝
 
-Got questions? Suggestions? Just want to say hi? We've got plenty of ways to reach out! 
+Vous avez des questions ? Des suggestions ? Vous voulez simplement dire bonjour ? Nous avons de nombreux moyens d'échanger !
 
-## Community Hangouts 🏡
+## Hub communautaires 🏡
 
-- 💬 Matrix Space: [#yams-space:rogs.me](https://matrix.to/#/#yams-space:rogs.me)
-- 🎮 Discord Server: [YAMS Discord](https://discord.gg/Gwae3tNMST)
-- Official Forum 📋: [YAMS Forum](https://forum.yams.media)
+-   💬 Chat Matrix : [#yams-space:rogs.me](https://matrix.to/#/#yams-space:rogs.me)
+-   🎮 Serveur Discord : [YAMS Discord](https://discord.gg/Gwae3tNMST)
+-   📋 Forum officiel : [YAMS Forum](https://forum.yams.media)
 
-## Direct Contact 📧
+## Contact direct 📧
 
-- Email: `[roger at rogs.me]`. Replace `at` with `@` (fuck you, email bots)
-- GPG:
-  + **Fingerprint:** `ADDF BCB7 8B86 8D93 FC4E 3224 C7EC E9C6 C36E C2E6`
-  + **Import Command:** 
-  ```bash
-  curl -sL https://rogs.me/rogs.txt | gpg --import
-  ```
-- My Website 🌐: [rogs.me](https://rogs.me)
+-   Email : `[roger at rogs.me]`. Remplacez `at` par `@` (allez vous faire, bots de mailing)
+-   GPG :
+    -   **Fingerprint :** `ADDF BCB7 8B86 8D93 FC4E 3224 C7EC E9C6 C36E C2E6`
+    -   **Commande d'import :**
+    ```bash
+    curl -sL https://rogs.me/rogs.txt | gpg --import
+    ```
+-   Mon site web 🌐 : [rogs.me](https://rogs.me)
 
-## Ground Rules 📏
+## Règles de base 📏
 
-Before reaching out, please:
-- Check the [documentation](/) first
-- Review [Common Issues](/faqs/common-errors/)
-- Be specific about your problem
-- Include relevant logs or screenshots
-- Be patient and kind
+Avant de prendre contact avec nous, pensez à :
 
-## What to Expect 🤔
+-   Vérifier d'abord la [documentation](/)
+-   Consulter les [Erreurs courantes](/faqs/common-errors/)
+-   Être précis sur votre problème
+-   Inclure des logs et captures d'écran
+-   Être patient et sympathique
 
-- Response times vary
-- Community-driven support
-- Friendly, no-nonsense assistance
-- Open-source spirit of collaboration
+## À quoi vous attendre ? 🤔
 
-**Pro Tip:** The more clearly you describe your issue, the faster we can help you! 🚀
+-   Des délais de réponse variables
+-   Support communautaire
+-   Une assistance amicale et pragmatique
+-   L'esprit collaboratif de l'Open Source
 
-## Reporting Bugs 🐛
+**Astuce :** Plus vous décrivez clairement votre problème, plus vite nous pourrons vous aider ! 🚀
 
-Found an issue? Awesome! Head to our [GitLab Issues](https://gitlab.com/rogs/yams/-/issues) and:
-- Search existing issues first
-- Provide detailed reproduction steps
-- Include system information
-- Be awesome! 😎
+## Signaler des bugs 🐛
 
-## Social Media? Nope! 🙅‍♂️
+Vous avez trouvé un problème ? Génial ! Dirigez-vous vers nos [Issues GitLab](https://gitlab.com/rogs/yams/-/issues) et :
 
-We keep things simple. No Twitter, no Facebook, no Instagram. Just good old-fashioned community support!
+-   Recherchez des issues similaires
+-   Fournissez les étapes détaillées pour reproduire le problème
+-   Incluez des informations sur votre système
+-   Soyez cools ! 😎
+
+## Les réseaux sociaux ? Nope ! 🙅‍♂️
+
+Nous gardons les choses simples. Pas de Twitter, pas de Facebook, pas d'Instagram. Juste un bon vieux soutien communautaire !
 
 ---
 
-Remember: YAMS is a community project. We're here to help, learn, and grow together! 💖
+N'oubliez pas : YAMS est un projet communautaire. Nous sommes là pour aider, apprendre et grandir ensemble ! 💖

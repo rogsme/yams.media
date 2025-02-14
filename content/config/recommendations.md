@@ -1,43 +1,50 @@
 ---
 title: "Recommendations"
-date: 2023-01-12T19:09:55-03:00
+date: 2025-01-30T11:35:44+02:00
 draft: false
 weight: 100
-summary: Final recommendations, how to continue?
+summary: Recommendations finales, comment continuer ?
 ---
 
-# What should YOU do now?
+# Que pouvez-vous faire maintenant ?
 
-Everything is working now! Yay! 🎉
+Tout fonctionne maintenant ! Yay ! 🎉
 
-Here are some cool ways to make your YAMS experience even better:
+Voici quelques moyens sympas de rendre votre expérience YAMS encore meilleure :
 
-### Add more indexers! 🔍
-Check out the [Prowlarr indexers guide](/config/prowlarr/#indexers). The more indexers you have, the easier it'll be to find those hard-to-get movies and TV shows that your friends keep talking about!
+### Ajoutez plus d'indexeurs 🔍
 
-### Expand your subtitle collection! 🗣️
-Head to the [Bazarr providers guide](/config/bazarr/#providers) and add more subtitle sources. The more providers you have, the better chance Bazarr has of finding perfect subtitles for everything in your library.
+Consultez le [Guide des indexeurs de Prowlarr](/config/prowlarr/#indexers). Plus vous avez d'indexeurs, plus il vous sera facile de trouver les films et séries TV difficiles à obtenir dont vos amis vous parlent sans cesse !
 
-### Get those apps! 📱
-Install your media service apps (Emby/Jellyfin/Plex) on all your devices! They're available for:
-- Android TV
-- Amazon Fire TV
-- Chromecast
-- Roku
-- Xbox
-- Home Theater PCs
-- And lots more!
+### Développez votre collection de sous-titres ! 🗣️
 
-### Consider going premium! ⭐
-If you're using Emby, think about trying [Emby Premiere](https://emby.media/premiere.html). It's totally optional, but VERY recommended! You'll get:
-- Offline media support
-- Hardware transcoding (smoother playback!)
-- Automatic content conversion
-- And tons more cool features
+Allez dans le [Guide des fournisseurs de Bazarr](/config/bazarr/#fournisseurs) et ajoutez d'autres sources de sous-titres. Plus il y a de fournisseurs, plus Bazarr a de chances de trouver des sous-titres parfaits pour tout ce qui se trouve dans votre bibliothèque.
 
-I actually canceled all my streaming services, bought a 1-year license, and never looked back! 
+### Téléchargez ces applications ! 📱
 
-### Make it yours! 🛠️
-Take time to configure and fine-tune all the services. Don't worry about breaking things - you can always refer back to this documentation if something goes wrong. The best media server is one that's customized to how YOU want to use it!
+Installez vos applications de service multimédia (Emby/Jellyfin/Plex) sur tous vos appareils ! Elles sont disponibles pour :
 
-Remember: A good media server should adapt to you, not the other way around! 😎
+-   Android TV
+-   Amazon Fire TV
+-   Chromecast
+-   Roku
+-   Xbox
+-   Home Theater PCs
+-   Et bien d'autres encore !
+
+### Envisagez de passer sur des formules premium ! ⭐
+
+Si vous utilisez Emby, je vous recommande d'essayer [Emby Premiere](https://emby.media/premiere.html) ! C'est totalement optionnel, mais ça en vaut vraiment le coup :
+
+-   Médias hors ligne pour vos appareils
+-   Transcodage matériel (lecture plus fluide !)
+-   Conversion automatique de votre contenu
+-   Et bien d'autres fonctionnalités super cool !
+
+J'ai annulé tous mes services de streaming, j'ai acheté une licence Emby Premiere d'un an et je n'ai jamais regretté mon choix !
+
+### Appropriez-vous votre installation ! 🛠️
+
+Prenez le temps de configurer et d'ajuster tous les services. Ne craignez pas de tout casser : vous pourrez toujours vous référer à cette documentation en cas de problème. Le meilleur serveur multimédia est celui qui est personnalisé en fonction de l'utilisation que VOUS souhaitez en faire !
+
+N'oubliez pas : Un bon serveur média doit s'adapter à vous, et non l'inverse ! 😎

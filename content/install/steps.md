@@ -1,91 +1,97 @@
 ---
 title: Installation
-date: 2023-01-10T15:23:20-03:00
+date: 2025-01-17T09:27:14+02:00
 weight: 2
-summary: First steps to install YAMS on your server
+summary: Les premières étapes pour installer YAMS sur votre serveur
 ---
 
-## Dependencies
+## Dépendances
 
-YAMS only needs a few things to get started:
+YAMS n'a besoin que de quelques éléments pour fonctionner :
 
-- Debian 12 (recommended) or Ubuntu 24.04. If your OS isn't ready yet, check out these guides:
-  + https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-11 (this tutorial is for Debian 11, but it should be the same).
-  + https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-22-04 (this tutorial is for Ubuntu 22.04, but is should be the same).
-- Your OS needs to be properly configured. That means:
-  + You have a user that is not `root` (because we're responsible adults 😎)
-  + You can run `sudo apt update` and `sudo apt upgrade` without errors
-  + If you're using Ubuntu, **make sure you are NOT using the snap version of docker!** The snap version runs in a sandbox and can't access what it needs. You can check by running `which docker`. If you see:
-  ```
-  $ which docker
-  /snap/bin/docker
-  ```
-  You **won't** be able to install YAMS. ⚠️ 
+-   Debian 12 (recommandé) ou Ubuntu 24.04. Si vous n'avez pas encore de système d'exploitation installé, vous pouvez consulter ces guides :
+    -   https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-11 (Celui-ci est pour Debian 11, mais c'est relativement similaire pour Debian 12).
+    -   https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-22-04 (De même, le guide est pour Ubuntu 22 mais les étapes sont similaires pour Ubuntu 24).
+-   Votre système d'exploitation doit être configuré correctement. Ça inclut que :
+    -   Vous devez avoir un utilisateur qui n'est pas `root` (parce que nous sommes des adultes responsables 😎)
+    -   Vous devez être capable de lancer les commandes `sudo apt update` et `sudo apt upgrade` sans erreurs
+    -   Si vous utilisez Ubuntu, **assurez-vous de NE PAS utilisez la version snap de Docker !** La version snap fonctionne dans un environnement restreint qui ne répond pas à nos besoins. Vous pouvez vérifier votre version Docker avec la commande `which docker`. Si vous voyez :
+    ```
+    $ which docker
+    /snap/bin/docker
+    ```
+    Vous **ne pourrez pas** installer YAMS. ⚠️
 
-Don't worry if you don't have `docker` and `docker-compose` installed - the script can handle that for you on Debian and Ubuntu! 
+Ne vous inquiétez pas si vous n'avez pas encore installé `docker` et `docker compose`. Le script s'occupe de tout sur Debian et Ubuntu !
 
-## Before running
+## Avant de commencer
 
-Before we dive in, make sure you have:
+Avant d'entrer dans le vif du sujet, assurez-vous d'avoir :
 
-### An installation location
-The script defaults to `/opt/yams` but you can use any location as long as your user has write permissions. If you want to use the default location (recommended), set it up like this:
+### Un emplacement d'installation
+
+Le script utilise par défaut `/opt/yams` mais vous pouvez changer cet emplacement tant que votre utilisateur possède bien les permissions d'écriture. Si vous souhaitez utiliser l'emplacement par défaut (recommandé), configurez-le comme suit :
 
 ```bash
 sudo mkdir -p /opt/yams
 sudo chown -R $USER:$USER /opt/yams
 ```
 
-### A media folder
-This is where all your content will live. For example, if you pick `/srv/media`, the script will create:
-+ `/srv/media/tvshows`: For your TV shows
-+ `/srv/media/movies`: For your movies
-+ `/srv/media/music`: For your music library
-+ `/srv/media/books`: For your ebook collection
-+ `/srv/media/downloads`: For your downloads
-+ `/srv/media/blackhole`: For your torrent blackhole directory
+### Un dossier multimédia
 
-### A regular user to run YAMS
-+ Don't use `root` (I mean it! 😅)
-+ This user will own all the media files
-+ Must have sudo privileges for the initial setup
+C'est ici que tout votre contenu sera placé. Par exemple, si vous choisissez `/srv/media`, le script créera :
 
-### A VPN service (optional but STRONGLY recommended)
-+ Choose one from [this list](/advanced/vpn#official-supported-vpns)
-+ We recommend ProtonVPN because:
-  - Easy to configure
-  - Built-in port forwarding support
-  - Privacy-focused
-  - Reasonable pricing
+-   `/srv/media/tvshows`: Pour vos séries
+-   `/srv/media/movies`: Pour vos films
+-   `/srv/media/music`: Pour votre bibliothèque musicale
+-   `/srv/media/books`: Pour votre bibiliothèque e-book
+-   `/srv/media/downloads`: Pour vos téléchargements
+-   `/srv/media/blackhole`: Pour votre dossier "trou noir" pour vos torrents
 
-### If you already have Docker installed...
+### Un utilisateur standard pour exécuter YAMS
 
-Make sure you can run `docker` **without** `sudo`! Try this:
+-   Ne pas être `root` (Vraiment ! 😅)
+-   Cet utilisateur aura les permissions sur les fichiers multimédias
+-   Doit avoir les privilèges sudo pour l'installation initiale
+
+### Un VPN (optionnel mais FORTEMENT recommandé)
+
+-   Chosissez-en un parmi [cette liste](/advanced/vpn#fournisseurs-vpn-supportés-)
+-   Nous recommendons ProtonVPN car :
+    -   Simple à configurer
+    -   Supporte nativement la redirection de port
+    -   Axé sur la vie privée
+    -   Tarifs abordables
+
+### Si Docker est déjà installé…
+
+Assurez-vous de pouvoir lancer `docker` **sans** `sudo` ! Essayez cette commande :
 
 ```bash
 docker run hello-world
 ```
 
-If it fails, you might need to add your user to the docker group. Follow [Docker's post-installation steps](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) or check our [Common docker permission errors](/faqs/common-errors/#common-docker-permission-errors) page.
+Si elle échoue, vous devrez peut-être ajouter votre utilisateur au groupe Docker. Suivez le guide [Étapes post-installation Docker](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user) ou consultez notre page [Erreurs courantes avec les permissions Docker](/faqs/common-errors/#common-docker-permission-errors).
 
-## Installation Steps
+## Étapes d'installation
 
-### 1. Get YAMS on your system
+### 1. Téléchargez YAMS sur votre système
 
-First, let's grab a fresh copy of YAMS and put it in a temporary location (we like to keep things tidy!):
+Tout d'abord, prenons une version récente de YAMS et plaçons-la dans un emplacement temporaire (nous aimons que les choses soient bien rangées !) :
 
 ```bash
 git clone --depth=1 https://gitlab.com/rogs/yams.git /tmp/yams
 cd /tmp/yams
 ```
 
-### 2. Start the installer
+### 2. Lancer l'installateur
 
 ```bash
 bash install.sh
 ```
 
-You'll see this welcome screen:
+Vous verrez ce message de bienvenue :
+
 ```bash
 ====================================================
                  ___           ___           ___
@@ -106,64 +112,67 @@ We just need you to answer some questions
 ====================================================
 ```
 
-### 3. Docker Installation (if needed)
+### 3. Installation de Docker (si besoin)
 
-The installer will first check for Docker:
+L'installateur va d'abord vérifier si vous avez déjà Docker :
+
 ```bash
 Checking prerequisites...
 ⚠️ Docker not found! ⚠️
 Do you want YAMS to install docker and docker-compose? IT ONLY WORKS ON DEBIAN AND UBUNTU! [y/N]: y
 ```
 
-- If you don't have Docker installed:
-  + Type `y` and press Enter to let YAMS handle the Docker installation
-  + The script will install both Docker and Docker Compose
-  + This only works on Debian and Ubuntu!
+-   Si Docker n'est pas encore installé :
 
-- If you already have Docker:
-  + You'll see "docker exists ✅" instead
-  + The installer will move to the next step
+    -   Tapez `y` et appuyez sur Entrer pour autoriser YAMS à gérer l'installation de Docker
+    -   Le script installera Docker et Docker Compose
+    -   Ce script fonctionne uniquement sur Debian et Ubuntu !
 
-### 4. Choose Installation Location
+-   Si Docker est déjà installé :
+    -   Vous verrez alors "docker exists ✅"
+    -   L'installateur passera à l'étape suivante
+
+### 4. Choisissez un dossier d'installation
 
 ```bash
 Where do you want to install the docker-compose file? [/opt/yams]:
 ```
 
-- Press Enter to use the default `/opt/yams` (recommended)
-- Or type a different path if you want to install somewhere else
-- Make sure your user has write permissions to this location!
+-   Appuyez sur Entrer pour utiliser le dossier par défaut `/opt/yams` (recommandé)
+-   Ou tapez un chemin différent si vous souhaitez l'installer à un autre endroit
+-   Assurez vous que votre utilisateur a bien les permissions d'écriture à cet endroit !
 
-### 5. Select User
+### 5. Sélectionnez l'utilisateur
 
-```bash
+```
 What's the user that is going to own the media server files? [your_current_user]:
 ```
 
-- Press Enter to use your current user (recommended)
-- Or type a different username
-- Remember: Don't use `root`!
-- The user must exist and have sudo privileges
+-   Appuyez sur Entrer pour utiliser l'utilisateur actuel (recommandé)
+-   Ou saisissez un utilisateur différent
+-   Rappel : N'utilisez pas `root`!
+-   Cet utilisateur doit exister et avoir les privilèges sudo
 
-### 6. Set Media Directory
+### 6. Définissez un dossier multimédia
 
 ```bash
 Please, input your media directory [/srv/media]:
 ```
 
-- Press Enter to use the default `/srv/media`
-- Or type the path where you want your media stored. This path can also be a SMB/NFS mount in your host OS
-- This can be an external drive or different partition
+-   Appuyez sur Entrer pour utiliser le dossier par défaut `/srv/media`
+-   Ou saisissez le chemin vers l'emplacement souhaité. Ce chemin peut notamment être un montage SMB/NFS sur votre système.
+-   Cela peut également être un disque dur externe ou une autre partition
 
-Then confirm your choice:
+Puis confirmez votre choix :
+
 ```bash
 Are you sure your media directory is "/srv/media"? [y/N]:
 ```
 
-- Type `y` and press Enter if the path is correct
-- Type `n` or press Enter to go back and change it
+-   Tapez `y` et appuyez sur Entrer si le chemin est correct
+-   Tapez `n` ou appuyez sur Entrer pour revenir en arrière et le changer
 
-### 7. Choose Media Service
+### 7. Choisissez votre service multimédia
 
 ```bash
 Time to choose your media service.
@@ -176,17 +185,19 @@ Supported media services:
 Choose your media service [jellyfin]:
 ```
 
-Pick your streaming service:
-- Press Enter for Jellyfin (recommended for beginners)
-- Type `emby` for Emby
-- Type `plex` for Plex
+Choisissez votre service de streaming :
 
-Each service has its strengths:
-- **Jellyfin**: Free, open-source, easy to set up
-- **Emby**: Similar to Jellyfin but with premium features
-- **Plex**: Most polished, but requires online account and is more complex to configure
+-   Appuyez sur Entrer pour Jellyfin (recommandé pour les débutants)
+-   Tapez `emby` pour Emby
+-   Tapez `plex` pour Plex
 
-### 8. VPN Configuration
+Chaque service a ses avantages :
+
+-   **Jellyfin** : Gratuit, open-source, simple à configurer
+-   **Emby** : Similaire à Jellyfin mais avec des fonctionnalités premium
+-   **Plex** : le plus abouti, mais nécessite un compte Plex et plus complexe à configurer
+
+### 8. Configuration VPN
 
 ```bash
 Time to set up the VPN.
@@ -195,53 +206,64 @@ Supported VPN providers: https://yams.media/advanced/vpn
 Configure VPN? (Y/n) [Default = y]:
 ```
 
-If you want to use a VPN (strongly recommended):
-1. Press Enter or type `y` to configure VPN
-2. Enter your VPN provider:
-   ```bash
-   VPN service? (with spaces) [protonvpn]:
-   ```
-   - Press Enter for ProtonVPN (recommended)
-   - Or type your VPN provider's name
+Si vous souhaitez utiliser un VPN (fortement recommandé) :
 
-   The installer will show you where to find the setup documentation:
-   ```bash
-   Please check protonvpn's documentation for specific configuration:
-   https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md
-   ```
-   Make sure to check this documentation - it will help you avoid common setup issues!
-   
-   If you are using ProtonVPN:
-   ```bash
-   DO NOT USE YOUR PROTON ACCOUNT USERNAME AND PASSWORD. REFER TO THE DOCUMENTATION ABOVE TO OBTAIN THE CORRECT VPN USERNAME AND PASSWORD.
-   ```
-   [Don't say you weren't warned](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md#openvpn-only).
+1. Appuyez sur Entrer ou tapez `y` pour configurer un VPN
+2. Entrez votre fournisseur VPN :
 
-3. Configure port forwarding:
-   ```bash
-   Port forwarding allows for better connectivity in certain applications.
-   However, not all VPN providers support this feature.
-   Please check your VPN provider's documentation to see if they support port forwarding.
-   Enable port forwarding? (y/N) [Default = n]:
-   ```
+    ```bash
+    VPN service? (with spaces) [protonvpn]:
+    ```
 
-4. Enter your credentials:
-   ```bash
-   VPN username (without spaces):
-   VPN password:
-   ```
-   
-Special notes:
-- For ProtonVPN, just enter your username - the script automatically adds `+pmp` for port forwarding
-- For Mullvad, it will only ask you for your username, since Mullvad doesn't need a password
+    - Appuyez sur Entrer pour ProtonVPN (recommandé)
+    - Ou tapez le nom de votre fournisseur VPN
 
-If you don't want to configure VPN now:
-- Type `n` and press Enter
-- You can set it up later, but **always use a VPN when downloading torrents!**
+    L'installateur vous indiquera où trouver la documentation d'installation :
 
-### 9. Installation Process
+    ```
+    Please check protonvpn's documentation for specific configuration:
+    https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md
+    ```
 
-After you've answered all the questions, you'll see:
+    Assurez-vous de bien lire cette documentation, cela vous aidera à éviter les problèmes d'installation les plus courants !
+
+    Si vous utilisez ProtonVPN :
+
+    ```
+    N'UTILISEZ PAS LE NOM D'UTILISATEUR ET LE MOT DE PASSE DE VOTRE COMPTE PROTON. REPORTEZ-VOUS À LA DOCUMENTATION CI-DESSUS POUR OBTENIR LE BON IDENTIFIANT ET MOT DE PASSE.
+    ```
+
+    [Ne dites pas que vous n'avez pas été prévenus](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md#openvpn-only).
+
+3. Configurez la redirection de port :
+
+    ```
+    Port forwarding allows for better connectivity in certain applications.
+    However, not all VPN providers support this feature.
+    Please check your VPN provider's documentation to see if they support port forwarding.
+    Enable port forwarding? (y/N) [Default = n]:
+    ```
+
+4. Entrez vos identifiants :
+    ```bash
+    VPN username (without spaces):
+    VPN password:
+    ```
+
+Remarques particulières :
+
+-   Pour ProtonVPN, entrez juste votre nom d'utilisateur, le script ajoute automatiquement `+pmp` pour la redirection de port
+-   Pour Mullvad, il vous sera uniquement demandé votre nom d'utilisateur puisque Mullvad n'a pas besoin de mot de passe
+
+Si vous ne souhaitez pas configurer de VPN pour l'instant :
+
+-   Tapez `n`et appuyez sur Entrer
+-   Vous pouvez toujours l'installer plus tard, mais **utilisez toujours un VPN lorsque vous téléchargez des torrents !**
+
+### 9. Processus d'installation
+
+Après avoir répondu à toutes les questions, vous verrez :
+
 ```bash
 Copying docker-compose.example.yaml to /opt/yams/docker-compose.yaml...
 docker-compose.example.yaml was copied successfuly! ✅
@@ -256,21 +278,25 @@ Running the server...
 This is going to take a while...
 ```
 
-The installer will now:
-1. Copy all necessary configuration files
-2. Set up your chosen options
-3. Start downloading and configuring Docker containers
+L'installateur va maintenant :
 
-You'll then see:
+1. Copier tous les fichiers de configuration nécessaires
+2. Appliquer toutes les options que vous avez choisies
+3. Lancer le téléchargement et configurer les conteneurs Docker
+
+Vous verrez alors :
+
 ```bash
 We need your sudo password to install the YAMS CLI and configure permissions...
 ```
 
-Enter your sudo password to:
-- Install the YAMS command-line tool
-- Set proper permissions on your media folders
+Entrez votre mot de passe sudo pour :
 
-If everything works, you'll see these success messages:
+-   Installer l'interface de ligne de commande (CLI) YAMS
+-   Appliquer les bonnes permissions sur vos dossiers multimédia
+
+Si tout fonctionne, vous verrez les messages de confirmation suivants :
+
 ```bash
 YAMS CLI installed successfully ✅
 Media directory ownership and permissions set successfully ✅
@@ -279,9 +305,10 @@ Configuration folder "/opt/yams/config" exists ✅
 Configuration folder ownership and permissions set successfully ✅
 ```
 
-### 10. Final Success Screen
+### 10. Écran de confirmation final
 
-When everything's done, you'll see this awesome ASCII art:
+Lorsque tout sera terminé, vous verrez ce superbe ASCII art :
+
 ```bash
 ========================================================
      _____          ___           ___           ___
@@ -298,7 +325,8 @@ When everything's done, you'll see this awesome ASCII art:
 ========================================================
 ```
 
-Following this, you'll get a list of all your service URLs:
+Vous obtiendrez ensuite une liste de tous les URL de vos services :
+
 ```bash
 Service URLs:
 qBittorrent: http://your.ip.address:8081/
@@ -313,36 +341,42 @@ Media Service: http://your.ip.address:8096/
 Portainer: http://your.ip.address:9000/
 ```
 
-Don't worry about memorizing these - they're saved in `~/yams_services.txt` for easy reference!
+Ne vous efforcez pas de les retenir, ils sont sauvegardés dans `~/yams_services.txt` pour que vous puissiez les retrouver facilement !
 
-### Important Notes:
+### Remarques importantes :
 
-1. **First Start Time**
-   - Services might take a few minutes to fully start
-   - Be patient on first launch!
+1. **Premier démarrage**
 
-2. **VPN Check**
-   If you configured a VPN, verify it's working:
-   ```bash
-   yams check-vpn
-   ```
-   You should see different IPs for your system and qBittorrent.
+    - Les services peuvent prendre quelques minutes pour être pleinement opérationnels
+    - Soyez patient pendant le premier démarrage !
 
-## What's Next?
+2. **Vérifier si le VPN fonctionne**
 
-Time to configure your new media server! Head over to [Configuration](/config) and follow these guides in order:
+Si vous avez configuré un VPN, assurez-vous qu'il fonctionne :
+
+```bash
+yams check-vpn
+```
+
+Vous devriez voir deux adresses IP différentes entre votre système et qBittorrent.
+
+## Et ensuite ?
+
+Il est temps de configurer votre nouveau serveur multimédia ! Dirigez-vous vers [Configuration](/config) puis suivez les guides dans cet ordre :
+
 1. [qBittorrent](/config/qbittorrent)
 2. [SABnzbd](/config/sabnzbd)
 3. [Radarr](/config/radarr)
 4. [Sonarr](/config/sonarr)
 5. [Prowlarr](/config/prowlarr)
 6. [Bazarr](/config/bazarr)
-7. Your chosen media service:
-   - [Jellyfin](/config/jellyfin)
-   - [Emby](/config/emby)
-   - [Plex](/config/plex)
+7. Votre service multimédia choisi :
+    - [Jellyfin](/config/jellyfin)
+    - [Emby](/config/emby)
+    - [Plex](/config/plex)
 
-Need help? We've got your back!
-- Check our [Common Issues](/faqs/common-errors/) page
-- Visit the [YAMS Forum](https://forum.yams.media)
-- Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+Besoin d'aide ? Nous sommes là pour vous aider !
+
+-   Visitez notre page [Problèmes courants](/faqs/common-errors/)
+-   Visitez le [Forum YAMS](https://forum.yams.media)
+-   Rejoignez notre serveur [Discord](https://discord.gg/Gwae3tNMST) ou [Matrix](https://matrix.to/#/#yams-space:rogs.me)

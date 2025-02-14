@@ -1,120 +1,118 @@
 ---
 title: "Radarr"
-date: 2023-01-10T19:06:46-03:00
+date: 2025-01-29T13:25:21+02:00
 draft: false
 weight: 3
-summary: Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of existing files in the library when a better quality format becomes available.
+summary: Radarr est un outil de gestion de collections de films pour les utilisateurs d'Usenet et de BitTorrent. Il surveille plusieurs flux RSS pour trouver des nouveaux films, puis les télécharge, les renomme et les classe. Il peut également améliorer automatiquement la qualité des fichiers existants si une meilleure version devient disponible.
 ---
 
-# What is Radarr?
+# Qu'est-ce que Radarr ?
 
-From their [wiki](https://wiki.servarr.com/radarr):
+Selon leur [wiki](https://wiki.servarr.com/radarr) :
 
-> Radarr is a movie collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new movies and will interface with clients and indexers to grab, sort, and rename them. It can also be configured to automatically upgrade the quality of existing files in the library when a better quality format becomes available.
+> Radarr est un outil de gestion de collections de films pour les utilisateurs d'Usenet et de BitTorrent. Il surveille plusieurs flux RSS pour trouver des nouveaux films, puis les télécharge et les renomme et les classe. Il peut également améliorer automatiquement la qualité des fichiers existants si une meilleure version devient disponible.
 
-In YAMS, Radarr is going to manage all our movies: download them, sort them, and keep everything organized. It's like having your own personal movie butler! 🎬
+Dans YAMS, Radarr va gérer tous nos films : les télécharger, les trier et tout organiser. C'est comme si vous aviez un majordome personnel pour vos films ! 🎬
 
-## Initial configuration
+## Configuration initiale
 
-In your browser, go to [http://{your-ip-address}:7878/](). First up, we need to set up some basic security.
+Depuis votre navigateur, allez à l'adresse [http://{votre-adresse-ip}:7878/](). Tout d'abord, nous devons mettre en place quelques mesures de sécurité élémentaires.
 
-- Select "Forms (Login Page)" as the "Authentication Method"
-- In "Authentication Required" select "Disabled for Local Addresses" (this way you won't need to login when you're at home)
+-   Sélectionnez "Forms (Login Page)" comme méthode d'authentication
+-   Dans "Authentication Required" sélectionnez "Disabled for Local Addresses" (vous n'aurez pas besoin de vous connecter lorsque vous êtes chez vous)
 
-Fill in your username and password, then click on save:
+Remplissez avec votre nom d'utilisateur et votre mot de passe, puis cliquez sur enregistrer :
 
 [![radarr-18](/pics/radarr-18.png)](/pics/radarr-18.png)
 
-You'll see Radarr's empty page. Don't worry about those 3 messages in the system tab - we'll deal with them soon!
+Vous allez arriver sur une page vide avec notamment 3 messages sur l'onglet "System". Pas d'inquiétude, on s'en occupera juste après !
 
 [![radarr-1](/pics/radarr-1.png)](/pics/radarr-1.png)
 
-### Media management
+### Gestion des médias
 
-First things first - let's tell Radarr how to handle our movies. Go to "Settings" and then "Media management". On this screen:
-- Click on "Show Advanced" (don't worry, we'll keep it simple!)
-- Check the "Rename Movies" box
-- Change "Standard Movie Format" to `{Movie Title} ({Release Year})`
+Tout d'abord, indiquons à Radarr comment gérer nos films. Allez dans "Settings" puis "Media management". Sur cet écran :
+
+-   Cliquez sur "Show Advanced" (rassurez-vous, nous allons faire simple !)
+-   Cochez l'option "Rename Movies"
+-   Remplacez "Standard Movie Format" par `{Movie Title} ({Release Year})`
 
 [![radarr-2](/pics/radarr-2.png)](/pics/radarr-2.png)
 
-At the bottom of the same screen, go to "Root folders" and click on "Add Root Folder".
+En bas de la même page, descendez jusqu'à "Root folders" et cliquez sur "Add Root Folder".
 
 [![radarr-3](/pics/radarr-3.png)](/pics/radarr-3.png)
 
-Now add the `/data/movies/` folder:
+Ajoutez maintenant le dossier `/data/movies/` :
 
 [![radarr-4](/pics/radarr-4.png)](/pics/radarr-4.png)
 
-**Note:** This isn't actually on your filesystem! The `/data/movies/` folder exists inside the docker environment and maps to your server's `/mediafolder/media/movies/` folder. Magic! ✨
+**Note :** Ce n'est pas réellement l'emplacement sur votre système ! Le dossier `/data/movies/` existe dans l'environnement docker et correspond au dossier `/mediafolder/media/movies/` de votre serveur. Magique ! ✨
 
-Finally, click on "Save Changes".
+Enfin, cliquez sur "Save Changes".
 
 [![radarr-5](/pics/radarr-5.png)](/pics/radarr-5.png)
 
-### Download Clients
+### Clients de téléchargement
 
-Time to connect Radarr to our download tools! This is where we'll link up with [qBittorrent](/config/qbittorrent) and [SABnzbd](/config/sabnzbd).
+Il est temps de connecter Radarr à nos clients téléchargement ! C'est ici que nous allons relier [qBittorrent](/config/qbittorrent) et [SABnzbd](/config/sabnzbd) à Radarr.
 
-#### qBittorrent Setup
+#### Configuration de qBittorrent
 
-In "Settings", go to "Download Clients" and click on the ➕ button.
+Dans l'onglet "Settings", allez sur "Download Clients" puis cliquez sur le bouton ➕.
 
 [![radarr-13](/pics/radarr-13.png)](/pics/radarr-13.png)
 
-On the "Add Download Client" screen, scroll down and click on "qBittorrent".
+Sur l'écran "Add Download Client", descendez puis cliquez sur "qBittorrent".
 
 [![radarr-14](/pics/radarr-14.png)](/pics/radarr-14.png)
 
-Fill in these details:
-- Name: qBittorrent (or whatever you want to call it!)
-- Host: your server IP address (like `192.168.0.190`)
-- Port: 8081
-- Username: `admin`
-- Password: your qBittorrent password
+-   Dans "Name", mettez le nom de votre client de téléchargement (qBittorrent).
+-   Dans "Host", mettez l'adresse IP de votre serveur (`192.168.0.190` par exemple).
+-   Dans "Username", mettez `admin`.
+-   Dans "Password", mettez votre mot de passe qBittorrent.
 
 [![radarr-15](/pics/radarr-15.png)](/pics/radarr-15.png)
 
-Click that "Test" button at the bottom - if everything's good, you'll see a nice green checkmark! ✅
+En bas de la page, vous pouvez cliquer sur "Test" et si tout est bon, vous devriez voir un ✅ !
 [![radarr-10](/pics/radarr-10.png)](/pics/radarr-10.png)
 [![radarr-11](/pics/radarr-11.png)](/pics/radarr-11.png)
 
-If the test passed, click "Save". Your download client should now show up on the page:
+Si tout fonctionne correctement, cliquez sur "Save". Votre client de téléchargement devrait maintenant apparaître sur la page "Download Clients" !
 
 [![radarr-16](/pics/radarr-16.png)](/pics/radarr-16.png)
 
-#### SABnzbd Setup
+#### Configuration de SABnzbd
 
-Back in "Download Clients", click that ➕ button again.
+De retour sur la page "Download Clients", cliquez sur le bouton ➕ à nouveau.
 
 [![radarr-13](/pics/radarr-13.png)](/pics/radarr-13.png)
 
-This time, scroll down and pick "SABnzbd".
+Cette fois, descendez et choisissez "SABnzbd".
 
 [![radarr-19](/pics/radarr-19.png)](/pics/radarr-19.png)
 
-Fill in these details:
-- Name: SABnzbd (or any name you like)
-- Host: your server IP address (like `192.168.0.190`)
-- Port: 8080
-- API Key: your SABnzbd API key
+-   Dans "Name", mettez `SABnzbd`.
+-   Dans "Host", mettez l'adresse IP de votre serveur (`192.168.0.190` par exemple).
+-   Dans "Port", mettez `8080`.
+-   Dans "API Key", mettez votre clé API SABnzbd.
 
-Don't have your SABnzbd API key handy? No worries! You can find it here: [Getting your API key for Sonarr and Radarr](/config/sabnzbd/#getting-your-api-key-for-sonarr-and-radarr)
+Si vous n'avez pas votre clé API SABnzbd sous la main, pas de soucis ! Vous pouvez la trouver ici : [Obtenir votre clé API pour Sonarr et Radarr](/config/sabnzbd/#obtenir-votre-clé-api-pour-sonarr-et-radarr)
 
 [![radarr-20](/pics/radarr-20.png)](/pics/radarr-20.png)
 
-Time for another test! Click that "Test" button - hopefully you'll see another green checkmark! ✅
+Il est temps de refaire un test ! Cliquez sur le bouton "Test", en espérant que vous verrez un nouveau ✅ !
 [![radarr-10](/pics/radarr-10.png)](/pics/radarr-10.png)
 [![radarr-11](/pics/radarr-11.png)](/pics/radarr-11.png)
 
-If the test worked, hit "Save". You should now see both download clients on the page:
+Si le test a fonctionné, cliquez sur "Save". Vous devriez maintenant voir vos deux clients de téléchargement sur la page :
 
 [![radarr-21](/pics/radarr-21.png)](/pics/radarr-21.png)
 
-## Moving forward! 🚀
+## Avançons ! 🚀
 
-Looking good! Now we can continue with [Sonarr](/config/sonarr). We're getting closer to having your own personal Netflix!
+Ça commence à prendre forme ! On peut maintenant continuer avec [Sonarr](/config/sonarr). On se rapproche de votre Netflix personnel !
 
-## Want to get really fancy?
+## Envie d'un peu de fantaisie ?
 
-If you want to dive deeper into Radarr's configuration, I highly recommend checking out the [TRaSH Guide for Radarr](https://trash-guides.info/Radarr/). They've got some really cool advanced settings in there! 🔧
+Si vous souhaitez aller plus loin dans la configuration de Radarr, je vous recommande grandement de consulter le [Guide TRaSH pour Radarr](https://trash-guides.info/Radarr/). Il y a des options avancées vraiment cool dedans ! 🔧

@@ -1,67 +1,72 @@
 ---
-title: "What is YAMS?"
-date: 2023-01-10T15:23:19-03:00
+title: "C'est quoi YAMS ?"
+date: 2025-01-16T14:57:14+02:00
 draft: false
 weight: 1
-summary: Everything you need to know about YAMS and what makes it awesome
+summary: Tout ce dont vous devez savoir au sujet de YAMS et pourquoi c'est génial
 ---
 
-# Welcome to YAMS! 🎬
+# Bienvenue sur YAMS 🎬
 
-YAMS (Yet Another Media Server) is an **opinionated** media server that just works. No fuss, no complexity - just a smooth, automated media experience that you can set up in minutes!
+YAMS (Yet Another Media Server ou "Encore un autre serveur multimédia") est un serveur multimédia **aux partis pris assumés** qui fonctionne tout simplement. Pas de chichis, pas de complexité, juste une expérience multimédia fluide et automatisée installable en quelques minutes !
 
-## The Story Behind YAMS 📖
+## L'histoire derrière YAMS 📖
 
-Back in 2019, I had a mission: Create a media server that my non-tech-savvy girlfriend could use without calling me for help every five minutes. So I dove in, combining some awesome open-source projects and wrapping them up in Docker containers.
+En 2019, j'avais une mission : Créer un serveur multimédia que copine sans connaissance en informatique pourrait utiliser sans m'appeller à l'aide toutes les 5 minutes. J'ai donc foncé, en combinant quelques projets open-source géniaux et en les intégrant dans des conteneurs Docker.
 
-Fast forward to today, and guess what? Mission accomplished! 🎉 Not only does my girlfriend use it without any issues, but I've even got my mom (who lives 5000km away!) streaming her favorite shows with zero problems.
+Aujourd'hui, devinez quoi ? Mission accomplie ! 🎉 Non seulement ma copine l'utilise sans problème, mais même ma mère (qui vit à 5000 km de chez moi !) l'utilise pour regarder ses séries préférées sans aucun problème.
 
-When my friends saw how well it worked, they all wanted one too. But explaining how to set everything up was like trying to teach a cat to swim - technically possible, but way more complicated than it needed to be. 
+Quand mes amis ont vu à quel point ça fonctionnait bien, ils ont tous voulu en avoir un également. Mais leur expliquer comment tout configurer, c'était comme essayer d'apprendre à un chat à nager. C'est techniquement possible, mais bien plus compliqué que nécessaire.
 
-That's when it hit me: Why not create a script that could do all the heavy lifting? And that's how YAMS was born! Now anyone can build their own kickass media server without needing a PhD in computer science. 😎
+C'est là que j'ai eu une idée : Pourquoi ne pas créer un script qui ferait tout le travail ? Et c'est comme ça que YAMS est né ! Désormais, tout le monde peut créer son propre serveur multimédia sans avoir besoin d'un doctorat en informatique. 😎
 
-## What Makes YAMS Special? ✨
+## Qu'est-ce qui rend YAMS si spécial ? ✨
 
-YAMS isn't just another media server - it's your personal Netflix-killer with superpowers! Here's what you get out of the box:
+YAMS n'est pas un simple serveur multimédia, c'est votre propre "Netflix Killer" doté de super pouvoirs ! Voici ce qui est possible, dès l'installation :
 
-### 🤖 Fully Automated
-- **Smart Downloads:** Just tell it what shows and movies you want - YAMS handles the rest
-- **Perfect Organization:** Everything gets sorted and labeled automatically
-- **Subtitle Magic:** Auto-downloads subtitles in any language you want (if they're available)
+### 🤖 Entièrement automatisé
 
-### 📱 Watch Anywhere
-- Works on pretty much anything that can run Emby/Jellyfin/Plex:
-  - 🖥️ Web browsers
-  - 📱 iOS & Android phones/tablets
-  - 📺 Smart TVs
-  - 🎮 Gaming consoles
-  - And tons more!
+-   **Des téléchargement intelligents :** Il suffit de dire les films et séries que vous voulez, YAMS gère la suite
+-   **Une organisation parfaite :** Tout est trié et rangé au bon endroit automatiquement
+-   **La magie des sous-titres :** Télécharge automatiquement les sous-titres dans la langue que vous voulez (s'ils sont disponibles)
 
-## What's Under the Hood? 🛠️
+### 📱 Regardez depuis n'importe où
 
-YAMS combines some of the best open-source media tools out there:
+-   Fonctionne sur tous les appareils pouvant lancer Emby/Jellyfin/Plex :
+    -   🖥️ Navigateurs internet
+    -   📱 Téléphones et tablettes iOS & Android
+    -   📺 Smart TVs
+    -   🎮 Consoles de jeux
+    -   Et plein d'autres !
 
-### Core Components:
-- 📥 qBittorrent & SABnzbd: Your download powerhouses
-- 🎬 Radarr: Your personal movie hunter
-- 📺 Sonarr: Your TV show tracker
-- 🔍 Prowlarr: Your search master
-- 💬 Bazarr: Your subtitle wizard
-- 🎮 Jellyfin/Emby/Plex: Your streaming brain
+## Qu'est-ce qu'il y a sous le capot ? 🛠️
 
-### Performance Features:
-- 🚄 **Port Forwarding**: Automatic port configuration for faster downloads
-- 🔗 **Hardlinking**: Saves massive amounts of disk space by creating multiple references to the same file instead of duplicating data
-- ⚡ **Atomic Moves**: Ensures clean, instantaneous file transfers without incomplete or corrupted files
+YAMS combine certains des meilleurs logiciels open-source de gestion multimédia :
 
-Want to dive deep into file management best practices? Check out the [TRaSH Guides File and Folder Structure](https://trash-guides.info/File-and-Folder-Structure/) for the ultimate deep dive!
+### Les composants principaux :
 
-### Extra Goodies:
-- 🔒 gluetun: Keeps your downloads private and secure
-- 🎛️ Portainer: Makes managing everything a breeze
-- 🎵 Lidarr: Handles your music collection
-- 📚 Readarr: Takes care of your ebooks
+-   📥 qBittorrent & SABnzbd : Vos bêtes de course du téléchargement
+-   🎬 Radarr : Votre chasseur de films attitré
+-   📺 Sonarr : Votre traqueur de séries
+-   🔍 Prowlarr : Votre expert de la recherche
+-   💬 Bazarr : Votre magicien des sous-titres
+-   🎮 Jellyfin/Emby/Plex : Votre chef d’orchestre du streaming
 
-All these pieces work together seamlessly to create a media server that's both powerful AND easy to use. It's like having your own streaming service, but better - because YOU'RE in control! 
+### Les fonctionnalités techniques :
 
-Ready to dive in? Let's [get started with the installation](/install/steps)!
+-   🚄 **Redirection de port** : Configuration automatique de la redirection de port pour des téléchargements plus rapides
+-   🔗 **Hardlinking** : Économise une quantité massive d'espace disque en créant de multiples références sur un même fichier afin d'éviter les duplications
+-   ⚡ **Déplacements instantanés** : Assure des transferts de fichiers propres et instantanés sans fichiers incomplets ou corrompus
+
+Vous souhaitez vous plonger dans les meilleures pratiques en matière de gestion de fichiers ? Consultez le guide [TRaSH Guides File and Folder Structure](https://trash-guides.info/File-and-Folder-Structure/) pour en savoir plus !
+
+### Bonus supplémentaires :
+
+-   🔒 gluetun : Garde vos téléchargement privés et sécurisés
+-   🎛️ Portainer : Permet de gérer tous vos services en un clin d'œil
+-   🎵 Lidarr : Gère votre bibliothèque musicale
+-   📚 Readarr : Prend soin de vos e-books
+
+Toutes ces pièces s'emboîtent parfaitement pour créer un serveur multimédia à la fois puissant ET simple à utiliser. C'est comme avoir votre propre service de streaming en mieux, parce que VOUS êtes aux manettes !
+
+Prêt à vous lancer ? Commencez avec l'[installation](/install/steps) !
