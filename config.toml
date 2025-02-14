@@ -92,7 +92,7 @@ summaryLength = 30
     meta_description = "YAMS est un script simple et puissant pour installer votre serveur multimédia"
     meta_og_title = "YAMS - Yet Another Media Server"
     meta_og_type = "website"
-    meta_og_url = "https://yams.media"
+    meta_og_url = "https://fr.yams.media"
     meta_og_image = "/pics/logo.png"
     meta_og_description = "YAMS est un script simple et puissant pour installer votre serveur multimédia"
 
