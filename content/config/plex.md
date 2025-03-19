@@ -76,6 +76,8 @@ It means your `Preferences.xml` needs some fixing - double-check the format and 
 
 In your browser, go to [http://{your-ip-address}:32400/web]() and you'll see Plex's setup page. Click "Got it!" to get started.
 
+**Important Note:** Unlike other YAMS services, Plex requires the "/web" path after the port number. If you just go to port 32400 without "/web", you'll see an XML file instead of the web interface.
+
 [![plex-1](/pics/plex-1.png)](/pics/plex-1.png)
 
 After logging in, you'll see a "Plex Pass" modal. You can close that for now - we'll get to the good stuff! 
