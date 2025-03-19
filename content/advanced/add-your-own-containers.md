@@ -106,9 +106,10 @@ You can access any environment variable from YAMS's `.env` file in your custom c
 
 ## Common Gotchas 🚨
 
-1. **Container Names**: Make sure your custom container names don't conflict with YAMS's built-in containers.
-2. **Port Conflicts**: Double-check that your new containers don't try to use ports that are already taken.
-3. **Permissions**: If your container needs to access media files, remember to use `PUID` and `PGID`!
+1. **YAML Formatting Errors**: YAML is very sensitive to spacing and indentation. Even a single misplaced space can break your configuration! We highly recommend using a YAML validator like [yamllint.com](https://www.yamllint.com/) to check your syntax before applying changes.
+2. **Container Names**: Make sure your custom container names don't conflict with YAMS's built-in containers.
+3. **Port Conflicts**: Double-check that your new containers don't try to use ports that are already taken.
+4. **Permissions**: If your container needs to access media files, remember to use `PUID` and `PGID`!
 
 ## Need Ideas? 💡
 
