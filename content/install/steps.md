@@ -28,37 +28,40 @@ Don't worry if you don't have `docker` and `docker-compose` installed - the scri
 
 Before we dive in, make sure you have:
 
-### An installation location
-The script defaults to `/opt/yams` but you can use any location as long as your user has write permissions. If you want to use the default location (recommended), set it up like this:
+- **Git installed:** You'll need this to clone the YAMS repository. Check if it's installed with:
+  ```bash
+  git --version
+  ```
+  If you don't have it yet, it's easy to install:
+  ```bash
+  # For Debian/Ubuntu
+  sudo apt update
+  sudo apt install git
+  ```
+
+- **An installation location:** The script defaults to `/opt/yams` but hey, you do you! Just make sure your user can write to wherever you choose.
+- **A media folder:** This is where all your stuff will live. For example, if you pick `/srv/media`, the script will create:
+  + `/srv/media/tv`: For your TV shows
+  + `/srv/media/movies`: For your movies
+  + `/srv/media/music`: For your tunes
+  + `/srv/media/books`: For your books
+  + `/srv/media/downloads`: For your downloads
+  + `/srv/media/blackhole`: For your torrent blackhole
+- **A regular user to run and own the media files:** Don't use `root` (I mean, I can't stop you, but come on! 😅)
+- **A VPN service (optional but STRONGLY recommended):** Choose one from [this list](/advanced/vpn#official-supported-vpns). I always recommend [ProtonVPN](https://protonvpn.com/) because it's super easy to set up!
+
+## Installation Steps
+
+### 1. Setup your install location
+
+The `/opt/yams` location is **recommended**, but you can be a rebel and use whatever you like if your user has permissions:
 
 ```bash
 sudo mkdir -p /opt/yams
 sudo chown -R $USER:$USER /opt/yams
 ```
 
-### A media folder
-This is where all your content will live. For example, if you pick `/srv/media`, the script will create:
-+ `/srv/media/tvshows`: For your TV shows
-+ `/srv/media/movies`: For your movies
-+ `/srv/media/music`: For your music library
-+ `/srv/media/books`: For your ebook collection
-+ `/srv/media/downloads`: For your downloads
-+ `/srv/media/blackhole`: For your torrent blackhole directory
-
-### A regular user to run YAMS
-+ Don't use `root` (I mean it! 😅)
-+ This user will own all the media files
-+ Must have sudo privileges for the initial setup
-
-### A VPN service (optional but STRONGLY recommended)
-+ Choose one from [this list](/advanced/vpn#official-supported-vpns)
-+ We recommend ProtonVPN because:
-  - Easy to configure
-  - Built-in port forwarding support
-  - Privacy-focused
-  - Reasonable pricing
-
-### If you already have Docker installed...
+### 2. If you already have docker installed...
 
 Make sure you can run `docker` **without** `sudo`! Try this:
 
