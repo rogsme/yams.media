@@ -46,10 +46,10 @@ Let's walk through an example by adding [Overseerr](https://overseerr.dev/) - a 
 nano docker-compose.custom.yaml
 ```
 
-2. If this is your first custom container, you'll need to uncomment the `services:` line. Your file should start like this:
+2. If this is your first custom container, you'll need to uncomment the `services:` line. To uncomment you must remove the `#` symbol and the space. Your file should start like this:
 
 ```yaml
-services:  # Make sure this line is uncommented!
+services:  # Make sure this line is uncommented and there's no spaces around it!
 ```
 
 3. Now let's add Overseerr with all the YAMS goodies:
