@@ -28,42 +28,43 @@ Ne vous inquiétez pas si vous n'avez pas encore installé `docker` et `docker c
 
 Avant d'entrer dans le vif du sujet, assurez-vous d'avoir :
 
-### Un emplacement d'installation
+- **Git installé :** Vous en aurez besoin pour cloner le dépôt YAMS. Vérifiez s'il est installé avec :
+    ```bash
+    git --version
+    ```
+    Si vous ne l'avez pas encore, vous pouvez l'installer facilement :
+    ```bash
+    # Pour Debian/Ubuntu
+    sudo apt update
+    sudo apt install git
+    ```
 
-Le script utilise par défaut `/opt/yams` mais vous pouvez changer cet emplacement tant que votre utilisateur possède bien les permissions d'écriture. Si vous souhaitez utiliser l'emplacement par défaut (recommandé), configurez-le comme suit :
+- **Un emplacement d'installation :** Le script utilise par défaut `/opt/yams` mais c'est à vous de choisir ! Assurez-vous simplement que votre utilisateur ait les permissions d'écriture à cet endroit.
+
+- **Un dossier multimédia :** C'est ici que tout votre contenu sera placé. Par exemple, si vous choisissez `/srv/media`, le script créera :
+    +   `/srv/media/tv`: Pour vos séries
+    +   `/srv/media/movies`: Pour vos films
+    +   `/srv/media/music`: Pour votre bibliothèque musicale
+    +   `/srv/media/books`: Pour votre bibiliothèque e-book
+    +   `/srv/media/downloads`: Pour vos téléchargements
+    +   `/srv/media/blackhole`: Pour votre dossier "trou noir" pour vos torrents
+
+- **Un utilisateur standard pour exécuter YAMS :** N'utilisez pas `root` (Vraiment ! 😅)
+
+- **Un VPN (optionnel mais FORTEMENT recommandé) :** Choisissez-en un parmi [cette liste](/advanced/vpn#fournisseurs-vpn-supportés-). Je recommande toujours [ProtonVPN](https://protonvpn.com/) car il est super simple à mettre en place !
+
+## Étapes d'installation
+
+### 1. Définir l'emplacement d'installation
+
+L'emplacement `/opt/yams` est **recommandé**, mais vous pouvez être un rebelle et utiliser celui que vous voulez si votre utilisateur a les permissions :
 
 ```bash
 sudo mkdir -p /opt/yams
 sudo chown -R $USER:$USER /opt/yams
 ```
 
-### Un dossier multimédia
-
-C'est ici que tout votre contenu sera placé. Par exemple, si vous choisissez `/srv/media`, le script créera :
-
--   `/srv/media/tvshows`: Pour vos séries
--   `/srv/media/movies`: Pour vos films
--   `/srv/media/music`: Pour votre bibliothèque musicale
--   `/srv/media/books`: Pour votre bibiliothèque e-book
--   `/srv/media/downloads`: Pour vos téléchargements
--   `/srv/media/blackhole`: Pour votre dossier "trou noir" pour vos torrents
-
-### Un utilisateur standard pour exécuter YAMS
-
--   Ne pas être `root` (Vraiment ! 😅)
--   Cet utilisateur aura les permissions sur les fichiers multimédias
--   Doit avoir les privilèges sudo pour l'installation initiale
-
-### Un VPN (optionnel mais FORTEMENT recommandé)
-
--   Chosissez-en un parmi [cette liste](/advanced/vpn#fournisseurs-vpn-supportés-)
--   Nous recommendons ProtonVPN car :
-    -   Simple à configurer
-    -   Supporte nativement la redirection de port
-    -   Axé sur la vie privée
-    -   Tarifs abordables
-
-### Si Docker est déjà installé…
+### 2. Si Docker est déjà installé…
 
 Assurez-vous de pouvoir lancer `docker` **sans** `sudo` ! Essayez cette commande :
 

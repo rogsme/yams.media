@@ -48,10 +48,10 @@ Prenons comme exemple [Overseerr](https://overseerr.dev/), une fantastique appli
 nano docker-compose.custom.yaml
 ```
 
-2. S'il s'agit de votre premier conteneur personnalisé, vous devrez d'abord décommenter la ligne `services:`. Votre fichier devrait commencer ainsi :
+2. S'il s'agit de votre premier conteneur personnalisé, vous devrez d'abord décommenter la ligne `services:`. Pour décommenter, vous devez supprimer le symbole `#` et l'espace qui suit. Votre fichier devrait commencer comme suit :
 
 ```yaml
-services: # Assurez-vous que la ligne est bien décommentée !
+services: # Assurez-vous que la ligne est bien décommentée et qu'il n'y a pas d'espaces avant !
 ```
 
 3. Ajoutons maintenant Overseerr en utilisant toutes les fonctionnalités de YAMS :
@@ -116,9 +116,10 @@ Vous pouvez accéder à n'importe quelle variable depuis le fichier `.env` de YA
 
 ## Problèmes courants 🚨
 
-1. **Nom des conteneurs** : Assurez-vous que le nom de vos conteneurs n'entre pas en conflit avec ceux de YAMS.
-2. **Conflit de ports** : Vérifiez bien que vos nouveaux conteneurs n'essayent pas d'accéder à des ports déjà utilisés.
-3. **Permissions** : Si votre conteneur à besoin d'accéder aux fichiers multimédias, pensez à utiliser `PUID` et `PGID`!
+1. **Erreurs de formatage YAML** : YAML est très sensible à l'espacement et à l'indentation. Même un simple espace mal placé peut casser votre configuration ! Nous recommandons fortement l'utilisation d'un validateur YAML comme [yamllint.com](https://www.yamllint.com/) pour vérifier votre syntaxe avant d'appliquer les changements.
+2. **Nom des conteneurs** : Assurez-vous que le nom de vos conteneurs n'entre pas en conflit avec ceux de YAMS.
+3. **Conflit de ports** : Vérifiez bien que vos nouveaux conteneurs n'essayent pas d'accéder à des ports déjà utilisés.
+4. **Permissions** : Si votre conteneur à besoin d'accéder aux fichiers multimédias, pensez à utiliser `PUID` et `PGID`!
 
 ## Besoin d'idées ? 💡
 

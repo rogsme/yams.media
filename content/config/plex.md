@@ -78,6 +78,8 @@ Cela signifie que votre fichier `Preferences.xml` a besoin d'être corrigé : v�
 
 Dans votre navigateur, allez à [http://{votre-adresse-ip}:32400/web]() et vous verrez la page d'installation de Plex. Cliquez sur "Got it!" pour commencer.
 
+**Important :** Contrairement à d'autres services YAMS, Plex nécessite le chemin « /web » après son port. Si vous allez simplement sur le port 32400 sans « /web », vous verrez un fichier XML au lieu de l'interface web.
+
 [![plex-1](/pics/plex-1.png)](/pics/plex-1.png)
 
 Après vous être connecté, vous verrez une fenêtre de dialogue "Plex Pass". Vous pouvez la fermer pour l'instant, nous allons passer aux choses sérieuses !
