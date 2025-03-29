@@ -1,8 +1,8 @@
 ---
 title: "Proxmox LXC Prerequisites"
-date: 2025-03-29T10:00:00-03:00 #<-- Adjusted date
+date: 2025-03-29T10:00:00-03:00 
 draft: false
-weight: 1 #<-- Placed early in Advanced section
+weight: 1
 summary: Required steps before installing YAMS in a Proxmox LXC container.
 ---
 
