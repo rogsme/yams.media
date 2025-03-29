@@ -30,6 +30,8 @@ Follow these steps on your Proxmox **host** system:
     lxc.cgroup2.devices.allow: c 10:200 rwm
     lxc.mount.entry: /dev/net/tun dev/net/tun none bind,create=file
     ```
+    Your configuration file should now look similar to this at the end:
+    [![Proxmox LXC Config Example](/pics/proxmox-lxc-config.png)](/pics/proxmox-lxc-config.png)
 
 4.  **Save and Close:** Save the changes to the configuration file and exit the editor.
 
