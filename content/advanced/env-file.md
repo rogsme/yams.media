@@ -2,6 +2,7 @@
 title: "Your Environment File (.env)"
 weight: 20
 description: "Get to know the handy .env file that helps configure YAMS."
+summary: Learn about the central .env file used for YAMS configuration variables like paths and user IDs.
 ---
 
 ## Your Environment File (`.env`) - The YAMS Settings Hub!
