@@ -2,7 +2,7 @@
 title: "Torrenting"
 date: 2023-01-16T14:48:14-03:00
 draft: false
-weight: 5
+weight: 60
 summary: Everything you need to know about safe and effective torrenting with YAMS
 ---
 

@@ -2,7 +2,7 @@
 title: "Readarr"
 date: 2023-01-31T13:52:34-03:00
 draft: false
-weight: 9
+weight: 100
 summary: Readarr is a ebook collection manager for Usenet and BitTorrent users. It can monitor multiple RSS feeds for new books from your favorite authors and will interface with clients and indexers to grab, sort, and rename them.
 
 ---

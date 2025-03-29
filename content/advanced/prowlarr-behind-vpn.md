@@ -2,7 +2,7 @@
 title: "Running Prowlarr Behind the VPN"
 date: 2024-09-27T16:44:00-03:00
 draft: false
-weight: 4
+weight: 40
 summary: A complete guide to routing Prowlarr's traffic through your VPN for extra privacy
 ---
 
