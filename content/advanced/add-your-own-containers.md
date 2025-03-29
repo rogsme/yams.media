@@ -26,7 +26,7 @@ cd /opt/yams
 
 ## The Magic Variables ✨
 
-YAMS provides some handy environment variables you can use in your custom containers:
+YAMS provides some handy environment variables you can use in your custom containers. These are defined in your central [`.env` settings file]({{< relref "/advanced/env-file" >}}) (learn more about it!) and make it super easy to keep your custom containers working in harmony with YAMS:
 
 ```yaml
 PUID: Your user ID
@@ -102,7 +102,7 @@ Want your custom container to use YAMS's VPN? Add this to your container config:
 Check out [Running Prowlarr behind the VPN](/advanced/prowlarr-behind-vpn) for a detailed example!
 
 ### 4. Variable Power 💪
-You can access any environment variable from YAMS's `.env` file in your custom containers. Just use the `${VARIABLE_NAME}` syntax!
+You can access any environment variable defined in YAMS's [`.env` file]({{< relref "/advanced/env-file" >}}) within your custom containers. Just use the `${VARIABLE_NAME}` syntax! This is great for things like API keys or other settings you want to manage centrally.
 
 ## Common Gotchas 🚨
 
