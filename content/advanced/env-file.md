@@ -64,3 +64,5 @@ When you first set up YAMS, your `.env` file comes pre-filled with a few essenti
 Good question! Some VPN setups also rely on settings you might put in your `.env` file. For the specifics on that, head over to the [Torrenting with VPN guide]({{< relref "/advanced/torrenting" >}}).
 
 ---
+
+*Thanks to Airwreck on Discord for contributing to this guide!*
