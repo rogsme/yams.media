@@ -38,7 +38,7 @@ environment:
   - PUID=$PUID # Utiliser la valeur PUID de .env
   - PGID=$PGID # Et la valeur PGID aussi !
 volumes:
-  - $MEDIA_DIRECTORY:/data # Permet d'utilise le dossier média défini dans le fichier .env
+  - $MEDIA_DIRECTORY:/data # Permet d'utiliser le dossier média défini dans le fichier .env
 ```
 
 Lorsque Docker démarre le conteneur, il remplace automatiquement `$PUID` par `1000` (ou ce que vous avez défini dans `.env`), `$MEDIA_DIRECTORY` par `/srv/media`, et ainsi de suite. Sympa, non ?
