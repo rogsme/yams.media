@@ -189,7 +189,7 @@ Pick your streaming service:
 Each service has its strengths:
 - **Jellyfin**: Free, open-source, easy to set up
 - **Emby**: Similar to Jellyfin but with premium features
-- **Plex**: Most polished, but requires online account and is more complex to configure
+- **Plex**: Most polished, but requires online account and is more complex to configure. Be aware of these (new limitations)[https://www.plex.tv/blog/important-2025-plex-updates/] if you don't have a Plex Pass
 
 ### 8. VPN Configuration
 
