@@ -14,6 +14,8 @@ From their [website](https://www.plex.tv/):
 
 In YAMS, Plex is going to be your streaming service powerhouse! 🌟 It's like having your own Netflix, but with way more control. Plus, sharing with friends and family is super easy!
 
+**Note:** Be warned that Plex has [recently](https://www.plex.tv/blog/important-2025-plex-updates/) put its most basic features behind a monthly subscription or a single lifetime purchase.
+
 ## First steps
 
 Before we dive in, we need to do a bit of setup magic to let Plex work its charms. First, stop YAMS:
