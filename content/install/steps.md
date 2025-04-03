@@ -196,7 +196,7 @@ Chaque service a ses avantages :
 
 -   **Jellyfin** : Gratuit, open-source, simple à configurer
 -   **Emby** : Similaire à Jellyfin mais avec des fonctionnalités premium
--   **Plex** : le plus abouti, mais nécessite un compte Plex et plus complexe à configurer
+-   **Plex** : le plus abouti, mais nécessite un compte Plex et plus complexe à configurer. Attention, de [nouvelles limitations](https://www.plex.tv/blog/important-2025-plex-updates) ont été récemment mises en places pour les utilisateurs sans Plex Pass
 
 ### 8. Configuration VPN
 
