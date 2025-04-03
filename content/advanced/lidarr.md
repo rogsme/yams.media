@@ -2,7 +2,7 @@
 title: "Lidarr"
 date: 2025-01-15T11:50:16+02:00
 draft: false
-weight: 8
+weight: 100
 summary: Lidarr est un gestionnaire de bibliothèque musicale pour les utilisateurs d'Usenet et de BitTorrent. Il peut surveiller plusieurs flux RSS pour détecter les nouveaux albums de vos artistes préférés et s'interfacer avec les clients et les indexeurs pour les récupérer, les trier et les renommer. Lidarr peut également être configuré pour améliorer automatiquement la qualité des fichiers existants dans la bibliothèque lorsqu'un format de meilleure qualité devient disponible.
 ---
 

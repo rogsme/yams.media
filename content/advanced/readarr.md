@@ -2,7 +2,7 @@
 title: "Readarr"
 date: 2025-01-16T08:51:14+02:00
 draft: false
-weight: 9
+weight: 110
 summary: Readarr est un gestionnaire de bibliothèque d'ebooks pour les utilisateurs d'Usenet et de BitTorrent. Il peut surveiller plusieurs flux RSS pour détecter les nouveaux livres de vos auteurs préférés et s'interfacer avec les clients et les indexeurs pour les téclécharger, les trier et les renommer.
 ---
 

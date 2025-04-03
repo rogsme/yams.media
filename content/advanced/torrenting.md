@@ -2,7 +2,7 @@
 title: "Torrenting"
 date: 2025-01-16T08:51:14+02:00
 draft: false
-weight: 5
+weight: 70
 summary: Tout ce que vous devez savoir pour une utilisation sûre et efficace des torrents avec YAMS
 ---
 

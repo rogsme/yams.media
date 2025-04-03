@@ -2,7 +2,7 @@
 title: "Portainer"
 date: 2025-01-15T11:50:16+02:00
 draft: false
-weight: 7
+weight: 90
 summary: Votre centre de commande pour tous vos conteneurs YAMS
 ---
 

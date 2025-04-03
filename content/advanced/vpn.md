@@ -2,7 +2,7 @@
 title: "VPN"
 date: 2025-01-16T08:51:14+02:00
 draft: false
-weight: 2
+weight: 40
 summary: Tout ce dont vous avez besoin de savoir sur la configuration et l'utilisation d'un VPN avec YAMS
 ---
 

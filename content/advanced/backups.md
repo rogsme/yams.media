@@ -2,7 +2,7 @@
 title: "Sauvegardes"
 date: 2025-01-15T11:50:16+02:00
 draft: false
-weight: 6
+weight: 80
 summary: Tout ce que vous devez savoir sur la sauvegarde et la restauration de votre installation YAMS
 ---
 

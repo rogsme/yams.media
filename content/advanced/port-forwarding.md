@@ -2,7 +2,7 @@
 title: "Redirection de port"
 date: 2025-01-15T11:50:16+02:00
 draft: false
-weight: 3
+weight: 50
 summary: Tout ce que vous devez savoir au sujet de la configuration d'un VPN avec YAMS
 ---
 
