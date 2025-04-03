@@ -14,6 +14,8 @@ Selon leur [site web](https://www.plex.tv/) :
 
 Dans les YAMS, Plex sera votre service de diffusion en continu hors pair ! 🌟 C'est comme avoir son propre Netflix, mais avec beaucoup plus de contrôle. De plus, le partage avec les amis et la famille est très facile !
 
+**Attention :** Plex a [récemment](https://www.plex.tv/blog/important-2025-plex-updates/) passé ses fonctionnalités les plus basiques derrière un abonnement mensuel ou un achat unique à vie.
+
 ## Premières étapes
 
 Avant d'attaquer, nous devons procéder à quelques réglages pour permettre à Plex d'exercer sa magie. Tout d'abord, arrêtez YAMS :
