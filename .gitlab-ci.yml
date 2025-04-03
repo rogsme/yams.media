@@ -1,5 +1,19 @@
 image: alpine:latest
 
+stages:
+  - test
+  - deploy
+
+test_build:
+  stage: test
+  image: klakegg/hugo:0.111.3-ext-alpine-ci
+  script:
+    - hugo version
+    - hugo --minify
+  only:
+    - merge_requests
+    - fr-translation
+
 deploy:
   stage: deploy
   before_script:
