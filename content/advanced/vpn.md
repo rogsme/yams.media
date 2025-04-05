@@ -131,6 +131,16 @@ If you get an error, double-check all your settings and make sure they're correc
 3. **Speed Matters**: Choose a VPN server that's relatively close to you for better download speeds
 4. **Port Problems**: If you can't access qBittorrent after setting up the VPN, check the troubleshooting section below
 
+## Switching to WireGuard ⚡
+
+By default, YAMS uses **OpenVPN** for Gluetun. But if your VPN provider supports it, you can switch to **WireGuard** for faster speeds and quicker connections.
+
+We recommend ProtonVPN for this, and we’ve written a full guide to help you switch:
+
+👉 [Switching Gluetun to WireGuard](/advanced/wireguard/)
+
+> 💡 If you store your WireGuard private key in the `.env` file, make sure to read the [Environment File Guide](/advanced/env-file/) to learn how to manage secrets securely.
+
 ## Troubleshooting 🔧
 
 ### Common Issues:

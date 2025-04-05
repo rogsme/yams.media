@@ -11,6 +11,8 @@ Port forwarding helps you get better download speeds by allowing incoming connec
 ## ProtonVPN Users 🚀
 ProtonVPN makes port forwarding easy! Just follow these steps:
 
+> 🆕 ProtonVPN now supports **WireGuard with port forwarding**! If you want faster VPN performance, check out our [Switching Gluetun to WireGuard](/advanced/wireguard/) guide.
+
 1. Create a script to update qBittorrent's port. Make sure you change `/your/install/location`:
 ```bash
 mkdir -p /your/install/location/scripts
@@ -50,6 +52,8 @@ You should see an output similar to this:
 
 ## Other VPN Providers 🌐
 For other VPN providers, port forwarding configuration varies.
+
+> 💡 Some providers support WireGuard too! See [Switching Gluetun to WireGuard](/advanced/wireguard/) for details.
 
 For detailed provider-specific instructions, check the [Gluetun Port Forwarding Documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md).
 
