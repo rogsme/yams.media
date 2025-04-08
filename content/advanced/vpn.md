@@ -145,6 +145,16 @@ Si vous avez une erreur, revérifiez tous vos paramètres et assurez-vous qu'ils
 3. **La vitesse compte** : Choisissez un serveur VPN proche de vous pour de meilleures performances
 4. **Problèmes de port** : Si vous ne pouvez plus accéder à qBittorrent après avoir mis en place le VPN, consultez la section dépannage ci-dessous
 
+## Passer à WireGuard ⚡
+
+Par défaut, YAMS utilise le protocole **OpenVPN** avec Gluetun mais si votre fournisseur de VPN le supporte, vous pouvez passer à **WireGuard** pour de meilleurs performances.
+
+Nous vous recommandons d'utiliser ProtonVPN, et nous avons écrit un guide complet pour vous aider à changer :
+
+👉 [Configurer Gluetun avec WireGuard](/advanced/wireguard/).
+
+> 💡 Si vous stockez votre clé privée WireGuard dans le fichier `.env`, assurez-vous d'avoir lu le guide [Votre fichier d'environnement](/advanced/env-file/) pour savoir comment gérer vos secrets correctement.
+
 ## Dépannage 🔧
 
 ### Problèmes courants :

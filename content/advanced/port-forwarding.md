@@ -12,6 +12,8 @@ La redirection de port vous permet d'obtenir des débits de téléchargement plu
 
 ProtonVPN facilite la redirection de port ! Suivez simplement ces étapes :
 
+> 🆕 ProtonVPN supporte maintenant **WireGuard avec la redirection de port** ! Si vous souhaitez de meilleurs performances, consultez notre guide [Configurer Gluetun avec WireGuard](/advanced/wireguard/).
+
 1. Créez un script pour mettre à jour le port de qBittorrent. Assurez-vous de bien remplacer `/your/install/location` par le chemin de votre installation :
 
 ```bash
@@ -58,6 +60,8 @@ Vous devriez voir le résultat suivant :
 ## Autres fournisseurs VPN 🌐
 
 Pour les autres fournisseurs VPN, la configuration de la redirection de port varie.
+
+> 💡 D'autres fournisseurs VPN supportent également WireGuard ! Consultez notre guide [Configurer Gluetun avec WireGuard](/advanced/wireguard/) pour plus de détails.
 
 Pour des instructions spécifiques à chaque fournisseur, consultez la [Documentation de Gluetun sur la redirection de port](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md).
 
