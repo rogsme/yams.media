@@ -3,14 +3,14 @@ title: "Prowlarr"
 date: 2023-01-10T18:02:06-03:00
 draft: false
 weight: 5
-summary: Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Lidarr, Mylar3, Radarr, Readarr, and Sonarr offering complete management of your indexers with no per app Indexer setup required (we do it all).
+summary: Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Lidarr, Mylar3, Radarr and Sonarr offering complete management of your indexers with no per app Indexer setup required (we do it all).
 ---
 
 ## What is Prowlarr?
 
 From their [Github repo](https://github.com/Prowlarr/Prowlarr/):
 
-> Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Lidarr, Mylar3, Radarr, Readarr, and Sonarr offering complete management of your indexers with no per app Indexer setup required (we do it all).
+> Prowlarr is an indexer manager/proxy built on the popular *arr .net/reactjs base stack to integrate with your various PVR apps. Prowlarr supports management of both Torrent Trackers and Usenet Indexers. It integrates seamlessly with Lidarr, Mylar3, Radarr, and Sonarr offering complete management of your indexers with no per app Indexer setup required (we do it all).
 
 So basically, we're going to use Prowlarr to **search for torrents**, and then it will pass those on to [qBittorrent](/config/qbittorrent) or [SABnzbd](/config/sabnzbd) to download. Think of it as your personal search engine! 🔍
 

@@ -60,7 +60,6 @@ Want to dive deep into file management best practices? Check out the [TRaSH Guid
 - 🔒 gluetun: Keeps your downloads private and secure
 - 🎛️ Portainer: Makes managing everything a breeze
 - 🎵 Lidarr: Handles your music collection
-- 📚 Readarr: Takes care of your ebooks
 
 All these pieces work together seamlessly to create a media server that's both powerful AND easy to use. It's like having your own streaming service, but better - because YOU'RE in control! 
 
