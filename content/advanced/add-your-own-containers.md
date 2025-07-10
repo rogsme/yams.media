@@ -115,7 +115,7 @@ You can access any environment variable defined in YAMS's [`.env` file]({{< relr
 
 Here are some popular containers that work great with YAMS:
 
-1. **[Overseerr](https://overseerr.dev/)** or **[Petio](https://petio.tv/)**: Let users request movies and shows
+1. **[Overseerr](https://overseerr.dev/)** / **[Petio](https://petio.tv/)** / **[Jellyseer](https://docs.jellyseerr.dev/)**: Let users request movies and shows
 2. **[Tautulli](https://tautulli.com/)**: Advanced Plex monitoring and statistics
 3. **[Organizr](https://organizr.app/)**: Create a sleek dashboard for all your services
 
