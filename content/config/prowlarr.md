@@ -3,14 +3,14 @@ title: "Prowlarr"
 date: 2025-01-29T13:25:21+02:00
 draft: false
 weight: 5
-summary: Prowlarr est un gestionnaire d'indexeur/proxy construit sur la populaire stack *arr en .net/reactjs, s'intégrant à vos différentes applications de gestion de collections. Prowlarr prend en charge la gestion des trackers Torrent et des indexeurs Usenet. Il s'intègre parfaitement avec Lidarr, Mylar3, Radarr, Readarr et Sonarr, offrant une gestion complète de vos indexeurs sans  tour reconfigurer sur chaque application (nous nous occupons de tout).
+summary: Prowlarr est un gestionnaire d'indexeur/proxy construit sur la populaire stack *arr en .net/reactjs, s'intégrant à vos différentes applications de gestion de collections. Prowlarr prend en charge la gestion des trackers Torrent et des indexeurs Usenet. Il s'intègre parfaitement avec Lidarr, Mylar3, Radarr, et Sonarr, offrant une gestion complète de vos indexeurs sans  tour reconfigurer sur chaque application (nous nous occupons de tout).
 ---
 
 ## Qu'est-ce que Prowlarr ?
 
 Selon leur [dépôt Github](https://github.com/Prowlarr/Prowlarr/) :
 
-> Prowlarr est un gestionnaire d'indexeur/proxy construit sur la populaire stack \*arr en .net/reactjs, s'intégrant à vos différentes applications de gestion de collections. Prowlarr prend en charge la gestion des trackers Torrent et des indexeurs Usenet. Il s'intègre parfaitement avec Lidarr, Mylar3, Radarr, Readarr et Sonarr, offrant une gestion complète de vos indexeurs sans tour reconfigurer sur chaque application (nous nous occupons de tout).
+> Prowlarr est un gestionnaire d'indexeur/proxy construit sur la populaire stack \*arr en .net/reactjs, s'intégrant à vos différentes applications de gestion de collections. Prowlarr prend en charge la gestion des trackers Torrent et des indexeurs Usenet. Il s'intègre parfaitement avec Lidarr, Mylar3, Radarr, et Sonarr, offrant une gestion complète de vos indexeurs sans tour reconfigurer sur chaque application (nous nous occupons de tout).
 
 En gros, nous allons utiliser Prowlarr pour **rechercher des torrents** et les envoyer à [qBittorrent](/config/qbittorrent) ou [SABnzbd](/config/sabnzbd) pour le téléchargement. Considérez-le comme votre moteur de recherche personnel ! 🔍
 

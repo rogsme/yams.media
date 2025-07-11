@@ -65,7 +65,6 @@ Vous souhaitez vous plonger dans les meilleures pratiques en matière de gestion
 -   🔒 gluetun : Garde vos téléchargement privés et sécurisés
 -   🎛️ Portainer : Permet de gérer tous vos services en un clin d'œil
 -   🎵 Lidarr : Gère votre bibliothèque musicale
--   📚 Readarr : Prend soin de vos e-books
 
 Toutes ces pièces s'emboîtent parfaitement pour créer un serveur multimédia à la fois puissant ET simple à utiliser. C'est comme avoir votre propre service de streaming en mieux, parce que VOUS êtes aux manettes !
 

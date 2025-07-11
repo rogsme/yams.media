@@ -335,7 +335,6 @@ SABnzbd: http://your.ip.address:8080/
 Radarr: http://your.ip.address:7878/
 Sonarr: http://your.ip.address:8989/
 Lidarr: http://your.ip.address:8686/
-Readarr: http://your.ip.address:8787/
 Prowlarr: http://your.ip.address:9696/
 Bazarr: http://your.ip.address:6767/
 Media Service: http://your.ip.address:8096/
