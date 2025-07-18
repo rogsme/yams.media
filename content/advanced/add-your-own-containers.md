@@ -101,7 +101,27 @@ Want your custom container to use YAMS's VPN? Add this to your container config:
 
 Check out [Running Prowlarr behind the VPN](/advanced/prowlarr-behind-vpn) for a detailed example!
 
-### 4. Variable Power 💪
+### 4. Static IP Address 📍
+For some advanced setups, you might want to assign a static IP address to your custom container within the YAMS network. This can be useful for consistent access or firewall rules.
+
+To do this, add a `networks` section to your container definition and specify the `yams_network` with an `ipv4_address`:
+
+```yaml
+  my_custom_container:
+    image: my/image:latest
+    container_name: my_custom_container
+    # ... other configurations ...
+    networks:
+      yams_network:
+        ipv4_address: 172.18.0.X # Replace X with an available IP address (e.g., 21-254)
+```
+
+**Important:**
+- The YAMS network uses the `172.18.0.0/24` subnet.
+- YAMS's core services use IP addresses from `172.18.0.10` to `172.18.0.20`.
+- **Always choose an IP address outside of this range to avoid conflicts**, for example, `172.18.0.21` or higher. You can check the `docker-compose.example.yaml` file for the IPs used by YAMS's services.
+
+### 5. Variable Power 💪
 You can access any environment variable defined in YAMS's [`.env` file]({{< relref "/advanced/env-file" >}}) within your custom containers. Just use the `${VARIABLE_NAME}` syntax! This is great for things like API keys or other settings you want to manage centrally.
 
 ## Common Gotchas 🚨
