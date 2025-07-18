@@ -34,7 +34,6 @@ prowlarr:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - WEBUI_PORT=9696  # Add this line
     volumes:
       - ${INSTALL_DIRECTORY}/config/prowlarr:/config
     restart: unless-stopped
@@ -43,7 +42,6 @@ prowlarr:
 Key changes:
 1. Remove or comment out the `ports` section
 2. Add `network_mode: "service:gluetun"`
-3. Add `WEBUI_PORT=9696` to the environment variables
 
 ### Step 2: Update Gluetun's Config
 Now we need to tell Gluetun to handle Prowlarr's traffic. Find the Gluetun service in your `docker-compose.yaml`:
@@ -62,35 +60,54 @@ gluetun:
       - 8388:8388/udp   # Shadowsocks
       - 8080:8080/tcp   # gluetun
       - 9696:9696/tcp   # Add this line for Prowlarr
-    volumes:
-      - ${INSTALL_DIRECTORY}/config/gluetun:/config
-    environment:
-      - FIREWALL_OUTBOUND_SUBNETS=192.168.1.0/24  # Add this line
-    restart: unless-stopped
+    # Leave the rest as is
 ```
 
 Key changes:
 1. Add `9696:9696/tcp` to the ports
-2. Add `FIREWALL_OUTBOUND_SUBNETS` to the environment section
 
-### Step 3: Find Your Subnet 🔍
-
-The `FIREWALL_OUTBOUND_SUBNETS` value needs to match your container subnet. Here's how to find it:
-
-1. Open Portainer
-2. Click on "Containers"
-3. Look at the "IP Address" column
-
-Most setups use one of these subnets:
-- `172.18.0.0/24` - If your containers use IPs like `172.18.x.x`
-- `192.168.1.0/24` - If your containers use IPs like `192.168.1.x`
-
-### Step 4: Apply the Changes 🔄
+### Step 3: Apply the Changes 🔄
 
 Save your changes and restart YAMS:
 ```bash
 yams restart
 ```
+
+### Step 4: Update Prowlarr's Application Connections 🔗
+
+Because Prowlarr is now routing its traffic through the VPN (Gluetun), it won't be able to resolve the internal Docker service names (like `radarr`, `sonarr`, `lidarr`) directly. You'll need to update the "Host" or "Server" settings for your connected applications within Prowlarr's "Apps" configuration to use their specific IP addresses.
+
+1. **Access Prowlarr**: Go to `http://your-ip:9696`
+2. **Navigate to Settings > Apps**: Click on the "Apps" tab.
+
+[![prowlarr-behind-vpn-1](/pics/prowlarr-behind-vpn-1.png)](/pics/prowlarr-behind-vpn-1.png)
+
+3. **Edit Each Application**: For Radarr, Sonarr, and Lidarr, click on their respective entries to edit them.
+
+**For Sonarr**:
+  * Change the "Sonarr Server" URL from `http://sonarr:8989` to `http://172.18.0.13:8989`.
+  * Ensure "Prowlarr Server" is set to `http://your-host-ip:9696` (replace `your-host-ip` with the actual IP address of your YAMS host, e.g., `192.168.0.190`).
+  * Click "Test" and then "Save".
+
+[![prowlarr-behind-vpn-2](/pics/prowlarr-behind-vpn-2.png)](/pics/prowlarr-behind-vpn-2.png)
+
+**For Radarr**:
+  * Change the "Radarr Server" URL from `http://radarr:7878` to `http://172.18.0.14:7878`.
+  * Ensure "Prowlarr Server" is set to `http://your-host-ip:9696` (replace `your-host-ip` with the actual IP address of your YAMS host, e.g., `192.168.0.190`).
+  * Click "Test" and then "Save".
+
+[![prowlarr-behind-vpn-3](/pics/prowlarr-behind-vpn-3.png)](/pics/prowlarr-behind-vpn-3.png)
+
+**For Lidarr (Optional, if you want to use Lidarr)**:
+  * If you haven't added Lidarr yet, click the `+` button, select "Lidarr".
+  * Set "Prowlarr Server" to `http://your-host-ip:9696` (replace `your-host-ip` with the actual IP address of your YAMS host, e.g., `192.168.0.190`).
+  * Set "Lidarr Server" to `http://172.18.0.15:8686` (assuming Lidarr uses port 8686).
+  * Paste your Lidarr API Key.
+  * Click "Test" and then "Save".
+
+[![prowlarr-behind-vpn-4](/pics/prowlarr-behind-vpn-4.png)](/pics/prowlarr-behind-vpn-4.png)
+
+After updating all applications, click "Sync App Indexers" on the main Apps page.
 
 ## Testing Your Setup 🎯
 
