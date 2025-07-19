@@ -42,7 +42,7 @@ Avant d'entrer dans le vif du sujet, assurez-vous d'avoir :
 - **Un emplacement d'installation :** Le script utilise par défaut `/opt/yams` mais c'est à vous de choisir ! Assurez-vous simplement que votre utilisateur ait les permissions d'écriture à cet endroit.
 
 - **Un dossier multimédia :** C'est ici que tout votre contenu sera placé. Par exemple, si vous choisissez `/srv/media`, le script créera :
-    +   `/srv/media/tv`: Pour vos séries
+    +   `/srv/media/tvshows`: Pour vos séries
     +   `/srv/media/movies`: Pour vos films
     +   `/srv/media/music`: Pour votre bibliothèque musicale
     +   `/srv/media/books`: Pour votre bibiliothèque e-book
