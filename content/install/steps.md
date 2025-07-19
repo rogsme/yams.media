@@ -43,7 +43,7 @@ Before we dive in, make sure you have:
 
 - **An installation location:** The script defaults to `/opt/yams` but hey, you do you! Just make sure your user can write to wherever you choose.
 - **A media folder:** This is where all your stuff will live. For example, if you pick `/srv/media`, the script will create:
-  + `/srv/media/tv`: For your TV shows
+  + `/srv/media/tvshows`: For your TV shows
   + `/srv/media/movies`: For your movies
   + `/srv/media/music`: For your tunes
   + `/srv/media/books`: For your books
