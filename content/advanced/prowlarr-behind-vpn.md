@@ -85,14 +85,14 @@ Because Prowlarr is now routing its traffic through the VPN (Gluetun), it won't 
 3. **Edit Each Application**: For Radarr, Sonarr, and Lidarr, click on their respective entries to edit them.
 
 **For Sonarr**:
-  * Change the "Sonarr Server" URL from `http://sonarr:8989` to `http://172.18.0.13:8989`.
+  * Change the "Sonarr Server" URL from `http://sonarr:8989` to `http://172.60.0.13:8989`.
   * Ensure "Prowlarr Server" is set to `http://your-host-ip:9696` (replace `your-host-ip` with the actual IP address of your YAMS host, e.g., `192.168.0.190`).
   * Click "Test" and then "Save".
 
 [![prowlarr-behind-vpn-2](/pics/prowlarr-behind-vpn-2.png)](/pics/prowlarr-behind-vpn-2.png)
 
 **For Radarr**:
-  * Change the "Radarr Server" URL from `http://radarr:7878` to `http://172.18.0.14:7878`.
+  * Change the "Radarr Server" URL from `http://radarr:7878` to `http://172.60.0.14:7878`.
   * Ensure "Prowlarr Server" is set to `http://your-host-ip:9696` (replace `your-host-ip` with the actual IP address of your YAMS host, e.g., `192.168.0.190`).
   * Click "Test" and then "Save".
 
@@ -101,7 +101,7 @@ Because Prowlarr is now routing its traffic through the VPN (Gluetun), it won't 
 **For Lidarr (Optional, if you want to use Lidarr)**:
   * If you haven't added Lidarr yet, click the `+` button, select "Lidarr".
   * Set "Prowlarr Server" to `http://your-host-ip:9696` (replace `your-host-ip` with the actual IP address of your YAMS host, e.g., `192.168.0.190`).
-  * Set "Lidarr Server" to `http://172.18.0.15:8686` (assuming Lidarr uses port 8686).
+  * Set "Lidarr Server" to `http://172.60.0.15:8686` (assuming Lidarr uses port 8686).
   * Paste your Lidarr API Key.
   * Click "Test" and then "Save".
 

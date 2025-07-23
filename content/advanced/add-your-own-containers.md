@@ -113,13 +113,13 @@ To do this, add a `networks` section to your container definition and specify th
     # ... other configurations ...
     networks:
       yams_network:
-        ipv4_address: 172.18.0.X # Replace X with an available IP address (e.g., 21-254)
+        ipv4_address: 172.60.0.X # Replace X with an available IP address (e.g., 21-254)
 ```
 
 **Important:**
-- The YAMS network uses the `172.18.0.0/24` subnet.
-- YAMS's core services use IP addresses from `172.18.0.10` to `172.18.0.20`.
-- **Always choose an IP address outside of this range to avoid conflicts**, for example, `172.18.0.21` or higher. You can check the `docker-compose.example.yaml` file for the IPs used by YAMS's services.
+- The YAMS network uses the `172.60.0.0/24` subnet.
+- YAMS's core services use IP addresses from `172.60.0.10` to `172.60.0.20`.
+- **Always choose an IP address outside of this range to avoid conflicts**, for example, `172.60.0.21` or higher. You can check the `docker-compose.example.yaml` file for the IPs used by YAMS's services.
 
 ### 5. Variable Power 💪
 You can access any environment variable defined in YAMS's [`.env` file]({{< relref "/advanced/env-file" >}}) within your custom containers. Just use the `${VARIABLE_NAME}` syntax! This is great for things like API keys or other settings you want to manage centrally.
