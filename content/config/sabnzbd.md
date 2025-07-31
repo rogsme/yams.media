@@ -38,7 +38,11 @@ Head over to the settings page by clicking on the cog-wheel icon in the top righ
 
 [![sabnzbd-4](/pics/sabnzbd-4.png)](/pics/sabnzbd-4.png)
 
-On the settings page, click on "Folders" and let's get those paths sorted:
+On the "General" page, set the "External internet access" to "Full API" and click on "Save Changes"
+
+[![sabnzbd-7](/pics/sabnzbd-7.png)](/pics/sabnzbd-7.png)
+
+Now, click on "Folders" and let's get those paths sorted:
 - Set your "Temporary Download Folder" to `/data/downloads/usenet/incomplete`
 - Set your "Completed Download Folder" to `/data/downloads/usenet/complete`
 - Click on "Save Changes"
