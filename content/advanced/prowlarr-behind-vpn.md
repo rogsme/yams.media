@@ -39,8 +39,8 @@ prowlarr:
     restart: unless-stopped
     # Delete or comment out the 'networks' section
     # networks:
-      # yams_network:
-        # ipv4_address: 172.60.0.17
+    #   yams_network:
+    #     ipv4_address: 172.60.0.17
 ```
 
 Key changes:
