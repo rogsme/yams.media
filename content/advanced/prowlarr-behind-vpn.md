@@ -37,11 +37,16 @@ prowlarr:
     volumes:
       - ${INSTALL_DIRECTORY}/config/prowlarr:/config
     restart: unless-stopped
+    # Delete or comment out the 'networks' section
+    # networks:
+      # yams_network:
+        # ipv4_address: 172.60.0.17
 ```
 
 Key changes:
 1. Remove or comment out the `ports` section
 2. Add `network_mode: "service:gluetun"`
+3. Remove or comment out the `networks` section
 
 ### Step 2: Update Gluetun's Config
 Now we need to tell Gluetun to handle Prowlarr's traffic. Find the Gluetun service in your `docker-compose.yaml`:
