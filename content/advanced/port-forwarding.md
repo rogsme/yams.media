@@ -13,6 +13,51 @@ ProtonVPN makes port forwarding easy! Just follow these steps:
 
 > 🆕 ProtonVPN now supports **WireGuard with port forwarding**! If you want faster VPN performance, check out our [Switching Gluetun to WireGuard](/advanced/wireguard/) guide.
 
+### Setup from zero
+
+If you didn’t set up port forwarding with the YAMS installer, start here.
+
+If you did set up port forwarding with the YAMS installer, skip ahead to [Automatically change to the forwarded port](#automatically-change-to-the-forwarded-port).
+
+Open your Docker Compose file, located at `/your/install/location/docker-compose.yaml`, and update these variables:
+
+```yaml
+  # Gluetun is our VPN, so you can download torrents safely
+  gluetun:
+    image: qmcgaw/gluetun:v3
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8888:8888/tcp # HTTP proxy
+      - 8388:8388/tcp # Shadowsocks
+      - 8388:8388/udp # Shadowsocks
+      - 8003:8000/tcp # Admin
+      - 8080:8080/tcp # gluetun
+      - 8081:8081/tcp # gluetun
+    environment:
+      - VPN_SERVICE_PROVIDER=${VPN_SERVICE}
+      - VPN_TYPE=openvpn
+      - OPENVPN_USER=${VPN_USER}
+      - OPENVPN_PASSWORD=${VPN_PASSWORD}
+      - OPENVPN_CIPHERS=AES-256-GCM
+      - PORT_FORWARD_ONLY=on  # Change this!
+      - VPN_PORT_FORWARDING=on  # Change this!
+      - FIREWALL_OUTBOUND_SUBNETS=172.60.0.0/24
+    restart: unless-stopped
+    networks:
+      yams_network:
+        ipv4_address: 172.60.0.18
+```
+
+Summary of changes:
+- `PORT_FORWARD_ONLY` should be set to `on`.
+- `VPN_PORT_FORWARDING` should be set to `on`.
+
+### Automatically change to the forwarded port
+
 1. Create a script to update qBittorrent's port. Make sure you change `/your/install/location`:
 ```bash
 mkdir -p /your/install/location/scripts
