@@ -6,6 +6,10 @@ draft: false
 summary: SABnzbd is a program to download binary files from Usenet servers. Many people upload all sorts of interesting material to Usenet and you need a special program to get this material with the least effort.
 ---
 
+## Note - SABnzbd is optional
+
+SABnzbd is an optional component. If you prefer to use torrents exclusively, you can skip this section and proceed to the [Radarr configuration](/config/radarr). To use SABnzbd, you will need a Usenet server and indexers, which are typically paid services.
+
 ## What is SABnzbd?
 
 From their [website](https://sabnzbd.org/):
