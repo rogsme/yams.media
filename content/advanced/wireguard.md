@@ -18,10 +18,16 @@ ProtonVPN makes it easy to use WireGuard with Gluetun. Here's how to update your
 
 ### Step 1: Get Your WireGuard Private Key 🔑
 
-1. Go to [ProtonVPN WireGuard Config Generator](https://account.proton.me/u/0/vpn/WireGuard)
-2. Select a server and enable **Port Forwarding** and **Moderate NAT** (optional)
-3. Click **Download** to get the `.conf` file
-4. Open the file and copy the value of `PrivateKey`
+- Go to [ProtonVPN WireGuard Config Generator](https://account.proton.me/u/0/vpn/WireGuard)
+- Select Platform: GNU/Linux
+- Select VPN Options:
+  + Level for NetShield blocker filtering: Block malware only
+  + Moderate NAT - _optional_
+  + NAT-PMP (Port Forwarding) - _optional_
+  + VPN Accelerator - _optional_
+- Select a server yourself, or use the best server according to current load and position (default)
+- Click Download to get the .conf file
+- Open the file and copy the value of PrivateKey
 
 It will look something like this:
 ```
