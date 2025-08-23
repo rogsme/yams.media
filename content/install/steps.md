@@ -215,12 +215,22 @@ If you want to use a VPN (strongly recommended):
    https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md
    ```
    Make sure to check this documentation - it will help you avoid common setup issues!
-   
+
    If you are using ProtonVPN:
    ```bash
    DO NOT USE YOUR PROTON ACCOUNT USERNAME AND PASSWORD. REFER TO THE DOCUMENTATION ABOVE TO OBTAIN THE CORRECT VPN USERNAME AND PASSWORD.
    ```
    [Don't say you weren't warned](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md#openvpn-only).
+
+   If you are using Mullvad:
+   ```bash
+   Mullvad is removing OpenVPN support on January 15, 2026.
+   If you plan to use Mullvad, you MUST migrate to WireGuard after installation.
+   Read more: https://mullvad.net/en/blog/removing-openvpn-15th-january-2026
+   WireGuard setup instructions: https://yams.media/advanced/wireguard/
+   ```
+
+   Make sure you configure Wireguard **after** finishing the installation.
 
 3. Configure port forwarding:
    ```bash
@@ -235,7 +245,7 @@ If you want to use a VPN (strongly recommended):
    VPN username (without spaces):
    VPN password:
    ```
-   
+
 Special notes:
 - For ProtonVPN, just enter your username - the script automatically adds `+pmp` for port forwarding
 - For Mullvad, it will only ask you for your username, since Mullvad doesn't need a password
