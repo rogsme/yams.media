@@ -138,6 +138,7 @@ Where do you want to install the docker-compose file? [/opt/yams]:
 - Press Enter to use the default `/opt/yams` (recommended)
 - Or type a different path if you want to install somewhere else
 - Make sure your user has write permissions to this location!
+- **Important**: You must use an absolute path (e.g., `/mnt/yams`). Docker does not expand `~` to your home directory, so avoid using something like `~/yams`
 
 ### 5. Select User
 
@@ -159,6 +160,7 @@ Please, input your media directory [/srv/media]:
 - Press Enter to use the default `/srv/media`
 - Or type the path where you want your media stored. This path can also be a SMB/NFS mount in your host OS
 - This can be an external drive or different partition
+- **Important**: You must use an absolute path (e.g., `/mnt/media`). Docker does not expand `~` to your home directory, so avoid using something like `~/media`
 
 Then confirm your choice:
 ```bash
