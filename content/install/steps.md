@@ -234,18 +234,7 @@ If you want to use a VPN (strongly recommended):
      ```
      The installer will automatically configure Gluetun for the free tier (setting `FREE_ONLY=on` and disabling port forwarding). You will **not** need to make manual changes to `docker-compose.yaml` or `.env` for this.
    - If you type `n` or press Enter (for a paid account):
-     The installer will then prompt you for port forwarding:
-     ```bash
-     Port forwarding allows for better connectivity in certain applications.
-     However, not all VPN providers support this feature.
-     Please check your VPN provider's documentation to see if they support port forwarding.
-     Enable port forwarding? (y/N) [Default = n]:
-     ```
-     If you enable port forwarding for ProtonVPN, you will see:
-     ```bash
-     Added +pmp suffix to username for ProtonVPN port forwarding
-     ```
-     The installer will proceed with standard ProtonVPN configuration, including port forwarding if you enable it.
+     The installer will proceed to the general port forwarding question.
 
    If you are using Mullvad:
    ```bash
@@ -272,8 +261,9 @@ If you want to use a VPN (strongly recommended):
    ```
 
 Special notes:
-- For ProtonVPN, just enter your username - the script automatically adds `+pmp` for port forwarding
-- For Mullvad, it will only ask you for your username, since Mullvad doesn't need a password
+- For ProtonVPN, the installer handles the `+pmp` suffix for port forwarding automatically if you enabled it in the previous step. Just enter your VPN username.
+- For Mullvad, it will only ask you for your username, since Mullvad doesn't need a password.
+- For other VPN providers, the installer will prompt you about port forwarding before asking for credentials.
 
 If you don't want to configure VPN now:
 - Type `n` and press Enter
