@@ -183,7 +183,7 @@ Here's how your `gluetun` service in `docker-compose.yaml` should look for a fre
 
 **Important**: If you are using the free tier, you will **not** be able to use port forwarding. This means some torrenting features (like being a seed for others) might be limited.
 
-For more details on ProtonVPN's free tier and Gluetun, refer to the [gluetun-wiki ProtonVPN documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md).
+For more details on ProtonVPN's free tier and Gluetun, refer to the [gluetun ProtonVPN documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md).
 
 ## Troubleshooting 🔧
 
