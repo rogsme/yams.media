@@ -23,7 +23,7 @@ ProtonVPN makes it easy to use WireGuard with Gluetun. Here's how to update your
 - Select VPN Options:
   + Level for NetShield blocker filtering: Block malware only
   + Moderate NAT - _optional_
-  + NAT-PMP (Port Forwarding) - _optional_
+  + NAT-PMP (Port Forwarding) - _optional_ (if you enable port forwarding, you need to disable Moderate NAT)
   + VPN Accelerator - _optional_
 - Select a server yourself, or use the best server according to current load and position (default)
 - Click Download to get the .conf file

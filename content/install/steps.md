@@ -224,6 +224,29 @@ If you want to use a VPN (strongly recommended):
    ```
    [Don't say you weren't warned](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md#openvpn-only).
 
+   The installer will then ask:
+   ```bash
+   Are you using a free ProtonVPN account? (y/N) [Default = n]:
+   ```
+   - If you type `y` and press Enter:
+     ```bash
+     ⚠️ ProtonVPN Free Tier Users: If you plan to use a free ProtonVPN account, please be aware that port forwarding is not supported. See our ProtonVPN Free Tier guide here: https://yams.media/advanced/vpn/#protonvpn-free-tier for more details.
+     ```
+     The installer will automatically configure Gluetun for the free tier (setting `FREE_ONLY=on` and disabling port forwarding). You will **not** need to make manual changes to `docker-compose.yaml` or `.env` for this.
+   - If you type `n` or press Enter (for a paid account):
+     The installer will then prompt you for port forwarding:
+     ```bash
+     Port forwarding allows for better connectivity in certain applications.
+     However, not all VPN providers support this feature.
+     Please check your VPN provider's documentation to see if they support port forwarding.
+     Enable port forwarding? (y/N) [Default = n]:
+     ```
+     If you enable port forwarding for ProtonVPN, you will see:
+     ```bash
+     Added +pmp suffix to username for ProtonVPN port forwarding
+     ```
+     The installer will proceed with standard ProtonVPN configuration, including port forwarding if you enable it.
+
    If you are using Mullvad:
    ```bash
    Mullvad is removing OpenVPN support on January 15, 2026.
