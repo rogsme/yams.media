@@ -141,6 +141,50 @@ We recommend ProtonVPN for this, and we’ve written a full guide to help you sw
 
 > 💡 If you store your WireGuard private key in the `.env` file, make sure to read the [Environment File Guide](/advanced/env-file/) to learn how to manage secrets securely.
 
+## ProtonVPN Free Tier 🆓
+
+If you're using a **free ProtonVPN account**, there are a few important things to know:
+
+1.  **No Port Forwarding**: ProtonVPN's free tier does **not** support port forwarding. This means you cannot use `VPN_PORT_FORWARDING=on` or append `+pmp` to your username. The YAMS installer will automatically disable port forwarding if you select ProtonVPN and indicate you are using the free tier.
+2.  **Specific Gluetun Configuration**: To ensure Gluetun connects to the free servers, you need to set the `FREE_ONLY` environment variable to `on` in your `gluetun` service configuration.
+
+Here's how your `gluetun` service in `docker-compose.yaml` should look for a free ProtonVPN account (assuming OpenVPN, which is the default for free tier):
+
+```yaml
+  gluetun:
+    image: qmcgaw/gluetun:v3
+    container_name: gluetun
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    ports:
+      - 8888:8888/tcp # HTTP proxy
+      - 8388:8388/tcp # Shadowsocks
+      - 8388:8388/udp # Shadowsocks
+      - 8003:8000/tcp # Admin
+      - 8080:8080/tcp # gluetun 
+      - 8081:8081/tcp # gluetun
+    environment:
+      - VPN_SERVICE_PROVIDER=protonvpn
+      - VPN_TYPE=openvpn
+      - OPENVPN_USER=${VPN_USER}
+      - OPENVPN_PASSWORD=${VPN_PASSWORD}
+      - OPENVPN_CIPHERS=AES-256-GCM
+      - FREE_ONLY=on # <--- Add this line for free tier
+      #- PORT_FORWARD_ONLY=on # <--- Comment out or remove this line
+      #- VPN_PORT_FORWARDING=on # <--- Comment out or remove this line
+      - FIREWALL_OUTBOUND_SUBNETS=172.60.0.0/24
+    restart: unless-stopped
+    networks:
+      yams_network:
+        ipv4_address: 172.60.0.18
+```
+
+**Important**: If you are using the free tier, you will **not** be able to use port forwarding. This means some torrenting features (like being a seed for others) might be limited.
+
+For more details on ProtonVPN's free tier and Gluetun, refer to the [gluetun-wiki ProtonVPN documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/providers/protonvpn.md).
+
 ## Troubleshooting 🔧
 
 ### Common Issues:
