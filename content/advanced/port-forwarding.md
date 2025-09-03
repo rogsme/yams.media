@@ -19,6 +19,27 @@ If you didn’t set up port forwarding with the YAMS installer, start here.
 
 If you did set up port forwarding with the YAMS installer, skip ahead to [Automatically change to the forwarded port](#automatically-change-to-the-forwarded-port).
 
+#### Update your .env file
+
+For OpenVPN users, you need to modify your `OPENVPN_USER` in your `.env` file.
+- Open your `.env` file (usually located at `/opt/yams/.env`) using `nano`:
+  ```bash
+  nano /opt/yams/.env
+  ```
+- Locate the `VPN_USER` line and append `+pmp` to your username, as shown in this example:
+
+```bash
+# VPN configuration
+VPN_ENABLED=y
+VPN_SERVICE=protonvpn
+VPN_USER=your_user+pmp # Append +pmp here!
+VPN_PASSWORD=your_password
+```
+
+- Save the file and exit nano (Ctrl+S, then Ctrl+X).
+
+#### Update your Docker Compose file
+
 Open your Docker Compose file, located at `/your/install/location/docker-compose.yaml`, and update these variables:
 
 ```yaml
