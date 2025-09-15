@@ -145,3 +145,7 @@ This is advanced territory! If you're determined to proceed:
 3. Remember: proceed at your own risk!
 
 **Remember**: The safest server is one that's not exposed to the internet at all! 🔒
+
+--- 
+
+*Thanks to "Andy The Goat" on Discord for contributing to this guide!*
