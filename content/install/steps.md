@@ -35,7 +35,7 @@ Please visit [zavan/yams on GitLab](https://gitlab.com/zavan/yams) to access the
 
 **Disclaimer:** This is a community-maintained project and is not officially supported by the YAMS team. For any issues or questions related to the macOS fork, please use the fork's issue tracker.
 
-## Before running
+## Prerequisites
 
 Before we dive in, make sure you have:
 
@@ -61,7 +61,7 @@ Before we dive in, make sure you have:
 - **A regular user to run and own the media files:** Don't use `root` (I mean, I can't stop you, but come on! 😅)
 - **A VPN service (optional but STRONGLY recommended):** Choose one from [this list](/advanced/vpn#official-supported-vpns). I always recommend [ProtonVPN](https://protonvpn.com/) because it's super easy to set up!
 
-## Installation Steps
+## Pre-Installation Setup
 
 ### 1. Setup your install location
 
@@ -72,7 +72,22 @@ sudo mkdir -p /opt/yams
 sudo chown -R $USER:$USER /opt/yams
 ```
 
-### 2. If you already have docker installed...
+### 2. Setup your media directory
+
+If your media directory doesn't exist yet, you'll need to create it and set the correct permissions. For example, if you're using `/srv/media`:
+
+```bash
+sudo mkdir -p /srv/media
+sudo chown -R $USER:$USER /srv/media
+```
+
+**Important notes:**
+- Make sure your user has full read/write permissions to this directory
+- If you're using an external drive or NFS/SMB mount, mount it first, then set permissions
+- The installer will create subdirectories (tvshows, movies, music, etc.) automatically
+- Don't use `root` as the owner - use your regular user account!
+
+### 3. If you already have docker installed...
 
 Make sure you can run `docker` **without** `sudo`! Try this:
 
@@ -84,7 +99,7 @@ If it fails, you might need to add your user to the docker group. Follow [Docker
 
 ## Installation Steps
 
-### 1. Get YAMS on your system
+### 4. Get YAMS on your system
 
 First, let's grab a fresh copy of YAMS and put it in a temporary location (we like to keep things tidy!):
 
@@ -93,7 +108,7 @@ git clone --depth=1 https://gitlab.com/rogs/yams.git /tmp/yams
 cd /tmp/yams
 ```
 
-### 2. Start the installer
+### 5. Start the installer
 
 ```bash
 bash install.sh
@@ -120,7 +135,7 @@ We just need you to answer some questions
 ====================================================
 ```
 
-### 3. Docker Installation (if needed)
+### 6. Docker Installation (if needed)
 
 The installer will first check for Docker:
 ```bash
@@ -138,38 +153,36 @@ Do you want YAMS to install docker and docker-compose? IT ONLY WORKS ON DEBIAN A
   + You'll see "docker exists ✅" instead
   + The installer will move to the next step
 
-### 4. Choose Installation Location
+### 7. Choose Installation Location
 
 ```bash
 Where do you want to install the docker-compose file? [/opt/yams]:
 ```
 
-- Press Enter to use the default `/opt/yams` (recommended)
-- Or type a different path if you want to install somewhere else
+- Press Enter to use the default `/opt/yams` (recommended) or type a different path if you want to install somewhere else
 - Make sure your user has write permissions to this location!
 - **Important**: You must use an absolute path (e.g., `/mnt/yams`). Docker does not expand `~` to your home directory, so avoid using something like `~/yams`
 
-### 5. Select User
+### 8. Select User
 
 ```bash
 What's the user that is going to own the media server files? [your_current_user]:
 ```
 
-- Press Enter to use your current user (recommended)
-- Or type a different username
+- Press Enter to use your current user (recommended) or type a different username
 - Remember: Don't use `root`!
 - The user must exist and have sudo privileges
 
-### 6. Set Media Directory
+### 9. Set Media Directory
 
 ```bash
 Please, input your media directory [/srv/media]:
 ```
 
-- Press Enter to use the default `/srv/media`
-- Or type the path where you want your media stored. This path can also be a SMB/NFS mount in your host OS
+- Press Enter to use the default `/srv/media` or type the path where you want your media stored. This path can also be a SMB/NFS mount in your host OS
 - This can be an external drive or different partition
 - **Important**: You must use an absolute path (e.g., `/mnt/media`). Docker does not expand `~` to your home directory, so avoid using something like `~/media`
+- **Make sure this directory exists and your user has permissions!** See step 2 above if you haven't created it yet
 
 Then confirm your choice:
 ```bash
@@ -179,7 +192,7 @@ Are you sure your media directory is "/srv/media"? [y/N]:
 - Type `y` and press Enter if the path is correct
 - Type `n` or press Enter to go back and change it
 
-### 7. Choose Media Service
+### 10. Choose Media Service
 
 ```bash
 Time to choose your media service.
@@ -202,7 +215,7 @@ Each service has its strengths:
 - **Emby**: Similar to Jellyfin but with premium features
 - **Plex**: Most polished, but requires online account and is more complex to configure. Be aware of these [new limitations](https://www.plex.tv/blog/important-2025-plex-updates/) if you don't have a Plex Pass
 
-### 8. VPN Configuration
+### 11. VPN Configuration
 
 ```bash
 Time to set up the VPN.
@@ -278,7 +291,7 @@ If you don't want to configure VPN now:
 - Type `n` and press Enter
 - You can set it up later, but **always use a VPN when downloading torrents!**
 
-### 9. Installation Process
+### 12. Installation Process
 
 After you've answered all the questions, you'll see:
 ```bash
@@ -318,7 +331,7 @@ Configuration folder "/opt/yams/config" exists ✅
 Configuration folder ownership and permissions set successfully ✅
 ```
 
-### 10. Final Success Screen
+### 13. Final Success Screen
 
 When everything's done, you'll see this awesome ASCII art:
 ```bash
