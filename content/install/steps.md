@@ -85,7 +85,7 @@ sudo chown -R $USER:$USER /srv/media
 - Make sure your user has full read/write permissions to this directory
 - If you're using an external drive or NFS/SMB mount, mount it first, then set permissions
 - The installer will create subdirectories (tvshows, movies, music, etc.) automatically
-- Don't use `root` as the owner - use your regular user account!
+- Don't use `root` as the owner, use your regular user account!
 
 ### 3. If you already have docker installed...
 
