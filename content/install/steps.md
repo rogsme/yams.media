@@ -26,6 +26,15 @@ YAMS only needs a few things to get started:
 
 Don't worry if you don't have `docker` and `docker-compose` installed - the script can handle that for you on Debian and Ubuntu!
 
+
+## macOS Users
+
+If you're looking to install YAMS on macOS, you're in luck! A community-maintained fork is available, specifically tailored for macOS.
+
+Please visit [zavan/yams on GitLab](https://gitlab.com/zavan/yams) to access the fork and follow their installation instructions.
+
+**Disclaimer:** This is a community-maintained project and is not officially supported by the YAMS team. For any issues or questions related to the macOS fork, please use the fork's issue tracker.
+
 ## Before running
 
 Before we dive in, make sure you have:
