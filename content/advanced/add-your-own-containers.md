@@ -70,7 +70,7 @@ services:  # Make sure this line is uncommented and there's no spaces around it!
 
 4. Time to start your new container:
 ```bash
-yams restart
+yams start
 ```
 
 You should see something like:
@@ -87,7 +87,7 @@ Not a fan of Overseer? No worries! Lets take a look at how to add many popular a
 
 Each of these docker compose entries can be added right into your `docker-compose.custom.yaml` file, under the `services` parent item.
 
-*TIP: Adding a TZ environment varible to your `.env` file can help make adding new services and avoid timezone related issues!*
+> *TIP: Adding a TZ environment varible to your `.env` file can help make adding new services and avoid timezone related issues!*
 
 Remember, since all services are run in the same Docker network, references to other services from within an app can be completed using their name and port. For example, need to enter your Radarr URL? Use `http://radarr:7878`! No pesky IPs needed.
 
