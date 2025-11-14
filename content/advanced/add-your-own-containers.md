@@ -183,12 +183,27 @@ Before you get qBitManage up and running, you'll have to take a deep dive into h
 
 Whilst configuring, ensure you set the `root_directory` option with the `directory` parent to `/data/downloads/torrents`. If you ever have trouble with paths, remember, qBitManage operates from the base level of your YAMS `${MEDIA_DIRECTORY}` variable.
 
-If you want to jump straight into a guided setup, check out *[Seeding with qBitManage](/advanced/seeding-with-qbitmanage)* for a media server setup where all torrents are seeded whilst the media remains in your server, and then smoothly removed upon an event (such as the item being watched inside of your streaming application).
+*If you want to jump straight into a guided setup, check out *[Seeding with qBitManage](/advanced/seeding-with-qbitmanage)* for a setup where all torrents are seeded whilst the media remains in your server, and then smoothly removed after the item is watched in your streaming application.*
 
 ### Autobrrr 🐇
 [Autobrr](https://autobrr.com/introduction) is an app that allows you connect to an Indexer's IRC channel, immediately starting torrent downloads for newer movies/shows without relying on Radarr/Sonarr's slower RSS feed. This allows you to help build ratio on private trackers by beating everyone else to the torrent, so you can seed it to everyone else!
 
+```yaml
+  autobrr:
+    container_name: autobrr
+    image: ghcr.io/autobrr/autobrr:latest
+    restart: unless-stopped
+    ports:
+      - 7474:7474
+    environment:
+      - TZ=${TZ}
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${INSTALL_DIRECTORY}/autobrr/config:/config
+```
 
+Done! To fully connect Autobrr to your media server's downloads, continue with the full guide [here](/advanced/autobrr).
 
 ## Pro Tips 🎓
 
