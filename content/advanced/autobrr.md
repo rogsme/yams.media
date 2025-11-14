@@ -103,6 +103,8 @@ Almost done! All we have to do now is simply enable Autobrr's IRC server, so we 
 
 Navitage to the 'IRC' section inside of 'Settings', and enable all of your Indexers.
 
+---
+
 And that's it! 🥳
 
 Now you have automatic fetching of relevant torrents as soon as they release, enabling you to level up your seeding!
