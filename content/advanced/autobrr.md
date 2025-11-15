@@ -20,7 +20,7 @@ To get started, add this container declaration into your `docker-compose.custom.
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
-      - ${INSTALL_DIRECTORY}/autobrr/config:/config
+      - ${INSTALL_DIRECTORY}/config/autobrr:/config
 ```
 
 Easy! Now, get that container up by running

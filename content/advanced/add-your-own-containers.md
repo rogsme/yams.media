@@ -200,7 +200,7 @@ Whilst configuring, ensure you set the `root_directory` option with the `directo
       - PUID=${PUID}
       - PGID=${PGID}
     volumes:
-      - ${INSTALL_DIRECTORY}/autobrr/config:/config
+      - ${INSTALL_DIRECTORY}/config/autobrr:/config
 ```
 
 Done! To fully connect Autobrr to your media server's downloads, continue with the full guide [here](/advanced/autobrr).
