@@ -222,4 +222,10 @@ For example, pick a torrent you know has no hardlinks. Verify in the qBitManage 
 
 Once this is done, set `QBT_DRY_RUN=false` in your docker compose. After a restart, qBitManage has the power to modify your torrents, and is fully setup.
 
+---
+
 Good job! You have finished the setup. Now, media will be deleted from your library via the tool you setup earlier. Loose torrents will be tagged by qBitManage, and then deleted!
+
+Seeding time will be maximised across all of your media, and loose media will never be unknowingly taking up your storage.
+
+Be sure to keep checking in on your system every so often to ensure it is working as expected!
