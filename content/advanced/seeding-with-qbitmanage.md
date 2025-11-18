@@ -54,6 +54,15 @@ Lets get started into actually creating this setup.
 
 # Creating the Stack
 
+## Stopping Autoupdates
+qBitManage communicates with qBitTorrent's API to function.
+
+This means any breaking changes to qBitTorrent's API will break qBitManage, as the maintainers have not had ample time review changes and update qBitManage accordingly.
+
+Therefore, you should disable any autoupdating of the qBitTorrent container from within Watchtower, and only update it manually when qBitManage has had a new release and specifically supports a newer qBitTorrent version.
+
+Feel free to leave on auto-updates for qBitManage though!
+
 ## Using a Deletion Tool
 To set up this stack, a deletion tool should be used. This refers to any tool that deletes unwanted media from your Jellyfin/Plex libray.
 
