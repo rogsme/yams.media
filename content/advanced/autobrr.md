@@ -36,7 +36,7 @@ How the process will work:
 
 Open up Autobrr's web interface in your browser.
 
-1. Add your indexer.
+###### 1. Add your indexer.
 
 [![autobrr-1](/pics/autobrr-1.png)](/pics/autobrr-1.png)
 
@@ -44,7 +44,7 @@ Navigate to the 'Settings' tab, and then the 'Indexers' section. Click on 'Add n
 
 This will require you to enter your indexer name and RSS Key. Be sure to follow the [IRC Guide](https://autobrr.com/configuration/irc) paired with any resources for your tracker to determine required IRC information.
 
-2. Add Radarr and Sonarr Clients
+###### 2. Add Radarr and Sonarr Clients
 
 [![autobrr-2](/pics/autobrr-2.png)](/pics/autobrr-2.png)
 
@@ -56,7 +56,7 @@ Now, let's create another client for tv shows. Name this one 'Sonarr', and selec
 
 > API keys can be found in Radarr/Sonarr by going to Settings > General > Security
 
-3. Add Movie and Tv Show Filters and Actions
+###### 3. Add Movie and Tv Show Filters and Actions
 
 [![autobrr-3](/pics/autobrr-3.png)](/pics/autobrr-3.png)
 
@@ -81,7 +81,7 @@ Now Radarr's filter is set up. Repeat the entire process of step 3, instead nami
 
 Perfect. Now we have 2 filters to movies and tv shows, ready to send torrents to Radarr and Sonarr. Enable them both in the Filters tab!
 
-4. Create Lists for Radarr and Sonarr
+###### 4. Create Lists for Radarr and Sonarr
 
 Lists are a feature that automatically use Radarr/Sonarr's monitored items to update a filter, only accepting required items.
 
@@ -95,7 +95,7 @@ Let's first create a list for Radarr. Enter 'Radarr' as the name, type and clien
 
 Repeat the process for Sonarr. Enter 'Sonarr' as the name, type and client. Set the Filter to your previously created 'TV Shows' filter. Click Save.
 
-5. Enable IRC
+###### 5. Enable IRC
 
 Almost done! All we have to do now is simply enable Autobrr's IRC server, so we start recieving new announcements.
 

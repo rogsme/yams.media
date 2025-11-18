@@ -116,7 +116,7 @@ Enter your YAMS install directory, inside your `/config` folder. Create a new fo
 
 Let create this config file bit by bit, examining what each section does. Each section should be pasted into your config file, with each heading at the very base indentation level.
 
-1. First lets ensure qBitManage can connect with our qBitTorrent instance.
+###### 1. First lets ensure qBitManage can connect with our qBitTorrent instance.
 ```yml
 qbt:
   host: http://gluetun:8081
@@ -126,7 +126,7 @@ qbt:
 
 Since the container will be running in the same network as the rest of YAMS, we can use port 8081 of gluetun to reference qBitTorrent (remember, its behind a VPN)! *Adjust this if it is different for your setup.*
 
-2. Now, lets show qBitManage our YAMS direcory structure, so it can know where torrents are located
+###### 2. Now, lets show qBitManage our YAMS direcory structure, so it can know where torrents are located
 ```yml
 directory:
   root_dir: /data/downloads/torrents
@@ -139,7 +139,7 @@ The root directory is the main directory where are torrents are located. `torren
 
 The `.RecycleBin` doesn't exist yet, but don't worry. That will be a folder created in the future by qBitManage as it deletes your torrents.
 
-3. We have categories inside qBitTorrent already for `radarr` and `sonarr`. Let's add those too.
+###### 3. We have categories inside qBitTorrent already for `radarr` and `sonarr`. Let's add those too.
 ```yml
 cat:
   radarr: /data/downloads/torrents
@@ -148,7 +148,7 @@ cat:
 
 Since each category stores torrents in the same root folder, we will set each of the categories' value to the same root directory.
 
-4. Everybody is using different torrent trackers/indexers. We will have to add those, but it will differ a bit between us.
+###### 4. Everybody is using different torrent trackers/indexers. We will have to add those, but it will differ a bit between us.
 
 Reference [the documentation](https://github.com/StuffAnThings/qbit_manage/wiki/Config-Setup#tracker) on how to create this section with your trackers.
 
@@ -161,7 +161,7 @@ tracker:
 
 This functionality isn't actually used in this guide, but it required for qBitManage to function and can greatly assist in more specific tweaking in the future, so make sure to set it up right!
 
-5. Enabling no hardlink tagging.
+###### 5. Enabling no hardlink tagging.
 ```yml
 nohardlinks:
   radarr:
@@ -170,7 +170,7 @@ nohardlinks:
 
 Although this config sections looks weird because no keys have any values, don't worry! It is telling qBitManage to check for torrents that aren't hardlinked with the `radarr` and `sonarr` tag. In our setup, this covers all our media, and avoids interefering with anything else.
 
-6. Creating a share limit.
+###### 6. Creating a share limit.
 ```yml
 share_limits:
   noHL:
@@ -197,7 +197,7 @@ This is where all the action happens. Let's learn about what this section is doi
 
 - `add_group_to_tag` simply doesn't apply a qBitTorrent tag to torrents in this share limit, as we don't need it.
 
-1. And finally, the recycle bin!
+###### 7. And finally, the recycle bin!
 ```yml
 recyclebin:
   enabled: true
