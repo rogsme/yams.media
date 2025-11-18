@@ -132,7 +132,7 @@ Great! Now, check out Recyclarr's docs to customise this configuration file to y
 Make sure to add the `SONARR_API_KEY` and `RADARR_API_KEY` environment variables to your YAMS `.env` file so the service can connect correctly. That's it!
 
 ### qBitManage 🛠️
-[qBitManage](https://github.com/StuffAnThings/qbit_manage) is an extremely handy tool for creating all kinds of workflows relating to torrent's within qBitTorrent.
+[qBitManage](https://github.com/StuffAnThings/qbit_manage) is an extremely handy tool for creating all kinds of workflows relating to torrents within qBitTorrent.
 
 The power of this app is a double edged sword. It can help you to amazingly automate your media server just how you like, but keep in mind that, if misconfigured, it has the ability to delete downloads and manipulate torrents. Expect to invest some time into learning its decently complicated configuration before reaching your desired state.
 
@@ -179,6 +179,7 @@ The power of this app is a double edged sword. It can help you to amazingly auto
       - QBT_DIVIDER==
       - QBT_WIDTH=100
 ```
+
 Before you get qBitManage up and running, you'll have to take a deep dive into how it's configured, and how it runs. Configuration is very dependant on the specific environment it operates within, and the requirements of the user. Read the [Docker Installation Guide](https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation) in its entirety.
 
 Whilst configuring, ensure you set the `root_directory` option with the `directory` parent to `/data/downloads/torrents`. If you ever have trouble with paths, remember, qBitManage operates from the base level of your YAMS `${MEDIA_DIRECTORY}` variable.
