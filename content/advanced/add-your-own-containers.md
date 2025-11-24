@@ -39,7 +39,7 @@ These make it super easy to keep your custom containers working in harmony with 
 
 ## Let's Add a Container! 🎮
 
-Let's walk through an example by adding [Overseerr](https://overseerr.dev/) - a fantastic request management app for your media server.
+Let's walk through an example by adding [Overseerr](https://overseerr.dev/) - a fantastic request management app for your Plex media server.
 
 1. First, open `docker-compose.custom.yaml`:
 ```bash
@@ -70,7 +70,7 @@ services:  # Make sure this line is uncommented and there's no spaces around it!
 
 4. Time to start your new container:
 ```bash
-yams restart
+yams start
 ```
 
 You should see something like:
@@ -80,6 +80,131 @@ You should see something like:
 ```
 
 That's it! Your new container is up and running! 🎉
+
+### Other Containers
+
+Not a fan of Overseer? No worries! Lets take a look at how to add many popular apps into the YAMS system.
+
+Each of these docker compose entries can be added right into your `docker-compose.custom.yaml` file, under the `services` parent item.
+
+> *TIP: Adding a TZ environment varible to your `.env` file can help make adding new services and avoid timezone related issues!*
+
+Remember, since all services are run in the same Docker network, references to other services from within an app can be completed using their name and port. For example, need to enter your Radarr URL? Use `http://radarr:7878`! No pesky IPs needed.
+
+### Recyclarr 🗑️
+[Recyclarr](https://recyclarr.dev/) is an app to sync Trash Guide's recommended naming conventions, quality profiles and formats straight to your media stack!
+
+```yaml
+  recyclarr:
+    image: ghcr.io/recyclarr/recyclarr
+    container_name: recyclarr
+    restart: unless-stopped
+    volumes:
+      - ${INSTALL_DIRECTORY}/config/recylarr:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+```
+Now, run the command `docker exec -it recyclarr recyclarr config create` to create a starter `recyclarr.yml` configuration file. (Remember this format of executing commands - it's how you manually control Recyclarr!).
+
+Great! Now, check out Recyclarr's docs to customise this configuration file to your needs. Check out the [reference](https://recyclarr.dev/wiki/yaml/config-reference/) and [example files](https://recyclarr.dev/wiki/yaml/config-examples/). If you have a simple setup, one of the [templates](https://recyclarr.dev/wiki/guide-configs/) might be good enough for you!
+
+### Unpackerr 📦
+[Unpackerr](https://unpackerr.zip/) is an app that automatically extracts any downloads that are an archive, ensuring Radarr and Sonarr don't get stuck waiting for manual intervention.
+
+```yaml
+  unpackerr:
+    image: golift/unpackerr
+    container_name: unpackerr
+    volumes:
+      - ${MEDIA_DIRECTORY}:/data
+    restart: unless-stopped
+    environment:
+      - TZ=${TZ}
+      - UN_LOG_FILE=/downloads/unpackerr.log
+      - UN_SONARR_0_URL=http://sonarr:8989
+      - UN_SONARR_0_API_KEY=${SONARR_API_KEY}
+      - UN_RADARR_0_URL=http://radarr:7878
+      - UN_RADARR_0_API_KEY=${RADARR_API_KEY}
+```
+
+Make sure to add the `SONARR_API_KEY` and `RADARR_API_KEY` environment variables to your YAMS `.env` file so the service can connect correctly. That's it!
+
+### qBitManage 🛠️
+[qBitManage](https://github.com/StuffAnThings/qbit_manage) is an extremely handy tool for creating all kinds of workflows relating to torrents within qBitTorrent.
+
+The power of this app is a double edged sword. It can help you to amazingly automate your media server just how you like, but keep in mind that, if misconfigured, it has the ability to delete downloads and manipulate torrents. Expect to invest some time into learning its decently complicated configuration before reaching your desired state.
+
+```yaml
+  qbitmanage:
+    container_name: qbitmanage
+    image: ghcr.io/stuffanthings/qbit_manage
+    volumes:
+      - ${MEDIA_DIRECTORY}:/data
+      - ${INSTALL_DIRECTORY}/config/qbitmanage:/config
+    ports:
+      - "8080:8080"  # Web API port (when enabled)
+    environment:
+      # Web API Configuration
+      - QBT_WEB_SERVER=true     # Set to true to enable web API and web UI
+      - QBT_PORT=8080           # Web API port (default: 8080)
+
+      # Scheduler Configuration
+      - QBT_RUN=false
+      - QBT_SCHEDULE=1440
+      - QBT_CONFIG_DIR=/config
+      - QBT_LOGFILE=qbit_manage.log
+
+      # Command Flags
+      - QBT_RECHECK=false
+      - QBT_CAT_UPDATE=false
+      - QBT_TAG_UPDATE=false
+      - QBT_REM_UNREGISTERED=false
+      - QBT_REM_ORPHANED=false
+      - QBT_TAG_TRACKER_ERROR=false
+      - QBT_TAG_NOHARDLINKS=false
+      - QBT_SHARE_LIMITS=false
+      - QBT_SKIP_CLEANUP=false
+      - QBT_DRY_RUN=false
+      - QBT_STARTUP_DELAY=0
+      - QBT_SKIP_QB_VERSION_CHECK=false
+      - QBT_DEBUG=false
+      - QBT_TRACE=false
+
+      # Logging Configuration
+      - QBT_LOG_LEVEL=INFO
+      - QBT_LOG_SIZE=10
+      - QBT_LOG_COUNT=5
+      - QBT_DIVIDER==
+      - QBT_WIDTH=100
+```
+
+Before you get qBitManage up and running, you'll have to take a deep dive into how it's configured, and how it runs. Configuration is very dependant on the specific environment it operates within, and the requirements of the user. Read the [Docker Installation Guide](https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation) in its entirety.
+
+Whilst configuring, ensure you set the `root_directory` option with the `directory` parent to `/data/downloads/torrents`. If you ever have trouble with paths, remember, qBitManage operates from the base level of your YAMS `${MEDIA_DIRECTORY}` variable.
+
+*If you want to jump straight into a guided setup, check out *[Seeding with qBitManage](/advanced/seeding-with-qbitmanage)* for a setup where all torrents are seeded whilst the media remains in your server, and then smoothly removed after the item is watched in your streaming application.*
+
+### Autobrrr 🐇
+[Autobrr](https://autobrr.com/introduction) is an app that allows you connect to an Indexer's IRC channel, immediately starting torrent downloads for newer movies/shows without relying on Radarr/Sonarr's slower RSS feed. This allows you to help build ratio on private trackers by beating everyone else to the torrent, so you can seed it to everyone else!
+
+```yaml
+  autobrr:
+    container_name: autobrr
+    image: ghcr.io/autobrr/autobrr:latest
+    restart: unless-stopped
+    ports:
+      - 7474:7474
+    environment:
+      - TZ=${TZ}
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${INSTALL_DIRECTORY}/config/autobrr:/config
+```
+
+Done! To fully connect Autobrr to your media server's downloads, continue with the full guide [here](/advanced/autobrr).
 
 ## Pro Tips 🎓
 
