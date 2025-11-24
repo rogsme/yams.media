@@ -30,3 +30,14 @@ Your files will be on the `./public` folder, ready to upload to a server.
 
 ## todo
 - Add dark mode
+
+## Contributors
+
+<a href="https://github.com/rogsme/yams/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=rogsme/yams" />
+</a>
+<a href="https://github.com/rogsme/yams.media/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=rogsme/yams.media" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
