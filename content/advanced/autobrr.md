@@ -2,7 +2,7 @@
 title: "Autobrr"
 date: 2025-11-14T13:49:24+11:00
 draft: false
-weight: 75
+weight: 110
 ---
 
 [Autobrr](https://autobrr.com/introduction) is an app that allows you connect to an Indexer's IRC channel, immediately starting torrent downloads for newer movies/shows without relying on Radarr/Sonarr's slower RSS feed. This allows you to help build ratio on private trackers by beating everyone else to the torrent, so you can seed it to everyone else!
@@ -108,3 +108,7 @@ Navitage to the 'IRC' section inside of 'Settings', and enable all of your Index
 And that's it! 🥳
 
 Now you have automatic fetching of relevant torrents as soon as they release, enabling you to level up your seeding!
+
+---
+
+*Thanks to [not-first](https://github.com/not-first) on Github for contributing to this guide!*

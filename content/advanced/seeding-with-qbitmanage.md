@@ -2,7 +2,7 @@
 title: "Seeding With Qbitmanage"
 date: 2025-11-14T15:34:20+11:00
 draft: false
-weight: 110
+weight: 120
 ---
 
 
@@ -238,3 +238,7 @@ Good job! You have finished the setup. Now, media will be deleted from your libr
 Seeding time will be maximised across all of your media, and loose media will never be unknowingly taking up your storage.
 
 Be sure to keep checking in on your system every so often to ensure it is working as expected!
+
+---
+
+*Thanks to [not-first](https://github.com/not-first) on Github for contributing to this guide!*
