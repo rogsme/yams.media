@@ -29,7 +29,9 @@ Don't agree with our choices? That's totally fine! You can always use our source
 While technically possible with Docker for Windows, we don't officially support it. Check out [WIMPS](https://github.com/Xaque8787/WIMPS) instead - it's inspired by YAMS but built specifically for Windows! Although the project has been archived, it could provide a better starting point than YAMS.
 
 ### What about macOS?
-Similar to Windows - it might work, but we focus on Linux support for the best experience. If you're on macOS, consider running YAMS in a Linux VM.
+If you're looking to install YAMS on macOS, you're in luck! A community-maintained fork is available, specifically tailored for macOS.
+
+Please visit [zavan/yams on GitLab](https://gitlab.com/zavan/yams) to access the fork and follow their installation instructions.
 
 ### Which Linux distributions are supported?
 - **Recommended**: Debian 13
