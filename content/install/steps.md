@@ -9,7 +9,7 @@ summary: First steps to install YAMS on your server
 
 YAMS only needs a few things to get started:
 
-- Debian 12 (recommended) or Ubuntu 24.04 running on bare metal, a VM, or certain container types. If your OS isn't ready yet, check out these guides:
+- Debian 13 (recommended) or Ubuntu 24.04 running on bare metal, a VM, or certain container types. If your OS isn't ready yet, check out these guides:
   + https://www.digitalocean.com/community/tutorials/initial-server-setup-with-debian-11 (this tutorial is for Debian 11, but it should be the same).
   + https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-22-04 (this tutorial is for Ubuntu 22.04, but is should be the same).
 - Your OS needs to be properly configured. That means:
