@@ -32,7 +32,7 @@ While technically possible with Docker for Windows, we don't officially support 
 Similar to Windows - it might work, but we focus on Linux support for the best experience. If you're on macOS, consider running YAMS in a Linux VM.
 
 ### Which Linux distributions are supported?
-- **Recommended**: Debian 12
+- **Recommended**: Debian 13
 - **Also Supported**: Ubuntu 24.04
 - Other distros might work but aren't officially supported
 
