@@ -87,6 +87,50 @@ For proper privacy protection, check that:
    - Significantly improves download speeds
    - Works automatically with ProtonVPN
 
+## Blocking Dangerous File Types 🦠
+
+Protect yourself from malware and viruses by configuring qBittorrent to automatically block potentially dangerous file extensions. This prevents malicious files from being downloaded even if they're included in an otherwise legitimate torrent.
+
+### Setting Up File Extension Blocking
+
+1. Open qBittorrent at `http://{your-ip}:8081`
+2. Navigate to **Tools** → **Options** → **Downloads**
+3. Find the **"Excluded file names"** section
+4. Copy and paste this comprehensive blocklist of dangerous extensions:
+
+```
+*.apk;*.bin;*.dll;*.exe;*.msi;*.txt;*.url;*.001;*.7z;*.7z*;*.arj;*.arj*;*.b1;*.b1*;*.b6z*;*.b6z;*.bh*;*.bh*;*.br*;*.br;*.bz2*;*.bz2;*.cab*;*.cab;*.dar*;*.dar;*.dmg*;*.dmg;*.gz*;*.gz;*.ha*;*.ha;*.ice*;*.ice;*.ipa*;*.ipa;*.iso*;*.iso;*.kgb*;*.kgb;*.lz*;*.lz;*.partimg*;*.partimg;*.rar*;*.rar;*.sda*;*.sda;*.sea*;*.sea;*.st*;*.st;*.tar*;*.tar;*.tbz2*;*.tbz2;*.tgz*;*.tgz;*.tlz;*.tlz;*.txz*;*.txz;*.wim*;*.wim;*.xz*;*.xz;*.z*;*.z;*.zip*;*.zip;*.zipx*;*.zipx;*.zpaq*;*.zpaq;*.zst*;*.zst;*.zz*;*.zz;*.accda;*.accdb;*.accdc;*.accde;*.accdr;*.accdt;*.accdu;*.cfg;*.conf;*.csv;*.doc;*.docm;*.docx;*.dotm;*.dotx;*.duarcfg;*.ecf;*.env;*.eps;*.hta;*.html;*.ini;*.inf;*.info;*.inx;*.job;*.json;*.jtrrcfg;*.md;*.netcfg;*.netccfg;*.netecfg;*.netgcfg;*.ods;*.one;*.pdf;*.php;*.pot;*.potm;*.potx;*.ppa;*.ppam;*.pps;*.ppsm;*.ppsx;*.ppt;*.pptm;*.pptx;*.properties;*.prx;*.prxe;*.ps;*.pub;*.puff;*.rc;*.reg;*.rtf;*.sldm;*.sldx;*.sumocfg;*.toml;*.wbk;*.xaml;*.xlam;*.xls;*.xlsb;*.xlsm;*.xlsx;*.xlm;*.xlt;*.xltm;*.xltx;*.xml;*.xsd;*.yaml;*.yml;*.4DB;*.4DC;*.4DD;*.BSON;*.CDB;*.CRYPT1;*.CRYPT10;*.CRYPT5;*.CRYPT6;*.CRYPT7;*.CRYPT8;*.CRYPT9;*.DBC;*.DB;*.DB-JOURNAL;*.DB-WAL;*.DDL;*.FMP12;*.FMPSL;*.FP3;*.FP7;*.GDB;*.MARSHAL;*.MDB;*.MDF;*.NDF;*.NSF;*.ODB;*.PDB;*.SDF;*.SQLITE;*.SQLITEDB;*.SQLITE3;*.TRC;*.UDL;*.appx;*.appxbundle;*.axf;*.bat;*.cmd;*.deb;*.elf;*.ex;*.ins;*.isu;*.jar;*.js;*.jsx;*.jse;*.j;*.ko;*.lnk;*.mpkg;*.msix;*.mod;*.out;*.o;*.obs;*.pkg;*.ps1;*.py;*.pyc;*.pyo;*.rpm;*.run;*.scr;*.script;*.sh;*.so;*.vb;*.vbs;*.ws;*.wsf;*.wsh;*.0XE;*.73K;*.89K;*.A6P;*.AC;*.ACC;*.ACR;*.ACTM;*.AHK;*.AIR;*.APP;*.ARSCRIPT;*.AS;*.ASB;*.AWK;*.AZW2;*.BEAM;*.BTM;*.BUP;*.CAB;*.CEL;*.CELX;*.CHM;*.COF;*.COM;*.CRT;*.DEK;*.DLD;*.DMC;*.DXL;*.EAR;*.EBM;*.EBS;*.EBS2;*.ECF;*.EHAM;*.ES;*.EX4;*.EXM;*.EXP;*.EXOPC;*.EZS;*.FAS;*.FKY;*.FPI;*.FRS;*.FXP;*.GEO;*.GS;*.HAM;*.HMS;*.HPF;*.IFO;*.IIM;*.IPF;*.KIX;*.LO;*.LS;*.MAM;*.MCR;*.MEL;*.MPX;*.MRC;*.MS;*.MSP;*.MXE;*.NEXE;*.OCX;*.ORE;*.OTM;*.PEX;*.PIM;*.PLX;*.PRC;*.PVD;*.PWC;*.QPX;*.RBX;*.ROX;*.RPJ;*.S2A;*.SBS;*.SCA;*.SCAR;*.SCB;*.SPR;*.TCP;*.THM;*.TLB;*.TMX;*.UDF;*.UPX;*.VLX;*.VPM;*.WCM;*.WEBSITE;*.WIDGET;*.WIZ;*.WPK;*.WPM;*.XAP;*.XBAP;*.XIP;*.XQT;*.XYS;*.ZL9;*(sample).*
+```
+
+5. Click **OK** to save your settings
+
+### What This Blocks
+
+This blocklist prevents downloading of:
+- **Executables**: `.exe`, `.bat`, `.cmd`, `.sh`, `.ps1`, `.vbs`, and many others
+- **Compressed archives**: `.zip`, `.rar`, `.7z`, `.tar`, and variants (which often hide malware)
+- **System files**: `.dll`, `.sys`, `.bin`, `.so`
+- **Scripts**: `.js`, `.jsx`, `.py`, `.php`, `.vbs`
+- **Documents with macros**: `.docm`, `.xlsm`, `.pptm`
+- **Database files**: Various database formats that can contain malicious code
+- **Sample files**: Files named `*sample.*` (commonly used to hide malware)
+
+### Important Notes
+
+- **This won't affect legitimate media files**: Your movies, TV shows, and music will download normally
+- **Sonarr/Radarr are unaffected**: Automatic downloads continue working as expected
+- **Manual downloads get filtered**: If a torrent contains blocked files, they simply won't download
+- **Keep your list updated**: Save the [blocklist source](https://raw.githubusercontent.com/kurzickkrozz/other/refs/heads/main/Blocked%20File%20Extensions) and check periodically for updates
+
+### When You Might Need to Adjust
+
+Some legitimate torrents may include blocked file types:
+- **Software ISOs**: May contain installers (consider downloading from official sources instead)
+- **Game torrents**: Often include executables (evaluate carefully and scan with antivirus)
+- **Development tools**: Might include scripts or binaries
+
+For these cases, temporarily disable the filter, but **always scan downloads with antivirus software** and only download from trusted sources.
+
 ## Troubleshooting Common Issues 🔧
 
 ### Downloads Won't Start
