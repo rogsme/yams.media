@@ -1,0 +1,284 @@
+// Dark mode styles
+
+:root {
+  // Light mode colors
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-tertiary: #f9f9f9;
+  --text-primary: #212529;
+  --text-secondary: #333;
+  --text-tertiary: #2c3136;
+  --border-color: #ccc;
+  --code-bg: #f5f5f5;
+  --blockquote-bg: #f9f9f9;
+  --blockquote-border: #ccc;
+  --header-bg: #ffffff;
+  --link-color: #5FAF63;
+  --link-hover: #8fd993;
+}
+
+[data-theme="dark"] {
+  // Dark mode colors - optimized for readability
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #252525;
+  --text-primary: #f5f5f5;
+  --text-secondary: #e8e8e8;
+  --text-tertiary: #d4d4d4;
+  --border-color: #4a4a4a;
+  --code-bg: #2d2d2d;
+  --blockquote-bg: #252525;
+  --blockquote-border: #4a4a4a;
+  --header-bg: #1a1a1a;
+  --link-color: #8fd993;
+  --link-hover: #a5dda9;
+}
+
+// Apply theme colors
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+// Global paragraph override
+[data-theme="dark"] p {
+  color: var(--text-secondary) !important;
+}
+
+// Global heading overrides
+[data-theme="dark"] {
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+  }
+}
+
+[data-theme="dark"] .header {
+  background-color: var(--header-bg) !important;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .content {
+  code {
+    background: var(--code-bg) !important;
+    color: var(--text-secondary) !important;
+  }
+  
+  pre {
+    background: var(--bg-secondary) !important;
+    code {
+      background: none !important;
+      color: var(--text-secondary) !important;
+    }
+  }
+  
+  p {
+    color: var(--text-secondary) !important;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+  }
+  
+  blockquote {
+    background: var(--blockquote-bg) !important;
+    border-left-color: var(--blockquote-border) !important;
+  }
+  
+  blockquote:before {
+    color: var(--border-color) !important;
+  }
+  
+  a {
+    color: var(--link-color) !important;
+    &:hover {
+      color: var(--link-hover) !important;
+    }
+  }
+  
+  ol, ul {
+    li {
+      color: var(--text-secondary) !important;
+    }
+  }
+}
+
+[data-theme="dark"] .docs-menu {
+  h4 {
+    color: var(--text-primary) !important;
+  }
+  
+  li {
+    a {
+      color: var(--text-primary) !important;
+      &:hover {
+        color: var(--link-color) !important;
+      }
+    }
+    &.active a {
+      color: var(--link-color) !important;
+    }
+  }
+}
+
+// Dark mode toggle button
+.dark-mode-toggle {
+  background: none;
+  border: 2px solid var(--text-primary);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  margin-left: 15px;
+  
+  &:hover {
+    background-color: var(--bg-secondary);
+    transform: rotate(20deg);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(95, 175, 99, 0.3);
+  }
+  
+  svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--text-primary);
+    transition: fill 0.3s ease;
+  }
+}
+
+// Hide/show icons based on theme
+[data-theme="light"] .dark-mode-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="light"] .dark-mode-toggle .sun-icon {
+  display: none;
+}
+
+[data-theme="dark"] .dark-mode-toggle .moon-icon {
+  display: none;
+}
+
+[data-theme="dark"] .dark-mode-toggle .sun-icon {
+  display: block;
+}
+
+// Main menu items
+[data-theme="dark"] .main-menu {
+  > ul > li > a {
+    color: var(--link-color) !important;
+    &:hover {
+      color: var(--link-hover) !important;
+    }
+  }
+}
+
+[data-theme="dark"] .main-menu-mobile a {
+  color: var(--text-primary) !important;
+  &:hover {
+    color: var(--link-color) !important;
+  }
+}
+
+// Sidebar
+[data-theme="dark"] .sidebar {
+  color: var(--text-primary) !important;
+  
+  h4 {
+    color: var(--text-primary) !important;
+  }
+  
+  a {
+    color: var(--text-primary) !important;
+    &:hover {
+      color: var(--link-color) !important;
+    }
+  }
+}
+
+// Sub-footer
+[data-theme="dark"] .sub-footer {
+  background-color: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  transition: background-color 0.3s ease;
+  
+  ul li {
+    color: var(--text-primary) !important;
+    
+    a {
+      color: var(--text-primary) !important;
+      &:hover {
+        color: var(--link-hover) !important;
+      }
+    }
+  }
+}
+
+// Tables
+[data-theme="dark"] .content table {
+  color: var(--text-primary) !important;
+  
+  thead {
+    background-color: var(--bg-secondary) !important;
+  }
+  
+  tbody tr {
+    &:nth-child(odd) {
+      background-color: var(--bg-tertiary) !important;
+    }
+  }
+}
+
+// Hamburger menu
+[data-theme="dark"] .hamburger-inner,
+[data-theme="dark"] .hamburger-inner::before,
+[data-theme="dark"] .hamburger-inner::after {
+  background-color: var(--text-primary) !important;
+}
+
+// Title components
+[data-theme="dark"] .title,
+[data-theme="dark"] .title-summary {
+  color: var(--text-primary) !important;
+}
+
+// Overview component
+[data-theme="dark"] .overview {
+  color: var(--text-primary) !important;
+  background: var(--bg-secondary) !important;
+  
+  h3, h4 {
+    color: var(--text-primary) !important;
+  }
+  
+  p {
+    color: var(--text-secondary) !important;
+  }
+  
+  a {
+    color: var(--link-color) !important;
+    &:hover {
+      color: var(--link-hover) !important;
+    }
+  }
+}
+
+// Strip component
+[data-theme="dark"] .strip {
+  color: var(--text-primary) !important;
+  
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-primary) !important;
+  }
+  
+  p {
+    color: var(--text-secondary) !important;
+  }
+}

@@ -14,6 +14,9 @@
 
   {{ block "header_css" . }}{{ end }}
 
+  {{ $darkMode := resources.Get "js/dark-mode.js" }}
+  <script type="text/javascript" src="{{ ($darkMode | minify | fingerprint).RelPermalink }}"></script>
+
 </head>
 
 <body class='page {{ block "body_classes" . }}{{ end }}'>
