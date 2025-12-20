@@ -28,9 +28,6 @@ hugo
 
 Your files will be on the `./public` folder, ready to upload to a server.
 
-## todo
-- Add dark mode
-
 ## Contributors
 
 <a href="https://github.com/rogsme/yams/graphs/contributors">
