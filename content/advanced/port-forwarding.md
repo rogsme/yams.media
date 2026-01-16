@@ -102,7 +102,7 @@ Gluetun natively supports port fowarding for these providers:
 
 For detailed provider-specific instructions, check the [Gluetun Port Forwarding Documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md).
 
-> ⚠️ Remember, if your provider needs custom environment variables, they must be provided in the containers `environment:` section. Variables defined within the YAMS `.env` file can be acessed by the `docker-compose.yml` file, but not within the containers themselves!
+> ⚠️ Remember, if your provider needs custom environment variables, they must be provided in the containers `environment:` section. Variables defined within the YAMS `.env` file can be acessed by the `docker-compose.yml` file, but not within the containers themselves! Check out [Your Enviroment File (.env)](/advanced/content/advanced/env-file) for more info.
 
 ## Verifying Port Forwarding ✅
 To check if port forwarding is working:
