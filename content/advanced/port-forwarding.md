@@ -77,44 +77,16 @@ Summary of changes:
 - `PORT_FORWARD_ONLY` should be set to `on`.
 - `VPN_PORT_FORWARDING` should be set to `on`.
 
-### Automatically change to the forwarded port
+## Automatically change to the forwarded port
+VPN providers can often change your fowarded port without notice, breaking your qBitTorrent connection.
 
-1. Create a script to update qBittorrent's port. Make sure you change `/your/install/location`:
-```bash
-mkdir -p /your/install/location/scripts
-nano /your/install/location/scripts/update-port.sh
+Fix this issue by adding these two environment variables to your gluetun container:
+```env
+VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORT}},\"current_network_interface\":\"{{VPN_INTERFACE}}\",\"random_port\":false,\"upnp\":false}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'
+VPN_PORT_FORWARDING_DOWN_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":0,\"current_network_interface\":\"lo"}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'
 ```
 
-2. Add this code to the script: https://gitlab.com/-/snippets/4788387. Make sure you edit this to match your own configuration:
-```bash
-QBITTORRENT_USER=admin            # qbittorrent username
-QBITTORRENT_PASS=adminadmin       # qbittorrent password
-```
-
-3. Make the script executable:
-```bash
-chmod +x /your/install/location/scripts/update-port.sh
-```
-
-4. Run it to verify it's working:
-```bash
-./your/install/location/scripts/update-port.sh
-```
-
-You should see an output similar to this:
-```bash
-2024-12-30 08:21:58 | VPN container gluetun in healthy state!
-2024-12-30 08:21:58 | qBittorrent Cookie invalid, getting new SessionID
-2024-12-30 08:21:58 | Public IP: 111.111.111.111
-2024-12-30 08:21:58 | Configured Port: 61009
-2024-12-30 08:21:58 | Active Port: 61009
-2024-12-30 08:21:58 | Port OK (Act: 61009 Cfg: 61009)
-```
-
-5. Set up automatic port updates (runs every 5 minutes):
-```bash
-(crontab -l 2>/dev/null; echo "*/5 * * * * /your/install/location/scripts/update-port.sh") | crontab -
-```
+Then, restart gluetun, and you are done! When port fowarding is established, the gluetun container will contact your qBitTorrent instance, automatically updating the port number.
 
 ## Other VPN Providers 🌐
 For other VPN providers, port forwarding configuration varies.
