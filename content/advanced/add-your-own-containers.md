@@ -110,6 +110,26 @@ Now, run the command `docker exec -it recyclarr recyclarr config create` to crea
 
 Great! Now, check out Recyclarr's docs to customise this configuration file to your needs. Check out the [reference](https://recyclarr.dev/wiki/yaml/config-reference/) and [example files](https://recyclarr.dev/wiki/yaml/config-examples/). If you have a simple setup, one of the [templates](https://recyclarr.dev/wiki/guide-configs/) might be good enough for you!
 
+### Profilarr 📖
+[Profilarr](https://dictionarry.dev/) is similar to Recyclarr, but syncs naming conventions, quality profiles and custom formats from the [Dictionarry database](https://github.com/Dictionarry-Hub/database) instead.
+
+It is configured through a handy Web UI!
+
+```yaml
+  profilarr:
+    image: santiagosayshey/profilarr:latest # or :beta
+    container_name: profilarr
+    ports:
+      - "6868:6868"
+    volumes:
+      - ${INSTALL_DIRECTORY}/config/profilarr:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    restart: unless-stopped
+```
+
 ### Unpackerr 📦
 [Unpackerr](https://unpackerr.zip/) is an app that automatically extracts any downloads that are an archive, ensuring Radarr and Sonarr don't get stuck waiting for manual intervention.
 
@@ -205,6 +225,28 @@ Whilst configuring, ensure you set the `root_directory` option with the `directo
 ```
 
 Done! To fully connect Autobrr to your media server's downloads, continue with the full guide [here](/advanced/autobrr).
+
+### Qui
+[Qui](https://getqui.com/) is an alternate web interface for qBitTorrent, and provides a simple way to facilitate cross seeding across trackers, and automating torrent workflows.
+
+```yaml
+  qui:
+    image: ghcr.io/autobrr/qui:latest
+    container_name: qui
+    restart: unless-stopped
+    ports:
+      - "7476:7476"
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${INSTALL_DIRECTORY}/config/qui:/config
+
+      # optional, but required for filesystem-enabled features like hardlink detection
+      - ${MEDIA_DIRECTORY}/downloads/torrents:/data/downloads/torrents
+
+```
 
 ## Pro Tips 🎓
 
