@@ -87,7 +87,11 @@ environment:
 - VPN_PORT_FORWARDING_DOWN_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":0,\"current_network_interface\":\"lo"}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'
 ```
 
+For this to work, the qBittorrent web UI server must be enabled and listening on port 8080 and the Web UI "Bypass authentication for clients on localhost" must be ticked (json key bypass_local_auth) so Gluetun can reach qBittorrent without authentication. Both of these should already be correctly configured if you set up your qBitTorrent instance as per the [YAMS config guide](/config/qbittorrent).
+
 Then, restart Gluetun, and you are done! When port fowarding is established, the Gluetun container will contact your qBitTorrent instance, automatically updating the port number.
+
+*Read more about this Gluetun feature [here](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md#custom-port-forwarding-updown-command)*
 
 ## Other VPN Providers 🌐
 For other VPN providers, port forwarding configuration varies.
