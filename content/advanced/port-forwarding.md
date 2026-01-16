@@ -80,18 +80,24 @@ Summary of changes:
 ## Automatically change to the forwarded port
 VPN providers can often change your fowarded port without notice, breaking your qBitTorrent connection.
 
-Fix this issue by adding these two environment variables to your gluetun container:
+Fix this issue by adding these two environment variables to your Gluetun container:
 ```env
 VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORT}},\"current_network_interface\":\"{{VPN_INTERFACE}}\",\"random_port\":false,\"upnp\":false}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'
 VPN_PORT_FORWARDING_DOWN_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":0,\"current_network_interface\":\"lo"}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'
 ```
 
-Then, restart gluetun, and you are done! When port fowarding is established, the gluetun container will contact your qBitTorrent instance, automatically updating the port number.
+Then, restart Gluetun, and you are done! When port fowarding is established, the Gluetun container will contact your qBitTorrent instance, automatically updating the port number.
 
 ## Other VPN Providers 🌐
 For other VPN providers, port forwarding configuration varies.
 
 > 💡 Some providers support WireGuard too! See [Switching Gluetun to WireGuard](/advanced/wireguard/) for details.
+
+Gluetun natively supports port fowarding for these providers:
+- Private Internet Access
+- ProtonVPN
+- Perfect Privacy
+- PrivateVPN
 
 For detailed provider-specific instructions, check the [Gluetun Port Forwarding Documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md).
 
