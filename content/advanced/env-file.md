@@ -32,18 +32,18 @@ See? Just `SETTING_NAME=some_value` on each line. It's incredibly straightforwar
 
 Now, where do these settings get used? Primarily in your `docker-compose.yaml` and `docker-compose-custom.yaml` files. These files tell Docker how to run all the YAMS services (like Radarr, Sonarr, Plex, etc.).
 
-Instead of writing the same path or ID over and over again in those files, we can just use the *name* of the setting from `.env`, but with a dollar sign (`$`) in front. Like this:
+Instead of writing the same path or ID over and over again in those files, we can just use the *name* of the setting from `.env`, but with a dollar sign (`$`) in front, and wrapped inside curly brackets `{}`. Like this:
 
 ```yaml
 # Inside a service definition in docker-compose.yaml...
 environment:
-  - PUID=$PUID # Aha! Use the PUID value from .env
-  - PGID=$PGID # And the PGID value too!
+  - PUID=${PUID} # Aha! Use the PUID value from .env
+  - PGID=${PGID} # And the PGID value too!
 volumes:
-  - $MEDIA_DIRECTORY:/data # Map the media folder defined in .env
+  - ${MEDIA_DIRECTORY}:/data # Map the media folder defined in .env
 ```
 
-When Docker starts the container, it automatically swaps `$PUID` with `1000` (or whatever you set in `.env`), `$MEDIA_DIRECTORY` with `/srv/media`, and so on. This makes your configuration much cleaner and easier to manage.
+When Docker starts the container, it automatically swaps `${PUID}` with `1000` (or whatever you set in `.env`), `${MEDIA_DIRECTORY}` with `/srv/media`, and so on. This makes your configuration much cleaner and easier to manage.
 
 ### Why Bother With `.env`? (Spoiler: It Makes Life Easier!)
 
