@@ -242,10 +242,8 @@ Done! To fully connect Autobrr to your media server's downloads, continue with t
       - TZ=${TZ}
     volumes:
       - ${INSTALL_DIRECTORY}/config/qui:/config
-
       # optional, but required for filesystem-enabled features like hardlink detection
       - ${MEDIA_DIRECTORY}/downloads/torrents:/data/downloads/torrents
-
 ```
 
 ### Shelfmark 📚
