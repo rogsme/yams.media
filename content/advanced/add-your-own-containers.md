@@ -248,6 +248,26 @@ Done! To fully connect Autobrr to your media server's downloads, continue with t
 
 ```
 
+### Shelfmark 📚
+[Shelfmark](https://github.com/calibrain/shelfmark) is a simple app for download books and audiobooks from various sources.
+
+```yaml
+  shelfmark:
+    image: ghcr.io/calibrain/shelfmark:latest
+    container_name: shelfmark
+    ports:
+      - 8084:8084
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+    restart: unless-stopped
+    volumes:
+      - ${MEDIA_DIRECTORY}/books:/books
+      - ${INSTALL_DIRECTORY}/config/shelfmark:/config
+      - ${MEDIA_DIRECTORY}/downloads/torrents:/data/downloads/torrents
+```
+
 ## Pro Tips 🎓
 
 ### 1. Container Discovery
