@@ -32,6 +32,7 @@ start                     starts yams services (can specify service names)
 destroy                   destroy yams services so you can start from scratch (can specify service names)
 check-vpn                 checks if the VPN is working as expected
 backup                    backs up yams to the destination location
+update-containers         updates all yams containers
 ```
 
 Let's break down each command and see what magic they can do! ✨
@@ -78,6 +79,21 @@ This will:
 3. Start everything back up
 4. Tell you exactly where your backup is saved
 
+### `yams update-containers`
+Keep your containers fresh! 🔄 This command updates all your YAMS containers to the latest versions. It's like giving your media server a makeover with all the latest features and bug fixes!
+
+```bash
+yams update-containers
+```
+
+This will:
+1. Show you a warning about potential compatibility issues
+2. Ask for confirmation (safety first!)
+3. Pull the latest container images
+4. Restart all YAMS services with the new versions
+
+**Important**: The command will suggest creating a backup first (with `yams backup`) to avoid any data loss if something goes wrong. Always a good idea before updating!
+
 ### `yams check-vpn`
 Your privacy guardian! 🛡️ This command makes sure your VPN is doing its job by:
 1. Checking your real IP address
@@ -102,7 +118,9 @@ yams destroy radarr      # Destroys only the 'radarr' service (its container and
 
 2. **Backup Regularly**: Get into the habit of running `yams backup` before making any big changes. Future you will thank present you!
 
-3. **Check That VPN**: Run `yams check-vpn` periodically to ensure your privacy is protected.
+3. **Update Safely**: Before running `yams update-containers`, always create a backup with `yams backup`. It's your safety net if something goes wrong with the update!
+
+4. **Check That VPN**: Run `yams check-vpn` periodically to ensure your privacy is protected.
 
 ## Troubleshooting 🔧
 

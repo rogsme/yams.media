@@ -53,7 +53,7 @@ The backup includes:
 
 1. **Regular Backups**: Schedule them weekly or monthly
 2. **Multiple Locations**: Keep copies in different places
-3. **Before Updates**: Always backup before updating YAMS
+3. **Before Updates**: Always backup before running `yams update-containers` to update your containers
 4. **Version Control**: Keep a few recent backups around
 5. **Test Restores**: Occasionally verify your backups work
 
@@ -104,8 +104,9 @@ yams start
 
 2. **Pre-Update Backups**
    ```bash
-   # Before running yams update
+   # Before updating your containers
    yams backup ~/backups/pre-update/
+   yams update-containers
    ```
 
 ## Troubleshooting 🔧
