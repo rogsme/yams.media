@@ -78,7 +78,7 @@ Summary of changes:
 - `VPN_PORT_FORWARDING` should be set to `on`.
 
 ## Automatically change to the forwarded port
-VPN providers can often change your fowarded port without notice, breaking your qBitTorrent connection.
+VPN providers can often change your forwarded port without notice, breaking your qBitTorrent connection.
 
 Fix this issue by adding these two environment variables to your Gluetun container:
 ```yaml
@@ -89,7 +89,7 @@ environment:
 
 For this to work, the qBittorrent web UI server must be enabled and listening on port 8080 and the Web UI "Bypass authentication for clients on localhost" must be ticked (json key bypass_local_auth) so Gluetun can reach qBittorrent without authentication. Both of these should already be correctly configured if you set up your qBitTorrent instance as per the [YAMS config guide](/config/qbittorrent).
 
-Then, restart Gluetun, and you are done! When port fowarding is established, the Gluetun container will contact your qBitTorrent instance, automatically updating the port number.
+Then, restart Gluetun, and you are done! When port forwarding is established, the Gluetun container will contact your qBitTorrent instance, automatically updating the port number.
 
 *Read more about this Gluetun feature [here](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md#custom-port-forwarding-updown-command)*
 
@@ -98,7 +98,7 @@ For other VPN providers, port forwarding configuration varies.
 
 > 💡 Some providers support WireGuard too! See [Switching Gluetun to WireGuard](/advanced/wireguard/) for details.
 
-Gluetun natively supports port fowarding for these providers:
+Gluetun natively supports port forwarding for these providers:
 - Private Internet Access
 - ProtonVPN
 - Perfect Privacy
@@ -106,7 +106,7 @@ Gluetun natively supports port fowarding for these providers:
 
 For detailed provider-specific instructions, check the [Gluetun Port Forwarding Documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md).
 
-> ⚠️ Remember, if your provider needs custom environment variables, they must be provided in the containers `environment:` section. Variables defined within the YAMS `.env` file can be acessed by the `docker-compose.yml` file, but not within the containers themselves! Check out [Your Enviroment File (.env)](/advanced/content/advanced/env-file) for more info.
+> ⚠️ Remember, if your provider needs custom environment variables, they must be provided in the containers `environment:` section. Variables defined within the YAMS `.env` file can be acessed by the `docker-compose.yml` file, but not within the containers themselves! Check out [Your Environment File (.env)](/advanced/content/advanced/env-file) for more info.
 
 ## Verifying Port Forwarding ✅
 To check if port forwarding is working:
