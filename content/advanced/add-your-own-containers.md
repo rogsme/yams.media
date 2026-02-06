@@ -329,6 +329,6 @@ Here are some popular containers that work great with YAMS:
 If you run into any issues:
 1. Check our [Common Issues](/faqs/common-errors/) page
 2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+3. Join our [Discord](https://discord.gg/Gwae3tNMST) chat
 
 Remember: YAMS is all about making your media server work for YOU. Don't be afraid to experiment and make it your own! 😎

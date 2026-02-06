@@ -173,6 +173,6 @@ For these cases, temporarily disable the filter, but **always scan downloads wit
 Having issues with torrenting? We've got you covered:
 1. Check the [Common Issues](/faqs/common-errors/) page
 2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+3. Join our [Discord](https://discord.gg/Gwae3tNMST) chat
 
 Remember: Safe torrenting is good torrenting. Always verify your VPN is working before downloading! 🛡️

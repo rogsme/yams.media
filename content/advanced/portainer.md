@@ -135,7 +135,7 @@ On the "Quick Setup" screen:
 If you're stuck:
 1. Check our [Common Issues](/faqs/common-errors/) page
 2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+3. Join our [Discord](https://discord.gg/Gwae3tNMST) chat
 4. Check [Portainer's documentation](https://docs.portainer.io/)
 
 Remember: Portainer is your friend! It makes managing YAMS much easier, so take some time to explore its features. 🎮

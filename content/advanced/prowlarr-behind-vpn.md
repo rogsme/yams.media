@@ -155,6 +155,6 @@ yams check-vpn
 If you're stuck:
 1. Check the [Common Issues](/faqs/common-errors/) page
 2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+3. Join our [Discord](https://discord.gg/Gwae3tNMST) chat
 
 Remember: Taking a few extra steps for privacy is always worth it! Stay safe out there! 🛡️

@@ -62,11 +62,6 @@ summaryLength = 30
     url = "https://discord.gg/Gwae3tNMST"
     weight = 98
 
-[[menu.main]]
-    name = "Matrix"
-    url = "https://matrix.to/#/#yams-space:rogs.me"
-    weight = 99
-
 # [[menu.main]]
 #     name = "Gitlab"
 #     url = "https://gitlab.com/rogs/yams"

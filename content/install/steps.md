@@ -396,4 +396,4 @@ Time to configure your new media server! Head over to [Configuration](/config) a
 Need help? We've got your back!
 - Check our [Common Issues](/faqs/common-errors/) page
 - Visit the [YAMS Forum](https://forum.yams.media)
-- Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+- Join our [Discord](https://discord.gg/Gwae3tNMST) chat

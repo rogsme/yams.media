@@ -130,4 +130,4 @@ To check if port forwarding is working:
    - Verify crontab is running: `crontab -l`
    - Check script logs: `tail -f /var/log/syslog | grep update-port`
 
-Need help? Visit our [Common Issues](/faqs/common-errors/) page or join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat!
+Need help? Visit our [Common Issues](/faqs/common-errors/) page or join our [Discord](https://discord.gg/Gwae3tNMST) chat!

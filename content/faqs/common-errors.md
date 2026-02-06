@@ -226,7 +226,6 @@ Still stuck? We've got your back!
 2. **Community Resources**
    - [YAMS Forum](https://forum.yams.media)
    - [Discord Chat](https://discord.gg/Gwae3tNMST)
-   - [Matrix Room](https://matrix.to/#/#yams-space:rogs.me)
 
 3. **Report Issues**
    - Check existing [GitLab issues](https://gitlab.com/rogs/yams/-/issues)
