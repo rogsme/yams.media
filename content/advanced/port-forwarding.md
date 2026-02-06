@@ -77,51 +77,36 @@ Summary of changes:
 - `PORT_FORWARD_ONLY` should be set to `on`.
 - `VPN_PORT_FORWARDING` should be set to `on`.
 
-### Automatically change to the forwarded port
+## Automatically change to the forwarded port
+VPN providers can often change your forwarded port without notice, breaking your qBitTorrent connection.
 
-1. Create a script to update qBittorrent's port. Make sure you change `/your/install/location`:
-```bash
-mkdir -p /your/install/location/scripts
-nano /your/install/location/scripts/update-port.sh
+Fix this issue by adding these two environment variables to your Gluetun container:
+```yaml
+environment:
+- VPN_PORT_FORWARDING_UP_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":{{PORT}},\"current_network_interface\":\"{{VPN_INTERFACE}}\",\"random_port\":false,\"upnp\":false}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'
+- VPN_PORT_FORWARDING_DOWN_COMMAND=/bin/sh -c 'wget -O- --retry-connrefused --post-data "json={\"listen_port\":0,\"current_network_interface\":\"lo"}" http://127.0.0.1:8080/api/v2/app/setPreferences 2>&1'
 ```
 
-2. Add this code to the script: https://gitlab.com/-/snippets/4788387. Make sure you edit this to match your own configuration:
-```bash
-QBITTORRENT_USER=admin            # qbittorrent username
-QBITTORRENT_PASS=adminadmin       # qbittorrent password
-```
+For this to work, the qBittorrent web UI server must be enabled and listening on port 8080 and the Web UI "Bypass authentication for clients on localhost" must be ticked (json key bypass_local_auth) so Gluetun can reach qBittorrent without authentication. Both of these should already be correctly configured if you set up your qBitTorrent instance as per the [YAMS config guide](/config/qbittorrent).
 
-3. Make the script executable:
-```bash
-chmod +x /your/install/location/scripts/update-port.sh
-```
+Then, restart Gluetun, and you are done! When port forwarding is established, the Gluetun container will contact your qBitTorrent instance, automatically updating the port number.
 
-4. Run it to verify it's working:
-```bash
-./your/install/location/scripts/update-port.sh
-```
-
-You should see an output similar to this:
-```bash
-2024-12-30 08:21:58 | VPN container gluetun in healthy state!
-2024-12-30 08:21:58 | qBittorrent Cookie invalid, getting new SessionID
-2024-12-30 08:21:58 | Public IP: 111.111.111.111
-2024-12-30 08:21:58 | Configured Port: 61009
-2024-12-30 08:21:58 | Active Port: 61009
-2024-12-30 08:21:58 | Port OK (Act: 61009 Cfg: 61009)
-```
-
-5. Set up automatic port updates (runs every 5 minutes):
-```bash
-(crontab -l 2>/dev/null; echo "*/5 * * * * /your/install/location/scripts/update-port.sh") | crontab -
-```
+*Read more about this Gluetun feature [here](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md#custom-port-forwarding-updown-command)*
 
 ## Other VPN Providers 🌐
 For other VPN providers, port forwarding configuration varies.
 
 > 💡 Some providers support WireGuard too! See [Switching Gluetun to WireGuard](/advanced/wireguard/) for details.
 
+Gluetun natively supports port forwarding for these providers:
+- Private Internet Access
+- ProtonVPN
+- Perfect Privacy
+- PrivateVPN
+
 For detailed provider-specific instructions, check the [Gluetun Port Forwarding Documentation](https://github.com/qdm12/gluetun-wiki/blob/main/setup/advanced/vpn-port-forwarding.md).
+
+> ⚠️ Remember, if your provider needs custom environment variables, they must be provided in the containers `environment:` section. Variables defined within the YAMS `.env` file can be acessed by the `docker-compose.yml` file, but not within the containers themselves! Check out [Your Environment File (.env)](/advanced/content/advanced/env-file) for more info.
 
 ## Verifying Port Forwarding ✅
 To check if port forwarding is working:
