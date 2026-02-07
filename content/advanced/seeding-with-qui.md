@@ -17,7 +17,9 @@ Within a default YAMS setup, [seeding is essentially not enabled](https://yams.m
 This is a guide on how to automate a flexible seeding setup within your media server:
 - Once movies and shows are downloaded, they will be automatically seeded whilst the media remains within your server
 - When media is watched from your streaming platform, it is deleted from within Radarr and Sonarr
-- These now 'loose' torrents are ensured to meet any minumum seeding requirements for your tracker, and then seamlessly deleted, freeing up your storage space!
+- These now 'loose' torrents are ensured to meet any minimum seeding requirements for your tracker, and then seamlessly deleted, freeing up your storage space!
+
+Note that if previously have a cross seeding setup, this guide should not be followed word for word. Extra manipulation of the provided workflows may be necessary.
 
 But what is meant by a 'loose' torrent? Let's explore the concept of hardlinking.
 
@@ -116,10 +118,59 @@ Now, navigate to the 'Automations' tab in the sidebar.
 
 [![qui-2](/pics/qui-2.png)](/pics/qui-2.png)
 
+### Understanding the Workflow Builder
+
 Workflows in Qui have three main sections:
-- **Trackers**: What trackers' torrents the automation will apply to
-- **Conditions**: What conditions must be met for the automation to run
-- **Actions**: What actions to perform when the conditions are met
+- **Trackers**: What trackers' torrents the automation will apply to. This is useful if you want to only apply this seeding setup to certain trackers, e.g. only private ones.
+- **Conditions**: What conditions must be met for the action to be taken. It acts as a filter, ensuring the action is only taken on torrents that meet certain criteria, e.g. only movies, or only files without any hardlinks.
+- **Actions**: What actions to perform when the conditions are met. This action is taken on every torrent that matches the conditions, e.g. tag the torrent with a specific tag.
+
+Finally, for each workflow you specify how often you want it to run. This is how often Qui will check your torrents for matches to the workflow, and perform the specified action on them.
+
+### Creating a Workflow
+
+In order to create our seeding setup, we will have to split our wanted automation into 5 separated workflows. This makes it easier to determine which part of the workflow is not working if something goes wrong, and also allows for more flexibility in the future if you want to change part of the workflow.
+
+Tags will be used to link the workflows together and provide visual cues if you ever want to manually debug, so make sure to use unique tags that aren't used by any other workflow!
+
+The workflows we will create are as follows:
+1. A workflow to tag non-hardlinked torrents with a `noHL` tag.
+2. A workflow to apply seeding requirements (through qBitTorrent 'limits') to `noHL` tagged torrents.
+3. A workflow to determine if `noHL` torrents have met their seeding requirements, if not, tag them with a `seedingRequired` tag.
+4. A workflow to `retire` (stop) torrents tagged with `seedingRequired` that have met their seeding requirements.
+5. A workflow to delete retired torrents after 1 week of being stopped.
+
+Lets say a torrent is downloaded from a private tracker with a 7 day seeding requirement, and is deleted from the media library after 3 days. The workflow will work like this:
+- The torrent is tagged with `noHL` as it has no hardlink (the media file only has 1 reference on disk, the one in the downloads folder).
+- The torrent will have a 7-day seeding limit applied to it. It will be tagged with `seedingRequired` until it has seeded for 7 days.
+- After seeding for 7 days, the torrent will be tagged with `retired` and stopped, and the `seedingRequired` tag will be removed.
+- The torrent will be fully deleted 7 days after being stopped.
+
+Torrents are kept in qBitTorrent for 1 week after being stopped to ensure that upon any issues (e.g an accidental hit and run on a private tracker), you have a week to fix the issue and manually re-enable seeding before the torrent is deleted. This is a safety net, but feel free to change this time frame if you want!
+
+#### Workflow 1: Tagging non-hardlinked torrents
+
+ > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/aec8d4b8ae8ee115efd2cac1721e70176c33a801/tag-noHL.json).
+
+#### Workflow 2: Applying seeding requirements
+
+ > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/9d35dc2420419e0a08d254b4e1a0d4c75b7b24ec/enforce-requirements-EXAMPLE.json).
+
+
+#### Workflow 3: Tagging torrents that haven't met seeding requirements
+
+ > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/4f0a98c43f1225b61425134221285e9ccf2d2bff/tag-seeding-required.json).
+
+#### Workflow 4: Retiring torrents that have met seeding requirements
+
+> Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/9d35dc2420419e0a08d254b4e1a0d4c75b7b24ec/tag-retired.json).
+
+#### Workflow 5: Deleting retired torrents after 1 week
+
+> Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/4f0a98c43f1225b61425134221285e9ccf2d2bff/delete-retired.json).
+
+
+
 
 
 
