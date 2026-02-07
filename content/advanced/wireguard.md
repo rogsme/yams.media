@@ -139,5 +139,5 @@ WireGuard support varies by provider. Here’s what to do:
 
 If you're stuck:
 - Visit our [Common Issues](/faqs/common-errors/) page
-- Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+- Join our [Discord](https://discord.gg/Gwae3tNMST) chat
 - Or ask in the [YAMS Forum](https://forum.yams.media)
