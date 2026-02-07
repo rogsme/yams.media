@@ -112,6 +112,16 @@ yams destroy             # Destroys all YAMS services, containers, volumes, and 
 yams destroy radarr      # Destroys only the 'radarr' service (its container and volume)
 ```
 
+## Updating the CLI 🔧
+Every now and then the YAMS CLI gets new features and improvements. To update it without repeating the install process:
+
+1. Open the `/usr/local/bin/yams` file in a text editor with sudo permissions.
+2. Replace all of the existing content with the latest version from the Gitlab repository: https://gitlab.com/rogs/yams/-/raw/master/yams?ref_type=heads (just copy and paste the content of that file).
+3. In the line `readonly INSTALL_DIRECTORY="<install_directory>"`, replace `<install_directory>` with the correct installation path of your YAMS setup. Find this in your existing `.env` file if you're not sure.
+4. Replace the line `readonly DC="docker compose -f <filename> -f <custom_file_filename>"` with the line `readonly DC="docker compose -f <install_directory>/docker-compose.yaml -f <install_directory>/docker-compose.custom.yaml"`. Then replace `<install_directory>` is the correct installation path of your YAMS setup (same as the previous step!).
+5. Save and close the file. Your CLI is now updated to the latest version!
+
+
 ## Pro Tips 💡
 
 1. **Service Status**: After starting or restarting, YAMS will show you the status of each service, so you know everything's working properly.
