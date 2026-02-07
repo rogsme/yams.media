@@ -2,7 +2,7 @@
 title: "Seeding With Qbitmanage"
 date: 2025-11-14T15:34:20+11:00
 draft: false
-weight: 120
+weight: 130
 ---
 
 > ℹ️ For a more user-friendly updated version of this guide, check out [Seeding With Qui](/advanced/seeding-with-qui) which uses a newer app: Qui, instead of qBitManage. The concepts are very similar, but Qui has a much more user-friendly interface and setup process. Continue on if you are a true power-user and are looking for the utmost flexibility and customisation, as qBitManage is recommended instead!
