@@ -96,7 +96,8 @@ Then, run `yams start qui` in your terminal to get it up and running! Access the
 
 First, open up the Qui web UI, and create an new account. Make sure to save your login details!
 
->Now, before we get started, lets make qBitTorrent allow connections from Qui by ***optionally*** bypassing authentication within the YAMS network. Jump over the this section from the [YAMS docs](qbittorrent/#configuring-web-ui-settings) and ensure *in addition* to your local IP, you also add a new line with the YAMS subnet: `172.60.0.0/24`. Make sure to save, and then say goodbye to the qBitTorrent web UI - you might not need it again!
+> Now, before we get started, lets make qBitTorrent allow connections from Qui by ***optionally*** bypassing authentication within the YAMS network. Jump over the this section from the [YAMS docs](qbittorrent/#configuring-web-ui-settings) and ensure *in addition* to your local IP, you also add a new line with the YAMS subnet: `172.60.0.0/24`. Make sure to save, and then say goodbye to the qBitTorrent web UI - you might not need it again!
+
 
 You should see a 'Dashboard' page. From here, click on the 'Add Instance' button in the center.
 
@@ -147,7 +148,7 @@ The workflows we will create are as follows:
 2. A workflow to apply seeding requirements (through qBitTorrent 'limits') to `noHL` tagged torrents.
 3. A workflow to determine if `noHL` torrents have met their seeding requirements, if not, tag them with a `seedingRequired` tag.
 4. A workflow to `retire` (stop) torrents tagged with `seedingRequired` that have met their seeding requirements.
-5. A workflow to delete retired torrents after 1 week of being stopped.
+5. A workflow to delete retired torrents after 7 days of being stopped.
 
 Lets say a torrent is downloaded from a private tracker with a 7 day seeding requirement, and is deleted from the media library after 3 days. The workflow will work like this:
 - The torrent is tagged with `noHL` as it has no hardlink (the media file only has 1 reference on disk, the one in the downloads folder).
@@ -155,7 +156,7 @@ Lets say a torrent is downloaded from a private tracker with a 7 day seeding req
 - After seeding for 7 days, the torrent will be tagged with `retired` and stopped, and the `seedingRequired` tag will be removed.
 - The torrent will be fully deleted 7 days after being stopped.
 
-Torrents are kept in qBitTorrent for 1 week after being stopped to ensure that upon any issues (e.g an accidental hit and run on a private tracker), you have a week to fix the issue and manually re-enable seeding before the torrent is deleted. This is a safety net, but feel free to change this time frame if you want!
+Torrents are kept in qBitTorrent for 7 days after being stopped to ensure that upon any issues (e.g an accidental hit and run on a private tracker), you have a week to fix the issue and manually re-enable seeding before the torrent is deleted. This is a safety net, but feel free to change this time frame if you want!
 
 #### Workflow 1: Tagging non-hardlinked torrents
 
@@ -217,7 +218,7 @@ Add a second condition that checks if the torrent's state is 'Stopped', to ensur
 
 Add an action to tag the torrent with `retired`, and save.
 
-#### Workflow 5: Deleting retired torrents after 1 week
+#### Workflow 5: Deleting retired torrents after 7 days
 
 > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/4f0a98c43f1225b61425134221285e9ccf2d2bff/delete-retired.json).
 
