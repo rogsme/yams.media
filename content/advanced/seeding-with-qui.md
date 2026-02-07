@@ -4,7 +4,7 @@ date: 2025-11-14T15:34:20+11:00
 draft: false
 weight: 120
 ---
-
+> ℹ️ This guide is a simpler to follow and more user-friendly version of the [Seeding With qBitManage](/advanced/seeding-with-qbitmanage) guide, using a newer app: Qui, instead of qBitManage. The concepts are very similar, but Qui has a much more user-friendly interface and setup process. If you are a true power-user and are looking for the utmost flexibility and customisation, the qBitManage guide is recommended instead!
 
 In general, it is good practice to seed any torrents you download. Seeding is the act of sharing a media file you have downloaded with other users, helping with their downloads.
 
