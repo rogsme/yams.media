@@ -59,7 +59,7 @@ Lets get started into actually creating this setup.
 ## Using a Deletion Tool
 To set up this stack, a deletion tool should be used. This refers to any tool that deletes unwanted media from your Jellyfin/Plex libray.
 
-I am using the Jellyfin plugin [Media Cleaner](https://github.com/shemanaev/jellyfin-plugin-media-cleaner) which deletes watched movies/shows in Jellyfin after a specified amount of time. If you are using Jellyfin, this is a good option that doesn't require running a seperate container.
+You can use the Jellyfin plugin [Media Cleaner](https://github.com/shemanaev/jellyfin-plugin-media-cleaner) which deletes watched movies/shows in Jellyfin after a specified amount of time. If you are using Jellyfin, this is a good option that doesn't require running a seperate container.
 
 If you wish to use another service, maybe to delete *unwatched media* too, please do. Do some research on the many Plex and Jellyfin tools available to clean up your libraries. Any tools that delete media will work, as long as they *don't mess with your torrents*.
 
