@@ -112,6 +112,15 @@ Then, hit 'Add Instance'! In the sidebar, you should now see your qBitTorrent in
 
 This is your main Qui interface, equivalent to the qBitTorrent web UI. Save this URL for later if you ever want quick access!
 
+## Disabling Auto Remove in Radarr/Sonarr
+
+Radarr and Sonarr both have built in features that can automatically remove stopped torrents they have imported. We DO NOT want this enabled, as it will unexpectedly and silently interfere with any workflows we may create.
+
+[![qui-8](/pics/qui-8.png)](/pics/qui-8.png)
+
+Navigate to Radarr and Sonarr's settings > 'Download Clients' section > qBitTorrent > ensure the 'Remove Completed' checkbox at the bottom is disabled. Do this in both Radarr and Sonarr.
+
+
 ## Setting up Automations ⚙️
 
 Now, navigate to the 'Automations' tab in the sidebar.
