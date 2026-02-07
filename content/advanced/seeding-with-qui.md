@@ -192,6 +192,8 @@ Add a condition that checks if the torrent is tagged with `noHL`, using the tags
 
 Finally, add an action to set a seeding time or ratio limit on the torrent. This is done by selecting 'Set Limit' as the action type, and then setting the seeding time limit to match the seeding requirements of your tracker, e.g 7 days (make sure to enter it in minutes!). Save the workflow, and repeat this process for each tracker you download from with different seeding requirements.
 
+It can be a good idea to enter in a value slightly more than the actual seeding requirement, to account for any small discrepancies in time tracking.
+
 
 #### Workflow 3: Tagging torrents that haven't met seeding requirements
 
