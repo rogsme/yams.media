@@ -223,7 +223,9 @@ Add an action to delete the torrent with files (preserve cross-seeds), and save.
 
 ---
 
-And that's it! You now have a fully automated seeding setup that ensures you are always seeding your media files until you are done with them, at which point they are seamlessly removed from your server after meeting any seeding requirements. The state of all of your torrents can be easily monitored through the tags applied to them, and you can easily adjust any part of the workflow in Qui's interface if you want to change how it works in the future.
+And that's it! You now have a fully automated seeding setup that ensures you are always seeding your media files until you are done with them, at which point they are seamlessly removed from your server after meeting any seeding requirements.
+
+The state of all of your torrents can be easily monitored through the tags applied to them, and you can easily adjust any part of the workflow in Qui's interface if you want to change how it works in the future. In addition, Qui's automation menu has a log of all automation actions taken, so if you ever want to check what's happening to your torrents, you can easily check the log to see what actions have been taken on them and why.
 
 What's more, the new Qui app can fully replace qBitTorrent's web UI, so you can manage your torrents from there going forward if you like the interface!
 
