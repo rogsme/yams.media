@@ -152,26 +152,83 @@ Torrents are kept in qBitTorrent for 1 week after being stopped to ensure that u
 
  > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/aec8d4b8ae8ee115efd2cac1721e70176c33a801/tag-noHL.json).
 
+[![qui-3](/pics/qui-3.png)](/pics/qui-3.png)
+
+Create a new rule, and name the workflow 'Tag noHL Torrents'.
+
+Add a condition that uses regex to only apply to the `radarr` and `sonarr` categories. This ensures that this workflow only applies to media torrents, and not any other torrents you might have in your setup.
+
+Add a second condition that checks if the hardlink scope is 'None'.
+
+Add a third condition that checks the state is 'Completed', to ensure only fully downloaded torrents are tagged.
+
+Finally, add an action to tag the torrent with `noHL`, and save.
+
+
 #### Workflow 2: Applying seeding requirements
 
  > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/9d35dc2420419e0a08d254b4e1a0d4c75b7b24ec/enforce-requirements-EXAMPLE.json).
+
+[![qui-4](/pics/qui-4.png)](/pics/qui-4.png)
+
+Create a new rule, and name the workflow 'Enforce Seeding Requirements (TRACKER NAME)'. This is the workflow that will enforce seeding requirements for torrents from a specific tracker, so make sure to specify the tracker in the name.
+
+One of these should be added for each tracker you download from with different seeding requirements.
+
+In the trackers section, select the tracker(s) this workflow will apply to. This ensures that only torrents from this tracker will have seeding requirements applied to them.
+
+Add a condition that checks if the torrent is tagged with `noHL`, using the tags contains operator.
+
+Finally, add an action to set a seeding time or ratio limit on the torrent. This is done by selecting 'Set Limit' as the action type, and then setting the seeding time limit to match the seeding requirements of your tracker, e.g 7 days (make sure to enter it in minutes!). Save the workflow, and repeat this process for each tracker you download from with different seeding requirements.
 
 
 #### Workflow 3: Tagging torrents that haven't met seeding requirements
 
  > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/4f0a98c43f1225b61425134221285e9ccf2d2bff/tag-seeding-required.json).
 
+[![qui-5](/pics/qui-5.png)](/pics/qui-5.png)
+
+Create a new rule, apply it to all trackers, and name the workflow 'Tag Seeding Required'.
+
+Add a condition that checks if the torrent is tagged with `noHL`, using the tags contains operator.
+Add a second condition that checks if the torrent's state is 'Running', to ensure only actively seeding torrents are tagged.
+
+Add an action to tag the torrent with `seedingRequired`, and save.
+
 #### Workflow 4: Retiring torrents that have met seeding requirements
 
 > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/9d35dc2420419e0a08d254b4e1a0d4c75b7b24ec/tag-retired.json).
+
+[![qui-6](/pics/qui-6.png)](/pics/qui-6.png)
+
+Create a new rule, apply it to all trackers, and name the workflow 'Tag Retired'.
+
+Add a condition that checks if the torrent is tagged with `seedingRequired`, using the tags contains operator.
+Add a second condition that checks if the torrent's state is 'Stopped', to ensure only torrents that have met their seeding requirements ()and thus been stopped by qBitTorrent are tagged.
+
+Add an action to tag the torrent with `retired`, and save.
 
 #### Workflow 5: Deleting retired torrents after 1 week
 
 > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/4f0a98c43f1225b61425134221285e9ccf2d2bff/delete-retired.json).
 
+[![qui-7](/pics/qui-7.png)](/pics/qui-7.png)
 
+Create a new rule, apply it to all trackers, and name the workflow 'Delete Retired'.
 
+Add a condition that checks if the torrent is tagged with `retired`, using the tags contains operator.
+Add a second condition that checks if the torrent's inactive time is greater than 7 days.
 
+Add an action to delete the torrent with files (preserve cross-seeds), and save.
 
+---
+
+And that's it! You now have a fully automated seeding setup that ensures you are always seeding your media files until you are done with them, at which point they are seamlessly removed from your server after meeting any seeding requirements. The state of all of your torrents can be easily monitored through the tags applied to them, and you can easily adjust any part of the workflow in Qui's interface if you want to change how it works in the future.
+
+What's more, the new Qui app can fully replace qBitTorrent's web UI, so you can manage your torrents from there going forward if you like the interface!
+
+Be sure to keep checking in on your system every so often to ensure it is working as expected!
+
+---
 
 *Thanks to [not-first](https://github.com/not-first) on Github for contributing to this guide!*
