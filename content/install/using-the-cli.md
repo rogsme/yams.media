@@ -112,6 +112,16 @@ yams destroy             # Destroys all YAMS services, containers, volumes, and 
 yams destroy radarr      # Destroys only the 'radarr' service (its container and volume)
 ```
 
+## Updating the CLI 🔧
+Every now and then the YAMS CLI gets new features and improvements. To update it without repeating the install process:
+
+1. Open the `/usr/local/bin/yams` file in a text editor with sudo permissions.
+2. Copy the two lines just below the `# Constants` comment. These lines define the `INSTALL_DIRECTORY` and `DC` variables. You'll need to keep these lines intact and accessible somewhere else whilst you reset the file!
+3. Replace **all** of the existing content with the latest version from the Gitlab repository: https://gitlab.com/rogs/yams/-/raw/master/yams?ref_type=heads.
+4. Replace the `INSTALL_DIRECTORY` and `DC` variable values with the ones you copied in step 2. This ensures that your CLI continues to work with your existing YAMS installation. The `INSTALL DIRECTORY` and `DC` lines in your new file should look exactly the same as the ones you copied previously.
+5. Save and close the file. Your CLI is now updated to the latest version!
+
+
 ## Pro Tips 💡
 
 1. **Service Status**: After starting or restarting, YAMS will show you the status of each service, so you know everything's working properly.
