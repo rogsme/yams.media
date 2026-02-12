@@ -11,7 +11,6 @@ Got questions? Suggestions? Just want to say hi? We've got plenty of ways to rea
 
 ## Community Hangouts 🏡
 
-- 💬 Matrix Space: [#yams-space:rogs.me](https://matrix.to/#/#yams-space:rogs.me)
 - 🎮 Discord Server: [YAMS Discord](https://discord.gg/Gwae3tNMST)
 - Official Forum 📋: [YAMS Forum](https://forum.yams.media)
 

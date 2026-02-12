@@ -213,6 +213,6 @@ Want to double-check that your torrent client is really using the VPN? Head over
 If you're stuck:
 1. Check our [Common Issues](/faqs/common-errors/#gluetun-does-not-connect) page
 2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+3. Join our [Discord](https://discord.gg/Gwae3tNMST) chat
 
 Remember: A working VPN is crucial for safe downloading. Take the time to set it up right, and you'll be good to go! 🚀

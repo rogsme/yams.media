@@ -83,7 +83,6 @@ Need more help? We've got you covered!
 
 2. **Community**
    - Join our [Discord](https://discord.gg/Gwae3tNMST)
-   - Visit our [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
    - Post on our [Forum](https://forum.yams.media)
 
 3. **Issues & Bugs**

@@ -204,7 +204,6 @@ Before you get qBitManage up and running, you'll have to take a deep dive into h
 
 Whilst configuring, ensure you set the `root_directory` option with the `directory` parent to `/data/downloads/torrents`. If you ever have trouble with paths, remember, qBitManage operates from the base level of your YAMS `${MEDIA_DIRECTORY}` variable.
 
-*If you want to jump straight into a guided setup, check out *[Seeding with qBitManage](/advanced/seeding-with-qbitmanage)* for a setup where all torrents are seeded whilst the media remains in your server, and then smoothly removed after the item is watched in your streaming application.*
 
 ### Autobrrr 🐇
 [Autobrr](https://autobrr.com/introduction) is an app that allows you connect to an Indexer's IRC channel, immediately starting torrent downloads for newer movies/shows without relying on Radarr/Sonarr's slower RSS feed. This allows you to help build ratio on private trackers by beating everyone else to the torrent, so you can seed it to everyone else!
@@ -229,6 +228,8 @@ Done! To fully connect Autobrr to your media server's downloads, continue with t
 ### Qui
 [Qui](https://getqui.com/) is an alternate web interface for qBitTorrent, and provides a simple way to facilitate cross seeding across trackers, and automating torrent workflows.
 
+Keep in mind the torrent automations have the ability to delete downloads and manipulate torrents. Always be careful when configuring this feature, and test dangerous actions with harmless 'tagging' actions first to observer output whilst avoiding unwanted deletions.
+
 ```yaml
   qui:
     image: ghcr.io/autobrr/qui:latest
@@ -245,6 +246,9 @@ Done! To fully connect Autobrr to your media server's downloads, continue with t
       # optional, but required for filesystem-enabled features like hardlink detection
       - ${MEDIA_DIRECTORY}/downloads/torrents:/data/downloads/torrents
 ```
+
+*If you want to jump straight into a guided setup, check out *[Seeding with Qui](/advanced/seeding-with-qui)* for a setup where all torrents are seeded whilst the media remains in your server, and then smoothly removed after the item is watched in your streaming application.*
+
 
 ### Shelfmark 📚
 [Shelfmark](https://github.com/calibrain/shelfmark) is a simple app for download books and audiobooks from various sources.
@@ -329,6 +333,6 @@ Here are some popular containers that work great with YAMS:
 If you run into any issues:
 1. Check our [Common Issues](/faqs/common-errors/) page
 2. Visit the [YAMS Forum](https://forum.yams.media)
-3. Join our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+3. Join our [Discord](https://discord.gg/Gwae3tNMST) chat
 
 Remember: YAMS is all about making your media server work for YOU. Don't be afraid to experiment and make it your own! 😎

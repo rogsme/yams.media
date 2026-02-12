@@ -141,7 +141,7 @@ This setup gives me the best of both worlds - easy access for family members and
 
 This is advanced territory! If you're determined to proceed:
 1. Start with the awesome lists linked above
-2. Consider asking for help in our [Discord](https://discord.gg/Gwae3tNMST) or [Matrix](https://matrix.to/#/#yams-space:rogs.me) chat
+2. Consider asking for help in our [Discord](https://discord.gg/Gwae3tNMST) chat
 3. Remember: proceed at your own risk!
 
 **Remember**: The safest server is one that's not exposed to the internet at all! 🔒
