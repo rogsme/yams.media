@@ -39,7 +39,7 @@ These make it super easy to keep your custom containers working in harmony with 
 
 ## Let's Add a Container! 🎮
 
-Let's walk through an example by adding [Overseerr](https://overseerr.dev/) - a fantastic request management app for your Plex media server.
+Let's walk through an example by adding [Seerr](https://seerr.dev/) - a fantastic request management app for your media server.
 
 1. First, open `docker-compose.custom.yaml`:
 ```bash
@@ -52,30 +52,36 @@ nano docker-compose.custom.yaml
 services:  # Make sure this line is uncommented and there's no spaces around it!
 ```
 
-3. Now let's add Overseerr with all the YAMS goodies:
+3. Now let's add Seerr with all the YAMS goodies:
 
 ```yaml
-  overseerr:
-    image: lscr.io/linuxserver/overseerr:latest
-    container_name: overseerr
+  seerr:
+    image: ghcr.io/seerr-team/seerr:latest
+    container_name: seerr
+    init: true
     environment:
-      - PUID=${PUID}               # Using YAMS's user ID
-      - PGID=${PGID}               # Using YAMS's group ID
-    volumes:
-      - ${INSTALL_DIRECTORY}/config/overseer:/config  # Using YAMS's config location
+      - TZ=${TZ}
     ports:
       - 5055:5055
+    volumes:
+      - ${INSTALL_DIRECTORY}/config/seerr:/app/config
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:5055/api/v1/status || exit 1
+      start_period: 20s
+      timeout: 3s
+      interval: 15s
+      retries: 3
     restart: unless-stopped
 ```
 
 4. Time to start your new container:
 ```bash
-yams start
+yams start seerr
 ```
 
 You should see something like:
 ```bash
- ⠙ overseerr Pulling                                                                     5.2s
+ ⠙ seerr Pulling                                                                     5.2s
 [...]
 ```
 
@@ -83,7 +89,7 @@ That's it! Your new container is up and running! 🎉
 
 ### Other Containers
 
-Not a fan of Overseer? No worries! Lets take a look at how to add many popular apps into the YAMS system.
+Not a fan of Seerr? No worries! Lets take a look at how to add many popular apps into the YAMS system.
 
 Each of these docker compose entries can be added right into your `docker-compose.custom.yaml` file, under the `services` parent item.
 
@@ -324,7 +330,7 @@ You can access any environment variable defined in YAMS's [`.env` file]({{< relr
 
 Here are some popular containers that work great with YAMS:
 
-1. **[Overseerr](https://overseerr.dev/)** / **[Petio](https://petio.tv/)** / **[Jellyseer](https://docs.jellyseerr.dev/)**: Let users request movies and shows
+1. **[Seerr](https://seerr.dev/)** / **[Petio](https://petio.tv/)**: Let users request movies and shows
 2. **[Tautulli](https://tautulli.com/)**: Advanced Plex monitoring and statistics
 3. **[Organizr](https://organizr.app/)**: Create a sleek dashboard for all your services
 
