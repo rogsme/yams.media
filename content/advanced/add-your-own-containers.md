@@ -46,7 +46,7 @@ Let's walk through an example by adding [Seerr](https://seerr.dev/) - a fantasti
 nano docker-compose.custom.yaml
 ```
 
-1. If this is your first custom container, you'll need to uncomment the `services:` line. To uncomment you must remove the `#` symbol and the space. Your file should start like this:
+2. If this is your first custom container, you'll need to uncomment the `services:` line. To uncomment you must remove the `#` symbol and the space. Your file should start like this:
 
 ```yaml
 services:  # Make sure this line is uncommented and there's no spaces around it!
