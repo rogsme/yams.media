@@ -17,6 +17,10 @@
   {{ $darkMode := resources.Get "js/dark-mode.js" }}
   <script type="text/javascript" src="{{ ($darkMode | minify | fingerprint).RelPermalink }}"></script>
 
+  {{ if hugo.IsProduction }}
+  <script defer src="https://analytics.rogs.me/script.js" data-website-id="5f25c5c3-b5a5-4a2f-92a4-517852364f2c"></script>
+  {{ end }}
+
 </head>
 
 <body class='page {{ block "body_classes" . }}{{ end }}'>
