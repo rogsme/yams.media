@@ -58,6 +58,7 @@ services:  # Make sure this line is uncommented and there's no spaces around it!
   seerr:
     image: ghcr.io/seerr-team/seerr:latest
     container_name: seerr
+    user: ${PUID}:${PGID}
     init: true
     environment:
       - TZ=${TZ}
@@ -73,8 +74,16 @@ services:  # Make sure this line is uncommented and there's no spaces around it!
       retries: 3
     restart: unless-stopped
 ```
+4. Before we start the container, let's create the config folder for Seerr to avoid any permission issues. Ensure you are in a shell session, logged in as the same user that runs YAMS.
 
-4. Time to start your new container:
+Then, navigate to your YAMS installation directory and create the config folder for Seerr at the path `${INSTALL_DIRECTORY}/config/seerr`.
+
+This command below is an example and will *not work!* You must manually replace the `<INSTALL_DIRECTORY>` placeholder with your actual YAMS installation path (e.g., `/opt/yams`):
+```bash
+mkdir -p <INSTALL_DIRECTORY>/config/seerr
+```
+
+5. Now, it's time to start your new container:
 ```bash
 yams start seerr
 ```
