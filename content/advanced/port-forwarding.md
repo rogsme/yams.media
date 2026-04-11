@@ -45,7 +45,7 @@ Open your Docker Compose file, located at `/your/install/location/docker-compose
 ```yaml
   # Gluetun is our VPN, so you can download torrents safely
   gluetun:
-    image: qmcgaw/gluetun:v3
+    image: qmcgaw/gluetun:v3.41.0
     container_name: gluetun
     cap_add:
       - NET_ADMIN
@@ -78,7 +78,7 @@ Summary of changes:
 - `VPN_PORT_FORWARDING` should be set to `on`.
 
 ## Automatically change to the forwarded port
-VPN providers can often change your forwarded port without notice, breaking your qBitTorrent connection.
+VPN providers can often change your forwarded port without notice when you restart your VPN, breaking your qBitTorrent connection.
 
 Fix this issue by adding these two environment variables to your Gluetun container:
 ```yaml
@@ -118,16 +118,8 @@ To check if port forwarding is working:
 [![conection-status](/pics/advanced-port-forwarding-1.png)](/pics/advanced-port-forwarding-1.png)
 
 ## Troubleshooting 🔧
-
-1. **No port shown:**
-   ```bash
+```bash
    docker logs gluetun | grep "\[port forwarding\]"
-   ```
-   Look for any error messages
-
-2. **Port not updating:**
-   - Check if the script has execute permissions
-   - Verify crontab is running: `crontab -l`
-   - Check script logs: `tail -f /var/log/syslog | grep update-port`
+```
 
 Need help? Visit our [Common Issues](/faqs/common-errors/) page or join our [Discord](https://discord.gg/Gwae3tNMST) chat!
