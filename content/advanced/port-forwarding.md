@@ -118,6 +118,7 @@ To check if port forwarding is working:
 [![conection-status](/pics/advanced-port-forwarding-1.png)](/pics/advanced-port-forwarding-1.png)
 
 ## Troubleshooting 🔧
+Look for port forwarding logs in the Gluetun container to diagnose issues:
 ```bash
    docker logs gluetun | grep "\[port forwarding\]"
 ```
