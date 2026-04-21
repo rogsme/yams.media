@@ -106,7 +106,7 @@ Remember, since all services are run in the same Docker network, references to o
     container_name: recyclarr
     restart: unless-stopped
     volumes:
-      - ${INSTALL_DIRECTORY}/config/recylarr:/config
+      - ${INSTALL_DIRECTORY}/config/recyclarr:/config
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
