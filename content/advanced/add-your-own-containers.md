@@ -128,12 +128,13 @@ Great! Now, check out Recyclarr's docs to customise this configuration file to y
 ### Profilarr 📖
 [Profilarr](https://dictionarry.dev/) is similar to Recyclarr, but syncs naming conventions, quality profiles and custom formats from the [Dictionarry database](https://github.com/Dictionarry-Hub/database) instead.
 
-It is configured through a handy Web UI!
+It is more intuitive to use as it is configured through a handy Web UI!
 
 ```yaml
   profilarr:
-    image: santiagosayshey/profilarr:latest # or :beta
+    image: ghcr.io/dictionarry-hub/profilarr:latest
     container_name: profilarr
+    restart: unless-stopped
     ports:
       - "6868:6868"
     volumes:
@@ -141,8 +142,8 @@ It is configured through a handy Web UI!
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
+      - UMASK=022
       - TZ=${TZ}
-    restart: unless-stopped
 ```
 
 ### Unpackerr 📦
