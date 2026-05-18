@@ -126,7 +126,7 @@ Now, run the command `docker exec -it recyclarr recyclarr config create` to crea
 Great! Now, check out Recyclarr's docs to customise this configuration file to your needs. Check out the [reference](https://recyclarr.dev/wiki/yaml/config-reference/) and [example files](https://recyclarr.dev/wiki/yaml/config-examples/). If you have a simple setup, one of the [templates](https://recyclarr.dev/wiki/guide-configs/) might be good enough for you!
 
 ### Profilarr 📖
-[Profilarr](https://dictionarry.dev/) is similar to Recyclarr, but syncs naming conventions, quality profiles and custom formats from the [Dictionarry database](https://github.com/Dictionarry-Hub/database) instead.
+[Profilarr](https://dictionarry.dev/) syncs naming conventions, quality profiles and custom formats from the [Dictionarry database](https://github.com/Dictionarry-Hub/database) instead, but also supports Trash Guide's recommendations and custom user configurations.
 
 It is more intuitive to use as it is configured through a handy Web UI!
 
