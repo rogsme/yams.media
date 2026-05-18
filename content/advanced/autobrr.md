@@ -7,6 +7,10 @@ weight: 110
 
 [Autobrr](https://autobrr.com/introduction) is an app that allows you connect to an Indexer's IRC channel, immediately starting torrent downloads for newer movies/shows without relying on Radarr/Sonarr's slower RSS feed. This allows you to help build ratio on private trackers by beating everyone else to the torrent, so you can seed it to everyone else!
 
+Note that although this is recommended with private trackers to build ratio, it isn't required for just managing a personal library. Earlier torrents might be lower quality, resulting in multiple upgrades as more torrents are released, which can be a waste of bandwidth and storage. If you don't care about being the first to download, you can just rely on Radarr/Sonarr's default RSS feed.
+
+But if you do want to be the first to download, let's get it set up!
+
 To get started, add this container declaration into your `docker-compose.custom.yaml` file under the `services:` parent item.
 ```yaml
   autobrr:
