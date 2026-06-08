@@ -10,9 +10,7 @@ In general, it is good practice to seed any torrents you download. Seeding is th
 
 Many private trackers also require maintenance of a 'ratio'. This ratio is calculating by the amount seeded over the amount downloaded, and must be maintained above a limit to ensure you are contributing to a tracker community.
 
-> Check out [implemeting Autobrr](/advanced/autobrr) into YAMS to further help your seeding!
-
-Within a default YAMS setup, [seeding is essentially not enabled](https://yams.media/config/qbittorrent/#is-this-a-dick-move) once you have downloaded the file. However, if you already have the file downloaded, you might as well seed it to others right?
+Within a default YAMS setup, [seeding is not enabled](https://yams.media/config/qbittorrent/#is-this-a-dick-move) once you have downloaded the file. However, if you already have the file downloaded you might as well seed it to others, right?
 
 This is a guide on how to automate a flexible seeding setup within your media server:
 - Once movies and shows are downloaded, they will be automatically seeded whilst the media remains within your server
@@ -61,7 +59,7 @@ To set up this stack, a deletion tool should be used. This refers to any tool th
 
 You can use the Jellyfin plugin [Media Cleaner](https://github.com/shemanaev/jellyfin-plugin-media-cleaner) which deletes watched movies/shows in Jellyfin after a specified amount of time. If you are using Jellyfin, this is a good option that doesn't require running a seperate container.
 
-If you wish to use another service, maybe to delete *unwatched media* too, please do. Do some research on the many Plex and Jellyfin tools available to clean up your libraries. Any tools that delete media will work, as long as they *don't mess with your torrents*.
+If you wish to use another service, maybe to delete unwatched media too, please do. Do some research on the many Plex and Jellyfin tools available to clean up your libraries. Any tools that delete media will work, as long as they *don't mess with your torrents*.
 
 ## Setting up Qui 🛠️
 [Qui](https://getqui.com/) is an extremely handy web UI for qBitTorrent, but it also has powerful automation features. We will be using its automation features to monitor our torrents, and delete them when they are no longer needed.
@@ -98,7 +96,7 @@ First, open up the Qui web UI, and create an new account. Make sure to save your
 
 > Now, before we get started, lets make qBitTorrent allow connections from Qui by ***optionally*** bypassing authentication within the YAMS network. Jump over the this section from the [YAMS docs](/config/qbittorrent/#configuring-web-ui-settings) and ensure *in addition* to your local IP, you also add a new line with the YAMS subnet: `172.60.0.0/24`. Make sure to save, and then say goodbye to the qBitTorrent web UI - you might not need it again!
 
-> This bypass is safe only because qBitTorrent is running in your home server and not directly exposed to the internet. Do not use this if you expose qBitTorrent's port externally.
+> This bypass is safe only because qBitTorrent is running in your home server and not directly exposed to the internet. Do not use this if you expose qBitTorrent's port externally. If you do, simply use your qBitTorrent username and password when connecting Qui to qBitTorrent in the next steps.
 
 You should see a 'Dashboard' page. From here, click on the 'Add Instance' button in the center.
 
@@ -147,27 +145,25 @@ Tags will be used to link the workflows together and provide visual cues if you 
 The workflows we will create are as follows:
 1. A workflow to tag non-hardlinked torrents with a `noHL` tag.
 2. A workflow to apply seeding requirements (through qBitTorrent 'limits') to `noHL` tagged torrents.
-3. A workflow to determine if `noHL` torrents have met their seeding requirements, if not, tag them with a `seedingRequired` tag.
-4. A workflow to `retire` (stop) torrents tagged with `seedingRequired` that have met their seeding requirements.
-5. A workflow to delete retired torrents after 7 days of being stopped.
+3. A workflow to tag finished torrents with `readyToDelete` once they have met their seeding requirements and been stopped.
+4. A workflow to delete torrents tagged with `readyToDelete`.
 
 Lets say a torrent is downloaded from a private tracker with a 7 day seeding requirement, and is deleted from the media library after 3 days. The workflow will work like this:
 - The torrent is tagged with `noHL` as it has no hardlink (the media file only has 1 reference on disk, the one in the downloads folder).
 - The torrent will have a 7-day seeding limit applied to it. It will be tagged with `seedingRequired` until it has seeded for 7 days.
-- After seeding for 7 days, the torrent will be tagged with `retired` and stopped, and the `seedingRequired` tag will be removed.
-- The torrent will be fully deleted 7 days after being stopped.
+- After seeding for 7 days, the torrent will be tagged with `readyToDelete`, and stopped. Then, it will be deleted.
 
-Torrents are kept in qBitTorrent for 7 days after being stopped to ensure that upon any issues (e.g an accidental hit and run on a private tracker), you have a week to fix the issue and manually re-enable seeding before the torrent is deleted. This is a safety net, but feel free to change this time frame if you want!
+It can be smart to set a seeding limit slightly longer than the actual seeding requirement, to account for any small discrepancies in time tracking. For example, if the seeding requirement is 7 days, set the limit to 8 days.
 
 #### Workflow 1: Tagging non-hardlinked torrents
 
- > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/aec8d4b8ae8ee115efd2cac1721e70176c33a801/tag-noHL.json).
+ > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/d796a3133880c155ad9b56b676624a86f5a9dd69/tag-noHL.json).
 
 [![qui-3](/pics/qui-3.png)](/pics/qui-3.png)
 
 Create a new rule, and name the workflow 'Tag noHL Torrents'.
 
-Add a condition that uses regex to only apply to the `radarr` and `sonarr` categories. This ensures that this workflow only applies to media torrents, and not any other torrents you might have in your setup.
+Add a condition that uses regex to only apply to the `radarr` and `sonarr` categories (`^(radarr|sonarr)$`). This ensures that this workflow only applies to media torrents, and not any other torrents you might have in your setup.
 
 Add a second condition that checks if the hardlink scope is 'None'.
 
@@ -178,59 +174,47 @@ Finally, add an action to tag the torrent with `noHL`, and save.
 
 #### Workflow 2: Applying seeding requirements
 
- > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/9d35dc2420419e0a08d254b4e1a0d4c75b7b24ec/enforce-requirements-EXAMPLE.json).
+ > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/86e1360be2fd5d5a2e40014e8ff4c27a91b15715/enforce-requirements-EXAMPLE.json).
 
 [![qui-4](/pics/qui-4.png)](/pics/qui-4.png)
 
 Create a new rule, and name the workflow 'Enforce Seeding Requirements (TRACKER NAME)'. This is the workflow that will enforce seeding requirements for torrents from a specific tracker, so make sure to specify the tracker in the name.
 
-One of these should be added for each tracker you download from with different seeding requirements.
-
 In the trackers section, select the tracker(s) this workflow will apply to. This ensures that only torrents from this tracker will have seeding requirements applied to them.
 
 Add a condition that checks if the torrent is tagged with `noHL`, using the tags contains operator.
+Add another condition that checks if the torrent's seeding time is less than the seeding requirement for the tracker.
 
-Finally, add an action to set a seeding time or ratio limit on the torrent. This is done by selecting 'Set Limit' as the action type, and then setting the seeding time limit to match the seeding requirements of your tracker, e.g 7 days (make sure to enter it in minutes!). Save the workflow, and repeat this process for each tracker you download from with different seeding requirements.
+Add an action to set a seeding time or ratio limit on the torrent. This is done by selecting 'Set Limit' as the action type, and then setting the seeding time limit to match the seeding requirements of your tracker, e.g 7 days (make sure to enter it in minutes!). Save the workflow, and repeat this process for each tracker you download from with different seeding requirements.
+
+Finally, add an action to tag the torrent with `seedingRequired`, and save.
 
 It can be a good idea to enter in a value slightly more than the actual seeding requirement, to account for any small discrepancies in time tracking.
 
+One of these should be added for each tracker you download from with different seeding requirements.
 
-#### Workflow 3: Tagging torrents that haven't met seeding requirements
+#### Workflow 3: Tagging ready-to-delete torrents
 
- > Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/4f0a98c43f1225b61425134221285e9ccf2d2bff/tag-seeding-required.json).
-
-[![qui-5](/pics/qui-5.png)](/pics/qui-5.png)
-
-Create a new rule, apply it to all trackers, and name the workflow 'Tag Seeding Required'.
-
-Add a condition that checks if the torrent is tagged with `noHL`, using the tags contains operator.
-Add a second condition that checks if the torrent's state is 'Running', to ensure only actively seeding torrents are tagged.
-
-Add an action to tag the torrent with `seedingRequired`, and save.
-
-#### Workflow 4: Retiring torrents that have met seeding requirements
-
-> Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/9d35dc2420419e0a08d254b4e1a0d4c75b7b24ec/tag-retired.json).
+> Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/d54a84d62a7271e2b85fca536df3eec0c22c920a/tag-ready-to-delete.json).
 
 [![qui-6](/pics/qui-6.png)](/pics/qui-6.png)
 
-Create a new rule, apply it to all trackers, and name the workflow 'Tag Retired'.
+Create a new rule, apply it to all trackers, and name the workflow 'Tag Ready to Delete'.
 
-Add a condition that checks if the torrent is tagged with `seedingRequired`, using the tags contains operator.
-Add a second condition that checks if the torrent's state is 'Stopped', to ensure only torrents that have met their seeding requirements ()and thus been stopped by qBitTorrent are tagged.
+Add a condition that checks if the torrent is not tagged with `seedingRequired`, and another condition that checks if the torrent is tagged with `noHL`, using the tags contains operator.
+Add a third condition that checks if the torrent's state is 'Stopped', to ensure only torrents that have met their seeding requirements, and thus been stopped by qBitTorrent, are tagged.
 
-Add an action to tag the torrent with `retired`, and save.
+Add an action to tag the torrent with `toBeDeleted`, and save.
 
 #### Workflow 5: Deleting retired torrents after 7 days
 
-> Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/4f0a98c43f1225b61425134221285e9ccf2d2bff/delete-retired.json).
+> Optional manual import link [here](https://gist.githubusercontent.com/not-first/874d6186a77b9057fe290ee2a1884817/raw/4183b34922eca4009f772e8d9d0a377e0ea3cc02/delete-torrents.json).
 
 [![qui-7](/pics/qui-7.png)](/pics/qui-7.png)
 
-Create a new rule, apply it to all trackers, and name the workflow 'Delete Retired'.
+Create a new rule, apply it to all trackers, and name the workflow 'Delete Torrents'.
 
-Add a condition that checks if the torrent is tagged with `retired`, using the tags contains operator.
-Add a second condition that checks if the torrent's inactive time is greater than 7 days.
+Add a condition that checks if the torrent is tagged with `toBeDeleted`, using the tags contains operator.
 
 Add an action to delete the torrent with files (preserve cross-seeds), and save.
 

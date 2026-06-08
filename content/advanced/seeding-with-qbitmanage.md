@@ -199,7 +199,7 @@ This is where all the action happens. Let's learn about what this section is doi
 
 - By using the `noHL` key and adding it as an included tag, we define our share limit to apply only torrents that have the `noHL` tag. And, the only torrents that have this tag will be torrents with no hardlinks, meaning their Radarr/Sonarr hardlink has been deleted.
 
-- `max_seeding_time` should be set to the MINUMUM amount of time your tracker requires you to seed for. Yes, the MINIMUM amount of time required. I have it set to 8d, to allow a bit of leeway with my tracker's 1 week requirement. The naming is a bit confusing, but think about it like this: this is the *maximum* cap of the seeding time range that should be kept, meaning any unhardlinked torrents that go over this maximum value should be deleted. If your tracker has no requirement, this can be removed.
+- `max_seeding_time` should be set to the MINIMUM amount of time your tracker requires you to seed for. Yes, the MINIMUM amount of time required. I have it set to 8d, to allow a bit of leeway with my tracker's 1 week requirement. The naming is a bit confusing, but think about it like this: this is the *maximum* cap of the seeding time range that should be kept, meaning any unhardlinked torrents that go over this maximum value should be deleted. If your tracker has no requirement, this can be removed.
 
 - `min_last_active` is set to 30 minutes, and ensure that any torrents that are ready to be deleted but still active won't be deleted yet. If a torrent has been seeding within the last 30 minutes it will be ignored to allow you to seed just a bit more!
 
