@@ -106,27 +106,55 @@ Each of these docker compose entries can be added right into your `docker-compos
 
 Remember, since all services are run in the same Docker network, references to other services from within an app can be completed using their name and port. For example, need to enter your Radarr URL? Use `http://radarr:7878`! No pesky IPs needed.
 
-### Recyclarr 🗑️
-[Recyclarr](https://recyclarr.dev/) is an app to sync Trash Guide's recommended naming conventions, quality profiles and formats straight to your media stack!
+### Qui
+
+[Qui](https://getqui.com/) is an alternate web interface for qBitTorrent, and provides a simple way to facilitate cross seeding across trackers, and automating torrent workflows.
+
+Keep in mind the torrent automations have the ability to delete downloads and manipulate torrents. Always be careful when configuring this feature, and test dangerous actions with harmless 'tagging' actions first to observer output whilst avoiding unwanted deletions.
 
 ```yaml
-  recyclarr:
-    image: ghcr.io/recyclarr/recyclarr
-    container_name: recyclarr
+  qui:
+    image: ghcr.io/autobrr/qui:latest
+    container_name: qui
     restart: unless-stopped
-    volumes:
-      - ${INSTALL_DIRECTORY}/config/recyclarr:/config
+    ports:
+      - "7476:7476"
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
       - TZ=${TZ}
+    volumes:
+      - ${INSTALL_DIRECTORY}/config/qui:/config
+      # optional, but required for filesystem-enabled features like hardlink detection
+      - ${MEDIA_DIRECTORY}/downloads/torrents:/data/downloads/torrents
 ```
-Now, run the command `docker exec -it recyclarr recyclarr config create` to create a starter `recyclarr.yml` configuration file. (Remember this format of executing commands - it's how you manually control Recyclarr!).
 
-Great! Now, check out Recyclarr's docs to customise this configuration file to your needs. Check out the [reference](https://recyclarr.dev/wiki/yaml/config-reference/) and [example files](https://recyclarr.dev/wiki/yaml/config-examples/). If you have a simple setup, one of the [templates](https://recyclarr.dev/wiki/guide-configs/) might be good enough for you!
+*If you want to jump straight into a guided setup, check out *[Seeding with Qui](/advanced/seeding-with-qui)* for a setup where all torrents are seeded whilst the media remains in your server, and then smoothly removed after the item is watched in your streaming application.*
+
+
+### Shelfmark 📚
+
+[Shelfmark](https://github.com/calibrain/shelfmark) is a simple app for download books and audiobooks from various sources.
+
+```yaml
+  shelfmark:
+    image: ghcr.io/calibrain/shelfmark:latest
+    container_name: shelfmark
+    ports:
+      - 8084:8084
+    environment:
+      TZ: ${TZ}
+      PUID: ${PUID}
+      PGID: ${PGID}
+    restart: unless-stopped
+    volumes:
+      - ${MEDIA_DIRECTORY}/books:/books
+      - ${INSTALL_DIRECTORY}/config/shelfmark:/config
+      - ${MEDIA_DIRECTORY}/downloads/torrents:/data/downloads/torrents
+```
 
 ### Profilarr 📖
-[Profilarr](https://dictionarry.dev/) syncs naming conventions, quality profiles and custom formats from the [Dictionarry database](https://github.com/Dictionarry-Hub/database) instead, but also supports Trash Guide's recommendations and custom user configurations.
+[Profilarr](https://dictionarry.dev/) is similar to Recyclarr, but syncs naming conventions, quality profiles and custom formats from the [Dictionarry database](https://github.com/Dictionarry-Hub/database) instead.
 
 It is more intuitive to use as it is configured through a handy Web UI!
 
@@ -146,7 +174,50 @@ It is more intuitive to use as it is configured through a handy Web UI!
       - TZ=${TZ}
 ```
 
+### Autobrrr 🐇
+
+[Autobrr](https://autobrr.com/introduction) is an app that allows you connect to an Indexer's IRC channel, immediately starting torrent downloads for newer movies/shows without relying on Radarr/Sonarr's slower RSS feed. This allows you to help build ratio on private trackers by beating everyone else to the torrent, so you can seed it to everyone else!
+
+```yaml
+  autobrr:
+    container_name: autobrr
+    image: ghcr.io/autobrr/autobrr:latest
+    restart: unless-stopped
+    ports:
+      - 7474:7474
+    environment:
+      - TZ=${TZ}
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${INSTALL_DIRECTORY}/config/autobrr:/config
+```
+
+Done! To fully connect Autobrr to your media server's downloads, continue with the full guide [here](/advanced/autobrr).
+
+### Recyclarr 🗑️
+
+[Recyclarr](https://recyclarr.dev/) is an app to sync Trash Guide's recommended naming conventions, quality profiles and formats straight to your media stack!
+
+```yaml
+  recyclarr:
+    image: ghcr.io/recyclarr/recyclarr
+    container_name: recyclarr
+    restart: unless-stopped
+    volumes:
+      - ${INSTALL_DIRECTORY}/config/recyclarr:/config
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+```
+Now, run the command `docker exec -it recyclarr recyclarr config create` to create a starter `recyclarr.yml` configuration file. (Remember this format of executing commands - it's how you manually control Recyclarr!).
+
+Great! Now, check out Recyclarr's docs to customise this configuration file to your needs. Check out the [reference](https://recyclarr.dev/wiki/yaml/config-reference/) and [example files](https://recyclarr.dev/wiki/yaml/config-examples/). If you have a simple setup, one of the [templates](https://recyclarr.dev/wiki/guide-configs/) might be good enough for you!
+
+
 ### Unpackerr 📦
+
 [Unpackerr](https://unpackerr.zip/) is an app that automatically extracts any downloads that are an archive, ensuring Radarr and Sonarr don't get stuck waiting for manual intervention.
 
 ```yaml
@@ -168,6 +239,7 @@ It is more intuitive to use as it is configured through a handy Web UI!
 Make sure to add the `SONARR_API_KEY` and `RADARR_API_KEY` environment variables to your YAMS `.env` file so the service can connect correctly. That's it!
 
 ### qBitManage 🛠️
+
 [qBitManage](https://github.com/StuffAnThings/qbit_manage) is an extremely handy tool for creating all kinds of workflows relating to torrents within qBitTorrent.
 
 The power of this app is a double edged sword. It can help you to amazingly automate your media server just how you like, but keep in mind that, if misconfigured, it has the ability to delete downloads and manipulate torrents. Expect to invest some time into learning its decently complicated configuration before reaching your desired state.
@@ -219,72 +291,6 @@ The power of this app is a double edged sword. It can help you to amazingly auto
 Before you get qBitManage up and running, you'll have to take a deep dive into how it's configured, and how it runs. Configuration is very dependant on the specific environment it operates within, and the requirements of the user. Read the [Docker Installation Guide](https://github.com/StuffAnThings/qbit_manage/wiki/Docker-Installation) in its entirety.
 
 Whilst configuring, ensure you set the `root_directory` option with the `directory` parent to `/data/downloads/torrents`. If you ever have trouble with paths, remember, qBitManage operates from the base level of your YAMS `${MEDIA_DIRECTORY}` variable.
-
-
-### Autobrrr 🐇
-[Autobrr](https://autobrr.com/introduction) is an app that allows you connect to an Indexer's IRC channel, immediately starting torrent downloads for newer movies/shows without relying on Radarr/Sonarr's slower RSS feed. This allows you to help build ratio on private trackers by beating everyone else to the torrent, so you can seed it to everyone else!
-
-```yaml
-  autobrr:
-    container_name: autobrr
-    image: ghcr.io/autobrr/autobrr:latest
-    restart: unless-stopped
-    ports:
-      - 7474:7474
-    environment:
-      - TZ=${TZ}
-      - PUID=${PUID}
-      - PGID=${PGID}
-    volumes:
-      - ${INSTALL_DIRECTORY}/config/autobrr:/config
-```
-
-Done! To fully connect Autobrr to your media server's downloads, continue with the full guide [here](/advanced/autobrr).
-
-### Qui
-[Qui](https://getqui.com/) is an alternate web interface for qBitTorrent, and provides a simple way to facilitate cross seeding across trackers, and automating torrent workflows.
-
-Keep in mind the torrent automations have the ability to delete downloads and manipulate torrents. Always be careful when configuring this feature, and test dangerous actions with harmless 'tagging' actions first to observer output whilst avoiding unwanted deletions.
-
-```yaml
-  qui:
-    image: ghcr.io/autobrr/qui:latest
-    container_name: qui
-    restart: unless-stopped
-    ports:
-      - "7476:7476"
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - ${INSTALL_DIRECTORY}/config/qui:/config
-      # optional, but required for filesystem-enabled features like hardlink detection
-      - ${MEDIA_DIRECTORY}/downloads/torrents:/data/downloads/torrents
-```
-
-*If you want to jump straight into a guided setup, check out *[Seeding with Qui](/advanced/seeding-with-qui)* for a setup where all torrents are seeded whilst the media remains in your server, and then smoothly removed after the item is watched in your streaming application.*
-
-
-### Shelfmark 📚
-[Shelfmark](https://github.com/calibrain/shelfmark) is a simple app for download books and audiobooks from various sources.
-
-```yaml
-  shelfmark:
-    image: ghcr.io/calibrain/shelfmark:latest
-    container_name: shelfmark
-    ports:
-      - 8084:8084
-    environment:
-      TZ: ${TZ}
-      PUID: ${PUID}
-      PGID: ${PGID}
-    restart: unless-stopped
-    volumes:
-      - ${MEDIA_DIRECTORY}/books:/books
-      - ${INSTALL_DIRECTORY}/config/shelfmark:/config
-      - ${MEDIA_DIRECTORY}/downloads/torrents:/data/downloads/torrents
-```
 
 ## Pro Tips 🎓
 
