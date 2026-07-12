@@ -1,5 +1,5 @@
 baseURL = "/"
-languageCode = "en-us"
+locale = "en-us"
 title = "YAMS - Yet Another Media Server"
 themesDir = "themes"
 theme = "hugo-whisper-theme"
