@@ -8,17 +8,24 @@ on:
     branches:
       - master
 
+env:
+  HUGO_VERSION: 0.161.1
+
 jobs:
-  test_build:
+  build:
     name: Build Hugo Site
     runs-on: ubuntu-latest
-    container:
-      image: klakegg/hugo:0.111.3-ext-alpine-ci
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Check Hugo Version and Build
+      - name: Install Hugo
+        run: |
+          curl -L https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb -o hugo.deb
+          sudo apt-get update
+          sudo apt-get install -y ./hugo.deb
+
+      - name: Hugo Build
         run: |
           hugo version
           hugo --minify
@@ -26,7 +33,7 @@ jobs:
   deploy:
     name: Deploy to Server
     runs-on: ubuntu-latest
-    needs: test_build
+    needs: build
     if: github.ref == 'refs/heads/master'
     steps:
       - name: Checkout code
